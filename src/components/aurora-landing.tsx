@@ -686,14 +686,14 @@ export default function AuroraLanding() {
                 data-parallax="30"
               >
                 <div className="relative min-h-[560px] overflow-visible md:min-h-[680px]">
-                  <div className="relative h-[560px] w-full md:h-[680px]">
-                  <Image
-                    src="/hero2.png"
-                    alt="AI hero visual"
-                    fill
-                    priority
-                    className="pointer-events-none object-contain object-right-top -translate-y-8 scale-[0.92] md:-translate-y-14 md:scale-[0.88]"
-                  />
+                  <div className="absolute right-[-1%] top-[-6%] h-[620px] w-[620px] md:right-[-4%] md:top-[-10%] md:h-[760px] md:w-[760px] lg:h-[820px] lg:w-[820px]">
+                    <Image
+                      src="/hero2.png"
+                      alt="AI hero visual"
+                      fill
+                      priority
+                      className="pointer-events-none object-contain object-right-top"
+                    />
                   </div>
                 </div>
               </motion.div>
