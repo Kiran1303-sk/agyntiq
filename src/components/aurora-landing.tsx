@@ -610,13 +610,13 @@ export default function AuroraLanding() {
             <div className="absolute right-[4%] top-[8%] h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(0,194,255,0.22),transparent_68%)] blur-3xl" />
             <div className="absolute bottom-[8%] left-1/2 h-40 w-[80%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(17,101,255,0.26),rgba(17,101,255,0.08)_34%,transparent_70%)] blur-2xl" />
 
-            <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
               <motion.div
                 data-reveal
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease: "easeOut" }}
-                className="relative z-10 max-w-3xl"
+                className="relative z-10 max-w-3xl self-start"
               >
                 <div className="section-kicker mb-6">
                   <IconSpark />
@@ -682,11 +682,11 @@ export default function AuroraLanding() {
                 initial={{ opacity: 0, y: 32 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
-                className="scroll-float relative mx-auto w-full max-w-4xl"
+                className="scroll-float relative mx-auto w-full max-w-4xl self-start"
                 data-parallax="30"
               >
-                <div className="relative min-h-[560px] overflow-hidden md:min-h-[680px]">
-                  <div className="absolute inset-y-0 right-0 w-[480px] md:w-[560px] lg:w-[640px]">
+                <div className="relative min-h-[560px] overflow-visible md:min-h-[680px]">
+                  <div className="absolute right-0 top-0 w-[420px] md:w-[500px] lg:w-[580px]">
                     <Image
                       src="/hero2.png"
                       alt="AI hero visual"
