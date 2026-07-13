@@ -7,6 +7,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import mainLogo from "../../main-logo.png";
+<<<<<<< HEAD
+=======
+import heroImage from "../../hero.png";
+>>>>>>> abbdc9b (feat: replace hero image with hero.png)
 
 type NavItem = {
   label: string;
@@ -687,8 +691,13 @@ export default function AuroraLanding() {
                   <div className="relative overflow-hidden rounded-[2rem] border border-white/[0.1] bg-[#070d1d]/90 p-4 md:p-5">
                     <div className="relative min-h-[520px] overflow-hidden rounded-[1.7rem] border border-white/[0.08] bg-[radial-gradient(circle_at_top,rgba(91,140,255,0.18),transparent_36%),linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.015))]">
                       <Image
+<<<<<<< HEAD
                         src="/ai-hero.svg"
                         alt="Futuristic AI visual"
+=======
+                        src={heroImage}
+                        alt="Enterprise AI dashboard"
+>>>>>>> abbdc9b (feat: replace hero image with hero.png)
                         fill
                         priority
                         className="object-cover opacity-95"
