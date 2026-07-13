@@ -692,7 +692,7 @@ export default function AuroraLanding() {
                     aria-hidden="true"
                     className="absolute inset-0 z-10"
                     style={{
-                      backgroundImage: "url('/hero1.png')",
+                      backgroundImage: "url('/hero2.png')",
                       backgroundRepeat: "no-repeat",
                       backgroundPosition: "right center",
                       backgroundSize: "contain"
