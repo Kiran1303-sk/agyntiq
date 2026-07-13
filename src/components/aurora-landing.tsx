@@ -602,7 +602,7 @@ export default function AuroraLanding() {
       </header>
 
       <main className="pt-24">
-        <section id="hero" className="relative scroll-mt-28 overflow-hidden pb-20 pt-20 md:scroll-mt-32 md:pb-28 md:pt-24">
+        <section id="hero" className="relative scroll-mt-28 overflow-hidden pb-10 pt-16 md:scroll-mt-32 md:pb-28 md:pt-24">
           <div className="section-shell relative">
             <div className="noise-overlay" />
             <div className="absolute inset-x-0 top-[-10%] h-[48rem] bg-[radial-gradient(circle_at_18%_18%,rgba(76,110,255,0.22),transparent_24%),radial-gradient(circle_at_82%_22%,rgba(0,162,255,0.2),transparent_20%),radial-gradient(circle_at_52%_78%,rgba(74,93,255,0.12),transparent_26%)]" />
@@ -702,7 +702,7 @@ export default function AuroraLanding() {
           </div>
         </section>
 
-        <section className="scroll-soft-glow py-8 md:py-12">
+        <section className="scroll-soft-glow py-4 md:py-12">
           <div className="section-shell">
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-6" data-parallax="14">
               {statCards.map((item) => (
