@@ -605,7 +605,10 @@ export default function AuroraLanding() {
         <section id="hero" className="relative scroll-mt-28 overflow-hidden pb-20 pt-20 md:scroll-mt-32 md:pb-28 md:pt-24">
           <div className="section-shell relative">
             <div className="noise-overlay" />
-            <div className="absolute left-1/2 top-16 h-72 w-72 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(91,140,255,0.16),transparent_66%)] blur-3xl" />
+            <div className="absolute inset-x-0 top-[-10%] h-[48rem] bg-[radial-gradient(circle_at_18%_18%,rgba(76,110,255,0.22),transparent_24%),radial-gradient(circle_at_82%_22%,rgba(0,162,255,0.2),transparent_20%),radial-gradient(circle_at_52%_78%,rgba(74,93,255,0.12),transparent_26%)]" />
+            <div className="absolute left-[6%] top-[10%] h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(80,122,255,0.26),transparent_70%)] blur-3xl" />
+            <div className="absolute right-[4%] top-[8%] h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(0,194,255,0.22),transparent_68%)] blur-3xl" />
+            <div className="absolute bottom-[8%] left-1/2 h-40 w-[80%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(17,101,255,0.26),rgba(17,101,255,0.08)_34%,transparent_70%)] blur-2xl" />
 
             <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
               <motion.div
@@ -621,12 +624,15 @@ export default function AuroraLanding() {
                 </div>
 
                 <h1 className="max-w-4xl text-5xl font-semibold leading-[0.92] tracking-[-0.08em] text-white md:text-7xl xl:text-[6.4rem]">
-                  Build AI systems
-                  <span className="text-gradient block">enterprise teams can trust.</span>
+                  <span className="block">AI That Acts.</span>
+                  <span className="mt-2 block bg-[linear-gradient(90deg,#f7fbff_0%,#9aa8ff_42%,#5a62ff_76%,#8b7bff_100%)] bg-clip-text text-transparent">
+                    Results That Matter.
+                  </span>
                 </h1>
 
                 <p className="section-copy mt-7 max-w-2xl md:text-xl">
-                  AgyntiQ helps companies automate workflows, improve decision-making, and launch AI-powered products with a premium, future-facing experience.
+                  Agentic AI systems that plan, decide, and act autonomously to solve real-world
+                  problems at scale.
                 </p>
 
                 <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -634,7 +640,7 @@ export default function AuroraLanding() {
                     href="#services"
                     className="aurora-button hover-sheen magnetic inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-semibold text-white shadow-[0_18px_70px_rgba(79,140,255,0.24)] transition hover:shadow-[0_18px_80px_rgba(0,214,255,0.28)]"
                   >
-                    Start Free
+                    Explore Solutions
                     <IconArrow />
                   </a>
                   <a
@@ -647,9 +653,9 @@ export default function AuroraLanding() {
 
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <span className="rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-xs uppercase tracking-[0.26em] text-white/65">
-                    Trusted by 500+ businesses
+                    Goal: Increase conversion by 25%
                   </span>
-                  {["Secure by design", "Fast deployment", "Enterprise support"].map((item) => (
+                  {["Analyze data", "Identify opportunities", "Execute strategy"].map((item) => (
                     <span
                       key={item}
                       className="hover-glow rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-2 text-sm text-white/65"
@@ -679,52 +685,65 @@ export default function AuroraLanding() {
                 className="scroll-float relative mx-auto w-full max-w-4xl"
                 data-parallax="30"
               >
-                <div className="hero-glow hover-sheen hover-glow glass-panel-strong relative overflow-hidden rounded-[2.5rem] p-5 md:p-6 shadow-[0_30px_120px_rgba(0,0,0,0.45)]">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(91,140,255,0.28),transparent_34%),radial-gradient(circle_at_82%_18%,rgba(0,217,255,0.16),transparent_28%),radial-gradient(circle_at_50%_82%,rgba(124,77,255,0.14),transparent_28%)]" />
-                  <div className="absolute inset-0 soft-grid opacity-[0.08]" />
+                <div className="hero-glow hover-sheen hover-glow relative overflow-hidden rounded-[2.5rem] border border-white/[0.08] bg-[radial-gradient(circle_at_50%_15%,rgba(90,122,255,0.18),transparent_28%),linear-gradient(180deg,#040716_0%,#050a18_45%,#070d1d_100%)] p-5 md:p-6 shadow-[0_30px_120px_rgba(0,0,0,0.6)]">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(24,140,255,0.24),transparent_28%),radial-gradient(circle_at_84%_24%,rgba(0,217,255,0.12),transparent_18%),radial-gradient(circle_at_50%_80%,rgba(54,104,255,0.18),transparent_30%)]" />
+                  <div className="absolute inset-0 soft-grid opacity-[0.06]" />
+                  <div className="absolute inset-x-[-10%] bottom-[-18%] h-52 bg-[radial-gradient(ellipse_at_center,rgba(22,132,255,0.34),rgba(22,132,255,0.12)_26%,transparent_70%)] blur-2xl" />
 
-                  <div className="relative overflow-hidden rounded-[2rem] border border-white/[0.1] bg-[#070d1d]/90 p-4 md:p-5">
-                    <div className="relative min-h-[520px] overflow-hidden rounded-[1.7rem] border border-white/[0.08] bg-[radial-gradient(circle_at_top,rgba(91,140,255,0.18),transparent_36%),linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.015))]">
-                      <Image
-                        src="/hero.png"
-                        alt="Enterprise AI dashboard"
-                        fill
-                        priority
-                        className="object-cover opacity-95"
-                      />
-                      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.02),rgba(5,8,22,0.62))]" />
+                  <div className="relative min-h-[560px] overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(10,16,38,0.92),rgba(6,10,26,0.98))] p-4 md:p-5">
+                    <div className="absolute left-[9%] top-[9%] w-[44%] rounded-[1.1rem] border border-blue-400/20 bg-[#071026]/75 p-4 shadow-[0_0_40px_rgba(0,149,255,0.12)] backdrop-blur-xl">
+                      <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/70">Goal</div>
+                      <div className="mt-2 text-sm text-white/85">Increase conversion by 25%</div>
+                    </div>
 
-                      <div className="absolute left-5 top-5 rounded-full border border-white/[0.12] bg-[#050816]/60 px-3 py-1 text-xs uppercase tracking-[0.24em] text-white/75 backdrop-blur-xl">
-                        Enterprise AI dashboard
-                      </div>
+                    <div className="absolute right-[8%] top-[4%] h-44 w-44 rounded-full border border-blue-400/25 bg-[radial-gradient(circle_at_35%_35%,rgba(51,199,255,0.9),rgba(20,67,160,0.45)_32%,rgba(8,16,48,0.08)_68%,transparent_70%)] shadow-[0_0_100px_rgba(0,140,255,0.18)]">
+                      <div className="absolute left-[18%] top-[28%] h-7 w-7 rounded-full bg-cyan-300 shadow-[0_0_22px_rgba(56,189,248,0.85)]" />
+                      <div className="absolute right-[16%] top-[28%] h-7 w-7 rounded-full bg-cyan-300 shadow-[0_0_22px_rgba(56,189,248,0.85)]" />
+                      <div className="absolute inset-x-[14%] bottom-[16%] top-[54%] rounded-[999px_999px_38px_38px] border border-blue-200/10 bg-[linear-gradient(180deg,rgba(14,33,87,0.95),rgba(4,8,24,0.85))]" />
+                    </div>
 
-                      <div className="absolute left-5 right-5 top-20 grid gap-3 sm:grid-cols-2">
-                        {["AI automation", "Context engineering", "Predictive analytics", "Agentic workflows"].map((item) => (
-                          <div
-                            key={item}
-                            className="glass-panel hover-glow rounded-2xl px-4 py-3 text-sm font-medium text-white/88"
-                          >
-                            {item}
-                          </div>
-                        ))}
-                      </div>
-
-                      <div className="absolute bottom-5 left-5 right-5 grid gap-3 sm:grid-cols-3">
-                        {[
-                          ["99.98%", "Accuracy"],
-                          ["24/7", "Support"],
-                          ["100+", "Deployments"]
-                        ].map(([value, label]) => (
-                          <div
-                            key={label}
-                            className="glass-panel hover-glow rounded-2xl px-4 py-3 text-left"
-                          >
-                            <div className="text-xl font-semibold tracking-[-0.04em] text-white">{value}</div>
-                            <div className="mt-1 text-xs uppercase tracking-[0.26em] text-white/55">{label}</div>
+                    <div className="absolute left-[52%] top-[28%] w-[36%] rounded-[1.15rem] border border-blue-400/20 bg-[#08101f]/80 p-4 shadow-[0_0_40px_rgba(0,149,255,0.12)] backdrop-blur-xl">
+                      <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/70">Plan</div>
+                      <div className="mt-3 grid gap-2 text-sm text-white/80">
+                        {["Analyze data", "Identify opportunities", "Execute strategy"].map((item) => (
+                          <div key={item} className="flex items-center gap-2">
+                            <span className="flex h-4 w-4 items-center justify-center rounded-full border border-cyan-300/50 text-[10px] text-cyan-200">
+                              ✓
+                            </span>
+                            <span>{item}</span>
                           </div>
                         ))}
                       </div>
                     </div>
+
+                    <div className="absolute right-[3%] top-[56%] w-[24%] rounded-[1.15rem] border border-blue-400/20 bg-[#08101f]/80 p-4 shadow-[0_0_40px_rgba(0,149,255,0.12)] backdrop-blur-xl">
+                      <div className="text-[0.68rem] uppercase tracking-[0.28em] text-cyan-200/70">Result</div>
+                      <div className="mt-2 text-2xl font-semibold text-cyan-300">+28%</div>
+                      <div className="mt-1 text-sm text-white/70">Conversion Rate</div>
+                      <div className="mt-4 h-16 rounded-xl bg-[linear-gradient(180deg,rgba(24,36,72,0.2),rgba(12,18,36,0.65))]">
+                        <svg viewBox="0 0 100 40" className="h-full w-full">
+                          <path
+                            d="M2 30 C14 30 18 24 26 22 S44 18 52 20 S68 14 76 13 S88 10 98 7"
+                            fill="none"
+                            stroke="rgba(56,189,248,0.95)"
+                            strokeWidth="2.2"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+
+                    <div className="absolute inset-x-0 bottom-0 flex items-end justify-center">
+                      <div className="relative h-[360px] w-[360px] rounded-full border border-cyan-300/20 bg-[radial-gradient(circle,rgba(0,149,255,0.16),rgba(0,149,255,0.03)_40%,transparent_70%)]">
+                        <div className="absolute inset-[16%] rounded-full border border-cyan-300/60 shadow-[0_0_40px_rgba(0,149,255,0.28)]" />
+                        <div className="absolute inset-[27%] rounded-full border border-cyan-300/60 shadow-[0_0_28px_rgba(0,149,255,0.24)]" />
+                        <div className="absolute inset-[40%] rounded-full border border-cyan-300/70 shadow-[0_0_24px_rgba(0,149,255,0.26)]" />
+                        <div className="absolute left-1/2 top-1/2 h-[78%] w-px -translate-x-1/2 -translate-y-1/2 bg-cyan-300/70 shadow-[0_0_24px_rgba(56,189,248,0.9)]" />
+                        <div className="absolute left-1/2 top-1/2 h-px w-[78%] -translate-x-1/2 -translate-y-1/2 bg-cyan-300/70 shadow-[0_0_24px_rgba(56,189,248,0.9)]" />
+                      </div>
+                    </div>
+
+                    <div className="absolute inset-x-0 bottom-0 h-28 bg-[linear-gradient(180deg,transparent,rgba(3,7,18,0.6)_40%,rgba(2,6,16,0.95))]" />
                   </div>
                 </div>
               </motion.div>
