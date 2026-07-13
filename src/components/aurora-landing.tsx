@@ -603,14 +603,14 @@ export default function AuroraLanding() {
 
       <main className="pt-24">
         <section id="hero" className="relative scroll-mt-28 overflow-hidden pb-20 pt-20 md:scroll-mt-32 md:pb-28 md:pt-24">
-          <div className="section-shell relative">
+          <div className="relative px-6 sm:px-8 lg:px-12 xl:px-16">
             <div className="noise-overlay" />
             <div className="absolute inset-x-0 top-[-10%] h-[48rem] bg-[radial-gradient(circle_at_18%_18%,rgba(76,110,255,0.22),transparent_24%),radial-gradient(circle_at_82%_22%,rgba(0,162,255,0.2),transparent_20%),radial-gradient(circle_at_52%_78%,rgba(74,93,255,0.12),transparent_26%)]" />
             <div className="absolute left-[6%] top-[10%] h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(80,122,255,0.26),transparent_70%)] blur-3xl" />
             <div className="absolute right-[4%] top-[8%] h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(0,194,255,0.22),transparent_68%)] blur-3xl" />
             <div className="absolute bottom-[8%] left-1/2 h-40 w-[80%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(17,101,255,0.26),rgba(17,101,255,0.08)_34%,transparent_70%)] blur-2xl" />
 
-            <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+            <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
               <motion.div
                 data-reveal
                 initial={{ opacity: 0, y: 24 }}
@@ -682,17 +682,18 @@ export default function AuroraLanding() {
                 initial={{ opacity: 0, y: 32 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
-                className="scroll-float relative mx-auto w-full max-w-4xl self-start"
+                className="scroll-float relative self-start"
                 data-parallax="30"
               >
                 <div className="relative min-h-[560px] overflow-visible md:min-h-[680px]">
-                  <div className="absolute right-0 top-0 w-[420px] md:w-[500px] lg:w-[580px]">
+                  <div className="absolute right-0 top-[-20px] w-[340px] md:top-[-32px] md:w-[420px] lg:top-[-40px] lg:w-[520px]">
                     <Image
                       src="/hero2.png"
                       alt="AI hero visual"
-                      fill
+                      width={1024}
+                      height={1536}
                       priority
-                      className="pointer-events-none object-contain object-right-top"
+                      className="h-auto w-full object-contain"
                     />
                   </div>
                 </div>
