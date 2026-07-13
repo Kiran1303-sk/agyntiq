@@ -685,8 +685,8 @@ export default function AuroraLanding() {
                 className="scroll-float relative mx-auto w-full max-w-4xl"
                 data-parallax="30"
               >
-                <div className="relative min-h-[560px] overflow-visible md:min-h-[680px]">
-                  <div className="absolute right-[-1%] top-[-6%] h-[620px] w-[620px] md:right-[-4%] md:top-[-10%] md:h-[760px] md:w-[760px] lg:h-[820px] lg:w-[820px]">
+                <div className="relative min-h-[560px] overflow-hidden md:min-h-[680px]">
+                  <div className="absolute inset-y-0 right-0 w-[480px] md:w-[560px] lg:w-[640px]">
                     <Image
                       src="/hero2.png"
                       alt="AI hero visual"
