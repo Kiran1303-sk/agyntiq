@@ -685,20 +685,15 @@ export default function AuroraLanding() {
                 className="scroll-float relative mx-auto w-full max-w-4xl"
                 data-parallax="30"
               >
-                <div className="hero-glow relative min-h-[560px] overflow-hidden rounded-[2.5rem] border border-white/[0.08] bg-[linear-gradient(180deg,#040716_0%,#050a18_45%,#070d1d_100%)] shadow-[0_30px_120px_rgba(0,0,0,0.6)] md:min-h-[680px]">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(24,140,255,0.18),transparent_30%),radial-gradient(circle_at_84%_24%,rgba(0,217,255,0.1),transparent_18%),radial-gradient(circle_at_50%_80%,rgba(54,104,255,0.14),transparent_34%)]" />
-                  <div className="absolute inset-0 soft-grid opacity-[0.05]" />
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0 z-10"
-                    style={{
-                      backgroundImage: "url('/hero2.png')",
-                      backgroundRepeat: "no-repeat",
-                      backgroundPosition: "right center",
-                      backgroundSize: "contain"
-                    }}
+                <div className="relative flex min-h-[560px] items-center justify-end overflow-hidden md:min-h-[680px]">
+                  <Image
+                    src="/hero2.png"
+                    alt="AI hero visual"
+                    width={900}
+                    height={1200}
+                    priority
+                    className="h-auto w-full max-w-[620px] object-contain object-right drop-shadow-[0_0_80px_rgba(75,123,255,0.28)] md:max-w-[760px]"
                   />
-                  <div className="absolute inset-x-0 bottom-0 z-20 h-32 bg-[linear-gradient(180deg,transparent,rgba(3,7,18,0.72)_42%,rgba(2,6,16,0.98))]" />
                 </div>
               </motion.div>
             </div>
