@@ -685,14 +685,14 @@ export default function AuroraLanding() {
                 className="scroll-float relative mx-auto w-full max-w-4xl"
                 data-parallax="30"
               >
-                <div className="relative flex min-h-[560px] items-center justify-end overflow-hidden md:min-h-[680px]">
+                <div className="relative flex min-h-[560px] items-start justify-end overflow-visible md:min-h-[680px]">
                   <Image
                     src="/hero2.png"
                     alt="AI hero visual"
                     width={900}
                     height={1200}
                     priority
-                    className="h-auto w-full max-w-[620px] object-contain object-right drop-shadow-[0_0_80px_rgba(75,123,255,0.28)] md:max-w-[760px]"
+                    className="mt-[-22px] h-auto w-full max-w-[560px] object-contain object-right drop-shadow-[0_0_80px_rgba(75,123,255,0.28)] md:mt-[-36px] md:max-w-[700px]"
                   />
                 </div>
               </motion.div>
