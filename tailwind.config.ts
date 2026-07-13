@@ -34,7 +34,11 @@ const config: Config = {
           "0 20px 80px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6)",
         glow: "0 0 60px rgba(45, 156, 255, 0.3)",
         "glow-purple": "0 0 60px rgba(108, 75, 255, 0.3)",
+<<<<<<< HEAD
         "premium": "0 24px 96px rgba(0, 0, 0, 0.4)",
+=======
+        premium: "0 24px 96px rgba(0, 0, 0, 0.4)",
+>>>>>>> 1bba835 (restore project files and update hero image)
         "premium-light": "0 24px 96px rgba(0, 0, 0, 0.08)"
       },
       backgroundImage: {
