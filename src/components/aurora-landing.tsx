@@ -323,14 +323,14 @@ function ScrollShowcaseCard({
   return (
     <motion.article
       style={{ y, scale }}
-      className="group relative min-w-[74vw] overflow-hidden rounded-[1.6rem] border border-white/[0.1] bg-white/[0.03] shadow-[0_18px_64px_rgba(0,0,0,0.22)] sm:min-w-[24rem] lg:min-w-[28rem]"
+      className="group relative min-w-[72vw] shrink-0 overflow-hidden rounded-[1.6rem] border border-white/[0.1] bg-white/[0.03] shadow-[0_18px_64px_rgba(0,0,0,0.22)] sm:min-w-[24rem] lg:min-w-[28rem]"
     >
       <div className="relative aspect-[4/5] overflow-hidden">
         <Image
           src={item.src}
           alt={item.title}
           fill
-          sizes="(min-width: 1024px) 28rem, (min-width: 640px) 24rem, 74vw"
+          sizes="(min-width: 1024px) 28rem, (min-width: 640px) 24rem, 72vw"
           className="object-cover transition duration-700 group-hover:scale-[1.06]"
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.08)_0%,rgba(5,8,22,0.18)_34%,rgba(5,8,22,0.82)_100%)]" />
@@ -345,7 +345,7 @@ function ScrollShowcaseCard({
         <h3 className="mt-4 text-xl font-semibold tracking-[-0.04em] text-white sm:text-2xl">
           {item.title}
         </h3>
-        <p className="mt-2 max-w-md text-sm leading-6 text-white/68">{item.copy}</p>
+        <p className="mt-2 max-w-sm text-sm leading-6 text-white/68">{item.copy}</p>
       </div>
     </motion.article>
   );
@@ -408,6 +408,7 @@ export default function AuroraLanding() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("hero");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, {
     stiffness: 120,
@@ -437,7 +438,11 @@ export default function AuroraLanding() {
   }, []);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 24);
+      setShowScrollTop(y > 600);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -1193,6 +1198,19 @@ export default function AuroraLanding() {
         </section>
       </main>
 
+      <button
+        type="button"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        aria-label="Scroll to top"
+        className={`fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-white/[0.12] bg-[#050816]/82 text-white shadow-[0_18px_60px_rgba(0,0,0,0.35)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/10 md:bottom-8 md:right-8 ${
+          showScrollTop
+            ? "pointer-events-auto translate-y-0 opacity-100"
+            : "pointer-events-none translate-y-3 opacity-0"
+        }`}
+      >
+        <span className="text-lg leading-none">↑</span>
+      </button>
+
       <footer
         id="contact"
         className="relative mt-8 overflow-hidden border-t border-white/10 bg-[#050816]/80 py-12 md:py-16"
@@ -1329,18 +1347,19 @@ function ScrollShowcaseSection() {
     target: sectionRef,
     offset: ["start end", "end start"]
   });
-  const trackX = useTransform(scrollYProgress, [0, 1], ["0%", "-42%"]);
 
   return (
-    <section ref={sectionRef} className="relative py-12 md:py-16">
+    <section ref={sectionRef} className="relative overflow-x-clip py-12 md:py-16">
       <div className="section-shell">
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-          <div className="section-heading" data-reveal>
+        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+          <div className="section-heading max-w-xl" data-reveal>
             <div className="section-kicker">Visual Story</div>
-            <h2 className="section-title">From planning to scale, told through motion.</h2>
+            <h2 className="section-title max-w-[12ch] sm:max-w-none">
+              From planning to scale, told through motion.
+            </h2>
             <p className="section-copy">
-              The slides work as a compact visual sequence, showing the journey from direction to
-              context, execution, and a finished outcome.
+              The slides trace the journey from direction to context, execution, and a finished
+              outcome.
             </p>
           </div>
 
@@ -1349,8 +1368,8 @@ function ScrollShowcaseSection() {
               <span>Drag-free scroll</span>
               <span>04 frames</span>
             </div>
-            <div className="relative overflow-hidden rounded-[1.35rem] border border-white/[0.08] bg-[#050816]">
-              <motion.div style={{ x: trackX }} className="flex gap-3 p-3 sm:gap-4 sm:p-4">
+            <div className="relative overflow-x-auto overscroll-x-contain rounded-[1.35rem] border border-white/[0.08] bg-[#050816]">
+              <motion.div className="flex gap-3 p-3 sm:gap-4 sm:p-4">
                 {slideShowcase.map((item, index) => (
                   <ScrollShowcaseCard
                     key={item.src}
@@ -1361,6 +1380,9 @@ function ScrollShowcaseSection() {
                 ))}
               </motion.div>
             </div>
+            <p className="mt-3 text-xs uppercase tracking-[0.28em] text-white/35">
+              Swipe horizontally on mobile or drag on desktop to browse the frames.
+            </p>
           </div>
         </div>
       </div>
