@@ -323,7 +323,7 @@ function ScrollShowcaseCard({
   return (
     <motion.article
       style={{ y, scale }}
-      className="group relative min-w-[72vw] shrink-0 overflow-hidden rounded-[1.6rem] border border-white/[0.1] bg-white/[0.03] shadow-[0_18px_64px_rgba(0,0,0,0.22)] sm:min-w-[24rem] lg:min-w-[28rem]"
+      className="group relative min-w-[72vw] shrink-0 snap-center overflow-hidden rounded-[1.6rem] border border-white/[0.1] bg-white/[0.03] shadow-[0_18px_64px_rgba(0,0,0,0.22)] sm:min-w-[24rem] lg:min-w-[28rem]"
     >
       <div className="relative aspect-[4/5] overflow-hidden">
         <Image
@@ -1369,7 +1369,7 @@ function ScrollShowcaseSection() {
               <span>Visual Strip</span>
               <span>04 frames</span>
             </div>
-            <div className="relative overflow-hidden rounded-[1.35rem] border border-white/[0.08] bg-[#050816]">
+            <div className="relative overflow-x-auto overflow-y-hidden rounded-[1.35rem] border border-white/[0.08] bg-[#050816] touch-pan-x scroll-smooth snap-x snap-mandatory">
               <motion.div style={{ x: trackX }} className="flex w-max gap-3 p-3 sm:gap-4 sm:p-4">
                 {slideShowcase.map((item, index) => (
                   <ScrollShowcaseCard
