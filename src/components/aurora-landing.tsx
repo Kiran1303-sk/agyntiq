@@ -1347,6 +1347,7 @@ function ScrollShowcaseSection() {
     target: sectionRef,
     offset: ["start end", "end start"]
   });
+  const trackX = useTransform(scrollYProgress, [0, 1], ["0%", "-38%"]);
 
   return (
     <section ref={sectionRef} className="relative overflow-x-clip py-12 md:py-16">
@@ -1354,10 +1355,10 @@ function ScrollShowcaseSection() {
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <div className="section-heading max-w-xl" data-reveal>
             <div className="section-kicker">Visual Story</div>
-            <h2 className="section-title max-w-[12ch] sm:max-w-none">
+            <h2 className="section-title max-w-[12ch] sm:max-w-none text-balance">
               From planning to scale, told through motion.
             </h2>
-            <p className="section-copy">
+            <p className="section-copy max-w-lg">
               The slides trace the journey from direction to context, execution, and a finished
               outcome.
             </p>
@@ -1368,8 +1369,8 @@ function ScrollShowcaseSection() {
               <span>Drag-free scroll</span>
               <span>04 frames</span>
             </div>
-            <div className="relative overflow-x-auto overscroll-x-contain rounded-[1.35rem] border border-white/[0.08] bg-[#050816]">
-              <motion.div className="flex gap-3 p-3 sm:gap-4 sm:p-4">
+            <div className="relative overflow-hidden rounded-[1.35rem] border border-white/[0.08] bg-[#050816]">
+              <motion.div style={{ x: trackX }} className="flex gap-3 p-3 sm:gap-4 sm:p-4">
                 {slideShowcase.map((item, index) => (
                   <ScrollShowcaseCard
                     key={item.src}
@@ -1381,7 +1382,7 @@ function ScrollShowcaseSection() {
               </motion.div>
             </div>
             <p className="mt-3 text-xs uppercase tracking-[0.28em] text-white/35">
-              Swipe horizontally on mobile or drag on desktop to browse the frames.
+              Scroll to move through the frames on desktop or swipe the strip on mobile.
             </p>
           </div>
         </div>
