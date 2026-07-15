@@ -311,13 +311,11 @@ function AnimatedCounter({
 function ScrollShowcaseCard({
   item,
   index,
-  progress,
-  isActive
+  progress
 }: {
   item: (typeof slideShowcase)[number];
   index: number;
   progress: MotionValue<number>;
-  isActive: boolean;
 }) {
   const y = useTransform(progress, [0, 1], [index * 16, index * -18]);
   const scale = useTransform(progress, [0, 1], [1, 1.03]);
@@ -325,10 +323,7 @@ function ScrollShowcaseCard({
   return (
     <motion.article
       style={{ y, scale }}
-      data-slide
-      className={`group relative min-w-[72vw] shrink-0 snap-center overflow-hidden rounded-[1.6rem] border bg-white/[0.03] shadow-[0_18px_64px_rgba(0,0,0,0.22)] transition duration-300 sm:min-w-[24rem] lg:min-w-[28rem] ${
-        isActive ? "border-white/20 shadow-[0_22px_72px_rgba(0,0,0,0.28)]" : "border-white/[0.1]"
-      }`}
+      className="group relative min-w-[72vw] shrink-0 overflow-hidden rounded-[1.6rem] border border-white/[0.1] bg-white/[0.03] shadow-[0_18px_64px_rgba(0,0,0,0.22)] sm:min-w-[24rem] lg:min-w-[28rem]"
     >
       <div className="relative aspect-[4/5] overflow-hidden">
         <Image
@@ -1348,111 +1343,11 @@ export default function AuroraLanding() {
 
 function ScrollShowcaseSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const railRef = useRef<HTMLDivElement | null>(null);
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [isInView, setIsInView] = useState(false);
-  const pauseAutoUntilRef = useRef(0);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"]
   });
-
-  const scrollToSlide = (index: number) => {
-    const rail = railRef.current;
-    if (!rail) return;
-
-    const slides = Array.from(rail.querySelectorAll<HTMLElement>("[data-slide]"));
-    const target = slides[index];
-    if (!target) return;
-
-    const left = target.offsetLeft - rail.clientWidth / 2 + target.clientWidth / 2;
-    pauseAutoUntilRef.current = Date.now() + 3500;
-    rail.scrollTo({ left, behavior: "smooth" });
-  };
-
-  const goToPrevious = () => {
-    const nextIndex = (activeSlide - 1 + slideShowcase.length) % slideShowcase.length;
-    scrollToSlide(nextIndex);
-  };
-
-  const goToNext = () => {
-    const nextIndex = (activeSlide + 1) % slideShowcase.length;
-    scrollToSlide(nextIndex);
-  };
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsInView(entry.isIntersecting);
-      },
-      { threshold: 0.45 }
-    );
-
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const rail = railRef.current;
-    if (!rail || !isInView) return;
-
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion) return;
-
-    const syncActiveSlide = () => {
-      const slides = Array.from(rail.querySelectorAll<HTMLElement>("[data-slide]"));
-      if (!slides.length) return;
-      const railCenter = rail.scrollLeft + rail.clientWidth / 2;
-      let closestIndex = 0;
-      let closestDistance = Number.POSITIVE_INFINITY;
-
-      slides.forEach((slide, index) => {
-        const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
-        const distance = Math.abs(slideCenter - railCenter);
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closestIndex = index;
-        }
-      });
-
-      setActiveSlide(closestIndex);
-    };
-
-    const onWheel = (event: WheelEvent) => {
-      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
-      rail.scrollLeft += event.deltaY;
-      pauseAutoUntilRef.current = Date.now() + 2500;
-      event.preventDefault();
-    };
-
-    rail.addEventListener("scroll", syncActiveSlide, { passive: true });
-    rail.addEventListener("wheel", onWheel, { passive: false });
-    syncActiveSlide();
-
-    return () => {
-      rail.removeEventListener("scroll", syncActiveSlide);
-      rail.removeEventListener("wheel", onWheel);
-    };
-  }, [isInView]);
-
-  useEffect(() => {
-    if (!isInView) return;
-
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion) return;
-
-    const timer = window.setInterval(() => {
-      if (Date.now() < pauseAutoUntilRef.current) return;
-
-      const nextIndex = (activeSlide + 1) % slideShowcase.length;
-      scrollToSlide(nextIndex);
-    }, 3000);
-
-    return () => window.clearInterval(timer);
-  }, [activeSlide, isInView]);
+  const trackX = useTransform(scrollYProgress, [0, 1], ["0%", "-38%"]);
 
   return (
     <section ref={sectionRef} className="relative overflow-x-clip py-12 md:py-16">
@@ -1469,67 +1364,26 @@ function ScrollShowcaseSection() {
             </p>
           </div>
 
-          <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5 lg:sticky lg:top-24">
-            <div className="mb-4 flex flex-wrap items-center justify-between gap-4 px-1 text-xs uppercase tracking-[0.32em] text-white/40">
-              <span>Step through frames</span>
-              <span>
-                {String(activeSlide + 1).padStart(2, "0")} /{" "}
-                {String(slideShowcase.length).padStart(2, "0")}
-              </span>
+          <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5">
+            <div className="mb-4 flex items-center justify-between gap-4 px-1 text-xs uppercase tracking-[0.32em] text-white/40">
+              <span>Visual Strip</span>
+              <span>04 frames</span>
             </div>
-            <div
-              ref={railRef}
-              className="relative cursor-grab overflow-x-auto overflow-y-hidden rounded-[1.35rem] border border-white/[0.08] bg-[#050816] scroll-smooth snap-x snap-mandatory active:cursor-grabbing touch-pan-x"
-            >
-              <motion.div className="flex w-max gap-3 p-3 sm:gap-4 sm:p-4">
+            <div className="relative overflow-hidden rounded-[1.35rem] border border-white/[0.08] bg-[#050816]">
+              <motion.div style={{ x: trackX }} className="flex w-max gap-3 p-3 sm:gap-4 sm:p-4">
                 {slideShowcase.map((item, index) => (
                   <ScrollShowcaseCard
                     key={item.src}
                     item={item}
                     index={index}
                     progress={scrollYProgress}
-                    isActive={activeSlide === index}
                   />
                 ))}
               </motion.div>
             </div>
-            <div className="mt-4 flex items-center justify-between gap-3">
-              <p className="max-w-md text-xs uppercase tracking-[0.28em] text-white/35">
-                Scroll the page to animate the strip, or use next and previous to step through each
-                frame.
-              </p>
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={goToPrevious}
-                  aria-label="Previous slide"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.1] bg-white/[0.04] text-white/80 transition hover:border-white/20 hover:bg-white/10"
-                >
-                  <span className="text-lg leading-none">←</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={goToNext}
-                  aria-label="Next slide"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.1] bg-white/[0.04] text-white/80 transition hover:border-white/20 hover:bg-white/10"
-                >
-                  <span className="text-lg leading-none">→</span>
-                </button>
-              </div>
-            </div>
-            <div className="mt-4 flex items-center gap-2">
-              {slideShowcase.map((item, index) => (
-                <button
-                  key={item.src}
-                  type="button"
-                  onClick={() => scrollToSlide(index)}
-                  aria-label={`Show slide ${index + 1}`}
-                  className={`h-2.5 rounded-full transition-all ${
-                    activeSlide === index ? "w-8 bg-white" : "w-2.5 bg-white/30 hover:bg-white/55"
-                  }`}
-                />
-              ))}
-            </div>
+            <p className="mt-3 text-xs uppercase tracking-[0.28em] text-white/35">
+              Scroll the page to move the strip across the frames.
+            </p>
           </div>
         </div>
       </div>
