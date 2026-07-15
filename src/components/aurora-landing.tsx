@@ -1351,6 +1351,7 @@ function ScrollShowcaseSection() {
   const railRef = useRef<HTMLDivElement | null>(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const [isInView, setIsInView] = useState(false);
+  const pauseAutoUntilRef = useRef(0);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"]
@@ -1364,11 +1365,9 @@ function ScrollShowcaseSection() {
     const target = slides[index];
     if (!target) return;
 
-    target.scrollIntoView({
-      behavior: "smooth",
-      inline: "center",
-      block: "nearest"
-    });
+    const left = target.offsetLeft - rail.clientWidth / 2 + target.clientWidth / 2;
+    pauseAutoUntilRef.current = Date.now() + 3500;
+    rail.scrollTo({ left, behavior: "smooth" });
   };
 
   const goToPrevious = () => {
@@ -1425,6 +1424,7 @@ function ScrollShowcaseSection() {
     const onWheel = (event: WheelEvent) => {
       if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
       rail.scrollLeft += event.deltaY;
+      pauseAutoUntilRef.current = Date.now() + 2500;
       event.preventDefault();
     };
 
@@ -1444,13 +1444,14 @@ function ScrollShowcaseSection() {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion) return;
 
-    const timer = window.setTimeout(() => {
+    const timer = window.setInterval(() => {
+      if (Date.now() < pauseAutoUntilRef.current) return;
+
       const nextIndex = (activeSlide + 1) % slideShowcase.length;
       scrollToSlide(nextIndex);
-      setActiveSlide(nextIndex);
-    }, 2600);
+    }, 3000);
 
-    return () => window.clearTimeout(timer);
+    return () => window.clearInterval(timer);
   }, [activeSlide, isInView]);
 
   return (
@@ -1478,7 +1479,7 @@ function ScrollShowcaseSection() {
             </div>
             <div
               ref={railRef}
-              className="relative overflow-x-auto overflow-y-hidden rounded-[1.35rem] border border-white/[0.08] bg-[#050816] scroll-smooth snap-x snap-mandatory"
+              className="relative cursor-grab overflow-x-auto overflow-y-hidden rounded-[1.35rem] border border-white/[0.08] bg-[#050816] scroll-smooth snap-x snap-mandatory active:cursor-grabbing touch-pan-x"
             >
               <motion.div className="flex w-max gap-3 p-3 sm:gap-4 sm:p-4">
                 {slideShowcase.map((item, index) => (
