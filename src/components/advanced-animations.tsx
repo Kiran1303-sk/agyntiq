@@ -55,12 +55,7 @@ export function AnimatedMeshGradient() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 -z-10 opacity-40 pointer-events-none"
-    />
-  );
+  return <canvas ref={canvasRef} className="fixed inset-0 -z-10 opacity-40 pointer-events-none" />;
 }
 
 // Particle network animation
@@ -148,12 +143,7 @@ export function ParticleNetwork() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 -z-10 opacity-30 pointer-events-none"
-    />
-  );
+  return <canvas ref={canvasRef} className="fixed inset-0 -z-10 opacity-30 pointer-events-none" />;
 }
 
 // Floating orbs component
@@ -182,7 +172,8 @@ export function ScrollProgress() {
     canvas.height = 4;
 
     const updateProgress = () => {
-      const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      const scrolled =
+        (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
 
       ctx.fillStyle = "rgba(5, 8, 22, 0.2)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -202,10 +193,7 @@ export function ScrollProgress() {
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-1 -z-5 pointer-events-none"
-    />
+    <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-1 -z-5 pointer-events-none" />
   );
 }
 

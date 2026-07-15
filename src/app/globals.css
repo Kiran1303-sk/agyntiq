@@ -44,7 +44,10 @@ body::before {
     linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
     radial-gradient(circle at 50% 50%, rgba(0, 217, 255, 0.08), transparent 45%);
-  background-size: 38px 38px, 38px 38px, 100% 100%;
+  background-size:
+    38px 38px,
+    38px 38px,
+    100% 100%;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.65), transparent 95%);
 }
 
@@ -69,7 +72,9 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
   backdrop-filter: blur(28px);
-  box-shadow: 0 20px 80px rgba(4, 10, 32, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 20px 80px rgba(4, 10, 32, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .glass-panel-strong {
@@ -79,7 +84,9 @@ button {
     radial-gradient(circle at top right, rgba(0, 217, 255, 0.1), transparent 24%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.045));
   backdrop-filter: blur(32px);
-  box-shadow: 0 20px 80px rgba(4, 10, 32, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 20px 80px rgba(4, 10, 32, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .aurora-button {
@@ -95,7 +102,12 @@ button {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, transparent 25%, rgba(255, 255, 255, 0.24) 50%, transparent 75%);
+  background: linear-gradient(
+    120deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.24) 50%,
+    transparent 75%
+  );
   transform: translateX(-120%);
   transition: transform 650ms ease;
   z-index: -1;
@@ -120,7 +132,9 @@ button {
   background-image:
     linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.02) 0 1px, transparent 1px);
-  background-size: 3px 3px, 5px 5px;
+  background-size:
+    3px 3px,
+    5px 5px;
   mix-blend-mode: soft-light;
 }
 
@@ -146,7 +160,12 @@ button {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.1) 50%, transparent 80%);
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 80%
+  );
   transform: translateX(-120%);
   transition: transform 720ms ease;
   pointer-events: none;

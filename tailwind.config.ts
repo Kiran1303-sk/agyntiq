@@ -8,17 +8,17 @@ const config: Config = {
       colors: {
         agyntiq: {
           "primary-blue": "#2D9CFF",
-          "purple": "#6C4BFF",
-          "white": "#FFFFFF",
+          purple: "#6C4BFF",
+          white: "#FFFFFF",
           "deep-black": "#050816",
           "dark-navy": "#0E1325",
-          "bg": "#050816",
-          "surface": "#0E1325",
+          bg: "#050816",
+          surface: "#0E1325",
           "surface-light": "#1A1F3A",
           "text-primary": "#FFFFFF",
           "text-secondary": "#A4B2D6",
           "text-muted": "#6B7280",
-          "border": "rgba(255, 255, 255, 0.1)",
+          border: "rgba(255, 255, 255, 0.1)",
           "light-bg": "#F5F7FA",
           "light-surface": "#FFFFFF",
           "light-text-primary": "#1F2937",
@@ -28,10 +28,8 @@ const config: Config = {
         }
       },
       boxShadow: {
-        glass:
-          "0 20px 80px rgba(4, 10, 32, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08)",
-        "glass-light":
-          "0 20px 80px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6)",
+        glass: "0 20px 80px rgba(4, 10, 32, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08)",
+        "glass-light": "0 20px 80px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6)",
         glow: "0 0 60px rgba(45, 156, 255, 0.3)",
         "glow-purple": "0 0 60px rgba(108, 75, 255, 0.3)",
         premium: "0 24px 96px rgba(0, 0, 0, 0.4)",

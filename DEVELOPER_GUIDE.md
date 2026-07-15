@@ -215,7 +215,7 @@ const services = [
     title: "Your Service",
     description: "Service description",
     icon: "🎯"
-  },
+  }
   // ... more services
 ];
 ```
@@ -313,6 +313,7 @@ npm run build
 ```
 
 If successful, you'll see:
+
 ```
 ✓ Compiled successfully
 ✓ Linting and checking validity of types
@@ -408,9 +409,7 @@ console.log("Debug info", variable);
 <a href="#services">Go to Services</a>
 
 <!-- Target -->
-<section id="services">
-  Services content
-</section>
+<section id="services">Services content</section>
 ```
 
 ### Active Section Detection
@@ -429,10 +428,10 @@ Automatically handled by Intersection Observer:
 ### Standard Durations
 
 ```typescript
-duration: 0.3   // Quick interactions (hover, etc.)
-duration: 0.5   // Standard transitions
-duration: 0.8   // Page reveals
-duration: 1.0   // Longer reveals
+duration: 0.3; // Quick interactions (hover, etc.)
+duration: 0.5; // Standard transitions
+duration: 0.8; // Page reveals
+duration: 1.0; // Longer reveals
 ```
 
 ### Easing Functions
@@ -448,16 +447,19 @@ cubic-bezier(...)    // Custom
 ## 🚀 Performance Tips
 
 1. **Lazy Load Images**
+
    ```typescript
    <Image loading="lazy" src="..." />
    ```
 
 2. **Use Intersection Observer**
+
    ```typescript
    whileInView={{ opacity: 1 }}  // Only animate when visible
    ```
 
 3. **Optimize Animations**
+
    ```typescript
    // Use transform instead of position
    // Use GPU-accelerated properties
@@ -563,6 +565,7 @@ npm install --save-dev @types/react @types/node
 ## 🎉 Ready to Deploy!
 
 Your AgyntiQ website is now:
+
 - ✅ Fully functional
 - ✅ Production ready
 - ✅ Well documented
