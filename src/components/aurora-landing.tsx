@@ -2,7 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion, useScroll, useSpring, useTransform, type MotionValue } from "framer-motion";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useSpring,
+  useTransform,
+  type MotionValue
+} from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -1348,51 +1355,33 @@ export default function AuroraLanding() {
 
 function ScrollShowcaseSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const railRef = useRef<HTMLDivElement | null>(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"]
   });
+  const trackX = useTransform(scrollYProgress, [0, 1], ["0%", "-38%"]);
 
-  useEffect(() => {
-    const rail = railRef.current;
-    if (!rail) return;
-
-    const slides = Array.from(rail.querySelectorAll<HTMLElement>("[data-slide]"));
-    if (!slides.length) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-        const index = visible ? slides.indexOf(visible.target as HTMLElement) : -1;
-        if (index >= 0) setActiveSlide(index);
-      },
-      {
-        root: rail,
-        threshold: [0.55, 0.7, 0.85]
-      }
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    const nextIndex = Math.min(
+      slideShowcase.length - 1,
+      Math.max(0, Math.round(latest * (slideShowcase.length - 1)))
     );
-
-    slides.forEach((slide) => observer.observe(slide));
-    return () => observer.disconnect();
-  }, []);
+    setActiveSlide(nextIndex);
+  });
 
   const scrollToSlide = (index: number) => {
-    const rail = railRef.current;
-    if (!rail) return;
+    const section = sectionRef.current;
+    if (!section) return;
 
-    const slides = Array.from(rail.querySelectorAll<HTMLElement>("[data-slide]"));
-    const target = slides[index];
-    if (!target) return;
+    const rect = section.getBoundingClientRect();
+    const sectionTop = window.scrollY + rect.top;
+    const maxScroll = Math.max(rect.height - window.innerHeight, 1);
+    const targetY = sectionTop + (maxScroll * index) / (slideShowcase.length - 1);
 
-    target.scrollIntoView({
-      behavior: "smooth",
-      inline: "center",
-      block: "nearest"
+    window.scrollTo({
+      top: targetY,
+      behavior: "smooth"
     });
   };
 
@@ -1407,7 +1396,7 @@ function ScrollShowcaseSection() {
   };
 
   return (
-    <section ref={sectionRef} className="relative overflow-x-clip py-12 md:py-16">
+    <section ref={sectionRef} className="relative overflow-x-clip py-12 md:py-16 lg:min-h-[180vh]">
       <div className="section-shell">
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <div className="section-heading max-w-xl" data-reveal>
@@ -1421,7 +1410,7 @@ function ScrollShowcaseSection() {
             </p>
           </div>
 
-          <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5">
+          <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5 lg:sticky lg:top-24">
             <div className="mb-4 flex flex-wrap items-center justify-between gap-4 px-1 text-xs uppercase tracking-[0.32em] text-white/40">
               <span>Step through frames</span>
               <span>
@@ -1429,11 +1418,8 @@ function ScrollShowcaseSection() {
                 {String(slideShowcase.length).padStart(2, "0")}
               </span>
             </div>
-            <div
-              ref={railRef}
-              className="relative overflow-x-auto overflow-y-hidden rounded-[1.35rem] border border-white/[0.08] bg-[#050816] scroll-smooth snap-x snap-mandatory"
-            >
-              <motion.div className="flex gap-3 p-3 sm:gap-4 sm:p-4">
+            <div className="relative overflow-hidden rounded-[1.35rem] border border-white/[0.08] bg-[#050816]">
+              <motion.div style={{ x: trackX }} className="flex gap-3 p-3 sm:gap-4 sm:p-4">
                 {slideShowcase.map((item, index) => (
                   <ScrollShowcaseCard
                     key={item.src}
@@ -1447,7 +1433,8 @@ function ScrollShowcaseSection() {
             </div>
             <div className="mt-4 flex items-center justify-between gap-3">
               <p className="max-w-md text-xs uppercase tracking-[0.28em] text-white/35">
-                Swipe the strip on mobile, or use next and previous to step through each frame.
+                Scroll the page to animate the strip, or use next and previous to step through each
+                frame.
               </p>
               <div className="flex items-center gap-2">
                 <button
