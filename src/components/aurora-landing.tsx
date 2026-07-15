@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform, type MotionValue } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -82,6 +82,33 @@ const team = [
   {
     title: "Fractional CTO depth",
     copy: "We&apos;ve been the first hire, the person on call, the one who fixes it at 2am."
+  }
+];
+
+const slideShowcase = [
+  {
+    src: "/slide.jpeg",
+    title: "Strategy in motion",
+    copy: "A calm visual rhythm for the first phase of the journey.",
+    tag: "01"
+  },
+  {
+    src: "/slide1.jpeg",
+    title: "Context surfaces",
+    copy: "Showcase the data, signals, and decisions behind the product.",
+    tag: "02"
+  },
+  {
+    src: "/slide2.jpeg",
+    title: "Automation layers",
+    copy: "Highlight the systems that keep work moving without friction.",
+    tag: "03"
+  },
+  {
+    src: "/slide3.jpeg",
+    title: "Scaled delivery",
+    copy: "Close with a premium, polished frame that feels enterprise ready.",
+    tag: "04"
   }
 ];
 
@@ -278,6 +305,47 @@ function AnimatedCounter({
       {formatStat(count, decimals)}
       {suffix}
     </span>
+  );
+}
+
+function ScrollShowcaseCard({
+  item,
+  index,
+  progress
+}: {
+  item: (typeof slideShowcase)[number];
+  index: number;
+  progress: MotionValue<number>;
+}) {
+  const y = useTransform(progress, [0, 1], [index * 16, index * -18]);
+  const scale = useTransform(progress, [0, 1], [1, 1.03]);
+
+  return (
+    <motion.article
+      style={{ y, scale }}
+      className="group relative min-w-[82vw] overflow-hidden rounded-[1.8rem] border border-white/[0.1] bg-white/[0.03] shadow-[0_24px_90px_rgba(0,0,0,0.24)] sm:min-w-[30rem] lg:min-w-[34rem]"
+    >
+      <div className="relative aspect-[4/5] overflow-hidden">
+        <Image
+          src={item.src}
+          alt={item.title}
+          fill
+          sizes="(min-width: 1024px) 34rem, (min-width: 640px) 30rem, 82vw"
+          className="object-cover transition duration-700 group-hover:scale-[1.06]"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.08)_0%,rgba(5,8,22,0.18)_34%,rgba(5,8,22,0.82)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.16),transparent_30%)]" />
+      </div>
+
+      <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+        <div className="flex items-center justify-between gap-4 border-b border-white/[0.12] pb-3">
+          <span className="text-xs uppercase tracking-[0.32em] text-white/50">{item.tag}</span>
+          <span className="text-xs uppercase tracking-[0.3em] text-white/35">Scroll story</span>
+        </div>
+        <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-white">{item.title}</h3>
+        <p className="mt-2 max-w-md text-sm leading-7 text-white/68">{item.copy}</p>
+      </div>
+    </motion.article>
   );
 }
 
@@ -750,6 +818,8 @@ export default function AuroraLanding() {
             </div>
           </div>
         </section>
+
+        <ScrollShowcaseSection />
 
         <section className="py-12 md:py-16">
           <div className="section-shell">
@@ -1248,5 +1318,52 @@ export default function AuroraLanding() {
         </div>
       </footer>
     </div>
+  );
+}
+
+function ScrollShowcaseSection() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  const trackX = useTransform(scrollYProgress, [0, 1], ["0%", "-42%"]);
+
+  return (
+    <section ref={sectionRef} className="relative py-12 md:py-16">
+      <div className="section-shell">
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+          <div className="section-heading" data-reveal>
+            <div className="section-kicker">Visual Story</div>
+            <h2 className="section-title">
+              A scroll-driven image sequence that keeps the homepage moving.
+            </h2>
+            <p className="section-copy">
+              This section uses your slide assets as a cinematic strip, so the page feels more alive
+              as people move through it.
+            </p>
+          </div>
+
+          <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5">
+            <div className="mb-4 flex items-center justify-between gap-4 px-1 text-xs uppercase tracking-[0.32em] text-white/40">
+              <span>Drag-free scroll</span>
+              <span>04 frames</span>
+            </div>
+            <div className="relative overflow-hidden rounded-[1.5rem] border border-white/[0.08] bg-[#050816]">
+              <motion.div style={{ x: trackX }} className="flex gap-4 p-4 sm:gap-5 sm:p-5">
+                {slideShowcase.map((item, index) => (
+                  <ScrollShowcaseCard
+                    key={item.src}
+                    item={item}
+                    index={index}
+                    progress={scrollYProgress}
+                  />
+                ))}
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
