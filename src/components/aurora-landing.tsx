@@ -1403,9 +1403,6 @@ function ScrollShowcaseSection() {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion) return;
 
-    let frame = 0;
-    const speed = 0.35;
-
     const syncActiveSlide = () => {
       const slides = Array.from(rail.querySelectorAll<HTMLElement>("[data-slide]"));
       if (!slides.length) return;
@@ -1431,30 +1428,30 @@ function ScrollShowcaseSection() {
       event.preventDefault();
     };
 
-    const animate = () => {
-      const maxScroll = rail.scrollWidth - rail.clientWidth;
-      if (maxScroll > 0) {
-        rail.scrollLeft += speed;
-        if (rail.scrollLeft >= maxScroll - 1) {
-          rail.scrollLeft = 0;
-        }
-      }
-
-      syncActiveSlide();
-      frame = requestAnimationFrame(animate);
-    };
-
     rail.addEventListener("scroll", syncActiveSlide, { passive: true });
     rail.addEventListener("wheel", onWheel, { passive: false });
     syncActiveSlide();
-    frame = requestAnimationFrame(animate);
 
     return () => {
-      cancelAnimationFrame(frame);
       rail.removeEventListener("scroll", syncActiveSlide);
       rail.removeEventListener("wheel", onWheel);
     };
   }, [isInView]);
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+
+    const timer = window.setTimeout(() => {
+      const nextIndex = (activeSlide + 1) % slideShowcase.length;
+      scrollToSlide(nextIndex);
+      setActiveSlide(nextIndex);
+    }, 2600);
+
+    return () => window.clearTimeout(timer);
+  }, [activeSlide, isInView]);
 
   return (
     <section ref={sectionRef} className="relative overflow-x-clip py-12 md:py-16">
