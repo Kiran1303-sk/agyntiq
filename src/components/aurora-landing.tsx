@@ -88,26 +88,26 @@ const team = [
 const slideShowcase = [
   {
     src: "/slide.jpeg",
-    title: "Strategy in motion",
-    copy: "A calm visual rhythm for the first phase of the journey.",
+    title: "Planning and direction",
+    copy: "The opening frame sets the tone for the roadmap and the next move.",
     tag: "01"
   },
   {
     src: "/slide1.jpeg",
-    title: "Context surfaces",
-    copy: "Showcase the data, signals, and decisions behind the product.",
+    title: "Clear context",
+    copy: "A closer look at the signals, structure, and details driving the work.",
     tag: "02"
   },
   {
     src: "/slide2.jpeg",
-    title: "Automation layers",
-    copy: "Highlight the systems that keep work moving without friction.",
+    title: "Execution layer",
+    copy: "This frame carries the motion forward with a stronger sense of flow.",
     tag: "03"
   },
   {
     src: "/slide3.jpeg",
-    title: "Scaled delivery",
-    copy: "Close with a premium, polished frame that feels enterprise ready.",
+    title: "Finished scale",
+    copy: "The sequence closes on a polished, complete view of the system.",
     tag: "04"
   }
 ];
@@ -323,14 +323,14 @@ function ScrollShowcaseCard({
   return (
     <motion.article
       style={{ y, scale }}
-      className="group relative min-w-[82vw] overflow-hidden rounded-[1.8rem] border border-white/[0.1] bg-white/[0.03] shadow-[0_24px_90px_rgba(0,0,0,0.24)] sm:min-w-[30rem] lg:min-w-[34rem]"
+      className="group relative min-w-[74vw] overflow-hidden rounded-[1.6rem] border border-white/[0.1] bg-white/[0.03] shadow-[0_18px_64px_rgba(0,0,0,0.22)] sm:min-w-[24rem] lg:min-w-[28rem]"
     >
       <div className="relative aspect-[4/5] overflow-hidden">
         <Image
           src={item.src}
           alt={item.title}
           fill
-          sizes="(min-width: 1024px) 34rem, (min-width: 640px) 30rem, 82vw"
+          sizes="(min-width: 1024px) 28rem, (min-width: 640px) 24rem, 74vw"
           className="object-cover transition duration-700 group-hover:scale-[1.06]"
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.08)_0%,rgba(5,8,22,0.18)_34%,rgba(5,8,22,0.82)_100%)]" />
@@ -342,8 +342,10 @@ function ScrollShowcaseCard({
           <span className="text-xs uppercase tracking-[0.32em] text-white/50">{item.tag}</span>
           <span className="text-xs uppercase tracking-[0.3em] text-white/35">Scroll story</span>
         </div>
-        <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-white">{item.title}</h3>
-        <p className="mt-2 max-w-md text-sm leading-7 text-white/68">{item.copy}</p>
+        <h3 className="mt-4 text-xl font-semibold tracking-[-0.04em] text-white sm:text-2xl">
+          {item.title}
+        </h3>
+        <p className="mt-2 max-w-md text-sm leading-6 text-white/68">{item.copy}</p>
       </div>
     </motion.article>
   );
@@ -1335,12 +1337,10 @@ function ScrollShowcaseSection() {
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div className="section-heading" data-reveal>
             <div className="section-kicker">Visual Story</div>
-            <h2 className="section-title">
-              A scroll-driven image sequence that keeps the homepage moving.
-            </h2>
+            <h2 className="section-title">From planning to scale, told through motion.</h2>
             <p className="section-copy">
-              This section uses your slide assets as a cinematic strip, so the page feels more alive
-              as people move through it.
+              The slides work as a compact visual sequence, showing the journey from direction to
+              context, execution, and a finished outcome.
             </p>
           </div>
 
@@ -1349,8 +1349,8 @@ function ScrollShowcaseSection() {
               <span>Drag-free scroll</span>
               <span>04 frames</span>
             </div>
-            <div className="relative overflow-hidden rounded-[1.5rem] border border-white/[0.08] bg-[#050816]">
-              <motion.div style={{ x: trackX }} className="flex gap-4 p-4 sm:gap-5 sm:p-5">
+            <div className="relative overflow-hidden rounded-[1.35rem] border border-white/[0.08] bg-[#050816]">
+              <motion.div style={{ x: trackX }} className="flex gap-3 p-3 sm:gap-4 sm:p-4">
                 {slideShowcase.map((item, index) => (
                   <ScrollShowcaseCard
                     key={item.src}
