@@ -31,12 +31,14 @@ export function AnimatedBackground() {
 }
 
 // Gradient text component
-export function GradientText({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return (
-    <span className={`text-gradient-blue-purple ${className}`}>
-      {children}
-    </span>
-  );
+export function GradientText({
+  children,
+  className = ""
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return <span className={`text-gradient-blue-purple ${className}`}>{children}</span>;
 }
 
 // Premium button component
@@ -218,10 +220,12 @@ export function TestimonialCard({
     <GlassCard>
       <div className="flex gap-1 mb-4">
         {[...Array(rating)].map((_, i) => (
-          <span key={i} className="text-yellow-400">⭐</span>
+          <span key={i} className="text-yellow-400">
+            ⭐
+          </span>
         ))}
       </div>
-      <p className="text-agyntiq-text-secondary italic mb-4">"{text}"</p>
+      <p className="text-agyntiq-text-secondary italic mb-4">&ldquo;{text}&rdquo;</p>
       <div className="border-t border-agyntiq-border pt-4">
         <p className="font-semibold text-white">{author}</p>
         <p className="text-sm text-agyntiq-text-secondary">{role}</p>
@@ -236,9 +240,7 @@ export function GradientBorder({ children }: { children: React.ReactNode }) {
     <div className="relative">
       <div className="absolute inset-0 rounded-2xl bg-gradient-blue-purple opacity-20 blur-lg" />
       <div className="relative rounded-2xl p-[1px] bg-gradient-blue-purple">
-        <div className="rounded-2xl bg-agyntiq-deep-black p-6">
-          {children}
-        </div>
+        <div className="rounded-2xl bg-agyntiq-deep-black p-6">{children}</div>
       </div>
     </div>
   );
@@ -262,18 +264,10 @@ export function SectionHeading({
       transition={{ duration: 0.5 }}
       className="mb-16 text-center"
     >
-      {badge && (
-        <div className="section-kicker mb-4 justify-center inline-block">
-          {badge}
-        </div>
-      )}
-      <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-        {title}
-      </h2>
+      {badge && <div className="section-kicker mb-4 justify-center inline-block">{badge}</div>}
+      <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">{title}</h2>
       {subtitle && (
-        <p className="text-lg text-agyntiq-text-secondary max-w-2xl mx-auto">
-          {subtitle}
-        </p>
+        <p className="text-lg text-agyntiq-text-secondary max-w-2xl mx-auto">{subtitle}</p>
       )}
     </motion.div>
   );

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import Image from "next/image";
 import { motion, useScroll, useSpring, useInView } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -440,24 +439,25 @@ function Counter({ end, label }: { end: number; label: string }) {
     const increment = end / steps;
     let current = 0;
 
-    const interval = setInterval(() => {
-      current += increment;
-      if (current >= end) {
-        setCount(end);
-        clearInterval(interval);
-      } else {
-        setCount(Math.floor(current));
-      }
-    }, (duration * 1000) / steps);
+    const interval = setInterval(
+      () => {
+        current += increment;
+        if (current >= end) {
+          setCount(end);
+          clearInterval(interval);
+        } else {
+          setCount(Math.floor(current));
+        }
+      },
+      (duration * 1000) / steps
+    );
 
     return () => clearInterval(interval);
   }, [isInView, end]);
 
   return (
     <div ref={ref} className="text-center">
-      <div className="text-4xl md:text-5xl font-bold text-gradient-blue-purple mb-2">
-        {count}
-      </div>
+      <div className="text-4xl md:text-5xl font-bold text-gradient-blue-purple mb-2">{count}</div>
       <div className="text-sm md:text-base text-agyntiq-text-secondary">{label}</div>
     </div>
   );
@@ -590,7 +590,9 @@ export default function AgyntiQWebsite() {
   }, []);
 
   return (
-    <div className={`relative overflow-hidden transition-colors duration-500 ${theme === "dark" ? "dark bg-agyntiq-deep-black" : "bg-agyntiq-light-bg"}`}>
+    <div
+      className={`relative overflow-hidden transition-colors duration-500 ${theme === "dark" ? "dark bg-agyntiq-deep-black" : "bg-agyntiq-light-bg"}`}
+    >
       {/* Progress bar */}
       <motion.div
         className="fixed left-0 top-0 z-50 h-1 origin-left bg-gradient-blue-purple"
@@ -598,7 +600,9 @@ export default function AgyntiQWebsite() {
       />
 
       {/* Background blobs */}
-      <div className={`pointer-events-none absolute inset-0 -z-10 overflow-hidden ${theme === "light" ? "hidden" : ""}`}>
+      <div
+        className={`pointer-events-none absolute inset-0 -z-10 overflow-hidden ${theme === "light" ? "hidden" : ""}`}
+      >
         <div className="aurora-blob absolute left-[-8%] top-[-6%] h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(45,156,255,0.24),transparent_66%)] blur-3xl animate-drift" />
         <div className="aurora-blob absolute right-[-6%] top-[10%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(108,75,255,0.2),transparent_64%)] blur-3xl animate-drift" />
         <div className="aurora-blob absolute bottom-[16%] left-[26%] h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(45,156,255,0.14),transparent_64%)] blur-3xl animate-drift" />
@@ -616,12 +620,16 @@ export default function AgyntiQWebsite() {
       >
         <div className="section-shell flex h-20 items-center justify-between gap-4 md:grid md:h-24 md:grid-cols-[1fr_auto_1fr] md:gap-10">
           <a href="#hero" className="group flex w-fit items-center justify-self-start">
-            <div className={`text-2xl md:text-3xl font-bold ${theme === "dark" ? "text-gradient-blue-purple" : "bg-gradient-to-r from-agyntiq-primary-blue to-agyntiq-purple bg-clip-text text-transparent"}`}>
+            <div
+              className={`text-2xl md:text-3xl font-bold ${theme === "dark" ? "text-gradient-blue-purple" : "bg-gradient-to-r from-agyntiq-primary-blue to-agyntiq-purple bg-clip-text text-transparent"}`}
+            >
               AgyntiQ
             </div>
           </a>
 
-          <nav className={`hidden items-center gap-1 justify-self-center rounded-full bg-white/[0.06] p-2 shadow-glass backdrop-blur-2xl md:flex ${theme === "light" ? "bg-agyntiq-light-surface/60 shadow-glass-light" : ""}`}>
+          <nav
+            className={`hidden items-center gap-1 justify-self-center rounded-full bg-white/[0.06] p-2 shadow-glass backdrop-blur-2xl md:flex ${theme === "light" ? "bg-agyntiq-light-surface/60 shadow-glass-light" : ""}`}
+          >
             {navItems.map((item) => {
               const isActive = active === item.href.slice(1);
               return (
@@ -671,7 +679,9 @@ export default function AgyntiQWebsite() {
         {/* Mobile menu */}
         <div
           className={`section-shell md:hidden transition-all duration-300 ${
-            mobileOpen ? "pointer-events-auto max-h-[32rem] opacity-100" : "pointer-events-none max-h-0 opacity-0"
+            mobileOpen
+              ? "pointer-events-auto max-h-[32rem] opacity-100"
+              : "pointer-events-none max-h-0 opacity-0"
           } overflow-hidden`}
         >
           <div className="mt-3 rounded-[1.75rem] border border-agyntiq-border bg-agyntiq-surface/92 p-4 shadow-premium backdrop-blur-2xl">
@@ -701,7 +711,10 @@ export default function AgyntiQWebsite() {
 
       <main className="pt-24 md:pt-32">
         {/* ============ HERO SECTION ============ */}
-        <section id="hero" className="relative scroll-mt-28 overflow-hidden pb-20 pt-20 md:scroll-mt-32 md:pb-24 md:pt-24">
+        <section
+          id="hero"
+          className="relative scroll-mt-28 overflow-hidden pb-20 pt-20 md:scroll-mt-32 md:pb-24 md:pt-24"
+        >
           <div className="section-shell relative">
             <div className="noise-overlay" />
             <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
@@ -712,9 +725,7 @@ export default function AgyntiQWebsite() {
                 transition={{ duration: 0.9, ease: "easeOut" }}
                 className="relative z-10 max-w-3xl"
               >
-                <div className="section-kicker mb-6">
-                  ✨ Transform Your Business with AI
-                </div>
+                <div className="section-kicker mb-6">✨ Transform Your Business with AI</div>
 
                 <h1 className="max-w-4xl text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-white">
                   Next-Generation
@@ -722,7 +733,9 @@ export default function AgyntiQWebsite() {
                 </h1>
 
                 <p className="mt-7 max-w-2xl text-lg md:text-xl leading-relaxed text-agyntiq-text-secondary">
-                  AgyntiQ helps enterprises automate workflows, improve decision-making, build intelligent AI agents, and accelerate digital transformation with cutting-edge artificial intelligence.
+                  AgyntiQ helps enterprises automate workflows, improve decision-making, build
+                  intelligent AI agents, and accelerate digital transformation with cutting-edge
+                  artificial intelligence.
                 </p>
 
                 <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -742,7 +755,9 @@ export default function AgyntiQWebsite() {
                 </div>
 
                 <div className="mt-12">
-                  <p className="text-sm text-agyntiq-text-muted mb-4">Trusted by leading companies:</p>
+                  <p className="text-sm text-agyntiq-text-muted mb-4">
+                    Trusted by leading companies:
+                  </p>
                   <div className="flex flex-wrap gap-6 md:gap-8">
                     {["Google", "Microsoft", "AWS", "NVIDIA", "OpenAI", "Meta"].map((company) => (
                       <div key={company} className="flex items-center gap-2">
@@ -771,7 +786,9 @@ export default function AgyntiQWebsite() {
                   <div className="text-center">
                     <div className="text-8xl mb-6 animate-bounce-subtle">🤖</div>
                     <h3 className="text-2xl font-bold text-white mb-2">AI-Powered Intelligence</h3>
-                    <p className="text-agyntiq-text-secondary">Experience the future of business automation</p>
+                    <p className="text-agyntiq-text-secondary">
+                      Experience the future of business automation
+                    </p>
                     <div className="mt-8 grid grid-cols-2 gap-4">
                       {[
                         { icon: "✨", label: "AI Automation" },
@@ -779,7 +796,10 @@ export default function AgyntiQWebsite() {
                         { icon: "📊", label: "Predictive Analytics" },
                         { icon: "👁️", label: "Computer Vision" }
                       ].map((item) => (
-                        <div key={item.label} className="p-4 bg-white/5 rounded-xl border border-agyntiq-border hover:border-agyntiq-primary-blue/50 transition">
+                        <div
+                          key={item.label}
+                          className="p-4 bg-white/5 rounded-xl border border-agyntiq-border hover:border-agyntiq-primary-blue/50 transition"
+                        >
                           <div className="text-3xl mb-2">{item.icon}</div>
                           <p className="text-xs text-agyntiq-text-secondary">{item.label}</p>
                         </div>
@@ -844,7 +864,9 @@ export default function AgyntiQWebsite() {
                   transition={{ duration: 0.5, delay: idx * 0.05 }}
                   className="glass-panel rounded-2xl p-8 card-hover border border-agyntiq-border hover:border-agyntiq-primary-blue/50 group"
                 >
-                  <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">{service.icon}</div>
+                  <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">
+                    {service.icon}
+                  </div>
                   <h3 className="text-xl font-semibold text-white mb-3">{service.title}</h3>
                   <p className="text-agyntiq-text-secondary">{service.description}</p>
                 </motion.div>
@@ -857,9 +879,7 @@ export default function AgyntiQWebsite() {
         <section id="industries" className="relative py-20 md:py-24 overflow-hidden">
           <div className="section-shell">
             <div className="mb-16 text-center" data-reveal>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                Industry Solutions
-              </h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Industry Solutions</h2>
               <p className="text-lg text-agyntiq-text-secondary">
                 Tailored AI solutions for every vertical
               </p>
@@ -888,11 +908,10 @@ export default function AgyntiQWebsite() {
         <section id="solutions" className="relative py-20 md:py-24 overflow-hidden">
           <div className="section-shell">
             <div className="mb-16" data-reveal>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                Why Choose AgyntiQ
-              </h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Why Choose AgyntiQ</h2>
               <p className="text-lg text-agyntiq-text-secondary max-w-2xl">
-                We combine cutting-edge technology with industry expertise to deliver transformative AI solutions
+                We combine cutting-edge technology with industry expertise to deliver transformative
+                AI solutions
               </p>
             </div>
 
@@ -943,7 +962,10 @@ export default function AgyntiQWebsite() {
                   <p className="text-sm text-agyntiq-text-secondary mb-4">{product.description}</p>
                   <div className="space-y-2">
                     {product.features.map((feature, fidx) => (
-                      <div key={fidx} className="flex items-center gap-2 text-xs text-agyntiq-text-secondary">
+                      <div
+                        key={fidx}
+                        className="flex items-center gap-2 text-xs text-agyntiq-text-secondary"
+                      >
                         <IconCheck />
                         <span>{feature}</span>
                       </div>
@@ -1043,10 +1065,14 @@ export default function AgyntiQWebsite() {
                   </div>
                   <div className="flex gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <span key={i} className="text-yellow-400">⭐</span>
+                      <span key={i} className="text-yellow-400">
+                        ⭐
+                      </span>
                     ))}
                   </div>
-                  <p className="text-agyntiq-text-secondary italic">"{testimonial.text}"</p>
+                  <p className="text-agyntiq-text-secondary italic">
+                    &ldquo;{testimonial.text}&rdquo;
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -1102,9 +1128,7 @@ export default function AgyntiQWebsite() {
             <div className="glass-panel-strong rounded-3xl p-8 md:p-12">
               <div className="grid md:grid-cols-2 gap-12">
                 <div data-reveal>
-                  <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                    Get in Touch
-                  </h2>
+                  <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Get in Touch</h2>
                   <p className="text-agyntiq-text-secondary mb-8">
                     Ready to transform your business with AI? Our team is here to help you succeed.
                   </p>
@@ -1217,9 +1241,7 @@ export default function AgyntiQWebsite() {
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                 Frequently Asked Questions
               </h2>
-              <p className="text-lg text-agyntiq-text-secondary">
-                Have questions? We have answers
-              </p>
+              <p className="text-lg text-agyntiq-text-secondary">Have questions? We have answers</p>
             </div>
 
             <div className="space-y-4">
@@ -1272,33 +1294,39 @@ export default function AgyntiQWebsite() {
       </main>
 
       {/* ============ FOOTER ============ */}
-      <footer className={`relative border-t py-16 md:py-20 overflow-hidden transition-colors duration-500 ${
-        theme === "dark"
-          ? "border-agyntiq-border bg-agyntiq-deep-black/80"
-          : "border-agyntiq-light-border bg-white"
-      }`}>
+      <footer
+        className={`relative border-t py-16 md:py-20 overflow-hidden transition-colors duration-500 ${
+          theme === "dark"
+            ? "border-agyntiq-border bg-agyntiq-deep-black/80"
+            : "border-agyntiq-light-border bg-white"
+        }`}
+      >
         <div className="section-shell">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
             <div>
-              <div className="text-2xl font-bold text-gradient-blue-purple mb-4">
-                AgyntiQ
-              </div>
-              <p className={`text-sm ${
-                theme === "dark"
-                  ? "text-agyntiq-text-secondary"
-                  : "text-agyntiq-light-text-secondary"
-              }`}>
+              <div className="text-2xl font-bold text-gradient-blue-purple mb-4">AgyntiQ</div>
+              <p
+                className={`text-sm ${
+                  theme === "dark"
+                    ? "text-agyntiq-text-secondary"
+                    : "text-agyntiq-light-text-secondary"
+                }`}
+              >
                 Enterprise AI solutions for the future of business.
               </p>
             </div>
 
             <div>
-              <h4 className={`font-semibold mb-4 ${theme === "dark" ? "text-white" : "text-agyntiq-light-text-primary"}`}>Product</h4>
+              <h4
+                className={`font-semibold mb-4 ${theme === "dark" ? "text-white" : "text-agyntiq-light-text-primary"}`}
+              >
+                Product
+              </h4>
               <div className="space-y-2 text-sm">
                 {["Features", "Pricing", "Security", "Enterprise"].map((item) => (
-                  <a 
-                    key={item} 
-                    href="#" 
+                  <a
+                    key={item}
+                    href="#"
                     className={`transition ${
                       theme === "dark"
                         ? "text-agyntiq-text-secondary hover:text-white"
@@ -1312,12 +1340,16 @@ export default function AgyntiQWebsite() {
             </div>
 
             <div>
-              <h4 className={`font-semibold mb-4 ${theme === "dark" ? "text-white" : "text-agyntiq-light-text-primary"}`}>Company</h4>
+              <h4
+                className={`font-semibold mb-4 ${theme === "dark" ? "text-white" : "text-agyntiq-light-text-primary"}`}
+              >
+                Company
+              </h4>
               <div className="space-y-2 text-sm">
                 {["About", "Blog", "Careers", "Contact"].map((item) => (
-                  <a 
-                    key={item} 
-                    href="#" 
+                  <a
+                    key={item}
+                    href="#"
                     className={`transition ${
                       theme === "dark"
                         ? "text-agyntiq-text-secondary hover:text-white"
@@ -1331,12 +1363,16 @@ export default function AgyntiQWebsite() {
             </div>
 
             <div>
-              <h4 className={`font-semibold mb-4 ${theme === "dark" ? "text-white" : "text-agyntiq-light-text-primary"}`}>Legal</h4>
+              <h4
+                className={`font-semibold mb-4 ${theme === "dark" ? "text-white" : "text-agyntiq-light-text-primary"}`}
+              >
+                Legal
+              </h4>
               <div className="space-y-2 text-sm">
                 {["Privacy", "Terms", "Security", "Compliance"].map((item) => (
-                  <a 
-                    key={item} 
-                    href="#" 
+                  <a
+                    key={item}
+                    href="#"
                     className={`transition ${
                       theme === "dark"
                         ? "text-agyntiq-text-secondary hover:text-white"
@@ -1350,17 +1386,19 @@ export default function AgyntiQWebsite() {
             </div>
           </div>
 
-          <div className={`border-t pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm ${
-            theme === "dark"
-              ? "border-agyntiq-border text-agyntiq-text-secondary"
-              : "border-agyntiq-light-border text-agyntiq-light-text-secondary"
-          }`}>
+          <div
+            className={`border-t pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm ${
+              theme === "dark"
+                ? "border-agyntiq-border text-agyntiq-text-secondary"
+                : "border-agyntiq-light-border text-agyntiq-light-text-secondary"
+            }`}
+          >
             <p>© 2026 AgyntiQ. All rights reserved.</p>
             <div className="flex gap-6">
               {["Twitter", "LinkedIn", "GitHub"].map((social) => (
-                <a 
-                  key={social} 
-                  href="#" 
+                <a
+                  key={social}
+                  href="#"
                   className={`transition ${
                     theme === "dark"
                       ? "hover:text-agyntiq-primary-blue"

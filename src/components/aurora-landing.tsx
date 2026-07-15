@@ -70,24 +70,6 @@ const services = [
   "Lightning Pods"
 ];
 
-const caseStudies = [
-  {
-    industry: "Mamazen",
-    title: "85% monthly retention",
-    summary: "Mindful parenting platform built with a retention-focused product and AI layer."
-  },
-  {
-    industry: "Drop Offer",
-    title: "82% faster UX workflow",
-    summary: "Product delivery that streamlined the experience and tightened the execution flow."
-  },
-  {
-    industry: "G-Sight",
-    title: "2.0 to 4.7 app rating",
-    summary: "Mobile product execution that turned a rough release into a stronger App Store outcome."
-  }
-];
-
 const team = [
   {
     title: "Engineering leadership",
@@ -146,7 +128,8 @@ const aiProducts = [
 const industryCards = [
   {
     name: "Healthcare",
-    summary: "Patient workflows, triage support, and operational analytics designed for regulated environments."
+    summary:
+      "Patient workflows, triage support, and operational analytics designed for regulated environments."
   },
   {
     name: "Finance",
@@ -154,11 +137,13 @@ const industryCards = [
   },
   {
     name: "Retail",
-    summary: "Personalization, forecasting, and support automation that improves conversion and retention."
+    summary:
+      "Personalization, forecasting, and support automation that improves conversion and retention."
   },
   {
     name: "Manufacturing",
-    summary: "Predictive maintenance, quality insights, and industrial intelligence for faster decisions."
+    summary:
+      "Predictive maintenance, quality insights, and industrial intelligence for faster decisions."
   },
   {
     name: "Education",
@@ -497,9 +482,7 @@ export default function AuroraLanding() {
 
       <header
         className={`fixed inset-x-0 top-0 z-40 transition-all duration-500 ${
-          scrolled
-            ? "border-b border-white/10 bg-[#050816]/72 backdrop-blur-2xl"
-            : "bg-transparent"
+          scrolled ? "border-b border-white/10 bg-[#050816]/72 backdrop-blur-2xl" : "bg-transparent"
         }`}
       >
         <div className="section-shell flex h-20 items-center justify-between gap-4 md:grid md:h-24 md:grid-cols-[1fr_auto_1fr] md:gap-10 md:gap-12">
@@ -560,7 +543,9 @@ export default function AuroraLanding() {
         <div
           id="mobile-menu"
           className={`section-shell md:hidden transition-all duration-300 ${
-            mobileOpen ? "pointer-events-auto max-h-[32rem] opacity-100" : "pointer-events-none max-h-0 opacity-0"
+            mobileOpen
+              ? "pointer-events-auto max-h-[32rem] opacity-100"
+              : "pointer-events-none max-h-0 opacity-0"
           } overflow-hidden`}
         >
           <div className="mt-3 rounded-[1.75rem] border border-white/[0.12] bg-[#050816]/92 p-4 backdrop-blur-2xl shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
@@ -602,7 +587,10 @@ export default function AuroraLanding() {
       </header>
 
       <main className="pt-24">
-        <section id="hero" className="relative scroll-mt-28 overflow-hidden pb-10 pt-16 md:scroll-mt-32 md:pb-28 md:pt-24">
+        <section
+          id="hero"
+          className="relative scroll-mt-28 overflow-hidden pb-10 pt-16 md:scroll-mt-32 md:pb-28 md:pt-24"
+        >
           <div className="section-shell relative">
             <div className="noise-overlay" />
             <div className="absolute inset-x-0 top-[-10%] h-[48rem] bg-[radial-gradient(circle_at_18%_18%,rgba(76,110,255,0.22),transparent_24%),radial-gradient(circle_at_82%_22%,rgba(0,162,255,0.2),transparent_20%),radial-gradient(circle_at_52%_78%,rgba(74,93,255,0.12),transparent_26%)]" />
@@ -712,7 +700,11 @@ export default function AuroraLanding() {
                   data-reveal
                 >
                   <div className="text-3xl font-semibold tracking-[-0.05em] text-white">
-                    <AnimatedCounter value={item.value} suffix={item.suffix} decimals={item.decimals} />
+                    <AnimatedCounter
+                      value={item.value}
+                      suffix={item.suffix}
+                      decimals={item.decimals}
+                    />
                   </div>
                   <div className="mt-2 text-sm leading-6 text-white/60">{item.label}</div>
                 </div>
@@ -725,26 +717,33 @@ export default function AuroraLanding() {
           <div className="section-shell">
             <div className="section-heading mb-10" data-reveal>
               <div className="section-kicker">About</div>
-              <h2 className="section-title">
-                Built for enterprise AI adoption.
-              </h2>
+              <h2 className="section-title">Built for enterprise AI adoption.</h2>
               <p className="section-copy">
-                We design AI systems around business context, execution, and measurable outcomes,
-                so the experience feels premium and operationally useful.
+                We design AI systems around business context, execution, and measurable outcomes, so
+                the experience feels premium and operationally useful.
               </p>
             </div>
 
-            <div className="divide-y divide-white/[0.08] border-y border-white/[0.08]" data-parallax="8">
+            <div
+              className="divide-y divide-white/[0.08] border-y border-white/[0.08]"
+              data-parallax="8"
+            >
               {problems.map((item) => (
                 <article
                   key={item.title}
                   className="hover-underline grid gap-4 py-6 md:grid-cols-[0.9fr_1.1fr]"
                   data-reveal
                 >
-                  <div className="text-sm uppercase tracking-[0.3em] text-white/40">{item.stat}</div>
+                  <div className="text-sm uppercase tracking-[0.3em] text-white/40">
+                    {item.stat}
+                  </div>
                   <div>
-                    <h3 className="text-xl font-semibold tracking-[-0.03em] text-white">{item.title}</h3>
-                    <p className="mt-3 max-w-2xl text-base leading-7 text-aurora-muted">{item.description}</p>
+                    <h3 className="text-xl font-semibold tracking-[-0.03em] text-white">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 max-w-2xl text-base leading-7 text-aurora-muted">
+                      {item.description}
+                    </p>
                   </div>
                 </article>
               ))}
@@ -756,15 +755,17 @@ export default function AuroraLanding() {
           <div className="section-shell">
             <div className="section-heading max-w-3xl" data-reveal>
               <div className="section-kicker">Workflow</div>
-              <h2 className="section-title">
-                Built around an intelligent business workflow.
-              </h2>
+              <h2 className="section-title">Built around an intelligent business workflow.</h2>
               <p className="section-copy">
-                We connect data, intelligence, and automation into one production-ready flow that compounds business value.
+                We connect data, intelligence, and automation into one production-ready flow that
+                compounds business value.
               </p>
             </div>
 
-            <div className="mt-10 grid gap-0 overflow-hidden rounded-[2rem] border border-white/[0.08] bg-white/[0.02] md:grid-cols-3" data-parallax="12">
+            <div
+              className="mt-10 grid gap-0 overflow-hidden rounded-[2rem] border border-white/[0.08] bg-white/[0.02] md:grid-cols-3"
+              data-parallax="12"
+            >
               {workflowSteps.map((step, index) => (
                 <div
                   key={step}
@@ -775,7 +776,9 @@ export default function AuroraLanding() {
                     <span>Step 0{index + 1}</span>
                     <span className="text-white/30">0{index + 1}</span>
                   </div>
-                  <div className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-white">{step}</div>
+                  <div className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-white">
+                    {step}
+                  </div>
                   <div className="mt-4 h-px w-full bg-gradient-to-r from-white/15 via-cyan-300/40 to-transparent" />
                 </div>
               ))}
@@ -796,16 +799,23 @@ export default function AuroraLanding() {
                 </p>
               </div>
 
-              <div className="divide-y divide-white/[0.08] border-y border-white/[0.08]" data-parallax="8">
+              <div
+                className="divide-y divide-white/[0.08] border-y border-white/[0.08]"
+                data-parallax="8"
+              >
                 {solutions.map((item, index) => (
                   <div
                     key={item.title}
                     className="hover-underline grid gap-4 py-5 md:grid-cols-[0.18fr_0.82fr]"
                     data-reveal
                   >
-                    <div className="text-sm uppercase tracking-[0.3em] text-white/40">0{index + 1}</div>
+                    <div className="text-sm uppercase tracking-[0.3em] text-white/40">
+                      0{index + 1}
+                    </div>
                     <div>
-                      <div className="text-xl font-semibold tracking-[-0.03em] text-white">{item.title}</div>
+                      <div className="text-xl font-semibold tracking-[-0.03em] text-white">
+                        {item.title}
+                      </div>
                       <p className="mt-2 max-w-2xl text-base leading-7 text-aurora-muted">
                         {item.copy}
                       </p>
@@ -821,11 +831,10 @@ export default function AuroraLanding() {
           <div className="section-shell">
             <div className="section-heading mb-10" data-reveal>
               <div className="section-kicker">Solutions</div>
-              <h2 className="section-title">
-                AI solutions that feel like a product, not a pitch.
-              </h2>
+              <h2 className="section-title">AI solutions that feel like a product, not a pitch.</h2>
               <p className="section-copy">
-                From copilots to analytics, the system should feel polished, fast, and enterprise-grade.
+                From copilots to analytics, the system should feel polished, fast, and
+                enterprise-grade.
               </p>
             </div>
 
@@ -838,17 +847,23 @@ export default function AuroraLanding() {
                 >
                   <div className="flex items-start justify-between gap-6">
                     <div>
-                      <div className="text-xs uppercase tracking-[0.3em] text-white/40">0{index + 1}</div>
-                      <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-white">{item}</h3>
+                      <div className="text-xs uppercase tracking-[0.3em] text-white/40">
+                        0{index + 1}
+                      </div>
+                      <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-white">
+                        {item}
+                      </h3>
                       <p className="mt-3 max-w-lg text-sm leading-7 text-aurora-muted">
-                        {[
-                          "Assess AI readiness and identify the highest-value opportunity before you build.",
-                          "Structure the context behind your workflows so AI can actually use it.",
-                          "Deploy production agents and workflows that fit the business.",
-                          "Keep AI systems reliable after launch with continuous operations.",
-                          "Full-stack product engineering for companies modernizing or rescuing products.",
-                          "Embedded engineering teams combining expert operators and AI execution."
-                        ][index]}
+                        {
+                          [
+                            "Assess AI readiness and identify the highest-value opportunity before you build.",
+                            "Structure the context behind your workflows so AI can actually use it.",
+                            "Deploy production agents and workflows that fit the business.",
+                            "Keep AI systems reliable after launch with continuous operations.",
+                            "Full-stack product engineering for companies modernizing or rescuing products.",
+                            "Embedded engineering teams combining expert operators and AI execution."
+                          ][index]
+                        }
                       </p>
                     </div>
                     <div className="mt-1 text-white/30 transition group-hover:text-white/70">
@@ -866,20 +881,26 @@ export default function AuroraLanding() {
             <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
               <div className="section-heading" data-reveal>
                 <div className="section-kicker">Why Us</div>
-                <h2 className="section-title">
-                  The team and platform behind the execution.
-                </h2>
+                <h2 className="section-title">The team and platform behind the execution.</h2>
                 <p className="section-copy">
-                  We bring product thinking, enterprise delivery, and AI engineering together so the final system feels polished and dependable.
+                  We bring product thinking, enterprise delivery, and AI engineering together so the
+                  final system feels polished and dependable.
                 </p>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
                 {reasons.map((item) => (
-                  <div key={item} className="hover-underline border-t border-white/[0.08] py-4" data-reveal>
-                    <div className="text-lg font-semibold tracking-[-0.03em] text-white">{item}</div>
+                  <div
+                    key={item}
+                    className="hover-underline border-t border-white/[0.08] py-4"
+                    data-reveal
+                  >
+                    <div className="text-lg font-semibold tracking-[-0.03em] text-white">
+                      {item}
+                    </div>
                     <div className="mt-2 text-sm leading-6 text-white/60">
-                      Enterprise-grade delivery with a premium interface and measurable business value.
+                      Enterprise-grade delivery with a premium interface and measurable business
+                      value.
                     </div>
                   </div>
                 ))}
@@ -892,11 +913,10 @@ export default function AuroraLanding() {
           <div className="section-shell">
             <div className="section-heading mb-10" data-reveal>
               <div className="section-kicker">AI Products</div>
-              <h2 className="section-title">
-                Interactive products your team can actually use.
-              </h2>
+              <h2 className="section-title">Interactive products your team can actually use.</h2>
               <p className="section-copy">
-                Each product feels integrated into the system instead of sitting inside another heavy card.
+                Each product feels integrated into the system instead of sitting inside another
+                heavy card.
               </p>
             </div>
 
@@ -909,10 +929,15 @@ export default function AuroraLanding() {
                 >
                   <div className="flex items-start justify-between gap-6">
                     <div>
-                      <div className="text-xs uppercase tracking-[0.3em] text-white/40">0{index + 1}</div>
-                      <h3 className="mt-3 text-lg font-semibold tracking-[-0.03em] text-white">{item}</h3>
+                      <div className="text-xs uppercase tracking-[0.3em] text-white/40">
+                        0{index + 1}
+                      </div>
+                      <h3 className="mt-3 text-lg font-semibold tracking-[-0.03em] text-white">
+                        {item}
+                      </h3>
                       <p className="mt-3 max-w-sm text-sm leading-7 text-aurora-muted">
-                        AI-powered experiences crafted for enterprise workflows, customer-facing experiences, and internal operations.
+                        AI-powered experiences crafted for enterprise workflows, customer-facing
+                        experiences, and internal operations.
                       </p>
                     </div>
                     <div className="mt-1 text-white/30 transition group-hover:text-white/70">
@@ -929,27 +954,32 @@ export default function AuroraLanding() {
           <div className="section-shell">
             <div className="section-heading mb-10" data-reveal>
               <div className="section-kicker">Industries</div>
-              <h2 className="section-title">
-                Designed for the teams that need AI most.
-              </h2>
+              <h2 className="section-title">Designed for the teams that need AI most.</h2>
               <p className="section-copy">
                 Healthcare, finance, retail, manufacturing, education, and more.
               </p>
             </div>
 
-            <div className="divide-y divide-white/[0.08] border-y border-white/[0.08]" data-parallax="8">
+            <div
+              className="divide-y divide-white/[0.08] border-y border-white/[0.08]"
+              data-parallax="8"
+            >
               {industryCards.map((item, index) => (
                 <article
                   key={item.name}
                   className="hover-underline grid gap-4 py-5 md:grid-cols-[0.25fr_0.75fr]"
                   data-reveal
                 >
-                  <div className="text-sm uppercase tracking-[0.3em] text-white/40">0{index + 1}</div>
+                  <div className="text-sm uppercase tracking-[0.3em] text-white/40">
+                    0{index + 1}
+                  </div>
                   <div>
                     <h3 className="text-xl font-semibold tracking-[-0.03em] text-white">
                       {item.name}
                     </h3>
-                    <p className="mt-3 max-w-2xl text-base leading-7 text-aurora-muted">{item.summary}</p>
+                    <p className="mt-3 max-w-2xl text-base leading-7 text-aurora-muted">
+                      {item.summary}
+                    </p>
                   </div>
                 </article>
               ))}
@@ -962,15 +992,17 @@ export default function AuroraLanding() {
             <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
               <div className="section-heading" data-reveal>
                 <div className="section-kicker">Blog</div>
-                <h2 className="section-title">
-                  Insights on building enterprise AI.
-                </h2>
+                <h2 className="section-title">Insights on building enterprise AI.</h2>
                 <p className="section-copy max-w-xl">
                   Thought leadership, product notes, and delivery patterns for AI that ships.
                 </p>
               </div>
 
-              <div className="divide-y divide-white/[0.08] border-y border-white/[0.08] hover-sheen" data-reveal data-parallax="8">
+              <div
+                className="divide-y divide-white/[0.08] border-y border-white/[0.08] hover-sheen"
+                data-reveal
+                data-parallax="8"
+              >
                 {team.map((item) => (
                   <div key={item.title} className="hover-underline py-5">
                     <div className="text-lg font-semibold tracking-[-0.03em] text-white">
@@ -988,11 +1020,10 @@ export default function AuroraLanding() {
           <div className="section-shell">
             <div className="section-heading mb-10" data-reveal>
               <div className="section-kicker">Pricing</div>
-              <h2 className="section-title">
-                Flexible engagement models for different stages.
-              </h2>
+              <h2 className="section-title">Flexible engagement models for different stages.</h2>
               <p className="section-copy">
-                Whether you need a focused AI pilot or a full embedded team, we shape the engagement around the outcome.
+                Whether you need a focused AI pilot or a full embedded team, we shape the engagement
+                around the outcome.
               </p>
             </div>
 
@@ -1021,15 +1052,17 @@ export default function AuroraLanding() {
           <div className="section-shell">
             <div className="section-heading mb-10" data-reveal>
               <div className="section-kicker">Testimonials</div>
-              <h2 className="section-title">
-                Built to feel credible to enterprise buyers.
-              </h2>
+              <h2 className="section-title">Built to feel credible to enterprise buyers.</h2>
               <p className="section-copy">
-                The tone, motion, and layout should communicate reliability before a sales conversation even starts.
+                The tone, motion, and layout should communicate reliability before a sales
+                conversation even starts.
               </p>
             </div>
 
-            <div className="divide-y divide-white/[0.08] border-y border-white/[0.08]" data-parallax="10">
+            <div
+              className="divide-y divide-white/[0.08] border-y border-white/[0.08]"
+              data-parallax="10"
+            >
               {testimonials.map((item) => (
                 <article
                   key={item.name}
@@ -1048,7 +1081,9 @@ export default function AuroraLanding() {
                       <div className="text-sm text-white/55">{item.role}</div>
                     </div>
                   </div>
-                  <p className="mt-5 text-base leading-7 text-aurora-muted">"{item.quote}"</p>
+                  <p className="mt-5 text-base leading-7 text-aurora-muted">
+                    &ldquo;{item.quote}&rdquo;
+                  </p>
                 </article>
               ))}
             </div>
@@ -1060,11 +1095,10 @@ export default function AuroraLanding() {
             <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
               <div className="section-heading" data-reveal>
                 <div className="section-kicker">FAQ</div>
-                <h2 className="section-title">
-                  Common questions from enterprise teams.
-                </h2>
+                <h2 className="section-title">Common questions from enterprise teams.</h2>
                 <p className="section-copy">
-                  The interface stays light and easy to scan while still giving depth for decision-makers.
+                  The interface stays light and easy to scan while still giving depth for
+                  decision-makers.
                 </p>
               </div>
 
@@ -1087,7 +1121,10 @@ export default function AuroraLanding() {
         </section>
       </main>
 
-      <footer id="contact" className="relative mt-8 overflow-hidden border-t border-white/10 bg-[#050816]/80 py-12 md:py-16">
+      <footer
+        id="contact"
+        className="relative mt-8 overflow-hidden border-t border-white/10 bg-[#050816]/80 py-12 md:py-16"
+      >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgba(79,140,255,0.12),transparent_28%),radial-gradient(circle_at_80%_70%,rgba(0,214,255,0.14),transparent_24%)]" />
         <div className="section-shell relative">
           <div className="hover-sheen overflow-hidden rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-7 md:p-10">
@@ -1098,8 +1135,8 @@ export default function AuroraLanding() {
                   Let&apos;s build the right AI engagement.
                 </h2>
                 <p className="section-copy max-w-2xl">
-                  Whether you need AI strategy, workflow automation, or a custom product, we&apos;ll help
-                  define the highest-value next step.
+                  Whether you need AI strategy, workflow automation, or a custom product, we&apos;ll
+                  help define the highest-value next step.
                 </p>
                 <div className="grid gap-4 border-t border-white/[0.08] pt-4 text-sm text-white/70 sm:grid-cols-2">
                   <div>hello@agyntiq.ai</div>
@@ -1111,17 +1148,37 @@ export default function AuroraLanding() {
 
               <div className="grid gap-4">
                 <div className="hover-glow rounded-[1.5rem] border border-white/[0.08] bg-white/[0.02] p-5">
-                  <div className="text-xs uppercase tracking-[0.28em] text-white/40">Contact Form</div>
+                  <div className="text-xs uppercase tracking-[0.28em] text-white/40">
+                    Contact Form
+                  </div>
                   <form className="mt-4 grid gap-4">
                     <div className="grid gap-4 md:grid-cols-2">
-                      <input className="rounded-2xl border border-white/[0.1] bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-cyan-300 focus:outline-none" placeholder="Full Name" />
-                      <input className="rounded-2xl border border-white/[0.1] bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-cyan-300 focus:outline-none" placeholder="Company Name" />
-                      <input className="rounded-2xl border border-white/[0.1] bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-cyan-300 focus:outline-none" placeholder="Email" />
-                      <input className="rounded-2xl border border-white/[0.1] bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-cyan-300 focus:outline-none" placeholder="Phone" />
+                      <input
+                        className="rounded-2xl border border-white/[0.1] bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-cyan-300 focus:outline-none"
+                        placeholder="Full Name"
+                      />
+                      <input
+                        className="rounded-2xl border border-white/[0.1] bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-cyan-300 focus:outline-none"
+                        placeholder="Company Name"
+                      />
+                      <input
+                        className="rounded-2xl border border-white/[0.1] bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-cyan-300 focus:outline-none"
+                        placeholder="Email"
+                      />
+                      <input
+                        className="rounded-2xl border border-white/[0.1] bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-cyan-300 focus:outline-none"
+                        placeholder="Phone"
+                      />
                     </div>
                     <div className="grid gap-4 md:grid-cols-2">
-                      <input className="rounded-2xl border border-white/[0.1] bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-cyan-300 focus:outline-none" placeholder="Business Type" />
-                      <input className="rounded-2xl border border-white/[0.1] bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-cyan-300 focus:outline-none" placeholder="Industry" />
+                      <input
+                        className="rounded-2xl border border-white/[0.1] bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-cyan-300 focus:outline-none"
+                        placeholder="Business Type"
+                      />
+                      <input
+                        className="rounded-2xl border border-white/[0.1] bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-cyan-300 focus:outline-none"
+                        placeholder="Industry"
+                      />
                     </div>
                     <textarea
                       rows={5}
@@ -1129,7 +1186,10 @@ export default function AuroraLanding() {
                       placeholder="Tell us about your AI requirement, budget, timeline, and country."
                     />
                     <label className="flex items-center gap-3 text-sm text-white/65">
-                      <input type="checkbox" className="h-4 w-4 rounded border-white/20 bg-white/10" />
+                      <input
+                        type="checkbox"
+                        className="h-4 w-4 rounded border-white/20 bg-white/10"
+                      />
                       I agree to Terms
                     </label>
                     <div className="flex flex-col gap-3 sm:flex-row">
@@ -1152,10 +1212,16 @@ export default function AuroraLanding() {
 
                 <div className="grid gap-4 md:grid-cols-2">
                   <div className="border-t border-white/[0.08] pt-4">
-                    <div className="text-sm uppercase tracking-[0.28em] text-white/45">Navigation</div>
+                    <div className="text-sm uppercase tracking-[0.28em] text-white/45">
+                      Navigation
+                    </div>
                     <div className="mt-4 space-y-3 text-sm text-white/70">
                       {navItems.map((item) => (
-                        <a key={item.href} href={item.href} className="block transition hover:text-white">
+                        <a
+                          key={item.href}
+                          href={item.href}
+                          className="block transition hover:text-white"
+                        >
                           {item.label}
                         </a>
                       ))}
