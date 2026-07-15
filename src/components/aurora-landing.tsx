@@ -2,14 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import {
-  motion,
-  useMotionValueEvent,
-  useScroll,
-  useSpring,
-  useTransform,
-  type MotionValue
-} from "framer-motion";
+import { motion, useScroll, useSpring, useTransform, type MotionValue } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -1355,33 +1348,25 @@ export default function AuroraLanding() {
 
 function ScrollShowcaseSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
+  const railRef = useRef<HTMLDivElement | null>(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"]
   });
-  const trackX = useTransform(scrollYProgress, [0, 1], ["0%", "-38%"]);
-
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const nextIndex = Math.min(
-      slideShowcase.length - 1,
-      Math.max(0, Math.round(latest * (slideShowcase.length - 1)))
-    );
-    setActiveSlide(nextIndex);
-  });
 
   const scrollToSlide = (index: number) => {
-    const section = sectionRef.current;
-    if (!section) return;
+    const rail = railRef.current;
+    if (!rail) return;
 
-    const rect = section.getBoundingClientRect();
-    const sectionTop = window.scrollY + rect.top;
-    const maxScroll = Math.max(rect.height - window.innerHeight, 1);
-    const targetY = sectionTop + (maxScroll * index) / (slideShowcase.length - 1);
+    const slides = Array.from(rail.querySelectorAll<HTMLElement>("[data-slide]"));
+    const target = slides[index];
+    if (!target) return;
 
-    window.scrollTo({
-      top: targetY,
-      behavior: "smooth"
+    target.scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest"
     });
   };
 
@@ -1395,8 +1380,48 @@ function ScrollShowcaseSection() {
     scrollToSlide(nextIndex);
   };
 
+  useEffect(() => {
+    const rail = railRef.current;
+    if (!rail) return;
+
+    const slides = Array.from(rail.querySelectorAll<HTMLElement>("[data-slide]"));
+    if (!slides.length) return;
+
+    const syncActiveSlide = () => {
+      const railCenter = rail.scrollLeft + rail.clientWidth / 2;
+      let closestIndex = 0;
+      let closestDistance = Number.POSITIVE_INFINITY;
+
+      slides.forEach((slide, index) => {
+        const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+        const distance = Math.abs(slideCenter - railCenter);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      setActiveSlide(closestIndex);
+    };
+
+    const onWheel = (event: WheelEvent) => {
+      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+      rail.scrollLeft += event.deltaY;
+      event.preventDefault();
+    };
+
+    rail.addEventListener("scroll", syncActiveSlide, { passive: true });
+    rail.addEventListener("wheel", onWheel, { passive: false });
+    syncActiveSlide();
+
+    return () => {
+      rail.removeEventListener("scroll", syncActiveSlide);
+      rail.removeEventListener("wheel", onWheel);
+    };
+  }, []);
+
   return (
-    <section ref={sectionRef} className="relative overflow-x-clip py-12 md:py-16 lg:min-h-[180vh]">
+    <section ref={sectionRef} className="relative overflow-x-clip py-12 md:py-16">
       <div className="section-shell">
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <div className="section-heading max-w-xl" data-reveal>
@@ -1418,8 +1443,11 @@ function ScrollShowcaseSection() {
                 {String(slideShowcase.length).padStart(2, "0")}
               </span>
             </div>
-            <div className="relative overflow-hidden rounded-[1.35rem] border border-white/[0.08] bg-[#050816]">
-              <motion.div style={{ x: trackX }} className="flex gap-3 p-3 sm:gap-4 sm:p-4">
+            <div
+              ref={railRef}
+              className="relative overflow-x-auto overflow-y-hidden rounded-[1.35rem] border border-white/[0.08] bg-[#050816] scroll-smooth snap-x snap-mandatory"
+            >
+              <motion.div className="flex w-max gap-3 p-3 sm:gap-4 sm:p-4">
                 {slideShowcase.map((item, index) => (
                   <ScrollShowcaseCard
                     key={item.src}
