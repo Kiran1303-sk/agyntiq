@@ -1350,6 +1350,7 @@ function ScrollShowcaseSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const railRef = useRef<HTMLDivElement | null>(null);
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isInView, setIsInView] = useState(false);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"]
@@ -1381,13 +1382,33 @@ function ScrollShowcaseSection() {
   };
 
   useEffect(() => {
-    const rail = railRef.current;
-    if (!rail) return;
+    const section = sectionRef.current;
+    if (!section) return;
 
-    const slides = Array.from(rail.querySelectorAll<HTMLElement>("[data-slide]"));
-    if (!slides.length) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.45 }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const rail = railRef.current;
+    if (!rail || !isInView) return;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+
+    let frame = 0;
+    const speed = 0.35;
 
     const syncActiveSlide = () => {
+      const slides = Array.from(rail.querySelectorAll<HTMLElement>("[data-slide]"));
+      if (!slides.length) return;
       const railCenter = rail.scrollLeft + rail.clientWidth / 2;
       let closestIndex = 0;
       let closestDistance = Number.POSITIVE_INFINITY;
@@ -1410,15 +1431,30 @@ function ScrollShowcaseSection() {
       event.preventDefault();
     };
 
+    const animate = () => {
+      const maxScroll = rail.scrollWidth - rail.clientWidth;
+      if (maxScroll > 0) {
+        rail.scrollLeft += speed;
+        if (rail.scrollLeft >= maxScroll - 1) {
+          rail.scrollLeft = 0;
+        }
+      }
+
+      syncActiveSlide();
+      frame = requestAnimationFrame(animate);
+    };
+
     rail.addEventListener("scroll", syncActiveSlide, { passive: true });
     rail.addEventListener("wheel", onWheel, { passive: false });
     syncActiveSlide();
+    frame = requestAnimationFrame(animate);
 
     return () => {
+      cancelAnimationFrame(frame);
       rail.removeEventListener("scroll", syncActiveSlide);
       rail.removeEventListener("wheel", onWheel);
     };
-  }, []);
+  }, [isInView]);
 
   return (
     <section ref={sectionRef} className="relative overflow-x-clip py-12 md:py-16">
