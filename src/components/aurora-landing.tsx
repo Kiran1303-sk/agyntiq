@@ -1336,7 +1336,7 @@ function ScrollShowcaseSection() {
             </p>
           </div>
 
-          <div className="mt-10 w-full max-w-4xl rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5">
+          <div className="mt-10 w-full max-w-5xl rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5">
             <div className="mb-4 flex items-center justify-between gap-4 px-1 text-xs uppercase tracking-[0.32em] text-white/40">
               <span>Visual story</span>
               <span>{String(activeSlide + 1).padStart(2, "0")} / 04</span>
@@ -1348,30 +1348,32 @@ function ScrollShowcaseSection() {
               onTouchEnd={() => setIsPaused(false)}
               className="overflow-hidden rounded-[1.5rem] border border-white/[0.08] bg-[#050816] shadow-[0_24px_90px_rgba(0,0,0,0.35)]"
             >
-              <div className="relative min-h-[18rem] sm:min-h-[24rem] lg:min-h-[30rem]">
-                <AnimatePresence mode="wait" custom={direction}>
-                  <motion.div
-                    key={activeSlide}
-                    custom={direction}
-                    initial={{ opacity: 0, x: direction > 0 ? 80 : -80, scale: 0.98 }}
-                    animate={{ opacity: 1, x: 0, scale: 1 }}
-                    exit={{ opacity: 0, x: direction > 0 ? -80 : 80, scale: 0.98 }}
-                    transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute inset-0"
-                  >
-                    <Image
-                      src={slideShowcase[activeSlide].src}
-                      alt={slideShowcase[activeSlide].title}
-                      fill
-                      sizes="(min-width: 1024px) 38rem, (min-width: 640px) 34rem, 100vw"
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.06)_0%,rgba(5,8,22,0.2)_40%,rgba(5,8,22,0.78)_100%)]" />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.16),transparent_34%)]" />
-                  </motion.div>
-                </AnimatePresence>
+              <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
+                <div className="relative min-h-[18rem] overflow-hidden border-b border-white/[0.08] lg:min-h-[28rem] lg:border-b-0 lg:border-r">
+                  <AnimatePresence mode="wait" custom={direction}>
+                    <motion.div
+                      key={activeSlide}
+                      custom={direction}
+                      initial={{ opacity: 0, x: direction > 0 ? 80 : -80, scale: 0.98 }}
+                      animate={{ opacity: 1, x: 0, scale: 1 }}
+                      exit={{ opacity: 0, x: direction > 0 ? -80 : 80, scale: 0.98 }}
+                      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                      className="absolute inset-0"
+                    >
+                      <Image
+                        src={slideShowcase[activeSlide].src}
+                        alt={slideShowcase[activeSlide].title}
+                        fill
+                        sizes="(min-width: 1024px) 50vw, 100vw"
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.06)_0%,rgba(5,8,22,0.2)_40%,rgba(5,8,22,0.78)_100%)]" />
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.16),transparent_34%)]" />
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
 
-                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                <div className="flex min-h-[18rem] flex-col justify-between p-5 sm:p-6 lg:min-h-[28rem] lg:p-8">
                   <div className="space-y-3">
                     <div className="text-xs uppercase tracking-[0.32em] text-white/45">
                       {slideShowcase[activeSlide].tag}
@@ -1390,10 +1392,6 @@ function ScrollShowcaseSection() {
                       <span className="text-white/35">{String(activeSlide + 1).padStart(2, "0")}</span>
                     </div>
                     <div className="h-px w-full bg-gradient-to-r from-white/12 via-cyan-300/30 to-transparent" />
-                    <p className="max-w-sm">
-                      The split layout keeps the image large while the story copy stays easy to
-                      scan.
-                    </p>
                   </div>
                 </div>
               </div>
@@ -1414,9 +1412,6 @@ function ScrollShowcaseSection() {
                 />
               ))}
             </div>
-            <p className="mt-3 text-xs uppercase tracking-[0.28em] text-white/35">
-              Automatic scene change with dot navigation.
-            </p>
           </div>
         </div>
       </div>
