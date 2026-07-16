@@ -1347,10 +1347,10 @@ function ScrollShowcaseSection() {
     target: sectionRef,
     offset: ["start end", "end start"]
   });
-  const trackX = useTransform(scrollYProgress, [0, 1], ["0%", "-38%"]);
+  const trackX = useTransform(scrollYProgress, [0, 1], ["0%", "-46%"]);
 
   return (
-    <section ref={sectionRef} className="relative overflow-x-clip py-12 md:py-16">
+    <section ref={sectionRef} className="relative overflow-x-clip py-12 md:py-16 lg:min-h-[165vh]">
       <div className="section-shell">
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <div className="section-heading max-w-xl" data-reveal>
@@ -1364,13 +1364,16 @@ function ScrollShowcaseSection() {
             </p>
           </div>
 
-          <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5">
+          <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5 lg:sticky lg:top-24">
             <div className="mb-4 flex items-center justify-between gap-4 px-1 text-xs uppercase tracking-[0.32em] text-white/40">
-              <span>Visual Strip</span>
+              <span>Scroll Strip</span>
               <span>04 frames</span>
             </div>
-            <div className="relative overflow-x-auto overflow-y-hidden rounded-[1.35rem] border border-white/[0.08] bg-[#050816] touch-pan-x scroll-smooth snap-x snap-mandatory">
-              <motion.div style={{ x: trackX }} className="flex w-max gap-3 p-3 sm:gap-4 sm:p-4">
+            <div className="relative overflow-hidden rounded-[1.35rem] border border-white/[0.08] bg-[#050816]">
+              <motion.div
+                style={{ x: trackX }}
+                className="flex w-max gap-3 p-3 sm:gap-4 sm:p-4 will-change-transform"
+              >
                 {slideShowcase.map((item, index) => (
                   <ScrollShowcaseCard
                     key={item.src}
