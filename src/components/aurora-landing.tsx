@@ -1324,19 +1324,19 @@ function ScrollShowcaseSection() {
   return (
     <section className="relative py-12 md:py-16">
       <div className="section-shell">
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-          <div className="section-heading" data-reveal>
+        <div className="mx-auto flex max-w-5xl flex-col items-center">
+          <div className="section-heading mx-auto max-w-2xl text-center" data-reveal>
             <div className="section-kicker">Visual Story</div>
-            <h2 className="section-title max-w-[12ch] sm:max-w-none text-balance">
+            <h2 className="section-title mx-auto max-w-[12ch] sm:max-w-none text-balance">
               Four scenes, one polished image story.
             </h2>
-            <p className="section-copy max-w-lg">
+            <p className="section-copy mx-auto max-w-xl">
               Tap the dots to switch between scenes and let the image motion feel like a premium
               feature card.
             </p>
           </div>
 
-          <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5">
+          <div className="mt-10 w-full max-w-4xl rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5">
             <div className="mb-4 flex items-center justify-between gap-4 px-1 text-xs uppercase tracking-[0.32em] text-white/40">
               <span>Visual story</span>
               <span>{String(activeSlide + 1).padStart(2, "0")} / 04</span>
