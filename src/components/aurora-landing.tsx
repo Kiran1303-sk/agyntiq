@@ -319,14 +319,14 @@ function ScrollShowcaseCard({
     <motion.article
       animate={{ scale: isActive ? 1 : 0.96, opacity: isActive ? 1 : 0.7 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
-      className="group relative mx-auto w-full max-w-[16.5rem] overflow-hidden rounded-[1.3rem] border border-white/[0.1] bg-white/[0.03] shadow-[0_12px_34px_rgba(0,0,0,0.24)] sm:max-w-[18rem] lg:max-w-[19rem]"
+      className="group relative mx-auto w-full max-w-[14.5rem] overflow-hidden rounded-[1.3rem] border border-white/[0.1] bg-white/[0.03] shadow-[0_12px_34px_rgba(0,0,0,0.24)] sm:max-w-[16rem] lg:max-w-[17rem]"
     >
       <div className="relative aspect-[4/5] overflow-hidden">
         <Image
           src={item.src}
           alt={item.title}
           fill
-          sizes="(min-width: 1024px) 19rem, (min-width: 640px) 18rem, 16.5rem"
+          sizes="(min-width: 1024px) 17rem, (min-width: 640px) 16rem, 14.5rem"
           className="object-cover transition duration-700 group-hover:scale-[1.06]"
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.08)_0%,rgba(5,8,22,0.18)_34%,rgba(5,8,22,0.82)_100%)]" />
