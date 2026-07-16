@@ -349,6 +349,35 @@ function ScrollShowcaseCard({
   );
 }
 
+function SectionBackdrop({
+  src,
+  imageClassName,
+  scrimClassName
+}: {
+  src: string;
+  imageClassName?: string;
+  scrimClassName?: string;
+}) {
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      <Image
+        src={src}
+        alt=""
+        fill
+        sizes="100vw"
+        className={`object-cover object-center ${imageClassName ?? ""}`}
+      />
+      <div
+        className={`absolute inset-0 ${
+          scrimClassName ??
+          "bg-[linear-gradient(180deg,rgba(5,8,22,0.34)_0%,rgba(5,8,22,0.76)_62%,rgba(5,8,22,0.96)_100%)]"
+        }`}
+      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_24%),radial-gradient(circle_at_82%_18%,rgba(0,214,255,0.16),transparent_20%),radial-gradient(circle_at_50%_80%,rgba(79,140,255,0.12),transparent_26%)]" />
+    </div>
+  );
+}
+
 function IconSpark() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
@@ -664,7 +693,12 @@ export default function AuroraLanding() {
           id="hero"
           className="relative scroll-mt-28 overflow-hidden pb-10 pt-16 md:scroll-mt-32 md:pb-28 md:pt-24"
         >
-          <div className="section-shell relative">
+          <SectionBackdrop
+            src="/bg1.jpeg"
+            imageClassName="opacity-28 saturate-125"
+            scrimClassName="bg-[linear-gradient(180deg,rgba(5,8,22,0.42)_0%,rgba(5,8,22,0.7)_48%,rgba(5,8,22,0.94)_100%)]"
+          />
+          <div className="section-shell relative z-10">
             <div className="noise-overlay" />
             <div className="absolute inset-x-0 top-[-10%] h-[48rem] bg-[radial-gradient(circle_at_18%_18%,rgba(76,110,255,0.22),transparent_24%),radial-gradient(circle_at_82%_22%,rgba(0,162,255,0.2),transparent_20%),radial-gradient(circle_at_52%_78%,rgba(74,93,255,0.12),transparent_26%)]" />
             <div className="absolute left-[6%] top-[10%] h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(80,122,255,0.26),transparent_70%)] blur-3xl" />
@@ -764,7 +798,7 @@ export default function AuroraLanding() {
         </section>
 
         <section className="scroll-soft-glow py-4 md:py-12">
-          <div className="section-shell">
+          <div className="section-shell relative z-10">
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-6" data-parallax="14">
               {statCards.map((item) => (
                 <div
@@ -786,8 +820,16 @@ export default function AuroraLanding() {
           </div>
         </section>
 
-        <section id="about" className="scroll-mt-28 py-12 md:scroll-mt-32 md:py-16">
-          <div className="section-shell">
+        <section
+          id="about"
+          className="relative overflow-hidden scroll-mt-28 py-12 md:scroll-mt-32 md:py-16"
+        >
+          <SectionBackdrop
+            src="/bg2.jpeg"
+            imageClassName="opacity-20 saturate-125"
+            scrimClassName="bg-[linear-gradient(180deg,rgba(5,8,22,0.58)_0%,rgba(5,8,22,0.82)_72%,rgba(5,8,22,0.96)_100%)]"
+          />
+          <div className="section-shell relative z-10">
             <div className="section-heading mb-10" data-reveal>
               <div className="section-kicker">About</div>
               <h2 className="section-title">Built for enterprise AI adoption.</h2>
@@ -861,7 +903,15 @@ export default function AuroraLanding() {
           </div>
         </section>
 
-        <section id="services" className="scroll-mt-28 py-12 md:scroll-mt-32 md:py-16">
+        <section
+          id="services"
+          className="relative overflow-hidden scroll-mt-28 py-12 md:scroll-mt-32 md:py-16"
+        >
+          <SectionBackdrop
+            src="/bg3.jpeg"
+            imageClassName="opacity-18 saturate-125"
+            scrimClassName="bg-[linear-gradient(180deg,rgba(5,8,22,0.62)_0%,rgba(5,8,22,0.84)_68%,rgba(5,8,22,0.97)_100%)]"
+          />
           <div className="section-shell">
             <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
               <div className="section-heading" data-reveal>
@@ -1213,9 +1263,13 @@ export default function AuroraLanding() {
         id="contact"
         className="relative mt-8 overflow-hidden border-t border-white/10 bg-[#050816]/80 py-12 md:py-16"
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgba(79,140,255,0.12),transparent_28%),radial-gradient(circle_at_80%_70%,rgba(0,214,255,0.14),transparent_24%)]" />
-        <div className="section-shell relative">
-          <div className="hover-sheen overflow-hidden rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-7 md:p-10">
+        <SectionBackdrop
+          src="/bg4.jpeg"
+          imageClassName="opacity-22 saturate-125"
+          scrimClassName="bg-[linear-gradient(180deg,rgba(5,8,22,0.5)_0%,rgba(5,8,22,0.82)_56%,rgba(5,8,22,0.96)_100%)]"
+        />
+        <div className="section-shell relative z-10">
+          <div className="hover-sheen overflow-hidden rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-7 md:p-10 backdrop-blur-[2px]">
             <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
               <div className="grid gap-5">
                 <div className="section-kicker">Contact</div>
