@@ -1393,7 +1393,7 @@ function ScrollShowcaseSection() {
   return (
     <section className="relative overflow-x-clip py-12 md:py-16">
       <div className="section-shell">
-        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <div className="section-heading max-w-xl" data-reveal>
             <div className="section-kicker">Visual Story</div>
             <h2 className="section-title max-w-[12ch] sm:max-w-none text-balance">
