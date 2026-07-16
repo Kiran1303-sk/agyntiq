@@ -48,6 +48,11 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
   };
 
   const sectionHref = (href: string) => (mode === "home" ? href : `/${href}`);
+  const isServicesRoute = pathname.startsWith("/services");
+  const showServicesMenu = servicesOpen || isServicesRoute;
+
+  const openServicesMenu = () => setServicesOpen(true);
+  const closeServicesMenu = () => setServicesOpen(false);
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 transition-all duration-500 border-b border-white/10 bg-[#050816]/72 backdrop-blur-2xl">
@@ -79,26 +84,28 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
                 <div
                   key={item.href}
                   className="relative"
-                  onMouseEnter={() => setServicesOpen(true)}
-                  onMouseLeave={() => setServicesOpen(false)}
-                  onFocusCapture={() => setServicesOpen(true)}
+                  onMouseEnter={openServicesMenu}
+                  onMouseLeave={closeServicesMenu}
+                  onFocusCapture={openServicesMenu}
                   onBlurCapture={(event) => {
                     if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-                      setServicesOpen(false);
+                      closeServicesMenu();
                     }
                   }}
                 >
-                  <Link href="/services" className={className} aria-haspopup="menu">
+                  <Link href="/services" className={className} aria-haspopup="menu" aria-expanded={showServicesMenu}>
                     {item.label}
                   </Link>
                   <div
                     className={`absolute left-1/2 top-full z-[70] mt-3 w-[22rem] -translate-x-1/2 rounded-[1.6rem] border border-white/[0.12] bg-[#050816]/96 p-3 shadow-[0_24px_90px_rgba(0,0,0,0.35)] backdrop-blur-2xl transition-all duration-200 ${
-                      servicesOpen
+                      showServicesMenu
                         ? "pointer-events-auto visible translate-y-0 opacity-100"
                         : "pointer-events-none invisible translate-y-2 opacity-0"
                     }`}
                     role="menu"
                     aria-label="Service pages"
+                    onMouseEnter={openServicesMenu}
+                    onMouseLeave={closeServicesMenu}
                   >
                     <div className="px-2 pb-2 text-[0.65rem] uppercase tracking-[0.28em] text-white/35">
                       Service pages
