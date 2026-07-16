@@ -370,7 +370,7 @@ function SectionBackdrop({
       <div
         className={`absolute inset-0 ${
           scrimClassName ??
-          "bg-[linear-gradient(180deg,rgba(5,8,22,0.34)_0%,rgba(5,8,22,0.76)_62%,rgba(5,8,22,0.96)_100%)]"
+          "bg-[linear-gradient(180deg,rgba(5,8,22,0.18)_0%,rgba(5,8,22,0.58)_62%,rgba(5,8,22,0.9)_100%)]"
         }`}
       />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_24%),radial-gradient(circle_at_82%_18%,rgba(0,214,255,0.16),transparent_20%),radial-gradient(circle_at_50%_80%,rgba(79,140,255,0.12),transparent_26%)]" />
@@ -695,8 +695,8 @@ export default function AuroraLanding() {
         >
           <SectionBackdrop
             src="/bg1.jpeg"
-            imageClassName="opacity-28 saturate-125"
-            scrimClassName="bg-[linear-gradient(180deg,rgba(5,8,22,0.42)_0%,rgba(5,8,22,0.7)_48%,rgba(5,8,22,0.94)_100%)]"
+            imageClassName="opacity-42 saturate-150"
+            scrimClassName="bg-[linear-gradient(180deg,rgba(5,8,22,0.2)_0%,rgba(5,8,22,0.52)_48%,rgba(5,8,22,0.88)_100%)]"
           />
           <div className="section-shell relative z-10">
             <div className="noise-overlay" />
@@ -826,8 +826,8 @@ export default function AuroraLanding() {
         >
           <SectionBackdrop
             src="/bg2.jpeg"
-            imageClassName="opacity-20 saturate-125"
-            scrimClassName="bg-[linear-gradient(180deg,rgba(5,8,22,0.58)_0%,rgba(5,8,22,0.82)_72%,rgba(5,8,22,0.96)_100%)]"
+            imageClassName="opacity-30 saturate-150"
+            scrimClassName="bg-[linear-gradient(180deg,rgba(5,8,22,0.24)_0%,rgba(5,8,22,0.64)_72%,rgba(5,8,22,0.92)_100%)]"
           />
           <div className="section-shell relative z-10">
             <div className="section-heading mb-10" data-reveal>
@@ -909,11 +909,11 @@ export default function AuroraLanding() {
         >
           <SectionBackdrop
             src="/bg3.jpeg"
-            imageClassName="opacity-18 saturate-125"
-            scrimClassName="bg-[linear-gradient(180deg,rgba(5,8,22,0.62)_0%,rgba(5,8,22,0.84)_68%,rgba(5,8,22,0.97)_100%)]"
+            imageClassName="opacity-28 saturate-150"
+            scrimClassName="bg-[linear-gradient(180deg,rgba(5,8,22,0.24)_0%,rgba(5,8,22,0.66)_68%,rgba(5,8,22,0.93)_100%)]"
           />
           <div className="section-shell">
-            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div className="relative z-10 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
               <div className="section-heading" data-reveal>
                 <div className="section-kicker">Services</div>
                 <h2 className="section-title">
@@ -1265,8 +1265,8 @@ export default function AuroraLanding() {
       >
         <SectionBackdrop
           src="/bg4.jpeg"
-          imageClassName="opacity-22 saturate-125"
-          scrimClassName="bg-[linear-gradient(180deg,rgba(5,8,22,0.5)_0%,rgba(5,8,22,0.82)_56%,rgba(5,8,22,0.96)_100%)]"
+          imageClassName="opacity-32 saturate-150"
+          scrimClassName="bg-[linear-gradient(180deg,rgba(5,8,22,0.22)_0%,rgba(5,8,22,0.62)_56%,rgba(5,8,22,0.92)_100%)]"
         />
         <div className="section-shell relative z-10">
           <div className="hover-sheen overflow-hidden rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-7 md:p-10 backdrop-blur-[2px]">
