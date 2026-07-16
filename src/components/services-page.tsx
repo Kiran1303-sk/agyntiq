@@ -34,7 +34,7 @@ export default function ServicesPage() {
   }, [activeSlide]);
 
   return (
-    <main className="relative overflow-hidden pt-24">
+    <main className="relative overflow-hidden pt-32 md:pt-36">
       <SiteHeader mode="services" />
 
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
@@ -43,7 +43,7 @@ export default function ServicesPage() {
         <div className="absolute bottom-[-14%] left-[18%] h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,rgba(150,120,255,0.16),transparent_68%)] blur-3xl" />
       </div>
 
-      <section className="section-shell py-12 md:py-16">
+      <section className="section-shell py-16 md:py-20">
         <div className="mx-auto max-w-5xl text-center" data-reveal>
           <div className="section-kicker mx-auto">Services</div>
           <h1 className="section-title mx-auto max-w-[14ch] text-balance">

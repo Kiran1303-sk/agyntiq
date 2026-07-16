@@ -97,7 +97,7 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
                     {item.label}
                   </Link>
                   <div
-                    className={`absolute left-1/2 top-full z-[70] mt-3 w-[22rem] -translate-x-1/2 rounded-[1.6rem] border border-white/[0.12] bg-[#050816]/96 p-3 shadow-[0_24px_90px_rgba(0,0,0,0.35)] backdrop-blur-2xl transition-all duration-200 ${
+                    className={`absolute left-1/2 top-full z-[90] mt-4 w-[24rem] -translate-x-1/2 rounded-[1.6rem] border border-white/[0.18] bg-[#02040c]/98 p-4 shadow-[0_28px_100px_rgba(0,0,0,0.48)] backdrop-blur-3xl transition-all duration-200 ${
                       showServicesMenu
                         ? "pointer-events-auto visible translate-y-0 opacity-100"
                         : "pointer-events-none invisible translate-y-2 opacity-0"
@@ -107,7 +107,7 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
                     onMouseEnter={openServicesMenu}
                     onMouseLeave={closeServicesMenu}
                   >
-                    <div className="px-2 pb-2 text-[0.65rem] uppercase tracking-[0.28em] text-white/35">
+                    <div className="px-2 pb-2 text-[0.65rem] uppercase tracking-[0.28em] text-white/42">
                       Service pages
                     </div>
                     <div className="grid gap-1">
@@ -117,10 +117,10 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
                           <Link
                             key={service.href}
                             href={service.href}
-                            className={`rounded-2xl px-3 py-2 text-sm transition ${
+                            className={`rounded-2xl px-3 py-2.5 text-sm transition ${
                               serviceActive
-                                ? "bg-white/[0.12] text-white"
-                                : "text-white/72 hover:bg-white/[0.06] hover:text-white"
+                                ? "bg-white/[0.16] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
+                                : "text-white/78 hover:bg-white/[0.08] hover:text-white"
                             }`}
                           >
                             {service.label}
