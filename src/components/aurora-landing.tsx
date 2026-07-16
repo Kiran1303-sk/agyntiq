@@ -317,16 +317,16 @@ function ScrollShowcaseCard({
 }) {
   return (
     <motion.article
-      animate={{ scale: isActive ? 1 : 0.95, opacity: isActive ? 1 : 0.72 }}
+      animate={{ scale: isActive ? 1 : 0.96, opacity: isActive ? 1 : 0.7 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
-      className="group relative min-w-[76vw] shrink-0 snap-center overflow-hidden rounded-[1.4rem] border border-white/[0.1] bg-white/[0.03] shadow-[0_14px_42px_rgba(0,0,0,0.24)] sm:min-w-[20rem] lg:min-w-[21rem]"
+      className="group relative mx-auto w-full max-w-[19rem] overflow-hidden rounded-[1.4rem] border border-white/[0.1] bg-white/[0.03] shadow-[0_14px_42px_rgba(0,0,0,0.24)] sm:max-w-[21rem] lg:max-w-[23rem]"
     >
       <div className="relative aspect-[3/4] overflow-hidden">
         <Image
           src={item.src}
           alt={item.title}
           fill
-          sizes="(min-width: 1024px) 21rem, (min-width: 640px) 20rem, 76vw"
+          sizes="(min-width: 1024px) 23rem, (min-width: 640px) 21rem, 19rem"
           className="object-cover transition duration-700 group-hover:scale-[1.06]"
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.08)_0%,rgba(5,8,22,0.18)_34%,rgba(5,8,22,0.82)_100%)]" />
@@ -1339,7 +1339,6 @@ export default function AuroraLanding() {
 
 function ScrollShowcaseSection() {
   const railRef = useRef<HTMLDivElement | null>(null);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -1349,31 +1348,9 @@ function ScrollShowcaseSection() {
       return;
     }
 
-    let frame = 0;
-
     const updateActiveSlide = () => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        const center = rail.scrollLeft + rail.clientWidth / 2;
-        let nextIndex = 0;
-        let closestDistance = Number.POSITIVE_INFINITY;
-
-        cardRefs.current.forEach((card, index) => {
-          if (!card) {
-            return;
-          }
-
-          const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-          const distance = Math.abs(cardCenter - center);
-
-          if (distance < closestDistance) {
-            closestDistance = distance;
-            nextIndex = index;
-          }
-        });
-
-        setActiveSlide(nextIndex);
-      });
+      const nextIndex = Math.round(rail.scrollLeft / rail.clientWidth);
+      setActiveSlide(Math.min(slideShowcase.length - 1, Math.max(0, nextIndex)));
     };
 
     rail.addEventListener("scroll", updateActiveSlide, { passive: true });
@@ -1381,7 +1358,6 @@ function ScrollShowcaseSection() {
 
     return () => {
       rail.removeEventListener("scroll", updateActiveSlide);
-      cancelAnimationFrame(frame);
     };
   }, []);
 
@@ -1398,11 +1374,13 @@ function ScrollShowcaseSection() {
     const id = window.setInterval(() => {
       setActiveSlide((current) => {
         const nextIndex = (current + 1) % slideShowcase.length;
-        cardRefs.current[nextIndex]?.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-          inline: "center"
-        });
+        const rail = railRef.current;
+        if (rail) {
+          rail.scrollTo({
+            left: nextIndex * rail.clientWidth,
+            behavior: "smooth"
+          });
+        }
         return nextIndex;
       });
     }, 2800);
@@ -1432,27 +1410,46 @@ function ScrollShowcaseSection() {
               <span>Auto carousel</span>
               <span>{String(activeSlide + 1).padStart(2, "0")} / 04</span>
             </div>
-            <div className="relative overflow-hidden rounded-[1.35rem] border border-white/[0.08] bg-[#050816]">
-              <motion.div
-                ref={railRef}
-                onMouseEnter={() => setIsPaused(true)}
-                onMouseLeave={() => setIsPaused(false)}
-                onTouchStart={() => setIsPaused(true)}
-                onTouchEnd={() => setIsPaused(false)}
-                className="flex gap-3 overflow-x-auto px-3 py-3 sm:gap-4 sm:px-4 sm:py-4 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-              >
+            <div
+              ref={railRef}
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+              onTouchStart={() => setIsPaused(true)}
+              onTouchEnd={() => setIsPaused(false)}
+              className="relative overflow-x-auto overflow-y-hidden rounded-[1.35rem] border border-white/[0.08] bg-[#050816] snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            >
+              <div className="flex">
                 {slideShowcase.map((item, index) => (
                   <div
                     key={item.src}
-                    ref={(node) => {
-                      cardRefs.current[index] = node;
-                    }}
-                    className="shrink-0"
+                    className="flex min-w-full snap-center items-center justify-center px-4 py-4 sm:px-6 sm:py-6"
                   >
                     <ScrollShowcaseCard item={item} isActive={activeSlide === index} />
                   </div>
                 ))}
-              </motion.div>
+              </div>
+            </div>
+            <div className="mt-3 flex items-center justify-center gap-2">
+              {slideShowcase.map((item, index) => (
+                <button
+                  key={item.src}
+                  type="button"
+                  aria-label={`Go to slide ${index + 1}`}
+                  onClick={() => {
+                    setActiveSlide(index);
+                    const rail = railRef.current;
+                    if (rail) {
+                      rail.scrollTo({
+                        left: index * rail.clientWidth,
+                        behavior: "smooth"
+                      });
+                    }
+                  }}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    activeSlide === index ? "w-7 bg-white" : "w-2.5 bg-white/30"
+                  }`}
+                />
+              ))}
             </div>
             <p className="mt-3 text-xs uppercase tracking-[0.28em] text-white/35">
               Swipe sideways on touch devices or let the carousel move automatically.
