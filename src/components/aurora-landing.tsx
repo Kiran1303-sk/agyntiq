@@ -8,7 +8,6 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
-import { serviceSlides } from "@/components/services-data";
 
 type NavItem =
   | {
@@ -789,13 +788,13 @@ export default function AuroraLanding() {
 
         <section id="services" className="py-12 md:py-16">
           <div className="section-shell">
-            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch">
               <div className="section-heading max-w-xl" data-reveal>
                 <div className="section-kicker">Services</div>
                 <h2 className="section-title">A dedicated services page for the full story.</h2>
                 <p className="section-copy max-w-lg">
-                  The homepage stays focused, while the service deck lives on its own page with the
-                  slide content, motion, and supporting detail.
+                  The homepage stays focused, while the services page carries the premium story,
+                  navigation, and full delivery detail.
                 </p>
                 <div className="mt-8">
                   <Link
@@ -808,22 +807,45 @@ export default function AuroraLanding() {
                 </div>
               </div>
 
-              <div className="grid gap-4 md:grid-cols-3">
-                {serviceSlides.slice(0, 3).map((item) => (
-                  <article
-                    key={item.number}
-                    className="hover-sheen hover-glow rounded-[1.4rem] border border-white/[0.08] bg-white/[0.03] p-5"
-                    data-reveal
-                  >
-                    <div className="text-xs uppercase tracking-[0.3em] text-white/40">
-                      Slide {item.number}
+              <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-6 backdrop-blur-xl" data-reveal>
+                <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-white/40">
+                  <span>Service map</span>
+                  <span>Home overview</span>
+                </div>
+
+                <div className="mt-6 divide-y divide-white/[0.08]">
+                  {[
+                    {
+                      number: "01",
+                      title: "Strategy and readiness",
+                      copy: "Define the right AI opportunities, roadmap, and operating model before the build starts."
+                    },
+                    {
+                      number: "02",
+                      title: "Solution development",
+                      copy: "Turn the strategy into productized AI experiences, copilots, and automation flows."
+                    },
+                    {
+                      number: "03",
+                      title: "Integration and operations",
+                      copy: "Embed AI into existing systems, data layers, and managed workflows that keep improving."
+                    }
+                  ].map((item) => (
+                    <div key={item.number} className="grid gap-4 py-5 md:grid-cols-[0.18fr_0.82fr]">
+                      <div className="text-sm uppercase tracking-[0.32em] text-white/35">
+                        {item.number}
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-semibold tracking-[-0.04em] text-white">
+                          {item.title}
+                        </h3>
+                        <p className="mt-2 max-w-2xl text-sm leading-7 text-white/62">
+                          {item.copy}
+                        </p>
+                      </div>
                     </div>
-                    <h3 className="mt-3 text-lg font-semibold tracking-[-0.03em] text-white">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-7 text-aurora-muted">{item.subtitle}</p>
-                  </article>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
