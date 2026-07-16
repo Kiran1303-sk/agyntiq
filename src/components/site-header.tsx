@@ -48,8 +48,7 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
   };
 
   const sectionHref = (href: string) => (mode === "home" ? href : `/${href}`);
-  const isServicesRoute = pathname.startsWith("/services");
-  const showServicesMenu = servicesOpen || isServicesRoute;
+  const showServicesMenu = servicesOpen;
 
   const openServicesMenu = () => setServicesOpen(true);
   const closeServicesMenu = () => setServicesOpen(false);
