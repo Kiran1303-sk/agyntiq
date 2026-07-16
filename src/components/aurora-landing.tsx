@@ -1438,9 +1438,6 @@ function ScrollShowcaseSection() {
                 />
               ))}
             </div>
-            <p className="mt-3 text-xs uppercase tracking-[0.28em] text-white/35">
-              Automatic scene change with dot navigation.
-            </p>
           </div>
         </div>
       </div>
