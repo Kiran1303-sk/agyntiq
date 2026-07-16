@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -188,6 +188,33 @@ const faqItems = [
       "Absolutely. We connect AI into the systems teams already use, including CRMs, internal tools, knowledge bases, and cloud workflows."
   }
 ];
+
+const slideShowcase = [
+  {
+    src: "/slide.jpeg",
+    title: "Workspace focus",
+    copy: "The first image captures the calm, attentive start of the workday.",
+    tag: "01"
+  },
+  {
+    src: "/slide1.jpeg",
+    title: "Team alignment",
+    copy: "The second image shows people gathering around shared context and ideas.",
+    tag: "02"
+  },
+  {
+    src: "/slide2.jpeg",
+    title: "Digital execution",
+    copy: "The third image reflects systems, tools, and the work moving ahead.",
+    tag: "03"
+  },
+  {
+    src: "/slide3.jpeg",
+    title: "Finished momentum",
+    copy: "The final image suggests a polished result and a wider sense of scale.",
+    tag: "04"
+  }
+] as const;
 
 const testimonials = [
   {
@@ -786,70 +813,7 @@ export default function AuroraLanding() {
           </div>
         </section>
 
-        <section id="services" className="py-12 md:py-16">
-          <div className="section-shell">
-            <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch">
-              <div className="section-heading max-w-xl" data-reveal>
-                <div className="section-kicker">Services</div>
-                <h2 className="section-title">A dedicated services page for the full story.</h2>
-                <p className="section-copy max-w-lg">
-                  The homepage stays focused, while the services page carries the premium story,
-                  navigation, and full delivery detail.
-                </p>
-                <div className="mt-8">
-                  <Link
-                    href="/services"
-                    className="aurora-button hover-sheen magnetic inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-semibold text-white shadow-[0_18px_70px_rgba(79,140,255,0.24)] transition hover:shadow-[0_18px_80px_rgba(0,214,255,0.28)]"
-                  >
-                    Open Services Page
-                    <IconArrow />
-                  </Link>
-                </div>
-              </div>
-
-              <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-6 backdrop-blur-xl" data-reveal>
-                <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-white/40">
-                  <span>Service map</span>
-                  <span>Home overview</span>
-                </div>
-
-                <div className="mt-6 divide-y divide-white/[0.08]">
-                  {[
-                    {
-                      number: "01",
-                      title: "Strategy and readiness",
-                      copy: "Define the right AI opportunities, roadmap, and operating model before the build starts."
-                    },
-                    {
-                      number: "02",
-                      title: "Solution development",
-                      copy: "Turn the strategy into productized AI experiences, copilots, and automation flows."
-                    },
-                    {
-                      number: "03",
-                      title: "Integration and operations",
-                      copy: "Embed AI into existing systems, data layers, and managed workflows that keep improving."
-                    }
-                  ].map((item) => (
-                    <div key={item.number} className="grid gap-4 py-5 md:grid-cols-[0.18fr_0.82fr]">
-                      <div className="text-sm uppercase tracking-[0.32em] text-white/35">
-                        {item.number}
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-semibold tracking-[-0.04em] text-white">
-                          {item.title}
-                        </h3>
-                        <p className="mt-2 max-w-2xl text-sm leading-7 text-white/62">
-                          {item.copy}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <ScrollShowcaseSection />
 
         <section className="py-12 md:py-16">
           <div className="section-shell">
@@ -1320,6 +1284,143 @@ export default function AuroraLanding() {
         </div>
       </footer>
     </div>
+  );
+}
+
+function ScrollShowcaseSection() {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [direction, setDirection] = useState(1);
+
+  const goToSlide = (nextIndex: number) => {
+    setActiveSlide((current) => {
+      const movingForward =
+        nextIndex > current || (current === slideShowcase.length - 1 && nextIndex === 0);
+      setDirection(movingForward ? 1 : -1);
+      return nextIndex;
+    });
+  };
+
+  useEffect(() => {
+    if (isPaused || slideShowcase.length < 2) {
+      return;
+    }
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      return;
+    }
+
+    const id = window.setInterval(() => {
+      setDirection(1);
+      setActiveSlide((current) => (current + 1) % slideShowcase.length);
+    }, 2800);
+
+    return () => {
+      window.clearInterval(id);
+    };
+  }, [isPaused]);
+
+  return (
+    <section className="relative py-12 md:py-16">
+      <div className="section-shell">
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+          <div className="section-heading" data-reveal>
+            <div className="section-kicker">Visual Story</div>
+            <h2 className="section-title max-w-[12ch] sm:max-w-none text-balance">
+              Four scenes, one polished image story.
+            </h2>
+            <p className="section-copy max-w-lg">
+              Tap the dots to switch between scenes and let the image motion feel like a premium
+              feature card.
+            </p>
+          </div>
+
+          <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5">
+            <div className="mb-4 flex items-center justify-between gap-4 px-1 text-xs uppercase tracking-[0.32em] text-white/40">
+              <span>Visual story</span>
+              <span>{String(activeSlide + 1).padStart(2, "0")} / 04</span>
+            </div>
+            <div
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+              onTouchStart={() => setIsPaused(true)}
+              onTouchEnd={() => setIsPaused(false)}
+              className="overflow-hidden rounded-[1.5rem] border border-white/[0.08] bg-[#050816] shadow-[0_24px_90px_rgba(0,0,0,0.35)]"
+            >
+              <div className="relative min-h-[18rem] sm:min-h-[24rem] lg:min-h-[30rem]">
+                <AnimatePresence mode="wait" custom={direction}>
+                  <motion.div
+                    key={activeSlide}
+                    custom={direction}
+                    initial={{ opacity: 0, x: direction > 0 ? 80 : -80, scale: 0.98 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    exit={{ opacity: 0, x: direction > 0 ? -80 : 80, scale: 0.98 }}
+                    transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={slideShowcase[activeSlide].src}
+                      alt={slideShowcase[activeSlide].title}
+                      fill
+                      sizes="(min-width: 1024px) 38rem, (min-width: 640px) 34rem, 100vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.06)_0%,rgba(5,8,22,0.2)_40%,rgba(5,8,22,0.78)_100%)]" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.16),transparent_34%)]" />
+                  </motion.div>
+                </AnimatePresence>
+
+                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                  <div className="space-y-3">
+                    <div className="text-xs uppercase tracking-[0.32em] text-white/45">
+                      {slideShowcase[activeSlide].tag}
+                    </div>
+                    <h3 className="max-w-sm text-2xl font-semibold tracking-[-0.05em] text-white sm:text-3xl">
+                      {slideShowcase[activeSlide].title}
+                    </h3>
+                    <p className="max-w-md text-sm leading-6 text-white/72 sm:text-base sm:leading-7">
+                      {slideShowcase[activeSlide].copy}
+                    </p>
+                  </div>
+
+                  <div className="grid gap-3 border-t border-white/[0.08] pt-5 text-sm text-white/60">
+                    <div className="flex items-center justify-between gap-4">
+                      <span>Next frame updates automatically</span>
+                      <span className="text-white/35">{String(activeSlide + 1).padStart(2, "0")}</span>
+                    </div>
+                    <div className="h-px w-full bg-gradient-to-r from-white/12 via-cyan-300/30 to-transparent" />
+                    <p className="max-w-sm">
+                      The split layout keeps the image large while the story copy stays easy to
+                      scan.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-4 flex items-center justify-center gap-3">
+              {slideShowcase.map((item, index) => (
+                <button
+                  key={item.src}
+                  type="button"
+                  aria-label={`Go to slide ${index + 1}`}
+                  onClick={() => goToSlide(index)}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    activeSlide === index
+                      ? "w-10 bg-white shadow-[0_0_0_4px_rgba(255,255,255,0.08)]"
+                      : "w-2.5 bg-white/30 hover:bg-white/45"
+                  }`}
+                />
+              ))}
+            </div>
+            <p className="mt-3 text-xs uppercase tracking-[0.28em] text-white/35">
+              Automatic scene change with dot navigation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
