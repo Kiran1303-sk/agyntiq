@@ -319,29 +319,31 @@ function ScrollShowcaseCard({
     <motion.article
       animate={{ scale: isActive ? 1 : 0.96, opacity: isActive ? 1 : 0.7 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
-      className="group relative mx-auto w-full max-w-[19rem] overflow-hidden rounded-[1.4rem] border border-white/[0.1] bg-white/[0.03] shadow-[0_14px_42px_rgba(0,0,0,0.24)] sm:max-w-[21rem] lg:max-w-[23rem]"
+      className="group relative mx-auto w-full max-w-[16.5rem] overflow-hidden rounded-[1.3rem] border border-white/[0.1] bg-white/[0.03] shadow-[0_12px_34px_rgba(0,0,0,0.24)] sm:max-w-[18rem] lg:max-w-[19rem]"
     >
-      <div className="relative aspect-[3/4] overflow-hidden">
+      <div className="relative aspect-[4/5] overflow-hidden">
         <Image
           src={item.src}
           alt={item.title}
           fill
-          sizes="(min-width: 1024px) 23rem, (min-width: 640px) 21rem, 19rem"
+          sizes="(min-width: 1024px) 19rem, (min-width: 640px) 18rem, 16.5rem"
           className="object-cover transition duration-700 group-hover:scale-[1.06]"
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.08)_0%,rgba(5,8,22,0.18)_34%,rgba(5,8,22,0.82)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.16),transparent_30%)]" />
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+      <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
         <div className="flex items-center justify-between gap-4 border-b border-white/[0.12] pb-3">
           <span className="text-xs uppercase tracking-[0.32em] text-white/50">{item.tag}</span>
           <span className="text-xs uppercase tracking-[0.3em] text-white/35">Featured image</span>
         </div>
-        <h3 className="mt-4 text-xl font-semibold tracking-[-0.04em] text-white sm:text-2xl">
+        <h3 className="mt-3 text-lg font-semibold tracking-[-0.04em] text-white sm:text-xl">
           {item.title}
         </h3>
-        <p className="mt-2 max-w-sm text-sm leading-6 text-white/68">{item.copy}</p>
+        <p className="mt-2 max-w-sm text-xs leading-5 text-white/68 sm:text-sm sm:leading-6">
+          {item.copy}
+        </p>
       </div>
     </motion.article>
   );
