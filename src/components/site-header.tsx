@@ -6,6 +6,15 @@ import { usePathname } from "next/navigation";
 
 type HeaderMode = "home" | "services";
 
+const serviceMenuItems = [
+  { label: "Services Overview", href: "/services" },
+  { label: "AI Strategy & Readiness Services", href: "/services/ai-strategy-readiness" },
+  { label: "AI Solution Development", href: "/services/ai-solution-development" },
+  { label: "AI Integration Services", href: "/services/ai-integration-services" },
+  { label: "AI Data Services", href: "/services/ai-data-services" },
+  { label: "AI Managed Services", href: "/services/ai-managed-services" }
+] as const;
+
 const navItems = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
@@ -26,7 +35,7 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
 
   const isActive = (href: string) => {
     if (href === "/services") {
-      return pathname === "/services";
+      return pathname.startsWith("/services");
     }
 
     if (mode === "home") {
@@ -65,9 +74,34 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
 
             if (item.href === "/services") {
               return (
-                <Link key={item.href} href="/services" className={className}>
-                  {item.label}
-                </Link>
+                <div key={item.href} className="group relative">
+                  <Link href="/services" className={className}>
+                    {item.label}
+                  </Link>
+                  <div className="absolute left-1/2 top-full z-50 mt-3 hidden w-[22rem] -translate-x-1/2 rounded-[1.6rem] border border-white/[0.12] bg-[#050816]/96 p-3 shadow-[0_24px_90px_rgba(0,0,0,0.35)] backdrop-blur-2xl group-hover:block group-focus-within:block">
+                    <div className="px-2 pb-2 text-[0.65rem] uppercase tracking-[0.28em] text-white/35">
+                      Service pages
+                    </div>
+                    <div className="grid gap-1">
+                      {serviceMenuItems.map((service) => {
+                        const serviceActive = pathname === service.href;
+                        return (
+                          <Link
+                            key={service.href}
+                            href={service.href}
+                            className={`rounded-2xl px-3 py-2 text-sm transition ${
+                              serviceActive
+                                ? "bg-white/[0.12] text-white"
+                                : "text-white/72 hover:bg-white/[0.06] hover:text-white"
+                            }`}
+                          >
+                            {service.label}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
               );
             }
 
