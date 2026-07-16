@@ -8,7 +8,7 @@ type ServiceDetailPageProps = {
 
 export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
   return (
-    <main className="relative overflow-hidden pt-32 md:pt-36">
+    <main className="relative overflow-hidden pt-44 md:pt-48">
       <SiteHeader mode="services" />
 
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
@@ -16,7 +16,7 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
         <div className="absolute right-[-12%] top-[10%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(0,214,255,0.12),transparent_68%)] blur-3xl" />
       </div>
 
-      <section className="section-shell py-16 md:py-20">
+      <section className="section-shell py-20 md:py-24">
         <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
           <div className="max-w-2xl" data-reveal>
             <div className="section-kicker">{data.eyebrow}</div>
