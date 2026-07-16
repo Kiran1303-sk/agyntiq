@@ -30,6 +30,14 @@ const navItems = [
   { label: "Contact", href: "#contact" }
 ] satisfies NavItem[];
 
+const serviceMenuItems = [
+  { label: "AI Strategy & Readiness Services", href: "/services/ai-strategy-readiness" },
+  { label: "AI Solution Development", href: "/services/ai-solution-development" },
+  { label: "AI Integration Services", href: "/services/ai-integration-services" },
+  { label: "AI Data Services", href: "/services/ai-data-services" },
+  { label: "AI Managed Services", href: "/services/ai-managed-services" }
+] as const;
+
 const problems = [
   {
     title: "Fragmented context",
@@ -363,6 +371,7 @@ export default function AuroraLanding() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("hero");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const pathname = usePathname();
   const { scrollYProgress } = useScroll();
@@ -540,17 +549,56 @@ export default function AuroraLanding() {
               const isRoute = item.href === "/services";
               return (
                 isRoute ? (
-                  <Link
+                  <div
                     key={item.href}
-                    href={item.href}
-                    className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
-                      isActive
-                        ? "bg-gradient-to-r from-aurora-blue/18 via-aurora-violet/18 to-aurora-cyan/18 text-white shadow-[0_0_0_1px_rgba(255,255,255,0.12)]"
-                        : "text-white/60 hover:bg-white/[0.08] hover:text-white"
-                    }`}
+                    className="relative"
+                    onMouseEnter={() => setServicesOpen(true)}
+                    onMouseLeave={() => setServicesOpen(false)}
+                    onFocusCapture={() => setServicesOpen(true)}
+                    onBlurCapture={(event) => {
+                      if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                        setServicesOpen(false);
+                      }
+                    }}
                   >
-                    {item.label}
-                  </Link>
+                    <Link
+                      href={item.href}
+                      className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
+                        isActive
+                          ? "bg-gradient-to-r from-aurora-blue/18 via-aurora-violet/18 to-aurora-cyan/18 text-white shadow-[0_0_0_1px_rgba(255,255,255,0.12)]"
+                          : "text-white/60 hover:bg-white/[0.08] hover:text-white"
+                      }`}
+                      aria-haspopup="menu"
+                      aria-expanded={servicesOpen}
+                    >
+                      {item.label}
+                    </Link>
+                    <div
+                      className={`absolute left-1/2 top-full z-[90] mt-4 w-[23rem] -translate-x-1/2 rounded-[1.5rem] border border-white/[0.14] bg-[#050816]/96 p-3 shadow-[0_24px_80px_rgba(0,0,0,0.4)] backdrop-blur-2xl transition-all duration-200 ${
+                        servicesOpen
+                          ? "pointer-events-auto visible translate-y-0 opacity-100"
+                          : "pointer-events-none invisible translate-y-2 opacity-0"
+                      }`}
+                      role="menu"
+                      aria-label="Services menu"
+                    >
+                      <div className="grid gap-1">
+                        {serviceMenuItems.map((service) => (
+                          <Link
+                            key={service.href}
+                            href={service.href}
+                            className={`rounded-2xl px-3 py-2.5 text-sm transition ${
+                              pathname === service.href
+                                ? "bg-white/[0.12] text-white"
+                                : "text-white/78 hover:bg-white/[0.08] hover:text-white"
+                            }`}
+                          >
+                            {service.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 ) : (
                   <a
                     key={item.href}
