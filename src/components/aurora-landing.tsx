@@ -61,13 +61,127 @@ const solutions = [
 
 const clientLogos = ["Google", "Microsoft", "AWS", "NVIDIA", "OpenAI", "Meta"];
 
-const services = [
-  "AI Assessment",
-  "Context Engineering",
-  "AI Agents & Workflows",
-  "Continuous AI Operations",
-  "Product Development",
-  "Lightning Pods"
+type ServiceSlide = {
+  number: string;
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  summary: string;
+  bullets: string[];
+  chips: string[];
+};
+
+const serviceSlides: ServiceSlide[] = [
+  {
+    number: "02",
+    eyebrow: "Core Services",
+    title: "AI Strategy & Readiness Services",
+    subtitle: "Help organizations identify, prioritize, and justify AI adoption.",
+    summary:
+      "A strategic starting point that turns AI ambition into a business case, an operating model, and a roadmap.",
+    bullets: [
+      "Help organizations identify, prioritize, and justify AI adoption",
+      "Core services: AI Strategy & Readiness, AI Solution Development, AI Integration Services, AI Data Services, AI Managed Services",
+      "Build the right foundation before anything is deployed"
+    ],
+    chips: ["Discovery-first", "Enterprise context", "ROI led"]
+  },
+  {
+    number: "03",
+    eyebrow: "Customer Value",
+    title: "From curiosity to compounding value",
+    subtitle: "A clean value map for business leaders deciding where AI should go next.",
+    summary:
+      "This slide shows how AI moves from interest to adoption, and then into measurable enterprise value.",
+    bullets: [
+      "Curiosity -> investment decisions",
+      "Strategy -> deployable AI products",
+      "AI becomes part of existing enterprise workflows, not a separate tool",
+      "Improved enterprise productivity within familiar tools and processes",
+      "Sustained long-term AI value through continuous optimization"
+    ],
+    chips: ["Value clarity", "Faster realization", "Reusable platform thinking"]
+  },
+  {
+    number: "04",
+    eyebrow: "Starting Point",
+    title: "Opportunity Identification and Roadmap Design",
+    subtitle: "Map the highest-value opportunities before you invest in the build.",
+    summary:
+      "A focused planning screen that organizes the strategy work into a clear sequence of decisions.",
+    bullets: [
+      "Enterprise AI opportunity mapping across departments",
+      "AI use-case identification workshops",
+      "AI maturity assessment",
+      "AI ROI modeling and value estimation",
+      "AI investment prioritization frameworks"
+    ],
+    chips: ["3-5 year roadmap", "Governed adoption", "Business case"]
+  },
+  {
+    number: "05",
+    eyebrow: "Core Revenue Generator",
+    title: "AI Solution Development",
+    subtitle: "Building AI-powered applications and tools.",
+    summary:
+      "This track turns strategy into usable products, accelerators, and enterprise-ready AI experiences.",
+    bullets: [
+      "Assistants and agents for internal teams",
+      "GenAI applications for summarization and report generation",
+      "Predictive AI solutions for forecasting and risk",
+      "Decision intelligence platforms with dashboards and recommendations",
+      "Industry-ready AI accelerators and reusable modules"
+    ],
+    chips: ["Productized delivery", "Reusable modules", "Faster build cycles"]
+  },
+  {
+    number: "06",
+    eyebrow: "Across the stack",
+    title: "AI Integration Services",
+    subtitle: "Embedding AI into existing enterprise technology systems.",
+    summary:
+      "Designed to make AI feel native inside the tools, workflows, and systems people already use.",
+    bullets: [
+      "Enterprise system integration",
+      "Workflow automation integration",
+      "Knowledge integration including RAG",
+      "Data and application connectivity",
+      "Digital workplace AI with copilots and assistants"
+    ],
+    chips: ["Workflow automation", "RAG ready", "Into existing tools"]
+  },
+  {
+    number: "07",
+    eyebrow: "Recurring Revenue Generator",
+    title: "AI Data Services",
+    subtitle: "Preparing and managing data required for AI systems.",
+    summary:
+      "This layer creates the structured, governed data foundation that makes every downstream model more reliable.",
+    bullets: [
+      "AI data engineering",
+      "AI data preparation",
+      "Data annotation and labeling",
+      "AI knowledge architecture",
+      "Data quality and governance"
+    ],
+    chips: ["Structured data", "Knowledge layer", "Governance first"]
+  },
+  {
+    number: "08",
+    eyebrow: "Subscription Based Value",
+    title: "AI Managed Services",
+    subtitle: "Long-term operation and optimization of AI systems.",
+    summary:
+      "An always-on service layer that keeps AI reliable, compliant, and improving after launch.",
+    bullets: [
+      "AI model monitoring",
+      "AI optimization services",
+      "AI reliability and support",
+      "AI governance and compliance",
+      "Continuous AI improvement"
+    ],
+    chips: ["Always-on operations", "Continuous optimization", "Subscription value"]
+  }
 ];
 
 const team = [
@@ -82,33 +196,6 @@ const team = [
   {
     title: "Fractional CTO depth",
     copy: "We&apos;ve been the first hire, the person on call, the one who fixes it at 2am."
-  }
-];
-
-const slideShowcase = [
-  {
-    src: "/slide.jpeg",
-    title: "Workspace focus",
-    copy: "The first image captures the calm, attentive start of the workday.",
-    tag: "01"
-  },
-  {
-    src: "/slide1.jpeg",
-    title: "Team alignment",
-    copy: "The second image shows people gathering around shared context and ideas.",
-    tag: "02"
-  },
-  {
-    src: "/slide2.jpeg",
-    title: "Digital execution",
-    copy: "The third image reflects systems, tools, and the work moving ahead.",
-    tag: "03"
-  },
-  {
-    src: "/slide3.jpeg",
-    title: "Finished momentum",
-    copy: "The final image suggests a polished result and a wider sense of scale.",
-    tag: "04"
   }
 ];
 
@@ -871,40 +958,41 @@ export default function AuroraLanding() {
           <div className="section-shell">
             <div className="section-heading mb-10" data-reveal>
               <div className="section-kicker">Solutions</div>
-              <h2 className="section-title">AI solutions that feel like a product, not a pitch.</h2>
+              <h2 className="section-title">Service capabilities, organized by slide.</h2>
               <p className="section-copy">
-                From copilots to analytics, the system should feel polished, fast, and
-                enterprise-grade.
+                The service deck now powers this compact index, so each capability stays connected
+                to the presentation content.
               </p>
             </div>
 
             <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3" data-parallax="10">
-              {services.map((item, index) => (
+              {serviceSlides.map((item) => (
                 <article
-                  key={item}
+                  key={item.number}
                   className="hover-sheen hover-glow group relative overflow-hidden rounded-[1.4rem] border border-white/[0.08] bg-white/[0.03] px-5 py-5 transition hover:border-white/16 hover:bg-white/[0.05]"
                   data-reveal
                 >
                   <div className="flex items-start justify-between gap-6">
                     <div>
                       <div className="text-xs uppercase tracking-[0.3em] text-white/40">
-                        0{index + 1}
+                        Slide {item.number}
                       </div>
                       <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-white">
-                        {item}
+                        {item.title}
                       </h3>
                       <p className="mt-3 max-w-lg text-sm leading-7 text-aurora-muted">
-                        {
-                          [
-                            "Assess AI readiness and identify the highest-value opportunity before you build.",
-                            "Structure the context behind your workflows so AI can actually use it.",
-                            "Deploy production agents and workflows that fit the business.",
-                            "Keep AI systems reliable after launch with continuous operations.",
-                            "Full-stack product engineering for companies modernizing or rescuing products.",
-                            "Embedded engineering teams combining expert operators and AI execution."
-                          ][index]
-                        }
+                        {item.subtitle}
                       </p>
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {item.chips.slice(0, 2).map((chip) => (
+                          <span
+                            key={chip}
+                            className="rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1 text-[0.68rem] uppercase tracking-[0.22em] text-white/55"
+                          >
+                            {chip}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                     <div className="mt-1 text-white/30 transition group-hover:text-white/70">
                       <IconArrow />
@@ -1305,139 +1393,165 @@ export default function AuroraLanding() {
 
 function ScrollShowcaseSection() {
   const [activeSlide, setActiveSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const [direction, setDirection] = useState(1);
+
+  const activeService = serviceSlides[activeSlide];
+  const nextService = serviceSlides[(activeSlide + 1) % serviceSlides.length];
 
   const goToSlide = (nextIndex: number) => {
     setActiveSlide((current) => {
       const movingForward =
-        nextIndex > current || (current === slideShowcase.length - 1 && nextIndex === 0);
+        nextIndex > current || (current === serviceSlides.length - 1 && nextIndex === 0);
       setDirection(movingForward ? 1 : -1);
       return nextIndex;
     });
   };
 
-  useEffect(() => {
-    if (isPaused || slideShowcase.length < 2) {
-      return;
-    }
-
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) {
-      return;
-    }
-
-    const id = window.setInterval(() => {
-      setDirection(1);
-      setActiveSlide((current) => (current + 1) % slideShowcase.length);
-    }, 2800);
-
-    return () => {
-      window.clearInterval(id);
-    };
-  }, [isPaused]);
-
   return (
     <section className="relative overflow-x-clip py-12 md:py-16">
       <div className="section-shell">
-        <div className="mx-auto max-w-5xl">
-          <div className="section-heading mx-auto max-w-2xl text-center" data-reveal>
-            <div className="section-kicker">Visual Story</div>
+        <div className="mx-auto max-w-6xl">
+          <div className="section-heading mx-auto max-w-3xl text-center" data-reveal>
+            <div className="section-kicker">Services</div>
             <h2 className="section-title max-w-[12ch] sm:max-w-none text-balance">
-              Four scenes, one polished image story.
+              Slides 02 to 08, turned into a service navigator.
             </h2>
-            <p className="section-copy mx-auto max-w-xl">
-              Tap the dots to switch between scenes and keep the featured image centered like a
-              premium spotlight card.
+            <p className="section-copy mx-auto max-w-2xl">
+              The presentation content now lives inside a centered, animated service deck with
+              navigation for strategy, delivery, integration, data, and managed services.
             </p>
           </div>
 
-          <div className="mx-auto mt-10 max-w-4xl rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5">
-            <div className="mb-4 flex items-center justify-between gap-4 px-1 text-xs uppercase tracking-[0.32em] text-white/40">
-              <span>Visual story</span>
-              <span>{String(activeSlide + 1).padStart(2, "0")} / 04</span>
+          <div
+            className="mt-8 flex gap-2 overflow-x-auto rounded-full border border-white/[0.08] bg-white/[0.03] p-2 text-xs uppercase tracking-[0.3em] text-white/50 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            data-reveal
+          >
+            {serviceSlides.map((slide, index) => (
+              <button
+                key={slide.number}
+                type="button"
+                aria-pressed={activeSlide === index}
+                onClick={() => goToSlide(index)}
+                className={`group flex min-w-[9.5rem] items-center gap-3 rounded-full px-4 py-3 text-left transition ${
+                  activeSlide === index
+                    ? "bg-white/[0.1] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.14)]"
+                    : "bg-transparent hover:bg-white/[0.05] hover:text-white"
+                }`}
+              >
+                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/[0.1] bg-white/[0.04] text-[0.72rem] font-semibold tracking-[0.26em] text-white/80">
+                  {slide.number}
+                </span>
+                <span className="text-[0.68rem] leading-4 tracking-[0.22em]">{slide.eyebrow}</span>
+              </button>
+            ))}
+          </div>
+
+          <div className="relative mx-auto mt-8 overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(255,255,255,0.04)_0%,rgba(255,255,255,0.02)_100%)] shadow-[0_30px_110px_rgba(0,0,0,0.34)]">
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute right-[-8%] top-[-12%] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(0,214,255,0.16),transparent_68%)] blur-3xl" />
+              <div className="absolute left-[-6%] bottom-[-12%] h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(79,140,255,0.14),transparent_68%)] blur-3xl" />
             </div>
-            <div
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
-              onTouchStart={() => setIsPaused(true)}
-              onTouchEnd={() => setIsPaused(false)}
-              className="overflow-hidden rounded-[1.5rem] border border-white/[0.08] bg-[#050816] shadow-[0_24px_90px_rgba(0,0,0,0.35)]"
-            >
-              <div className="grid lg:grid-cols-[1.08fr_0.92fr]">
-                <div className="relative min-h-[18rem] sm:min-h-[24rem] lg:min-h-[30rem]">
-                  <AnimatePresence mode="wait" custom={direction}>
-                    <motion.div
-                      key={activeSlide}
-                      custom={direction}
-                      initial={{ opacity: 0, x: direction > 0 ? 80 : -80, scale: 0.98 }}
-                      animate={{ opacity: 1, x: 0, scale: 1 }}
-                      exit={{ opacity: 0, x: direction > 0 ? -80 : 80, scale: 0.98 }}
-                      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                      className="absolute inset-0"
-                    >
-                      <Image
-                        src={slideShowcase[activeSlide].src}
-                        alt={slideShowcase[activeSlide].title}
-                        fill
-                        sizes="(min-width: 1024px) 38rem, (min-width: 640px) 34rem, 100vw"
-                        className="object-cover"
-                      />
-                      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.06)_0%,rgba(5,8,22,0.2)_40%,rgba(5,8,22,0.78)_100%)]" />
-                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.16),transparent_34%)]" />
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
-                <div className="flex flex-col justify-between gap-6 border-t border-white/[0.08] bg-[#050816]/72 p-5 backdrop-blur-xl sm:p-6 lg:border-l lg:border-t-0 lg:p-8">
-                  <div className="space-y-5">
-                    <div className="inline-flex rounded-full border border-white/[0.1] bg-white/[0.04] px-3 py-1 text-[0.7rem] uppercase tracking-[0.28em] text-white/55">
-                      Featured scene
-                    </div>
-                    <div className="space-y-3">
-                      <div className="text-xs uppercase tracking-[0.32em] text-white/45">
-                        {slideShowcase[activeSlide].tag}
+
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
+                key={activeService.number}
+                custom={direction}
+                initial={{ opacity: 0, x: direction > 0 ? 48 : -48, y: 10 }}
+                animate={{ opacity: 1, x: 0, y: 0 }}
+                exit={{ opacity: 0, x: direction > 0 ? -48 : 48, y: -10 }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                className="relative grid gap-0 lg:grid-cols-[0.9fr_1.1fr]"
+              >
+                <div className="relative overflow-hidden border-b border-white/[0.08] lg:border-b-0 lg:border-r">
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.12)_0%,rgba(5,8,22,0.78)_100%)]" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.1),transparent_28%)]" />
+                  <div className="relative flex min-h-[24rem] flex-col justify-between p-6 sm:p-8 lg:min-h-[34rem]">
+                    <div className="space-y-5">
+                      <div className="inline-flex rounded-full border border-white/[0.1] bg-white/[0.04] px-3 py-1 text-[0.7rem] uppercase tracking-[0.28em] text-white/55">
+                        {activeService.eyebrow}
                       </div>
-                      <h3 className="max-w-sm text-2xl font-semibold tracking-[-0.05em] text-white sm:text-3xl">
-                        {slideShowcase[activeSlide].title}
-                      </h3>
-                      <p className="max-w-md text-sm leading-6 text-white/72 sm:text-base sm:leading-7">
-                        {slideShowcase[activeSlide].copy}
-                      </p>
+                      <div className="text-7xl font-semibold tracking-[-0.1em] text-white/12 sm:text-8xl">
+                        {activeService.number}
+                      </div>
+                      <div className="max-w-md">
+                        <h3 className="text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">
+                          {activeService.title}
+                        </h3>
+                        <p className="mt-3 text-sm leading-6 text-white/70 sm:text-base sm:leading-7">
+                          {activeService.subtitle}
+                        </p>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="grid gap-3 border-t border-white/[0.08] pt-5 text-sm text-white/60">
-                    <div className="flex items-center justify-between gap-4">
-                      <span>Next frame updates automatically</span>
-                      <span className="text-white/35">
-                        {String(activeSlide + 1).padStart(2, "0")}
-                      </span>
+                    <div className="flex flex-wrap gap-2">
+                      {activeService.chips.map((chip) => (
+                        <span
+                          key={chip}
+                          className="rounded-full border border-white/[0.1] bg-white/[0.05] px-3 py-1.5 text-[0.68rem] uppercase tracking-[0.22em] text-white/60"
+                        >
+                          {chip}
+                        </span>
+                      ))}
                     </div>
-                    <div className="h-px w-full bg-gradient-to-r from-white/12 via-cyan-300/30 to-transparent" />
-                    <p className="max-w-sm">
-                      The split layout keeps the image large while the story copy stays easy to
-                      scan.
-                    </p>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            <div className="mt-4 flex items-center justify-center gap-3">
-              {slideShowcase.map((item, index) => (
-                <button
-                  key={item.src}
-                  type="button"
-                  aria-label={`Go to slide ${index + 1}`}
-                  onClick={() => goToSlide(index)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    activeSlide === index
-                      ? "w-10 bg-white shadow-[0_0_0_4px_rgba(255,255,255,0.08)]"
-                      : "w-2.5 bg-white/30 hover:bg-white/45"
-                  }`}
-                />
-              ))}
-            </div>
+                <div className="flex flex-col gap-6 p-6 sm:p-8 lg:p-10">
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="text-xs uppercase tracking-[0.32em] text-white/45">
+                      Slide {activeSlide + 1} of 07
+                    </div>
+                    <div className="text-xs uppercase tracking-[0.3em] text-white/35">
+                      Service navigator
+                    </div>
+                  </div>
+
+                  <div className="space-y-5">
+                    <p className="max-w-2xl text-base leading-7 text-white/72">
+                      {activeService.summary}
+                    </p>
+
+                    <div className="grid gap-3 md:grid-cols-2">
+                      {activeService.bullets.map((bullet, index) => (
+                        <motion.div
+                          key={bullet}
+                          initial={{ opacity: 0, y: 12 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.45, delay: index * 0.04 }}
+                          className="hover-sheen rounded-[1.2rem] border border-white/[0.08] bg-white/[0.04] p-4"
+                        >
+                          <div className="text-xs uppercase tracking-[0.28em] text-white/35">
+                            0{index + 1}
+                          </div>
+                          <div className="mt-2 text-sm leading-6 text-white/85">{bullet}</div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-auto grid gap-4 border-t border-white/[0.08] pt-6 sm:grid-cols-3">
+                    <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-4">
+                      <div className="text-xs uppercase tracking-[0.3em] text-white/35">Slide</div>
+                      <div className="mt-2 text-lg font-semibold tracking-[-0.03em] text-white">
+                        {String(activeSlide + 1).padStart(2, "0")} of 07
+                      </div>
+                    </div>
+                    <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-4">
+                      <div className="text-xs uppercase tracking-[0.3em] text-white/35">Format</div>
+                      <div className="mt-2 text-sm leading-6 text-white/75">
+                        Animated service deck
+                      </div>
+                    </div>
+                    <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-4">
+                      <div className="text-xs uppercase tracking-[0.3em] text-white/35">Next</div>
+                      <div className="mt-2 text-sm leading-6 text-white/75">
+                        {nextService.title}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </div>
