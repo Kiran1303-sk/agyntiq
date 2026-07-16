@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -32,6 +33,7 @@ type SiteHeaderProps = {
 
 export default function SiteHeader({ mode }: SiteHeaderProps) {
   const pathname = usePathname();
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   const isActive = (href: string) => {
     if (href === "/services") {
@@ -74,11 +76,30 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
 
             if (item.href === "/services") {
               return (
-                <div key={item.href} className="group relative">
-                  <Link href="/services" className={className}>
+                <div
+                  key={item.href}
+                  className="relative"
+                  onMouseEnter={() => setServicesOpen(true)}
+                  onMouseLeave={() => setServicesOpen(false)}
+                  onFocusCapture={() => setServicesOpen(true)}
+                  onBlurCapture={(event) => {
+                    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                      setServicesOpen(false);
+                    }
+                  }}
+                >
+                  <Link href="/services" className={className} aria-haspopup="menu">
                     {item.label}
                   </Link>
-                  <div className="absolute left-1/2 top-full z-50 mt-3 hidden w-[22rem] -translate-x-1/2 rounded-[1.6rem] border border-white/[0.12] bg-[#050816]/96 p-3 shadow-[0_24px_90px_rgba(0,0,0,0.35)] backdrop-blur-2xl group-hover:block group-focus-within:block">
+                  <div
+                    className={`absolute left-1/2 top-full z-[70] mt-3 w-[22rem] -translate-x-1/2 rounded-[1.6rem] border border-white/[0.12] bg-[#050816]/96 p-3 shadow-[0_24px_90px_rgba(0,0,0,0.35)] backdrop-blur-2xl transition-all duration-200 ${
+                      servicesOpen
+                        ? "pointer-events-auto visible translate-y-0 opacity-100"
+                        : "pointer-events-none invisible translate-y-2 opacity-0"
+                    }`}
+                    role="menu"
+                    aria-label="Service pages"
+                  >
                     <div className="px-2 pb-2 text-[0.65rem] uppercase tracking-[0.28em] text-white/35">
                       Service pages
                     </div>
