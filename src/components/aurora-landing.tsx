@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion, useScroll, useSpring, useTransform, type MotionValue } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -310,27 +310,23 @@ function AnimatedCounter({
 
 function ScrollShowcaseCard({
   item,
-  index,
-  progress
+  isActive
 }: {
   item: (typeof slideShowcase)[number];
-  index: number;
-  progress: MotionValue<number>;
+  isActive: boolean;
 }) {
-  const y = useTransform(progress, [0, 1], [index * 16, index * -18]);
-  const scale = useTransform(progress, [0, 1], [1, 1.03]);
-
   return (
     <motion.article
-      style={{ y, scale }}
-      className="group relative min-w-[72vw] shrink-0 snap-center overflow-hidden rounded-[1.6rem] border border-white/[0.1] bg-white/[0.03] shadow-[0_18px_64px_rgba(0,0,0,0.22)] sm:min-w-[24rem] lg:min-w-[28rem]"
+      animate={{ scale: isActive ? 1 : 0.95, opacity: isActive ? 1 : 0.72 }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
+      className="group relative min-w-[76vw] shrink-0 snap-center overflow-hidden rounded-[1.4rem] border border-white/[0.1] bg-white/[0.03] shadow-[0_14px_42px_rgba(0,0,0,0.24)] sm:min-w-[20rem] lg:min-w-[21rem]"
     >
-      <div className="relative aspect-[4/5] overflow-hidden">
+      <div className="relative aspect-[3/4] overflow-hidden">
         <Image
           src={item.src}
           alt={item.title}
           fill
-          sizes="(min-width: 1024px) 28rem, (min-width: 640px) 24rem, 72vw"
+          sizes="(min-width: 1024px) 21rem, (min-width: 640px) 20rem, 76vw"
           className="object-cover transition duration-700 group-hover:scale-[1.06]"
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.08)_0%,rgba(5,8,22,0.18)_34%,rgba(5,8,22,0.82)_100%)]" />
@@ -340,7 +336,7 @@ function ScrollShowcaseCard({
       <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
         <div className="flex items-center justify-between gap-4 border-b border-white/[0.12] pb-3">
           <span className="text-xs uppercase tracking-[0.32em] text-white/50">{item.tag}</span>
-          <span className="text-xs uppercase tracking-[0.3em] text-white/35">Scroll story</span>
+          <span className="text-xs uppercase tracking-[0.3em] text-white/35">Auto play</span>
         </div>
         <h3 className="mt-4 text-xl font-semibold tracking-[-0.04em] text-white sm:text-2xl">
           {item.title}
@@ -1342,50 +1338,124 @@ export default function AuroraLanding() {
 }
 
 function ScrollShowcaseSection() {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
-  const trackX = useTransform(scrollYProgress, [0, 1], ["0%", "-46%"]);
+  const railRef = useRef<HTMLDivElement | null>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    const rail = railRef.current;
+    if (!rail) {
+      return;
+    }
+
+    let frame = 0;
+
+    const updateActiveSlide = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const center = rail.scrollLeft + rail.clientWidth / 2;
+        let nextIndex = 0;
+        let closestDistance = Number.POSITIVE_INFINITY;
+
+        cardRefs.current.forEach((card, index) => {
+          if (!card) {
+            return;
+          }
+
+          const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+          const distance = Math.abs(cardCenter - center);
+
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            nextIndex = index;
+          }
+        });
+
+        setActiveSlide(nextIndex);
+      });
+    };
+
+    rail.addEventListener("scroll", updateActiveSlide, { passive: true });
+    updateActiveSlide();
+
+    return () => {
+      rail.removeEventListener("scroll", updateActiveSlide);
+      cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isPaused || slideShowcase.length < 2) {
+      return;
+    }
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      return;
+    }
+
+    const id = window.setInterval(() => {
+      setActiveSlide((current) => {
+        const nextIndex = (current + 1) % slideShowcase.length;
+        cardRefs.current[nextIndex]?.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "center"
+        });
+        return nextIndex;
+      });
+    }, 2800);
+
+    return () => {
+      window.clearInterval(id);
+    };
+  }, [isPaused]);
 
   return (
-    <section ref={sectionRef} className="relative overflow-x-clip py-12 md:py-16 lg:min-h-[165vh]">
+    <section className="relative overflow-x-clip py-12 md:py-16">
       <div className="section-shell">
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <div className="section-heading max-w-xl" data-reveal>
             <div className="section-kicker">Visual Story</div>
             <h2 className="section-title max-w-[12ch] sm:max-w-none text-balance">
-              From planning to scale, told through motion.
+              A visual sequence that advances on its own.
             </h2>
             <p className="section-copy max-w-lg">
-              The slides trace the journey from direction to context, execution, and a finished
-              outcome.
+              The frames move automatically one by one, while still letting users swipe through the
+              sequence at their own pace.
             </p>
           </div>
 
-          <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5 lg:sticky lg:top-24">
+          <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5">
             <div className="mb-4 flex items-center justify-between gap-4 px-1 text-xs uppercase tracking-[0.32em] text-white/40">
-              <span>Scroll Strip</span>
-              <span>04 frames</span>
+              <span>Auto carousel</span>
+              <span>{String(activeSlide + 1).padStart(2, "0")} / 04</span>
             </div>
             <div className="relative overflow-hidden rounded-[1.35rem] border border-white/[0.08] bg-[#050816]">
               <motion.div
-                style={{ x: trackX }}
-                className="flex w-max gap-3 p-3 sm:gap-4 sm:p-4 will-change-transform"
+                ref={railRef}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+                onTouchStart={() => setIsPaused(true)}
+                onTouchEnd={() => setIsPaused(false)}
+                className="flex gap-3 overflow-x-auto px-3 py-3 sm:gap-4 sm:px-4 sm:py-4 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
               >
                 {slideShowcase.map((item, index) => (
-                  <ScrollShowcaseCard
+                  <div
                     key={item.src}
-                    item={item}
-                    index={index}
-                    progress={scrollYProgress}
-                  />
+                    ref={(node) => {
+                      cardRefs.current[index] = node;
+                    }}
+                    className="shrink-0"
+                  >
+                    <ScrollShowcaseCard item={item} isActive={activeSlide === index} />
+                  </div>
                 ))}
               </motion.div>
             </div>
             <p className="mt-3 text-xs uppercase tracking-[0.28em] text-white/35">
-              Scroll the page to move the strip across the frames.
+              Swipe sideways on touch devices or let the carousel move automatically.
             </p>
           </div>
         </div>
