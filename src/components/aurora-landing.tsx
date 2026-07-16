@@ -2,26 +2,34 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { motion, useScroll, useSpring } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
+import { serviceSlides } from "@/components/services-data";
 
-type NavItem = {
-  label: string;
-  href: string;
-};
+type NavItem =
+  | {
+      label: string;
+      href: `#${string}`;
+    }
+  | {
+      label: string;
+      href: "/services";
+    };
 
-const navItems: NavItem[] = [
+const navItems = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
+  { label: "Services", href: "/services" },
   { label: "Solutions", href: "#solutions" },
   { label: "Industries", href: "#industries" },
   { label: "Blog", href: "#blog" },
   { label: "Pricing", href: "#pricing" },
   { label: "Contact", href: "#contact" }
-];
+] satisfies NavItem[];
 
 const problems = [
   {
@@ -60,129 +68,6 @@ const solutions = [
 ];
 
 const clientLogos = ["Google", "Microsoft", "AWS", "NVIDIA", "OpenAI", "Meta"];
-
-type ServiceSlide = {
-  number: string;
-  eyebrow: string;
-  title: string;
-  subtitle: string;
-  summary: string;
-  bullets: string[];
-  chips: string[];
-};
-
-const serviceSlides: ServiceSlide[] = [
-  {
-    number: "02",
-    eyebrow: "Core Services",
-    title: "AI Strategy & Readiness Services",
-    subtitle: "Help organizations identify, prioritize, and justify AI adoption.",
-    summary:
-      "A strategic starting point that turns AI ambition into a business case, an operating model, and a roadmap.",
-    bullets: [
-      "Help organizations identify, prioritize, and justify AI adoption",
-      "Core services: AI Strategy & Readiness, AI Solution Development, AI Integration Services, AI Data Services, AI Managed Services",
-      "Build the right foundation before anything is deployed"
-    ],
-    chips: ["Discovery-first", "Enterprise context", "ROI led"]
-  },
-  {
-    number: "03",
-    eyebrow: "Customer Value",
-    title: "From curiosity to compounding value",
-    subtitle: "A clean value map for business leaders deciding where AI should go next.",
-    summary:
-      "This slide shows how AI moves from interest to adoption, and then into measurable enterprise value.",
-    bullets: [
-      "Curiosity -> investment decisions",
-      "Strategy -> deployable AI products",
-      "AI becomes part of existing enterprise workflows, not a separate tool",
-      "Improved enterprise productivity within familiar tools and processes",
-      "Sustained long-term AI value through continuous optimization"
-    ],
-    chips: ["Value clarity", "Faster realization", "Reusable platform thinking"]
-  },
-  {
-    number: "04",
-    eyebrow: "Starting Point",
-    title: "Opportunity Identification and Roadmap Design",
-    subtitle: "Map the highest-value opportunities before you invest in the build.",
-    summary:
-      "A focused planning screen that organizes the strategy work into a clear sequence of decisions.",
-    bullets: [
-      "Enterprise AI opportunity mapping across departments",
-      "AI use-case identification workshops",
-      "AI maturity assessment",
-      "AI ROI modeling and value estimation",
-      "AI investment prioritization frameworks"
-    ],
-    chips: ["3-5 year roadmap", "Governed adoption", "Business case"]
-  },
-  {
-    number: "05",
-    eyebrow: "Core Revenue Generator",
-    title: "AI Solution Development",
-    subtitle: "Building AI-powered applications and tools.",
-    summary:
-      "This track turns strategy into usable products, accelerators, and enterprise-ready AI experiences.",
-    bullets: [
-      "Assistants and agents for internal teams",
-      "GenAI applications for summarization and report generation",
-      "Predictive AI solutions for forecasting and risk",
-      "Decision intelligence platforms with dashboards and recommendations",
-      "Industry-ready AI accelerators and reusable modules"
-    ],
-    chips: ["Productized delivery", "Reusable modules", "Faster build cycles"]
-  },
-  {
-    number: "06",
-    eyebrow: "Across the stack",
-    title: "AI Integration Services",
-    subtitle: "Embedding AI into existing enterprise technology systems.",
-    summary:
-      "Designed to make AI feel native inside the tools, workflows, and systems people already use.",
-    bullets: [
-      "Enterprise system integration",
-      "Workflow automation integration",
-      "Knowledge integration including RAG",
-      "Data and application connectivity",
-      "Digital workplace AI with copilots and assistants"
-    ],
-    chips: ["Workflow automation", "RAG ready", "Into existing tools"]
-  },
-  {
-    number: "07",
-    eyebrow: "Recurring Revenue Generator",
-    title: "AI Data Services",
-    subtitle: "Preparing and managing data required for AI systems.",
-    summary:
-      "This layer creates the structured, governed data foundation that makes every downstream model more reliable.",
-    bullets: [
-      "AI data engineering",
-      "AI data preparation",
-      "Data annotation and labeling",
-      "AI knowledge architecture",
-      "Data quality and governance"
-    ],
-    chips: ["Structured data", "Knowledge layer", "Governance first"]
-  },
-  {
-    number: "08",
-    eyebrow: "Subscription Based Value",
-    title: "AI Managed Services",
-    subtitle: "Long-term operation and optimization of AI systems.",
-    summary:
-      "An always-on service layer that keeps AI reliable, compliant, and improving after launch.",
-    bullets: [
-      "AI model monitoring",
-      "AI optimization services",
-      "AI reliability and support",
-      "AI governance and compliance",
-      "Continuous AI improvement"
-    ],
-    chips: ["Always-on operations", "Continuous optimization", "Subscription value"]
-  }
-];
 
 const team = [
   {
@@ -453,6 +338,7 @@ export default function AuroraLanding() {
   const [active, setActive] = useState("hero");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const pathname = usePathname();
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, {
     stiffness: 120,
@@ -481,6 +367,9 @@ export default function AuroraLanding() {
     };
   }, []);
 
+  const isNavItemActive = (href: string) =>
+    href.startsWith("/") ? pathname === href : active === href.slice(1);
+
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
@@ -505,6 +394,7 @@ export default function AuroraLanding() {
 
   useEffect(() => {
     const sections = navItems
+      .filter((item) => item.href.startsWith("#"))
       .map((item) => document.querySelector(item.href))
       .filter(Boolean) as HTMLElement[];
 
@@ -605,7 +495,7 @@ export default function AuroraLanding() {
         }`}
       >
         <div className="section-shell flex h-20 items-center justify-between gap-4 md:grid md:h-24 md:grid-cols-[1fr_auto_1fr] md:gap-10 md:gap-12">
-          <a href="#hero" className="group flex w-fit items-center justify-self-start pl-0">
+          <Link href="/" className="group flex w-fit items-center justify-self-start pl-0">
             <span className="relative block h-[64px] w-[176px] shrink-0 md:h-[108px] md:w-[324px]">
               <Image
                 src="/main-logo.png"
@@ -616,34 +506,49 @@ export default function AuroraLanding() {
                 className="object-contain object-left scale-[1.12] md:scale-[1.28]"
               />
             </span>
-          </a>
+          </Link>
 
           <nav className="hidden items-center gap-1 justify-self-center rounded-full bg-white/[0.06] p-2 shadow-glass backdrop-blur-2xl md:flex">
             {navItems.map((item) => {
-              const isActive = active === item.href.slice(1);
+              const isActive = isNavItemActive(item.href);
+              const isRoute = item.href === "/services";
               return (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
-                    isActive
-                      ? "bg-gradient-to-r from-aurora-blue/18 via-aurora-violet/18 to-aurora-cyan/18 text-white shadow-[0_0_0_1px_rgba(255,255,255,0.12)]"
-                      : "text-white/60 hover:bg-white/[0.08] hover:text-white"
-                  }`}
-                >
-                  {item.label}
-                </a>
+                isRoute ? (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
+                      isActive
+                        ? "bg-gradient-to-r from-aurora-blue/18 via-aurora-violet/18 to-aurora-cyan/18 text-white shadow-[0_0_0_1px_rgba(255,255,255,0.12)]"
+                        : "text-white/60 hover:bg-white/[0.08] hover:text-white"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
+                      isActive
+                        ? "bg-gradient-to-r from-aurora-blue/18 via-aurora-violet/18 to-aurora-cyan/18 text-white shadow-[0_0_0_1px_rgba(255,255,255,0.12)]"
+                        : "text-white/60 hover:bg-white/[0.08] hover:text-white"
+                    }`}
+                  >
+                    {item.label}
+                  </a>
+                )
               );
             })}
           </nav>
 
-          <a
-            href="#contact"
+          <Link
+            href="/services"
             className="magnetic hidden items-center justify-center gap-2 justify-self-end whitespace-nowrap rounded-full border border-white/[0.12] bg-gradient-to-r from-aurora-blue via-aurora-violet to-aurora-cyan px-6 py-3.5 text-sm font-semibold leading-none text-white shadow-[0_18px_60px_rgba(79,140,255,0.26)] backdrop-blur-xl transition hover:shadow-[0_20px_70px_rgba(0,214,255,0.28)] md:flex"
           >
-            Get Started
+            Explore Services
             <IconArrow />
-          </a>
+          </Link>
 
           <button
             type="button"
@@ -669,37 +574,46 @@ export default function AuroraLanding() {
         >
           <div className="mt-3 rounded-[1.75rem] border border-white/[0.12] bg-[#050816]/92 p-4 backdrop-blur-2xl shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
             <div className="grid gap-2">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={`rounded-2xl px-4 py-3 text-sm font-medium transition ${
-                    active === item.href.slice(1)
-                      ? "bg-white/[0.12] text-white"
-                      : "text-white/75 hover:bg-white/[0.06] hover:text-white"
-                  }`}
-                >
-                  {item.label}
-                </a>
-              ))}
+              {navItems.map((item) => {
+                const isRoute = item.href === "/services";
+                const commonClassName = `rounded-2xl px-4 py-3 text-sm font-medium transition ${
+                  isNavItemActive(item.href)
+                    ? "bg-white/[0.12] text-white"
+                    : "text-white/75 hover:bg-white/[0.06] hover:text-white"
+                }`;
+
+                return isRoute ? (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={commonClassName}
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a key={item.href} href={item.href} className={commonClassName}>
+                    {item.label}
+                  </a>
+                );
+              })}
             </div>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              <a
-                href="#services"
+              <Link
+                href="/services"
                 onClick={() => setMobileOpen(false)}
                 className="aurora-button inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-4 text-sm font-semibold text-white shadow-[0_18px_70px_rgba(79,140,255,0.22)]"
               >
-                Get Started
+                Explore Services
                 <IconArrow />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#contact"
                 onClick={() => setMobileOpen(false)}
                 className="magnetic inline-flex items-center justify-center gap-2 rounded-2xl border border-white/[0.12] bg-white/[0.04] px-5 py-4 text-sm font-semibold text-white/90 backdrop-blur-xl"
               >
                 Book Demo
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -743,19 +657,19 @@ export default function AuroraLanding() {
                 </p>
 
                 <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                  <a
-                    href="#services"
+                  <Link
+                    href="/services"
                     className="aurora-button hover-sheen magnetic inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-semibold text-white shadow-[0_18px_70px_rgba(79,140,255,0.24)] transition hover:shadow-[0_18px_80px_rgba(0,214,255,0.28)]"
                   >
-                    Explore Solutions
+                    Explore Services
                     <IconArrow />
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="#contact"
                     className="hover-glow magnetic inline-flex items-center justify-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.04] px-7 py-4 text-sm font-semibold text-white/90 backdrop-blur-xl transition hover:border-white/20 hover:bg-white/[0.08]"
                   >
                     Book Demo
-                  </a>
+                  </Link>
                 </div>
 
                 <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -873,7 +787,47 @@ export default function AuroraLanding() {
           </div>
         </section>
 
-        <ScrollShowcaseSection />
+        <section id="services" className="py-12 md:py-16">
+          <div className="section-shell">
+            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+              <div className="section-heading max-w-xl" data-reveal>
+                <div className="section-kicker">Services</div>
+                <h2 className="section-title">A dedicated services page for the full story.</h2>
+                <p className="section-copy max-w-lg">
+                  The homepage stays focused, while the service deck lives on its own page with the
+                  slide content, motion, and supporting detail.
+                </p>
+                <div className="mt-8">
+                  <Link
+                    href="/services"
+                    className="aurora-button hover-sheen magnetic inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-semibold text-white shadow-[0_18px_70px_rgba(79,140,255,0.24)] transition hover:shadow-[0_18px_80px_rgba(0,214,255,0.28)]"
+                  >
+                    Open Services Page
+                    <IconArrow />
+                  </Link>
+                </div>
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-3">
+                {serviceSlides.slice(0, 3).map((item) => (
+                  <article
+                    key={item.number}
+                    className="hover-sheen hover-glow rounded-[1.4rem] border border-white/[0.08] bg-white/[0.03] p-5"
+                    data-reveal
+                  >
+                    <div className="text-xs uppercase tracking-[0.3em] text-white/40">
+                      Slide {item.number}
+                    </div>
+                    <h3 className="mt-3 text-lg font-semibold tracking-[-0.03em] text-white">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-7 text-aurora-muted">{item.subtitle}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section className="py-12 md:py-16">
           <div className="section-shell">
@@ -910,89 +864,35 @@ export default function AuroraLanding() {
           </div>
         </section>
 
-        <section
-          id="services"
-          className="relative overflow-hidden scroll-mt-28 py-12 md:scroll-mt-32 md:py-16"
-        >
-          <div className="section-shell">
-            <div className="relative z-10 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-              <div className="section-heading" data-reveal>
-                <div className="section-kicker">Services</div>
-                <h2 className="section-title">
-                  Enterprise AI services built to move the business.
-                </h2>
-                <p className="section-copy">
-                  Strategy, product, automation, and AI delivery under one premium brand system.
-                </p>
-              </div>
-
-              <div
-                className="divide-y divide-white/[0.08] border-y border-white/[0.08]"
-                data-parallax="8"
-              >
-                {solutions.map((item, index) => (
-                  <div
-                    key={item.title}
-                    className="hover-underline grid gap-4 py-5 md:grid-cols-[0.18fr_0.82fr]"
-                    data-reveal
-                  >
-                    <div className="text-sm uppercase tracking-[0.3em] text-white/40">
-                      0{index + 1}
-                    </div>
-                    <div>
-                      <div className="text-xl font-semibold tracking-[-0.03em] text-white">
-                        {item.title}
-                      </div>
-                      <p className="mt-2 max-w-2xl text-base leading-7 text-aurora-muted">
-                        {item.copy}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section id="solutions" className="scroll-mt-28 py-12 md:scroll-mt-32 md:py-16">
           <div className="section-shell">
             <div className="section-heading mb-10" data-reveal>
               <div className="section-kicker">Solutions</div>
-              <h2 className="section-title">Service capabilities, organized by slide.</h2>
+              <h2 className="section-title">AI solutions that feel like a product, not a pitch.</h2>
               <p className="section-copy">
-                The service deck now powers this compact index, so each capability stays connected
-                to the presentation content.
+                From copilots to analytics, the system should feel polished, fast, and
+                enterprise-grade.
               </p>
             </div>
 
             <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3" data-parallax="10">
-              {serviceSlides.map((item) => (
+              {solutions.map((item, index) => (
                 <article
-                  key={item.number}
+                  key={item.title}
                   className="hover-sheen hover-glow group relative overflow-hidden rounded-[1.4rem] border border-white/[0.08] bg-white/[0.03] px-5 py-5 transition hover:border-white/16 hover:bg-white/[0.05]"
                   data-reveal
                 >
                   <div className="flex items-start justify-between gap-6">
                     <div>
                       <div className="text-xs uppercase tracking-[0.3em] text-white/40">
-                        Slide {item.number}
+                        0{index + 1}
                       </div>
                       <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-white">
                         {item.title}
                       </h3>
                       <p className="mt-3 max-w-lg text-sm leading-7 text-aurora-muted">
-                        {item.subtitle}
+                        {item.copy}
                       </p>
-                      <div className="mt-4 flex flex-wrap gap-2">
-                        {item.chips.slice(0, 2).map((chip) => (
-                          <span
-                            key={chip}
-                            className="rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1 text-[0.68rem] uppercase tracking-[0.22em] text-white/55"
-                          >
-                            {chip}
-                          </span>
-                        ))}
-                      </div>
                     </div>
                     <div className="mt-1 text-white/30 transition group-hover:text-white/70">
                       <IconArrow />
@@ -1356,15 +1256,25 @@ export default function AuroraLanding() {
                       Navigation
                     </div>
                     <div className="mt-4 space-y-3 text-sm text-white/70">
-                      {navItems.map((item) => (
-                        <a
-                          key={item.href}
-                          href={item.href}
-                          className="block transition hover:text-white"
-                        >
-                          {item.label}
-                        </a>
-                      ))}
+                      {navItems.map((item) =>
+                        item.href === "/services" ? (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className="block transition hover:text-white"
+                          >
+                            {item.label}
+                          </Link>
+                        ) : (
+                          <a
+                            key={item.href}
+                            href={item.href}
+                            className="block transition hover:text-white"
+                          >
+                            {item.label}
+                          </a>
+                        )
+                      )}
                     </div>
                   </div>
                   <div className="border-t border-white/[0.08] pt-4">
@@ -1391,170 +1301,4 @@ export default function AuroraLanding() {
   );
 }
 
-function ScrollShowcaseSection() {
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [direction, setDirection] = useState(1);
 
-  const activeService = serviceSlides[activeSlide];
-  const nextService = serviceSlides[(activeSlide + 1) % serviceSlides.length];
-
-  const goToSlide = (nextIndex: number) => {
-    setActiveSlide((current) => {
-      const movingForward =
-        nextIndex > current || (current === serviceSlides.length - 1 && nextIndex === 0);
-      setDirection(movingForward ? 1 : -1);
-      return nextIndex;
-    });
-  };
-
-  return (
-    <section className="relative overflow-x-clip py-12 md:py-16">
-      <div className="section-shell">
-        <div className="mx-auto max-w-6xl">
-          <div className="section-heading mx-auto max-w-3xl text-center" data-reveal>
-            <div className="section-kicker">Services</div>
-            <h2 className="section-title max-w-[12ch] sm:max-w-none text-balance">
-              Slides 02 to 08, turned into a service navigator.
-            </h2>
-            <p className="section-copy mx-auto max-w-2xl">
-              The presentation content now lives inside a centered, animated service deck with
-              navigation for strategy, delivery, integration, data, and managed services.
-            </p>
-          </div>
-
-          <div
-            className="mt-8 flex gap-2 overflow-x-auto rounded-full border border-white/[0.08] bg-white/[0.03] p-2 text-xs uppercase tracking-[0.3em] text-white/50 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-            data-reveal
-          >
-            {serviceSlides.map((slide, index) => (
-              <button
-                key={slide.number}
-                type="button"
-                aria-pressed={activeSlide === index}
-                onClick={() => goToSlide(index)}
-                className={`group flex min-w-[9.5rem] items-center gap-3 rounded-full px-4 py-3 text-left transition ${
-                  activeSlide === index
-                    ? "bg-white/[0.1] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.14)]"
-                    : "bg-transparent hover:bg-white/[0.05] hover:text-white"
-                }`}
-              >
-                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/[0.1] bg-white/[0.04] text-[0.72rem] font-semibold tracking-[0.26em] text-white/80">
-                  {slide.number}
-                </span>
-                <span className="text-[0.68rem] leading-4 tracking-[0.22em]">{slide.eyebrow}</span>
-              </button>
-            ))}
-          </div>
-
-          <div className="relative mx-auto mt-8 overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(255,255,255,0.04)_0%,rgba(255,255,255,0.02)_100%)] shadow-[0_30px_110px_rgba(0,0,0,0.34)]">
-            <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute right-[-8%] top-[-12%] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(0,214,255,0.16),transparent_68%)] blur-3xl" />
-              <div className="absolute left-[-6%] bottom-[-12%] h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(79,140,255,0.14),transparent_68%)] blur-3xl" />
-            </div>
-
-            <AnimatePresence mode="wait" custom={direction}>
-              <motion.div
-                key={activeService.number}
-                custom={direction}
-                initial={{ opacity: 0, x: direction > 0 ? 48 : -48, y: 10 }}
-                animate={{ opacity: 1, x: 0, y: 0 }}
-                exit={{ opacity: 0, x: direction > 0 ? -48 : 48, y: -10 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="relative grid gap-0 lg:grid-cols-[0.9fr_1.1fr]"
-              >
-                <div className="relative overflow-hidden border-b border-white/[0.08] lg:border-b-0 lg:border-r">
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.12)_0%,rgba(5,8,22,0.78)_100%)]" />
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.1),transparent_28%)]" />
-                  <div className="relative flex min-h-[24rem] flex-col justify-between p-6 sm:p-8 lg:min-h-[34rem]">
-                    <div className="space-y-5">
-                      <div className="inline-flex rounded-full border border-white/[0.1] bg-white/[0.04] px-3 py-1 text-[0.7rem] uppercase tracking-[0.28em] text-white/55">
-                        {activeService.eyebrow}
-                      </div>
-                      <div className="text-7xl font-semibold tracking-[-0.1em] text-white/12 sm:text-8xl">
-                        {activeService.number}
-                      </div>
-                      <div className="max-w-md">
-                        <h3 className="text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">
-                          {activeService.title}
-                        </h3>
-                        <p className="mt-3 text-sm leading-6 text-white/70 sm:text-base sm:leading-7">
-                          {activeService.subtitle}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2">
-                      {activeService.chips.map((chip) => (
-                        <span
-                          key={chip}
-                          className="rounded-full border border-white/[0.1] bg-white/[0.05] px-3 py-1.5 text-[0.68rem] uppercase tracking-[0.22em] text-white/60"
-                        >
-                          {chip}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-6 p-6 sm:p-8 lg:p-10">
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="text-xs uppercase tracking-[0.32em] text-white/45">
-                      Slide {activeSlide + 1} of 07
-                    </div>
-                    <div className="text-xs uppercase tracking-[0.3em] text-white/35">
-                      Service navigator
-                    </div>
-                  </div>
-
-                  <div className="space-y-5">
-                    <p className="max-w-2xl text-base leading-7 text-white/72">
-                      {activeService.summary}
-                    </p>
-
-                    <div className="grid gap-3 md:grid-cols-2">
-                      {activeService.bullets.map((bullet, index) => (
-                        <motion.div
-                          key={bullet}
-                          initial={{ opacity: 0, y: 12 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.45, delay: index * 0.04 }}
-                          className="hover-sheen rounded-[1.2rem] border border-white/[0.08] bg-white/[0.04] p-4"
-                        >
-                          <div className="text-xs uppercase tracking-[0.28em] text-white/35">
-                            0{index + 1}
-                          </div>
-                          <div className="mt-2 text-sm leading-6 text-white/85">{bullet}</div>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="mt-auto grid gap-4 border-t border-white/[0.08] pt-6 sm:grid-cols-3">
-                    <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-4">
-                      <div className="text-xs uppercase tracking-[0.3em] text-white/35">Slide</div>
-                      <div className="mt-2 text-lg font-semibold tracking-[-0.03em] text-white">
-                        {String(activeSlide + 1).padStart(2, "0")} of 07
-                      </div>
-                    </div>
-                    <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-4">
-                      <div className="text-xs uppercase tracking-[0.3em] text-white/35">Format</div>
-                      <div className="mt-2 text-sm leading-6 text-white/75">
-                        Animated service deck
-                      </div>
-                    </div>
-                    <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-4">
-                      <div className="text-xs uppercase tracking-[0.3em] text-white/35">Next</div>
-                      <div className="mt-2 text-sm leading-6 text-white/75">
-                        {nextService.title}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
