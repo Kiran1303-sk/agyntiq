@@ -1354,7 +1354,7 @@ function ScrollShowcaseSection() {
 
           <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5">
             <div className="mb-4 flex items-center justify-between gap-4 px-1 text-xs uppercase tracking-[0.32em] text-white/40">
-              <span>Visual sequence</span>
+              <span>Visual story</span>
               <span>{String(activeSlide + 1).padStart(2, "0")} / 04</span>
             </div>
             <div
@@ -1362,46 +1362,61 @@ function ScrollShowcaseSection() {
               onMouseLeave={() => setIsPaused(false)}
               onTouchStart={() => setIsPaused(true)}
               onTouchEnd={() => setIsPaused(false)}
-              className="relative overflow-hidden rounded-[1.5rem] border border-white/[0.08] bg-[#050816] shadow-[0_24px_90px_rgba(0,0,0,0.35)]"
+              className="overflow-hidden rounded-[1.5rem] border border-white/[0.08] bg-[#050816] shadow-[0_24px_90px_rgba(0,0,0,0.35)]"
             >
-              <div className="relative aspect-[4/5] sm:aspect-[16/10]">
-                <AnimatePresence mode="wait" custom={direction}>
-                  <motion.div
-                    key={activeSlide}
-                    custom={direction}
-                    initial={{ opacity: 0, x: direction > 0 ? 80 : -80, scale: 0.98 }}
-                    animate={{ opacity: 1, x: 0, scale: 1 }}
-                    exit={{ opacity: 0, x: direction > 0 ? -80 : 80, scale: 0.98 }}
-                    transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute inset-0"
-                  >
-                    <Image
-                      src={slideShowcase[activeSlide].src}
-                      alt={slideShowcase[activeSlide].title}
-                      fill
-                      sizes="(min-width: 1024px) 42rem, (min-width: 640px) 34rem, 100vw"
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.06)_0%,rgba(5,8,22,0.2)_40%,rgba(5,8,22,0.78)_100%)]" />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.16),transparent_34%)]" />
-                  </motion.div>
-                </AnimatePresence>
-
-                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6">
-                  <div className="rounded-[1.25rem] border border-white/[0.12] bg-[#050816]/48 p-4 backdrop-blur-xl sm:p-5">
-                    <div className="flex items-center justify-between gap-4 border-b border-white/[0.12] pb-3">
-                      <span className="text-xs uppercase tracking-[0.32em] text-white/50">
+              <div className="grid lg:grid-cols-[1.08fr_0.92fr]">
+                <div className="relative min-h-[18rem] sm:min-h-[24rem] lg:min-h-[30rem]">
+                  <AnimatePresence mode="wait" custom={direction}>
+                    <motion.div
+                      key={activeSlide}
+                      custom={direction}
+                      initial={{ opacity: 0, x: direction > 0 ? 80 : -80, scale: 0.98 }}
+                      animate={{ opacity: 1, x: 0, scale: 1 }}
+                      exit={{ opacity: 0, x: direction > 0 ? -80 : 80, scale: 0.98 }}
+                      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                      className="absolute inset-0"
+                    >
+                      <Image
+                        src={slideShowcase[activeSlide].src}
+                        alt={slideShowcase[activeSlide].title}
+                        fill
+                        sizes="(min-width: 1024px) 38rem, (min-width: 640px) 34rem, 100vw"
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.06)_0%,rgba(5,8,22,0.2)_40%,rgba(5,8,22,0.78)_100%)]" />
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.16),transparent_34%)]" />
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+                <div className="flex flex-col justify-between gap-6 border-t border-white/[0.08] bg-[#050816]/72 p-5 backdrop-blur-xl sm:p-6 lg:border-l lg:border-t-0 lg:p-8">
+                  <div className="space-y-5">
+                    <div className="inline-flex rounded-full border border-white/[0.1] bg-white/[0.04] px-3 py-1 text-[0.7rem] uppercase tracking-[0.28em] text-white/55">
+                      Featured scene
+                    </div>
+                    <div className="space-y-3">
+                      <div className="text-xs uppercase tracking-[0.32em] text-white/45">
                         {slideShowcase[activeSlide].tag}
-                      </span>
-                      <span className="text-xs uppercase tracking-[0.3em] text-white/35">
-                        Featured scene
+                      </div>
+                      <h3 className="max-w-sm text-2xl font-semibold tracking-[-0.05em] text-white sm:text-3xl">
+                        {slideShowcase[activeSlide].title}
+                      </h3>
+                      <p className="max-w-md text-sm leading-6 text-white/72 sm:text-base sm:leading-7">
+                        {slideShowcase[activeSlide].copy}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid gap-3 border-t border-white/[0.08] pt-5 text-sm text-white/60">
+                    <div className="flex items-center justify-between gap-4">
+                      <span>Next frame updates automatically</span>
+                      <span className="text-white/35">
+                        {String(activeSlide + 1).padStart(2, "0")}
                       </span>
                     </div>
-                    <h3 className="mt-3 text-lg font-semibold tracking-[-0.04em] text-white sm:text-2xl">
-                      {slideShowcase[activeSlide].title}
-                    </h3>
-                    <p className="mt-2 max-w-xl text-sm leading-6 text-white/72 sm:text-base">
-                      {slideShowcase[activeSlide].copy}
+                    <div className="h-px w-full bg-gradient-to-r from-white/12 via-cyan-300/30 to-transparent" />
+                    <p className="max-w-sm">
+                      The split layout keeps the image large while the story copy stays easy to
+                      scan.
                     </p>
                   </div>
                 </div>
