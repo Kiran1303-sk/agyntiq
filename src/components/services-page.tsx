@@ -1,15 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import SiteHeader from "@/components/site-header";
 import { serviceSlides } from "@/components/services-data";
+
+const serviceImages = ["/slide.jpeg", "/slide1.jpeg", "/slide2.jpeg", "/slide3.jpeg"];
 
 export default function ServicesPage() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [direction, setDirection] = useState(1);
 
   const activeService = serviceSlides[activeSlide];
+  const activeImage = serviceImages[activeSlide % serviceImages.length];
 
   const goToSlide = (nextIndex: number) => {
     setActiveSlide((current) => {
@@ -19,6 +24,14 @@ export default function ServicesPage() {
       return nextIndex;
     });
   };
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      goToSlide((activeSlide + 1) % serviceSlides.length);
+    }, 4500);
+
+    return () => window.clearInterval(timer);
+  }, [activeSlide]);
 
   return (
     <main className="relative overflow-hidden pt-24">
@@ -31,157 +44,126 @@ export default function ServicesPage() {
       </div>
 
       <section className="section-shell py-12 md:py-16">
-        <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
-          <div className="max-w-2xl pt-3" data-reveal>
-            <div className="section-kicker">Services</div>
-            <h1 className="section-title max-w-[11ch] text-balance">
-              Enterprise services, arranged like a premium product story.
-            </h1>
-            <p className="section-copy mt-5 max-w-xl">
-              Slides 02 to 08 now live on their own page with a polished feature panel, a clean
-              slide index, and a navigation bar that matches the rest of the site.
-            </p>
-
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              {[
-                "Strategy to scale",
-                "Build with context",
-                "Operate with confidence"
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="rounded-2xl border border-white/[0.08] bg-white/[0.03] px-4 py-4 text-sm text-white/72 backdrop-blur-xl"
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-[2rem] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.02)_100%)] p-4 shadow-[0_30px_110px_rgba(0,0,0,0.34)] md:p-5">
-            <div className="flex items-center justify-between gap-4 border-b border-white/[0.08] px-2 pb-4 text-xs uppercase tracking-[0.32em] text-white/35">
-              <span>Featured service</span>
-              <span>
-                {activeSlide + 1}/{serviceSlides.length}
-              </span>
-            </div>
-
-            <AnimatePresence mode="wait" custom={direction}>
-              <motion.div
-                key={activeService.number}
-                custom={direction}
-                initial={{ opacity: 0, x: direction > 0 ? 36 : -36, y: 8 }}
-                animate={{ opacity: 1, x: 0, y: 0 }}
-                exit={{ opacity: 0, x: direction > 0 ? -36 : 36, y: -8 }}
-                transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
-                className="grid gap-0 overflow-hidden rounded-[1.6rem] border border-white/[0.08] bg-[#060816] lg:grid-cols-[0.9fr_1.1fr]"
-              >
-                <div className="relative overflow-hidden border-b border-white/[0.08] lg:border-b-0 lg:border-r">
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.12)_0%,rgba(5,8,22,0.88)_100%)]" />
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_30%)]" />
-                  <div className="relative flex min-h-[24rem] flex-col justify-between p-6 sm:p-8 lg:min-h-[34rem]">
-                    <div className="space-y-5">
-                      <div className="inline-flex rounded-full border border-white/[0.1] bg-white/[0.04] px-3 py-1 text-[0.7rem] uppercase tracking-[0.28em] text-white/55">
-                        {activeService.eyebrow}
-                      </div>
-                      <div className="text-7xl font-semibold tracking-[-0.1em] text-white/12 sm:text-8xl">
-                        {activeService.number}
-                      </div>
-                      <div className="max-w-md">
-                        <h2 className="text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">
-                          {activeService.title}
-                        </h2>
-                        <p className="mt-3 text-sm leading-6 text-white/70 sm:text-base sm:leading-7">
-                          {activeService.subtitle}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2">
-                      {activeService.chips.map((chip) => (
-                        <span
-                          key={chip}
-                          className="rounded-full border border-white/[0.1] bg-white/[0.05] px-3 py-1.5 text-[0.68rem] uppercase tracking-[0.22em] text-white/60"
-                        >
-                          {chip}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-6 p-6 sm:p-8 lg:p-10">
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="text-xs uppercase tracking-[0.32em] text-white/45">
-                      Service chapter {activeSlide + 1}
-                    </div>
-                    <div className="text-xs uppercase tracking-[0.3em] text-white/35">
-                      Premium navigation
-                    </div>
-                  </div>
-
-                  <p className="max-w-2xl text-base leading-7 text-white/72">
-                    {activeService.summary}
-                  </p>
-
-                  <div className="space-y-3 border-t border-white/[0.08] pt-5">
-                    {activeService.bullets.map((bullet, index) => (
-                      <div
-                        key={bullet}
-                        className="flex gap-4 border-b border-white/[0.06] pb-3 last:border-b-0 last:pb-0"
-                      >
-                        <div className="min-w-10 text-xs uppercase tracking-[0.28em] text-white/35">
-                          0{index + 1}
-                        </div>
-                        <div className="text-sm leading-6 text-white/84">{bullet}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+        <div className="mx-auto max-w-5xl text-center" data-reveal>
+          <div className="section-kicker mx-auto">Services</div>
+          <h1 className="section-title mx-auto max-w-[14ch] text-balance">
+            A centered image-and-content carousel for the full service story.
+          </h1>
+          <p className="section-copy mx-auto mt-5 max-w-2xl">
+            The service slide deck stays in one cinematic frame: image on the left, context on the
+            right, with automatic motion and manual navigation.
+          </p>
         </div>
       </section>
 
       <section className="section-shell pb-14 md:pb-20">
-        <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl">
-          <div className="flex items-center justify-between border-b border-white/[0.08] px-5 py-4 text-xs uppercase tracking-[0.3em] text-white/35">
-            <span>Service index</span>
-            <span>02 - 08</span>
-          </div>
-
-          <div className="divide-y divide-white/[0.08]">
-            {serviceSlides.map((slide, index) => {
-              const selected = activeSlide === index;
-
-              return (
-                <button
-                  key={slide.number}
-                  type="button"
-                  onClick={() => goToSlide(index)}
-                  className={`grid w-full gap-4 px-5 py-5 text-left transition lg:grid-cols-[0.22fr_0.46fr_0.32fr] lg:items-center ${
-                    selected ? "bg-white/[0.05]" : "hover:bg-white/[0.03]"
-                  }`}
-                >
-                  <div className="flex items-center gap-4">
-                    <span className="text-sm uppercase tracking-[0.32em] text-white/35">
-                      {slide.number}
-                    </span>
-                    <span className="h-px flex-1 bg-gradient-to-r from-white/14 to-transparent lg:hidden" />
-                  </div>
-
-                  <div>
-                    <div className="text-lg font-semibold tracking-[-0.04em] text-white">
-                      {slide.title}
+        <div className="mx-auto max-w-7xl">
+          <div className="overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.02)_100%)] shadow-[0_30px_110px_rgba(0,0,0,0.34)]">
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
+                key={activeService.number}
+                custom={direction}
+                initial={{ opacity: 0, x: direction > 0 ? 42 : -42 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: direction > 0 ? -42 : 42 }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                className="grid gap-0 lg:grid-cols-[1.08fr_0.92fr]"
+              >
+                <div className="relative min-h-[22rem] overflow-hidden border-b border-white/[0.08] lg:min-h-[34rem] lg:border-b-0 lg:border-r">
+                  <Image
+                    src={activeImage}
+                    alt={activeService.title}
+                    fill
+                    priority={activeSlide === 0}
+                    sizes="(min-width: 1024px) 58vw, 100vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.02)_0%,rgba(5,8,22,0.32)_55%,rgba(5,8,22,0.82)_100%)]" />
+                  <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                    <div className="flex items-center justify-between text-xs uppercase tracking-[0.28em] text-white/55">
+                      <span>Visual story</span>
+                      <span>
+                        {String(activeSlide + 1).padStart(2, "0")} / {serviceSlides.length}
+                      </span>
                     </div>
-                    <div className="mt-2 text-sm leading-6 text-white/60">{slide.subtitle}</div>
+                    <div className="mt-4 max-w-md rounded-[1.4rem] border border-white/[0.08] bg-[#050816]/50 p-4 backdrop-blur-xl">
+                      <div className="text-sm uppercase tracking-[0.28em] text-white/40">
+                        {activeService.eyebrow}
+                      </div>
+                      <div className="mt-2 text-xl font-semibold tracking-[-0.04em] text-white sm:text-2xl">
+                        {activeService.title}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex min-h-[22rem] flex-col justify-between gap-8 p-6 sm:p-8 lg:min-h-[34rem] lg:p-10">
+                  <div>
+                    <div className="inline-flex rounded-full border border-white/[0.1] bg-white/[0.04] px-3 py-1 text-[0.7rem] uppercase tracking-[0.28em] text-white/55">
+                      {activeService.eyebrow}
+                    </div>
+                    <div className="mt-5 text-7xl font-semibold tracking-[-0.1em] text-white/12 sm:text-8xl">
+                      {activeService.number}
+                    </div>
+                    <div className="mt-4 max-w-md">
+                      <h2 className="text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">
+                        {activeService.title}
+                      </h2>
+                      <p className="mt-3 text-sm leading-6 text-white/70 sm:text-base sm:leading-7">
+                        {activeService.subtitle}
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="text-sm leading-6 text-white/48 lg:text-right">{slide.summary}</div>
-                </button>
-              );
-            })}
+                  <div className="space-y-4">
+                    <p className="max-w-2xl text-base leading-7 text-white/72">
+                      {activeService.summary}
+                    </p>
+
+                    <div className="grid gap-3">
+                      {activeService.bullets.map((bullet, index) => (
+                        <div
+                          key={bullet}
+                          className="flex gap-4 rounded-[1.1rem] border border-white/[0.08] bg-white/[0.03] px-4 py-4"
+                        >
+                          <div className="min-w-10 text-xs uppercase tracking-[0.28em] text-white/35">
+                            0{index + 1}
+                          </div>
+                          <div className="text-sm leading-6 text-white/85">{bullet}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            <div className="border-t border-white/[0.08] px-5 py-4 sm:px-6">
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <div className="text-xs uppercase tracking-[0.32em] text-white/35">
+                  Swipe, tap, or let it run
+                </div>
+                <div className="flex items-center gap-2">
+                  {serviceSlides.map((slide, index) => (
+                    <button
+                      key={slide.number}
+                      type="button"
+                      aria-label={`Go to ${slide.title}`}
+                      onClick={() => goToSlide(index)}
+                      className={`h-2.5 rounded-full transition-all ${
+                        activeSlide === index ? "w-10 bg-white" : "w-2.5 bg-white/35 hover:bg-white/60"
+                      }`}
+                    />
+                  ))}
+                </div>
+                <Link
+                  href="/#contact"
+                  className="text-xs uppercase tracking-[0.32em] text-white/40 transition hover:text-white/75"
+                >
+                  Talk to us
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
