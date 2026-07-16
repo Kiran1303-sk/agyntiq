@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -305,47 +305,6 @@ function AnimatedCounter({
       {formatStat(count, decimals)}
       {suffix}
     </span>
-  );
-}
-
-function ScrollShowcaseCard({
-  item,
-  isActive
-}: {
-  item: (typeof slideShowcase)[number];
-  isActive: boolean;
-}) {
-  return (
-    <motion.article
-      animate={{ scale: isActive ? 1 : 0.96, opacity: isActive ? 1 : 0.7 }}
-      transition={{ duration: 0.45, ease: "easeOut" }}
-      className="group relative mx-auto w-full max-w-[14.5rem] overflow-hidden rounded-[1.3rem] border border-white/[0.1] bg-white/[0.03] shadow-[0_12px_34px_rgba(0,0,0,0.24)] sm:max-w-[16rem] lg:max-w-[17rem]"
-    >
-      <div className="relative aspect-[4/5] overflow-hidden">
-        <Image
-          src={item.src}
-          alt={item.title}
-          fill
-          sizes="(min-width: 1024px) 17rem, (min-width: 640px) 16rem, 14.5rem"
-          className="object-cover transition duration-700 group-hover:scale-[1.06]"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.08)_0%,rgba(5,8,22,0.18)_34%,rgba(5,8,22,0.82)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.16),transparent_30%)]" />
-      </div>
-
-      <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
-        <div className="flex items-center justify-between gap-4 border-b border-white/[0.12] pb-3">
-          <span className="text-xs uppercase tracking-[0.32em] text-white/50">{item.tag}</span>
-          <span className="text-xs uppercase tracking-[0.3em] text-white/35">Featured image</span>
-        </div>
-        <h3 className="mt-3 text-lg font-semibold tracking-[-0.04em] text-white sm:text-xl">
-          {item.title}
-        </h3>
-        <p className="mt-2 max-w-sm text-xs leading-5 text-white/68 sm:text-sm sm:leading-6">
-          {item.copy}
-        </p>
-      </div>
-    </motion.article>
   );
 }
 
@@ -1345,28 +1304,18 @@ export default function AuroraLanding() {
 }
 
 function ScrollShowcaseSection() {
-  const railRef = useRef<HTMLDivElement | null>(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [direction, setDirection] = useState(1);
 
-  useEffect(() => {
-    const rail = railRef.current;
-    if (!rail) {
-      return;
-    }
-
-    const updateActiveSlide = () => {
-      const nextIndex = Math.round(rail.scrollLeft / rail.clientWidth);
-      setActiveSlide(Math.min(slideShowcase.length - 1, Math.max(0, nextIndex)));
-    };
-
-    rail.addEventListener("scroll", updateActiveSlide, { passive: true });
-    updateActiveSlide();
-
-    return () => {
-      rail.removeEventListener("scroll", updateActiveSlide);
-    };
-  }, []);
+  const goToSlide = (nextIndex: number) => {
+    setActiveSlide((current) => {
+      const movingForward =
+        nextIndex > current || (current === slideShowcase.length - 1 && nextIndex === 0);
+      setDirection(movingForward ? 1 : -1);
+      return nextIndex;
+    });
+  };
 
   useEffect(() => {
     if (isPaused || slideShowcase.length < 2) {
@@ -1379,17 +1328,8 @@ function ScrollShowcaseSection() {
     }
 
     const id = window.setInterval(() => {
-      setActiveSlide((current) => {
-        const nextIndex = (current + 1) % slideShowcase.length;
-        const rail = railRef.current;
-        if (rail) {
-          rail.scrollTo({
-            left: nextIndex * rail.clientWidth,
-            behavior: "smooth"
-          });
-        }
-        return nextIndex;
-      });
+      setDirection(1);
+      setActiveSlide((current) => (current + 1) % slideShowcase.length);
     }, 2800);
 
     return () => {
@@ -1404,62 +1344,87 @@ function ScrollShowcaseSection() {
           <div className="section-heading max-w-xl" data-reveal>
             <div className="section-kicker">Visual Story</div>
             <h2 className="section-title max-w-[12ch] sm:max-w-none text-balance">
-              Four images that tell the story of the work.
+              Four scenes, one polished image story.
             </h2>
             <p className="section-copy max-w-lg">
-              Each frame highlights a different part of the journey, from the first meeting to the
-              final result.
+              Tap the dots to switch between scenes and let the image motion feel like a premium
+              feature card.
             </p>
           </div>
 
           <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5">
             <div className="mb-4 flex items-center justify-between gap-4 px-1 text-xs uppercase tracking-[0.32em] text-white/40">
-              <span>Image set</span>
+              <span>Visual sequence</span>
               <span>{String(activeSlide + 1).padStart(2, "0")} / 04</span>
             </div>
             <div
-              ref={railRef}
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
               onTouchStart={() => setIsPaused(true)}
               onTouchEnd={() => setIsPaused(false)}
-              className="relative overflow-x-auto overflow-y-hidden rounded-[1.35rem] border border-white/[0.08] bg-[#050816] snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+              className="relative overflow-hidden rounded-[1.5rem] border border-white/[0.08] bg-[#050816] shadow-[0_24px_90px_rgba(0,0,0,0.35)]"
             >
-              <div className="flex">
-                {slideShowcase.map((item, index) => (
-                  <div
-                    key={item.src}
-                    className="flex min-w-full snap-center items-center justify-center px-4 py-4 sm:px-6 sm:py-6"
+              <div className="relative aspect-[4/5] sm:aspect-[16/10]">
+                <AnimatePresence mode="wait" custom={direction}>
+                  <motion.div
+                    key={activeSlide}
+                    custom={direction}
+                    initial={{ opacity: 0, x: direction > 0 ? 80 : -80, scale: 0.98 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    exit={{ opacity: 0, x: direction > 0 ? -80 : 80, scale: 0.98 }}
+                    transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                    className="absolute inset-0"
                   >
-                    <ScrollShowcaseCard item={item} isActive={activeSlide === index} />
+                    <Image
+                      src={slideShowcase[activeSlide].src}
+                      alt={slideShowcase[activeSlide].title}
+                      fill
+                      sizes="(min-width: 1024px) 42rem, (min-width: 640px) 34rem, 100vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.06)_0%,rgba(5,8,22,0.2)_40%,rgba(5,8,22,0.78)_100%)]" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.16),transparent_34%)]" />
+                  </motion.div>
+                </AnimatePresence>
+
+                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6">
+                  <div className="rounded-[1.25rem] border border-white/[0.12] bg-[#050816]/48 p-4 backdrop-blur-xl sm:p-5">
+                    <div className="flex items-center justify-between gap-4 border-b border-white/[0.12] pb-3">
+                      <span className="text-xs uppercase tracking-[0.32em] text-white/50">
+                        {slideShowcase[activeSlide].tag}
+                      </span>
+                      <span className="text-xs uppercase tracking-[0.3em] text-white/35">
+                        Featured scene
+                      </span>
+                    </div>
+                    <h3 className="mt-3 text-lg font-semibold tracking-[-0.04em] text-white sm:text-2xl">
+                      {slideShowcase[activeSlide].title}
+                    </h3>
+                    <p className="mt-2 max-w-xl text-sm leading-6 text-white/72 sm:text-base">
+                      {slideShowcase[activeSlide].copy}
+                    </p>
                   </div>
-                ))}
+                </div>
               </div>
             </div>
-            <div className="mt-3 flex items-center justify-center gap-2">
+
+            <div className="mt-4 flex items-center justify-center gap-3">
               {slideShowcase.map((item, index) => (
                 <button
                   key={item.src}
                   type="button"
                   aria-label={`Go to slide ${index + 1}`}
-                  onClick={() => {
-                    setActiveSlide(index);
-                    const rail = railRef.current;
-                    if (rail) {
-                      rail.scrollTo({
-                        left: index * rail.clientWidth,
-                        behavior: "smooth"
-                      });
-                    }
-                  }}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    activeSlide === index ? "w-7 bg-white" : "w-2.5 bg-white/30"
+                  onClick={() => goToSlide(index)}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    activeSlide === index
+                      ? "w-10 bg-white shadow-[0_0_0_4px_rgba(255,255,255,0.08)]"
+                      : "w-2.5 bg-white/30 hover:bg-white/45"
                   }`}
                 />
               ))}
             </div>
             <p className="mt-3 text-xs uppercase tracking-[0.28em] text-white/35">
-              Swipe sideways on touch devices or let the images advance automatically.
+              Automatic scene change with dot navigation.
             </p>
           </div>
         </div>
