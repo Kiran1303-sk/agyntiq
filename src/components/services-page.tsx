@@ -34,7 +34,7 @@ export default function ServicesPage() {
   }, [activeSlide]);
 
   return (
-    <main className="relative overflow-hidden pt-44 md:pt-48">
+    <main className="relative overflow-hidden pt-52 md:pt-56">
       <SiteHeader mode="services" />
 
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">

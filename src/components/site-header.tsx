@@ -91,7 +91,7 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
                     {item.label}
                   </Link>
                   <div
-                    className={`absolute left-1/2 top-full z-[90] mt-4 w-[23rem] -translate-x-1/2 rounded-[1.5rem] border border-white/[0.14] bg-[#050816]/96 p-3 shadow-[0_24px_80px_rgba(0,0,0,0.4)] backdrop-blur-2xl transition-all duration-200 ${
+                    className={`absolute left-1/2 top-full z-[90] mt-3 w-[19.5rem] -translate-x-1/2 rounded-[1.35rem] border border-white/[0.12] bg-[#070b19]/98 p-2.5 shadow-[0_22px_70px_rgba(0,0,0,0.42)] backdrop-blur-2xl transition-all duration-200 ${
                       servicesOpen
                         ? "pointer-events-auto visible translate-y-0 opacity-100"
                         : "pointer-events-none invisible translate-y-2 opacity-0"
@@ -99,15 +99,18 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
                     role="menu"
                     aria-label="Services menu"
                   >
+                    <div className="px-2 pb-2 text-[0.65rem] uppercase tracking-[0.32em] text-white/34">
+                      Service pages
+                    </div>
                     <div className="grid gap-1">
                       {serviceMenuItems.map((service) => (
                         <Link
                           key={service.href}
                           href={service.href}
-                          className={`rounded-2xl px-3 py-2.5 text-sm transition ${
+                          className={`rounded-[1rem] px-3 py-2.5 text-[0.95rem] leading-6 transition ${
                             pathname === service.href
-                              ? "bg-white/[0.12] text-white"
-                              : "text-white/78 hover:bg-white/[0.08] hover:text-white"
+                              ? "bg-white/[0.1] text-white"
+                              : "text-white/76 hover:bg-white/[0.06] hover:text-white"
                           }`}
                         >
                           {service.label}
