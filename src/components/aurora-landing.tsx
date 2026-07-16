@@ -349,35 +349,6 @@ function ScrollShowcaseCard({
   );
 }
 
-function SectionBackdrop({
-  src,
-  imageClassName,
-  scrimClassName
-}: {
-  src: string;
-  imageClassName?: string;
-  scrimClassName?: string;
-}) {
-  return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-      <Image
-        src={src}
-        alt=""
-        fill
-        sizes="100vw"
-        className={`object-cover object-center ${imageClassName ?? ""}`}
-      />
-      <div
-        className={`absolute inset-0 ${
-          scrimClassName ??
-          "bg-[linear-gradient(180deg,rgba(5,8,22,0.18)_0%,rgba(5,8,22,0.58)_62%,rgba(5,8,22,0.9)_100%)]"
-        }`}
-      />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_24%),radial-gradient(circle_at_82%_18%,rgba(0,214,255,0.16),transparent_20%),radial-gradient(circle_at_50%_80%,rgba(79,140,255,0.12),transparent_26%)]" />
-    </div>
-  );
-}
-
 function IconSpark() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
@@ -693,11 +664,6 @@ export default function AuroraLanding() {
           id="hero"
           className="relative scroll-mt-28 overflow-hidden pb-10 pt-16 md:scroll-mt-32 md:pb-28 md:pt-24"
         >
-          <SectionBackdrop
-            src="/bg1.jpeg"
-            imageClassName="opacity-42 saturate-150"
-            scrimClassName="bg-[linear-gradient(180deg,rgba(5,8,22,0.2)_0%,rgba(5,8,22,0.52)_48%,rgba(5,8,22,0.88)_100%)]"
-          />
           <div className="section-shell relative z-10">
             <div className="noise-overlay" />
             <div className="absolute inset-x-0 top-[-10%] h-[48rem] bg-[radial-gradient(circle_at_18%_18%,rgba(76,110,255,0.22),transparent_24%),radial-gradient(circle_at_82%_22%,rgba(0,162,255,0.2),transparent_20%),radial-gradient(circle_at_52%_78%,rgba(74,93,255,0.12),transparent_26%)]" />
@@ -824,11 +790,6 @@ export default function AuroraLanding() {
           id="about"
           className="relative overflow-hidden scroll-mt-28 py-12 md:scroll-mt-32 md:py-16"
         >
-          <SectionBackdrop
-            src="/bg2.jpeg"
-            imageClassName="opacity-30 saturate-150"
-            scrimClassName="bg-[linear-gradient(180deg,rgba(5,8,22,0.24)_0%,rgba(5,8,22,0.64)_72%,rgba(5,8,22,0.92)_100%)]"
-          />
           <div className="section-shell relative z-10">
             <div className="section-heading mb-10" data-reveal>
               <div className="section-kicker">About</div>
@@ -907,11 +868,6 @@ export default function AuroraLanding() {
           id="services"
           className="relative overflow-hidden scroll-mt-28 py-12 md:scroll-mt-32 md:py-16"
         >
-          <SectionBackdrop
-            src="/bg3.jpeg"
-            imageClassName="opacity-28 saturate-150"
-            scrimClassName="bg-[linear-gradient(180deg,rgba(5,8,22,0.24)_0%,rgba(5,8,22,0.66)_68%,rgba(5,8,22,0.93)_100%)]"
-          />
           <div className="section-shell">
             <div className="relative z-10 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
               <div className="section-heading" data-reveal>
@@ -1263,11 +1219,6 @@ export default function AuroraLanding() {
         id="contact"
         className="relative mt-8 overflow-hidden border-t border-white/10 bg-[#050816]/80 py-12 md:py-16"
       >
-        <SectionBackdrop
-          src="/bg4.jpeg"
-          imageClassName="opacity-32 saturate-150"
-          scrimClassName="bg-[linear-gradient(180deg,rgba(5,8,22,0.22)_0%,rgba(5,8,22,0.62)_56%,rgba(5,8,22,0.92)_100%)]"
-        />
         <div className="section-shell relative z-10">
           <div className="hover-sheen overflow-hidden rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-7 md:p-10 backdrop-blur-[2px]">
             <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
