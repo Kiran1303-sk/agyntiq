@@ -88,26 +88,26 @@ const team = [
 const slideShowcase = [
   {
     src: "/slide.jpeg",
-    title: "Planning and direction",
-    copy: "The opening frame sets the tone for the roadmap and the next move.",
+    title: "Workspace focus",
+    copy: "The first image captures the calm, attentive start of the workday.",
     tag: "01"
   },
   {
     src: "/slide1.jpeg",
-    title: "Clear context",
-    copy: "A closer look at the signals, structure, and details driving the work.",
+    title: "Team alignment",
+    copy: "The second image shows people gathering around shared context and ideas.",
     tag: "02"
   },
   {
     src: "/slide2.jpeg",
-    title: "Execution layer",
-    copy: "This frame carries the motion forward with a stronger sense of flow.",
+    title: "Digital execution",
+    copy: "The third image reflects systems, tools, and the work moving ahead.",
     tag: "03"
   },
   {
     src: "/slide3.jpeg",
-    title: "Finished scale",
-    copy: "The sequence closes on a polished, complete view of the system.",
+    title: "Finished momentum",
+    copy: "The final image suggests a polished result and a wider sense of scale.",
     tag: "04"
   }
 ];
@@ -336,7 +336,7 @@ function ScrollShowcaseCard({
       <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
         <div className="flex items-center justify-between gap-4 border-b border-white/[0.12] pb-3">
           <span className="text-xs uppercase tracking-[0.32em] text-white/50">{item.tag}</span>
-          <span className="text-xs uppercase tracking-[0.3em] text-white/35">Auto play</span>
+          <span className="text-xs uppercase tracking-[0.3em] text-white/35">Featured image</span>
         </div>
         <h3 className="mt-4 text-xl font-semibold tracking-[-0.04em] text-white sm:text-2xl">
           {item.title}
@@ -1397,17 +1397,17 @@ function ScrollShowcaseSection() {
           <div className="section-heading max-w-xl" data-reveal>
             <div className="section-kicker">Visual Story</div>
             <h2 className="section-title max-w-[12ch] sm:max-w-none text-balance">
-              A visual sequence that advances on its own.
+              Four images that tell the story of the work.
             </h2>
             <p className="section-copy max-w-lg">
-              The frames move automatically one by one, while still letting users swipe through the
-              sequence at their own pace.
+              Each frame highlights a different part of the journey, from the first meeting to the
+              final result.
             </p>
           </div>
 
           <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5">
             <div className="mb-4 flex items-center justify-between gap-4 px-1 text-xs uppercase tracking-[0.32em] text-white/40">
-              <span>Auto carousel</span>
+              <span>Image set</span>
               <span>{String(activeSlide + 1).padStart(2, "0")} / 04</span>
             </div>
             <div
@@ -1452,7 +1452,7 @@ function ScrollShowcaseSection() {
               ))}
             </div>
             <p className="mt-3 text-xs uppercase tracking-[0.28em] text-white/35">
-              Swipe sideways on touch devices or let the carousel move automatically.
+              Swipe sideways on touch devices or let the images advance automatically.
             </p>
           </div>
         </div>
