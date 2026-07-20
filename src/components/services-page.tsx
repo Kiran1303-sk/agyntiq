@@ -29,10 +29,10 @@ const stagger = {
 };
 
 const primaryButton =
-  "group relative overflow-hidden rounded-full border border-cyan-200/20 bg-[linear-gradient(90deg,#00D5FF_0%,#4F8CFF_52%,#8B5CF6_100%)] px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_60px_rgba(0,213,255,0.22)] transition hover:-translate-y-0.5 hover:shadow-[0_24px_80px_rgba(79,140,255,0.34)]";
+  "group relative overflow-hidden rounded-full border border-fuchsia-300/24 bg-[linear-gradient(90deg,#2E6CEB_0%,#7547DF_48%,#C23BD9_100%)] px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_60px_rgba(126,87,255,0.28)] transition hover:-translate-y-0.5 hover:shadow-[0_24px_80px_rgba(194,59,217,0.34)]";
 
 const secondaryButton =
-  "group rounded-full border border-cyan-100/18 bg-[#071029]/72 px-6 py-3 text-sm font-semibold text-white/84 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition hover:-translate-y-0.5 hover:border-cyan-200/38 hover:bg-cyan-300/[0.08] hover:text-white";
+  "group rounded-full border border-fuchsia-200/22 bg-[#080b25]/78 px-6 py-3 text-sm font-semibold text-white/84 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition hover:-translate-y-0.5 hover:border-fuchsia-200/44 hover:bg-fuchsia-300/[0.08] hover:text-white";
 
 const services = [
   {
@@ -272,26 +272,26 @@ function Icon({ name }: { name: string }) {
 
 function NeuralGraphic({ index }: { index: number }) {
   return (
-    <div className="group relative min-h-[22rem] overflow-hidden rounded-[1.4rem] border border-cyan-300/14 bg-[linear-gradient(145deg,rgba(3,10,31,0.92),rgba(4,8,26,0.96)_48%,rgba(13,16,42,0.88))] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_24px_90px_rgba(0,0,0,0.28)]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,213,255,0.16),transparent_34%),radial-gradient(circle_at_76%_70%,rgba(139,92,246,0.16),transparent_34%)] opacity-90 transition duration-500 group-hover:opacity-100" />
+    <div className="group relative min-h-[22rem] overflow-hidden rounded-[1.4rem] border border-[#4d2aad]/55 bg-[linear-gradient(135deg,rgba(5,12,38,0.96)_0%,rgba(7,8,28,0.98)_48%,rgba(42,7,46,0.96)_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_24px_90px_rgba(0,0,0,0.32),0_0_34px_rgba(119,57,255,0.12)]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_18%,rgba(14,103,255,0.16),transparent_34%),radial-gradient(circle_at_78%_72%,rgba(216,62,255,0.16),transparent_34%)] opacity-90 transition duration-500 group-hover:opacity-100" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:32px_32px] opacity-25" />
       <motion.div
         animate={{ y: [0, -10, 0], rotate: [0, 2.5, 0] }}
         transition={{ duration: 6 + index, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-[1.6rem] border border-cyan-300/22 bg-cyan-300/[0.04] shadow-[0_0_90px_rgba(0,213,255,0.18)]"
+        className="absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-[0.5rem] border border-[#1d8fff]/26 bg-[#1d8fff]/[0.035] shadow-[0_0_90px_rgba(126,87,255,0.22)]"
       />
       <motion.div
         animate={{ scale: [1, 1.1, 1], opacity: [0.45, 0.85, 0.45] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full border border-violet-300/32"
+        className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-[0.45rem] border border-fuchsia-300/34"
       />
       <motion.div
         animate={{ x: ["-25%", "125%"] }}
         transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: index * 0.25 }}
-        className="absolute top-20 h-px w-1/2 bg-[linear-gradient(90deg,transparent,rgba(103,232,249,0.7),transparent)]"
+        className="absolute top-20 h-px w-1/2 bg-[linear-gradient(90deg,transparent,rgba(232,121,249,0.75),transparent)]"
       />
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="flex h-16 w-16 items-center justify-center rounded-[1rem] border border-cyan-200/14 bg-[#071029]/82 text-cyan-200 shadow-[0_0_42px_rgba(0,213,255,0.18)] transition duration-500 group-hover:scale-110 group-hover:text-white">
+        <div className="flex h-16 w-16 items-center justify-center rounded-[1rem] border border-white/12 bg-[#0c0b2c]/82 text-fuchsia-200 shadow-[0_0_42px_rgba(202,74,255,0.2)] transition duration-500 group-hover:scale-110 group-hover:text-white">
           <Icon name={services[index].icon} />
         </div>
       </div>
@@ -303,27 +303,29 @@ export default function ServicesPage() {
   const [openFaq, setOpenFaq] = useState(0);
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#020513] text-white">
+    <main className="relative min-h-screen overflow-hidden bg-[#050816] text-white">
       <SiteHeader mode="services" />
 
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,#020513_0%,#05091d_42%,#020513_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,#050c26_0%,#07081c_48%,#2a072e_100%)]" />
         <motion.div
           animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 opacity-65 [background-size:170%_170%] bg-[radial-gradient(circle_at_16%_18%,rgba(0,213,255,0.16),transparent_30%),radial-gradient(circle_at_82%_22%,rgba(79,140,255,0.13),transparent_30%),radial-gradient(circle_at_56%_82%,rgba(139,92,246,0.12),transparent_32%)]"
+          className="absolute inset-0 opacity-70 [background-size:170%_170%] bg-[radial-gradient(circle_at_16%_18%,rgba(14,103,255,0.16),transparent_30%),radial-gradient(circle_at_82%_22%,rgba(216,62,255,0.15),transparent_30%),radial-gradient(circle_at_54%_86%,rgba(126,87,255,0.13),transparent_32%)]"
         />
         <motion.div
           animate={{ x: ["-18%", "18%", "-18%"], opacity: [0.18, 0.32, 0.18] }}
           transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-1/2 top-0 h-[38rem] w-[38rem] -translate-x-1/2 rounded-full bg-cyan-400/10 blur-[120px]"
+          className="absolute left-1/2 top-0 h-[38rem] w-[38rem] -translate-x-1/2 rounded-full bg-fuchsia-400/10 blur-[120px]"
         />
+        <div className="absolute -left-24 top-28 h-[34rem] w-[34rem] rotate-45 border border-[#1d8fff]/12" />
+        <div className="absolute -left-8 top-40 h-[22rem] w-[22rem] rotate-45 border border-fuchsia-400/16" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:46px_46px] opacity-22" />
       </div>
 
       <section className="relative mx-auto grid min-h-screen w-full max-w-[1220px] items-center gap-10 px-4 pb-20 pt-36 md:px-6 lg:grid-cols-[1fr_0.92fr]">
         <motion.div initial="hidden" animate="show" variants={stagger}>
-          <motion.div variants={fadeUp} className="inline-flex rounded-full border border-cyan-200/24 bg-cyan-300/[0.055] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-100/86 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+          <motion.div variants={fadeUp} className="inline-flex rounded-full border border-fuchsia-300/24 bg-[#151239]/72 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-100/86 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_0_24px_rgba(202,74,255,0.12)]">
             Enterprise AI Solutions
           </motion.div>
           <motion.h1 variants={fadeUp} className="mt-7 max-w-3xl text-5xl font-semibold leading-[0.98] text-white md:text-7xl">
@@ -345,7 +347,7 @@ export default function ServicesPage() {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, ease }} className="relative min-h-[30rem]">
-          <div className="absolute inset-6 rounded-[2rem] bg-[radial-gradient(circle_at_50%_50%,rgba(0,213,255,0.12),transparent_55%)] blur-2xl" />
+          <div className="absolute inset-6 rounded-[2rem] bg-[radial-gradient(circle_at_50%_50%,rgba(126,87,255,0.18),transparent_55%)] blur-2xl" />
           <motion.div
             animate={{ y: [0, -10, 0], scale: [1, 1.015, 1] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -357,25 +359,25 @@ export default function ServicesPage() {
               fill
               priority
               sizes="560px"
-              className="object-contain drop-shadow-[0_26px_70px_rgba(0,213,255,0.08)]"
+              className="object-contain drop-shadow-[0_26px_70px_rgba(126,87,255,0.14)]"
             />
           </motion.div>
           <motion.div
             animate={{ y: [0, -12, 0], opacity: [0.45, 0.9, 0.45] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute inset-x-8 bottom-10 h-px bg-[linear-gradient(90deg,transparent,rgba(0,213,255,0.85),rgba(139,92,246,0.7),transparent)]"
+            className="absolute inset-x-8 bottom-10 h-px bg-[linear-gradient(90deg,transparent,rgba(14,103,255,0.7),rgba(216,62,255,0.72),transparent)]"
           />
         </motion.div>
       </section>
 
       <nav className="sticky top-24 z-30 mx-auto w-full max-w-[1120px] px-4 md:px-6">
-        <div className="overflow-x-auto rounded-full border border-cyan-200/14 bg-[#050a1f]/86 p-2 shadow-[0_18px_70px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-2xl">
+        <div className="overflow-x-auto rounded-full border border-[#4d2aad]/55 bg-[#0d1029]/88 p-2 shadow-[0_18px_70px_rgba(0,0,0,0.35),0_0_34px_rgba(119,57,255,0.12),inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-2xl">
           <div className="flex min-w-max gap-2">
             {services.map((service) => (
               <a
                 key={service.id}
                 href={`#${service.id}`}
-                className="rounded-full px-4 py-2.5 text-sm font-semibold text-white/58 transition hover:bg-cyan-300/[0.08] hover:text-cyan-100 hover:shadow-[0_0_24px_rgba(0,213,255,0.14)]"
+                className="rounded-full px-4 py-2.5 text-sm font-semibold text-white/60 transition hover:bg-fuchsia-300/[0.1] hover:text-fuchsia-100 hover:shadow-[0_0_24px_rgba(202,74,255,0.16)]"
               >
                 {service.nav}
               </a>
@@ -387,7 +389,7 @@ export default function ServicesPage() {
       <section id="overview" className="mx-auto w-full max-w-[1120px] px-4 py-20 md:px-6">
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-120px" }} variants={stagger}>
           <motion.div variants={fadeUp} className="text-center">
-            <div className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200/60">
+            <div className="text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-200/60">
               Services Overview
             </div>
             <h2 className="mt-4 text-4xl font-semibold text-white md:text-5xl">
@@ -400,18 +402,18 @@ export default function ServicesPage() {
               <motion.div key={service.id} variants={fadeUp} className={index < 3 ? "md:col-span-2" : "md:col-span-3"}>
                 <Link
                   href={`#${service.id}`}
-                  className="group relative block h-full overflow-hidden rounded-[1.25rem] border border-cyan-200/14 bg-[linear-gradient(180deg,rgba(8,16,42,0.82),rgba(4,8,26,0.92))] p-6 shadow-[0_18px_70px_rgba(0,0,0,0.26)] backdrop-blur-xl transition duration-500 hover:-translate-y-1.5 hover:border-cyan-200/34 hover:shadow-[0_24px_90px_rgba(0,213,255,0.12)]"
+                  className="group relative block h-full overflow-hidden rounded-[1.25rem] border border-[#4d2aad]/50 bg-[linear-gradient(135deg,rgba(5,12,38,0.9)_0%,rgba(7,8,28,0.94)_52%,rgba(42,7,46,0.88)_100%)] p-6 shadow-[0_18px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl transition duration-500 hover:-translate-y-1.5 hover:border-fuchsia-300/42 hover:shadow-[0_24px_90px_rgba(126,87,255,0.16)]"
                 >
-                  <span className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_20%_0%,rgba(0,213,255,0.16),transparent_42%),radial-gradient(circle_at_90%_90%,rgba(139,92,246,0.14),transparent_38%)]" />
+                  <span className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_20%_0%,rgba(14,103,255,0.16),transparent_42%),radial-gradient(circle_at_90%_90%,rgba(216,62,255,0.18),transparent_38%)]" />
                   <div className="relative flex items-start justify-between gap-6">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-[0.9rem] border border-cyan-200/12 bg-cyan-300/[0.07] text-cyan-200 shadow-[0_0_30px_rgba(0,213,255,0.13)] transition group-hover:scale-110 group-hover:text-white">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-[0.9rem] border border-white/12 bg-[#151239]/72 text-fuchsia-200 shadow-[0_0_30px_rgba(202,74,255,0.14)] transition group-hover:scale-110 group-hover:text-white">
                       <Icon name={service.icon} />
                     </div>
-                    <div className="text-sm font-semibold text-cyan-100/30">{service.number}</div>
+                    <div className="text-sm font-semibold text-fuchsia-100/30">{service.number}</div>
                   </div>
                   <h3 className="relative mt-8 text-2xl font-semibold text-white">{service.title}</h3>
                   <p className="relative mt-3 text-sm leading-6 text-white/62">{service.description}</p>
-                  <div className="relative mt-6 flex items-center justify-between text-sm font-semibold text-cyan-100">
+                  <div className="relative mt-6 flex items-center justify-between text-sm font-semibold text-fuchsia-200">
                     <span>{service.solutions.length} solutions</span>
                     <span className="transition group-hover:translate-x-1">-&gt;</span>
                   </div>
@@ -435,7 +437,7 @@ export default function ServicesPage() {
               <NeuralGraphic index={index} />
             </motion.div>
             <motion.div variants={fadeUp}>
-              <div className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200/58">
+              <div className="text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-200/58">
                 {service.number} / {service.title}
               </div>
               <h2 className="mt-4 text-4xl font-semibold leading-tight text-white md:text-5xl">
@@ -448,10 +450,10 @@ export default function ServicesPage() {
                     key={solution}
                     whileHover={{ y: -5, scale: 1.015 }}
                     transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                    className="group rounded-[1rem] border border-cyan-200/12 bg-[linear-gradient(180deg,rgba(8,16,42,0.72),rgba(4,8,26,0.84))] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition hover:border-cyan-200/34 hover:bg-cyan-300/[0.055] hover:shadow-[0_18px_50px_rgba(0,213,255,0.08)]"
+                    className="group rounded-[1rem] border border-[#4d2aad]/42 bg-[linear-gradient(135deg,rgba(5,12,38,0.78)_0%,rgba(18,12,50,0.78)_52%,rgba(42,7,46,0.72)_100%)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition hover:border-fuchsia-300/40 hover:bg-fuchsia-300/[0.055] hover:shadow-[0_18px_50px_rgba(202,74,255,0.1)]"
                   >
                     <div className="flex items-center gap-3">
-                      <span className="flex h-9 w-9 items-center justify-center rounded-[0.7rem] border border-cyan-200/10 bg-cyan-300/[0.07] text-cyan-200 transition group-hover:scale-110 group-hover:text-white">
+                      <span className="flex h-9 w-9 items-center justify-center rounded-[0.7rem] border border-white/10 bg-[#151239]/76 text-fuchsia-200 transition group-hover:scale-110 group-hover:text-white">
                         <Icon name={service.icon} />
                       </span>
                       <span className="text-sm font-semibold text-white">{solution}</span>
@@ -459,7 +461,7 @@ export default function ServicesPage() {
                   </motion.div>
                 ))}
               </div>
-              <Link href={service.href} className="mt-8 inline-flex rounded-full border border-cyan-100/18 bg-cyan-300/[0.045] px-5 py-3 text-sm font-semibold text-white/82 transition hover:-translate-y-0.5 hover:border-cyan-200/34 hover:bg-cyan-300/[0.09] hover:text-white">
+              <Link href={service.href} className="mt-8 inline-flex rounded-full border border-fuchsia-200/22 bg-fuchsia-300/[0.055] px-5 py-3 text-sm font-semibold text-white/82 transition hover:-translate-y-0.5 hover:border-fuchsia-200/42 hover:bg-fuchsia-300/[0.1] hover:text-white">
                 View detailed service
               </Link>
             </motion.div>
@@ -468,10 +470,10 @@ export default function ServicesPage() {
       ))}
 
       <section className="mx-auto w-full max-w-[1120px] px-4 py-16 md:px-6">
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="relative overflow-hidden rounded-[1.35rem] border border-cyan-200/12 bg-[linear-gradient(135deg,rgba(5,13,37,0.86),rgba(4,8,26,0.92))] p-6 shadow-[0_24px_90px_rgba(0,0,0,0.24)] md:p-8">
-          <div className="absolute inset-x-10 top-1/2 h-px bg-[linear-gradient(90deg,transparent,rgba(0,213,255,0.45),rgba(139,92,246,0.32),transparent)]" />
+        <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="relative overflow-hidden rounded-[1.35rem] border border-[#4d2aad]/50 bg-[linear-gradient(135deg,rgba(5,12,38,0.9)_0%,rgba(7,8,28,0.94)_50%,rgba(42,7,46,0.88)_100%)] p-6 shadow-[0_24px_90px_rgba(0,0,0,0.28),0_0_34px_rgba(119,57,255,0.1)] md:p-8">
+          <div className="absolute inset-x-10 top-1/2 h-px bg-[linear-gradient(90deg,transparent,rgba(14,103,255,0.45),rgba(216,62,255,0.38),transparent)]" />
           <motion.div variants={fadeUp} className="relative text-center">
-            <div className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200/58">
+            <div className="text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-200/58">
               Customer Value
             </div>
             <h2 className="mt-4 text-4xl font-semibold text-white">From Curiosity to Business Growth</h2>
@@ -482,9 +484,9 @@ export default function ServicesPage() {
                 key={stage}
                 variants={fadeUp}
                 whileHover={{ y: -4 }}
-                className="rounded-[0.9rem] border border-cyan-200/12 bg-[#050a1f]/86 p-4 text-center text-sm font-semibold text-white/80 transition hover:border-cyan-200/32 hover:text-cyan-50"
+                className="rounded-[0.9rem] border border-[#4d2aad]/42 bg-[#080b25]/86 p-4 text-center text-sm font-semibold text-white/80 transition hover:border-fuchsia-300/36 hover:text-fuchsia-50"
               >
-                <span className="mx-auto mb-2 block h-2 w-2 rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(0,213,255,0.55)]" />
+                <span className="mx-auto mb-2 block h-2 w-2 rounded-full bg-fuchsia-300 shadow-[0_0_18px_rgba(202,74,255,0.6)]" />
                 {index + 1}. {stage}
               </motion.div>
             ))}
@@ -494,7 +496,7 @@ export default function ServicesPage() {
 
       <section className="mx-auto grid w-full max-w-[1120px] gap-6 px-4 py-16 md:px-6 lg:grid-cols-[1fr_0.9fr]">
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
-          <motion.div variants={fadeUp} className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200/58">
+          <motion.div variants={fadeUp} className="text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-200/58">
             Tech Stack
           </motion.div>
           <motion.h2 variants={fadeUp} className="mt-4 text-4xl font-semibold text-white">
@@ -502,7 +504,7 @@ export default function ServicesPage() {
           </motion.h2>
           <motion.div variants={stagger} className="mt-8 flex flex-wrap gap-3">
             {techStack.map((tool) => (
-              <motion.div key={tool} variants={fadeUp} whileHover={{ y: -3 }} className="rounded-full border border-cyan-200/12 bg-cyan-300/[0.045] px-4 py-2 text-sm font-semibold text-white/68 transition hover:border-cyan-200/30 hover:text-cyan-50">
+              <motion.div key={tool} variants={fadeUp} whileHover={{ y: -3 }} className="rounded-full border border-[#4d2aad]/42 bg-fuchsia-300/[0.045] px-4 py-2 text-sm font-semibold text-white/68 transition hover:border-fuchsia-200/36 hover:text-fuchsia-50">
                 {tool}
               </motion.div>
             ))}
@@ -511,7 +513,7 @@ export default function ServicesPage() {
 
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="grid gap-3 sm:grid-cols-2">
           {valueCards.map((value) => (
-            <motion.div key={value} variants={fadeUp} whileHover={{ y: -4, scale: 1.01 }} className="rounded-[1rem] border border-cyan-200/12 bg-[linear-gradient(180deg,rgba(8,16,42,0.76),rgba(4,8,26,0.86))] p-5 transition hover:border-cyan-200/30">
+            <motion.div key={value} variants={fadeUp} whileHover={{ y: -4, scale: 1.01 }} className="rounded-[1rem] border border-[#4d2aad]/42 bg-[linear-gradient(135deg,rgba(5,12,38,0.78)_0%,rgba(42,7,46,0.7)_100%)] p-5 transition hover:border-fuchsia-300/36">
               <div className="text-lg font-semibold text-white">{value}</div>
             </motion.div>
           ))}
@@ -519,10 +521,10 @@ export default function ServicesPage() {
       </section>
 
       <section className="mx-auto w-full max-w-[1120px] px-4 py-16 md:px-6">
-        <div className="grid gap-4 rounded-[1.25rem] border border-cyan-200/12 bg-[linear-gradient(135deg,rgba(4,15,43,0.86),rgba(4,8,26,0.9))] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] md:grid-cols-4 md:p-8">
+        <div className="grid gap-4 rounded-[1.25rem] border border-[#4d2aad]/50 bg-[linear-gradient(135deg,rgba(5,12,38,0.9)_0%,rgba(7,8,28,0.94)_50%,rgba(42,7,46,0.88)_100%)] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_0_34px_rgba(119,57,255,0.1)] md:grid-cols-4 md:p-8">
           {metrics.map((metric) => (
-            <motion.div key={metric.label} whileHover={{ y: -4 }} className="rounded-[1rem] border border-white/5 bg-white/[0.025] p-4 text-center">
-              <div className="text-4xl font-semibold text-cyan-50">{metric.value}</div>
+            <motion.div key={metric.label} whileHover={{ y: -4 }} className="rounded-[1rem] border border-white/8 bg-[#080b25]/55 p-4 text-center transition hover:border-fuchsia-300/30">
+              <div className="text-4xl font-semibold text-fuchsia-50">{metric.value}</div>
               <div className="mt-2 text-sm text-white/56">{metric.label}</div>
             </motion.div>
           ))}
@@ -532,7 +534,7 @@ export default function ServicesPage() {
       <section className="mx-auto w-full max-w-[1120px] px-4 py-16 md:px-6">
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
-            <div className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200/58">
+            <div className="text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-200/58">
               Case Studies
             </div>
             <h2 className="mt-4 text-4xl font-semibold text-white">AI Outcomes Across Industries</h2>
@@ -543,15 +545,15 @@ export default function ServicesPage() {
             <motion.article
               key={study.industry}
               whileHover={{ y: -6, scale: 1.01 }}
-              className="rounded-[1rem] border border-cyan-200/12 bg-[linear-gradient(180deg,rgba(8,16,42,0.78),rgba(4,8,26,0.9))] p-5 transition hover:border-cyan-200/30 hover:shadow-[0_18px_60px_rgba(0,213,255,0.08)]"
+              className="rounded-[1rem] border border-[#4d2aad]/42 bg-[linear-gradient(135deg,rgba(5,12,38,0.82)_0%,rgba(7,8,28,0.9)_52%,rgba(42,7,46,0.76)_100%)] p-5 transition hover:border-fuchsia-300/38 hover:shadow-[0_18px_60px_rgba(202,74,255,0.1)]"
             >
               <div className="text-lg font-semibold text-white">{study.industry}</div>
-              <p className="mt-4 text-xs uppercase tracking-[0.18em] text-cyan-200/36">Problem</p>
+              <p className="mt-4 text-xs uppercase tracking-[0.18em] text-fuchsia-200/36">Problem</p>
               <p className="mt-2 text-sm leading-6 text-white/62">{study.problem}</p>
-              <p className="mt-4 text-xs uppercase tracking-[0.18em] text-cyan-200/36">Solution</p>
+              <p className="mt-4 text-xs uppercase tracking-[0.18em] text-fuchsia-200/36">Solution</p>
               <p className="mt-2 text-sm leading-6 text-white/62">{study.solution}</p>
-              <p className="mt-4 text-xs uppercase tracking-[0.18em] text-cyan-200/36">Impact</p>
-              <p className="mt-2 text-sm leading-6 text-cyan-100/78">{study.impact}</p>
+              <p className="mt-4 text-xs uppercase tracking-[0.18em] text-fuchsia-200/36">Impact</p>
+              <p className="mt-2 text-sm leading-6 text-fuchsia-100/78">{study.impact}</p>
             </motion.article>
           ))}
         </div>
@@ -559,22 +561,22 @@ export default function ServicesPage() {
 
       <section className="mx-auto w-full max-w-[860px] px-4 py-16 md:px-6">
         <div className="text-center">
-          <div className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200/58">
+          <div className="text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-200/58">
             FAQ
           </div>
           <h2 className="mt-4 text-4xl font-semibold text-white">Enterprise AI Questions</h2>
         </div>
-        <div className="mt-8 divide-y divide-cyan-200/10 overflow-hidden rounded-[1rem] border border-cyan-200/12 bg-[#050a1f]/78 shadow-[0_20px_70px_rgba(0,0,0,0.22)]">
+        <div className="mt-8 divide-y divide-white/10 overflow-hidden rounded-[1rem] border border-[#4d2aad]/50 bg-[linear-gradient(135deg,rgba(5,12,38,0.9)_0%,rgba(7,8,28,0.94)_52%,rgba(42,7,46,0.86)_100%)] shadow-[0_20px_70px_rgba(0,0,0,0.24),0_0_34px_rgba(119,57,255,0.1)]">
           {faqs.map((faq, index) => (
             <button
               key={faq.question}
               type="button"
               onClick={() => setOpenFaq(openFaq === index ? -1 : index)}
-              className="block w-full px-5 py-5 text-left transition hover:bg-cyan-300/[0.035]"
+              className="block w-full px-5 py-5 text-left transition hover:bg-fuchsia-300/[0.045]"
             >
               <div className="flex items-center justify-between gap-4">
                 <span className="font-semibold text-white">{faq.question}</span>
-                <span className="text-cyan-200">{openFaq === index ? "-" : "+"}</span>
+                <span className="text-fuchsia-200">{openFaq === index ? "-" : "+"}</span>
               </div>
               {openFaq === index && (
                 <motion.p initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} className="mt-4 text-sm leading-6 text-white/62">
@@ -587,8 +589,8 @@ export default function ServicesPage() {
       </section>
 
       <section className="mx-auto w-full max-w-[1120px] px-4 py-20 md:px-6">
-        <div className="relative overflow-hidden rounded-[1.35rem] border border-cyan-200/16 bg-[linear-gradient(135deg,rgba(4,18,50,0.94),rgba(5,8,28,0.92))] p-8 text-center shadow-[0_26px_100px_rgba(0,0,0,0.44)] md:p-12">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(0,213,255,0.16),transparent_34%),radial-gradient(circle_at_80%_72%,rgba(139,92,246,0.14),transparent_36%)]" />
+        <div className="relative overflow-hidden rounded-[1.35rem] border border-[#4d2aad]/55 bg-[linear-gradient(135deg,rgba(5,12,38,0.96)_0%,rgba(7,8,28,0.98)_48%,rgba(42,7,46,0.96)_100%)] p-8 text-center shadow-[0_26px_100px_rgba(0,0,0,0.44),0_0_34px_rgba(119,57,255,0.14)] md:p-12">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(14,103,255,0.16),transparent_34%),radial-gradient(circle_at_80%_72%,rgba(216,62,255,0.16),transparent_36%)]" />
           <div className="relative">
             <h2 className="text-4xl font-semibold text-white md:text-6xl">Ready to Build Enterprise AI?</h2>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-white/62">
@@ -607,7 +609,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <footer className="border-t border-cyan-200/10 bg-[#020513]/84 px-4 py-12 md:px-6">
+      <footer className="border-t border-[#4d2aad]/36 bg-[#07081c]/88 px-4 py-12 md:px-6">
         <div className="mx-auto grid max-w-[1120px] gap-8 md:grid-cols-[1.2fr_repeat(4,1fr)]">
           <div>
             <div className="text-2xl font-semibold text-white">AgyntiQ</div>
