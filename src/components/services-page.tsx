@@ -291,11 +291,11 @@ export default function ServicesPage() {
   const [openFaq, setOpenFaq] = useState(0);
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#050816] text-white">
+    <main className="relative min-h-screen overflow-hidden bg-[#03051A] text-white">
       <SiteHeader mode="services" />
 
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,#050816_0%,#071026_48%,#050816_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,#03051A_0%,#040720_48%,#03051A_100%)]" />
         <motion.div
           animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
           transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
@@ -334,11 +334,6 @@ export default function ServicesPage() {
             priority
             sizes="560px"
             className="object-contain"
-          />
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-            className="absolute right-[26%] top-[24%] h-28 w-28 rounded-full border border-fuchsia-300/35"
           />
           <motion.div
             animate={{ y: [0, -12, 0] }}
@@ -574,7 +569,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <footer className="border-t border-white/10 bg-[#050816]/80 px-4 py-12 md:px-6">
+      <footer className="border-t border-white/10 bg-[#03051A]/80 px-4 py-12 md:px-6">
         <div className="mx-auto grid max-w-[1120px] gap-8 md:grid-cols-[1.2fr_repeat(4,1fr)]">
           <div>
             <div className="text-2xl font-semibold text-white">AgyntiQ</div>
