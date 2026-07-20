@@ -74,6 +74,33 @@ const services = [
   }
 ] as const;
 
+const heroServices = [
+  {
+    shortTitle: "AI Strategy",
+    copy: "Custom AI roadmaps for your business.",
+    href: "/services/ai-strategy-readiness",
+    icon: "brain"
+  },
+  {
+    shortTitle: "AI Development",
+    copy: "Build intelligent solutions.",
+    href: "/services/ai-solution-development",
+    icon: "cube"
+  },
+  {
+    shortTitle: "Data & Analytics",
+    copy: "Turn data into actionable insights.",
+    href: "/services/ai-data-services",
+    icon: "chart"
+  },
+  {
+    shortTitle: "AI Integration",
+    copy: "Seamless integration with your systems.",
+    href: "/services/ai-integration-services",
+    icon: "shield"
+  }
+] as const;
+
 function ServiceIcon({ name }: { name: (typeof services)[number]["icon"] }) {
   if (name === "brain") {
     return (
@@ -131,37 +158,37 @@ export default function ServicesPage() {
 
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,#071226_0%,#050816_42%,#08021a_100%)]" />
 
-      <section className="mx-auto w-full max-w-[1120px] px-4 pb-12 md:px-6">
+      <section className="mx-auto w-full max-w-[940px] px-4 pb-12 md:px-6">
         <motion.div
           initial="hidden"
           animate="show"
           variants={fadeUp}
-          className="relative min-h-[28rem] overflow-hidden rounded-[1.45rem] border border-cyan-400/35 bg-[linear-gradient(145deg,rgba(5,13,40,0.98)_0%,rgba(8,8,32,0.99)_48%,rgba(33,5,42,0.98)_100%)] p-7 shadow-[0_22px_90px_rgba(0,0,0,0.48)] md:p-10"
+          className="relative min-h-[34rem] overflow-hidden rounded-[1.45rem] border border-cyan-400/35 bg-[linear-gradient(145deg,rgba(5,13,40,0.98)_0%,rgba(8,8,32,0.99)_48%,rgba(33,5,42,0.98)_100%)] p-6 shadow-[0_22px_90px_rgba(0,0,0,0.48)] md:p-8"
         >
-          <div className="absolute inset-y-0 right-0 hidden w-[48%] lg:block">
+          <div className="absolute inset-y-0 right-0 hidden w-[52%] lg:block">
             <Image
               src="/services-hero.png"
               alt="AI head illustration"
               fill
               priority
-              sizes="540px"
+              sizes="500px"
               className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,10,31,0.78)_0%,rgba(5,10,31,0.08)_44%,rgba(26,5,39,0.08)_100%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,10,31,0.72)_0%,rgba(5,10,31,0.08)_46%,rgba(26,5,39,0.08)_100%)]" />
           </div>
 
-          <div className="relative z-10 max-w-[34rem]">
+          <div className="relative z-10 max-w-[28rem]">
             <div className="inline-flex rounded-full bg-[linear-gradient(90deg,#1367d8_0%,#7b35dd_55%,#c238d8_100%)] px-5 py-2 text-sm font-semibold text-white shadow-[0_0_24px_rgba(101,80,255,0.35)]">
               5. Midnight Gradient
             </div>
 
-            <div className="mt-12 text-xs font-semibold uppercase tracking-[0.28em] text-white/58">
+            <div className="mt-10 text-xs font-semibold uppercase tracking-[0.28em] text-white/58">
               Services
             </div>
-            <h1 className="mt-5 text-5xl font-semibold leading-none text-white md:text-7xl">
+            <h1 className="mt-4 text-5xl font-semibold leading-none text-white md:text-6xl">
               Our Services
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-white/86 md:text-2xl md:leading-10">
+            <p className="mt-5 text-lg leading-8 text-white/86 md:text-xl md:leading-8">
               AI solutions designed to drive innovation and growth.
             </p>
           </div>
@@ -175,6 +202,32 @@ export default function ServicesPage() {
               className="object-cover object-center"
             />
           </div>
+
+          <motion.div
+            initial="hidden"
+            animate="show"
+            variants={stagger}
+            className="relative z-10 mt-10 grid gap-4 sm:grid-cols-2 lg:absolute lg:inset-x-8 lg:bottom-8 lg:grid-cols-4"
+          >
+            {heroServices.map((service) => (
+              <motion.div key={service.href} variants={rowReveal}>
+                <Link
+                  href={service.href}
+                  className="group block min-h-[8.6rem] rounded-[0.8rem] border border-cyan-400/22 bg-[linear-gradient(180deg,rgba(12,25,61,0.82)_0%,rgba(9,12,35,0.92)_100%)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_14px_36px_rgba(0,0,0,0.25)] backdrop-blur-sm transition hover:-translate-y-1 hover:border-fuchsia-300/35"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#0a2c67]/80 text-cyan-300 shadow-[0_0_26px_rgba(34,211,238,0.16)] transition group-hover:text-fuchsia-200">
+                    <ServiceIcon name={service.icon} />
+                  </div>
+                  <div className="mt-4 text-sm font-semibold leading-5 text-white">
+                    {service.shortTitle}
+                  </div>
+                  <p className="mt-2 text-xs leading-5 text-white/56">
+                    {service.copy}
+                  </p>
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.div>
       </section>
 
