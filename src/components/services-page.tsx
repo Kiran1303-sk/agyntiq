@@ -1,350 +1,273 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import SiteHeader from "@/components/site-header";
 import { serviceSlides } from "@/components/services-data";
 
-const serviceImages = ["/slide.jpeg", "/slide1.jpeg", "/slide2.jpeg", "/slide3.jpeg"];
+const ease = [0.22, 1, 0.36, 1] as const;
 
-const pageEase = [0.22, 1, 0.36, 1] as const;
-
-const sectionVariants = {
+const pageFade = {
   hidden: { opacity: 0, y: 18 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, ease: pageEase }
+    transition: { duration: 0.6, ease }
   }
 };
 
-const listVariants = {
+const cardStagger = {
   hidden: {},
   show: {
     transition: {
       staggerChildren: 0.08,
-      delayChildren: 0.08
+      delayChildren: 0.1
     }
   }
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 14 },
+const cardReveal = {
+  hidden: { opacity: 0, y: 16, scale: 0.98 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.45, ease: pageEase }
+    scale: 1,
+    transition: { duration: 0.45, ease }
   }
 };
 
+function NeonHeadGraphic() {
+  return (
+    <div className="relative flex h-full min-h-[18rem] items-center justify-center overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_50%_50%,rgba(129,59,255,0.18),transparent_42%),radial-gradient(circle_at_50%_20%,rgba(0,196,255,0.16),transparent_30%),linear-gradient(180deg,rgba(7,12,32,0.92)_0%,rgba(10,8,34,0.98)_100%)]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.04),transparent_55%)]" />
+      <div className="absolute right-6 top-6 flex h-16 w-16 items-center justify-center rounded-full border border-fuchsia-400/30 bg-white/5 shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_0_28px_rgba(122,72,255,0.35)]">
+        <div className="flex h-11 w-11 items-center justify-center rounded-full border border-fuchsia-300/45 text-2xl font-medium text-fuchsia-100 shadow-[0_0_30px_rgba(168,85,247,0.5)]">
+          A
+        </div>
+      </div>
+
+      <svg
+        viewBox="0 0 420 420"
+        className="absolute inset-0 h-full w-full opacity-95"
+        aria-hidden="true"
+      >
+        <defs>
+          <linearGradient id="headStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#20d4ff" />
+            <stop offset="45%" stopColor="#8b5cf6" />
+            <stop offset="100%" stopColor="#f472b6" />
+          </linearGradient>
+          <radialGradient id="headGlow" cx="50%" cy="40%" r="65%">
+            <stop offset="0%" stopColor="rgba(255,255,255,0.22)" />
+            <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+          </radialGradient>
+        </defs>
+
+        <circle cx="260" cy="140" r="138" fill="url(#headGlow)" />
+
+        <g fill="none" stroke="url(#headStroke)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+          <path
+            d="M263 54c42 8 74 35 86 76 7 25 5 49-6 74-8 18-12 37-13 55-1 22 6 42 18 62-32 2-58-2-78-14-19-11-33-24-41-41-9-18-11-37-8-58 2-16 9-32 19-46 13-19 19-38 17-57-3-19-1-36 6-51z"
+            fill="rgba(112, 49, 255, 0.08)"
+          />
+          <path d="M235 83c-30 8-54 25-72 52-17 26-25 56-24 90 1 26 8 51 21 76 15 29 36 50 61 63 13 7 28 11 46 13" />
+          <path d="M338 135c11 16 17 35 18 56 1 28-5 54-18 79" />
+          <path d="M181 107c20 8 39 20 57 35 16 14 28 30 36 50 10 25 11 49 5 72" />
+          <path d="M165 147c17 3 33 9 49 18 18 10 33 24 43 42 10 18 15 37 14 57" />
+          <path d="M318 110c-2 18-10 33-24 46-13 12-27 20-43 25-17 5-33 8-49 10" />
+          <path d="M220 282c18-1 34-6 49-15 15-9 27-21 35-38" />
+          <path d="M210 317c24 0 47-6 67-19 17-11 31-25 41-42" />
+          <path d="M243 153c5 15 8 32 7 52-1 18-5 35-13 50" />
+          <circle cx="254" cy="168" r="4.5" fill="#22d3ee" stroke="none" />
+          <circle cx="235" cy="198" r="4" fill="#c084fc" stroke="none" />
+          <circle cx="265" cy="228" r="4" fill="#60a5fa" stroke="none" />
+          <circle cx="292" cy="180" r="3.5" fill="#f472b6" stroke="none" />
+          <circle cx="214" cy="244" r="3.5" fill="#34d399" stroke="none" />
+        </g>
+
+        <g opacity="0.24" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="0.8">
+          {Array.from({ length: 18 }).map((_, index) => (
+            <path
+              key={index}
+              d={`M${105 + index * 14} ${70 + (index % 4) * 18} Q${220 + (index % 3) * 10} ${
+                135 + (index % 5) * 8
+              } ${300 - index * 2} ${310 - (index % 4) * 10}`}
+            />
+          ))}
+        </g>
+      </svg>
+
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,10,28,0)_0%,rgba(8,10,28,0.18)_55%,rgba(7,8,24,0.88)_100%)]" />
+    </div>
+  );
+}
+
 export default function ServicesPage() {
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [direction, setDirection] = useState(1);
-
-  const activeService = serviceSlides[activeSlide];
-  const activeImage = serviceImages[activeSlide % serviceImages.length];
-
-  const goToSlide = (nextIndex: number) => {
-    setActiveSlide((current) => {
-      const movingForward =
-        nextIndex > current || (current === serviceSlides.length - 1 && nextIndex === 0);
-      setDirection(movingForward ? 1 : -1);
-      return nextIndex;
-    });
-  };
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setDirection(1);
-      setActiveSlide((current) => (current + 1) % serviceSlides.length);
-    }, 5200);
-
-    return () => window.clearInterval(timer);
-  }, []);
-
-  const totalBullets = serviceSlides.reduce((sum, slide) => sum + slide.bullets.length, 0);
-  const totalChips = serviceSlides.reduce((sum, slide) => sum + slide.chips.length, 0);
+  const featuredServices = serviceSlides.slice(0, 4);
+  const extraServices = serviceSlides.slice(4);
 
   return (
     <main className="relative overflow-hidden pt-52 text-white md:pt-56">
       <SiteHeader mode="services" />
 
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,#060913_0%,#091526_45%,#060913_100%)]" />
-        <div className="absolute left-[-8%] top-[-10%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(30,105,255,0.2),transparent_68%)] blur-3xl" />
-        <div className="absolute right-[-10%] top-[14%] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,rgba(0,217,255,0.15),transparent_68%)] blur-3xl" />
-        <div className="absolute bottom-[-16%] left-[18%] h-[24rem] w-[24rem] rounded-full bg-[radial-gradient(circle,rgba(124,77,255,0.18),transparent_70%)] blur-3xl" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.04),transparent_25%),radial-gradient(circle_at_bottom_right,rgba(0,217,255,0.05),transparent_28%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,#040718_0%,#050a1f_42%,#07041a_100%)]" />
+        <div className="absolute left-[-8%] top-[-6%] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,rgba(91,140,255,0.22),transparent_68%)] blur-3xl" />
+        <div className="absolute right-[-10%] top-[10%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(154,60,255,0.22),transparent_70%)] blur-3xl" />
+        <div className="absolute bottom-[-14%] left-[18%] h-[24rem] w-[24rem] rounded-full bg-[radial-gradient(circle,rgba(0,217,255,0.15),transparent_70%)] blur-3xl" />
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.02)_0%,rgba(255,255,255,0)_30%,rgba(255,255,255,0.02)_100%)]" />
       </div>
 
       <section className="section-shell pb-14 md:pb-20">
         <motion.div
           initial="hidden"
           animate="show"
-          variants={sectionVariants}
-          className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)]"
+          variants={pageFade}
+          className="overflow-hidden rounded-[2.25rem] border border-white/10 bg-[linear-gradient(180deg,rgba(8,12,34,0.95)_0%,rgba(7,10,28,0.98)_100%)] shadow-[0_30px_100px_rgba(0,0,0,0.45)]"
         >
-          <div className="space-y-7">
-            <div className="section-kicker">Services atlas</div>
-            <h1 className="max-w-[12ch] text-balance text-5xl font-semibold leading-[0.9] tracking-[-0.08em] text-white md:text-6xl xl:text-[5.9rem]">
-              A completely new service interface, built around motion and clarity.
-            </h1>
-            <p className="max-w-3xl text-lg leading-8 text-white/70 md:text-xl md:leading-9">
-              The service content stays exactly the same, but the presentation now reads like an
-              editorial system: a live preview, a stacked navigation rail, and softer motion that
-              feels deliberate instead of busy.
-            </p>
-
-            <div className="grid gap-4 sm:grid-cols-3">
-              {[
-                { value: String(serviceSlides.length).padStart(2, "0"), label: "Service tracks" },
-                { value: String(totalBullets).padStart(2, "0"), label: "Core bullets" },
-                { value: String(totalChips).padStart(2, "0"), label: "Signal chips" }
-              ].map((stat) => (
-                <div key={stat.label} className="glass-panel rounded-[1.4rem] p-4">
-                  <div className="text-3xl font-semibold tracking-[-0.08em] text-white">
-                    {stat.value}
-                  </div>
-                  <div className="mt-1 text-xs uppercase tracking-[0.28em] text-white/45">
-                    {stat.label}
-                  </div>
+          <div className="grid gap-8 p-5 md:p-7 xl:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)] xl:p-8">
+            <div className="flex flex-col justify-between gap-8">
+              <div className="space-y-6">
+                <div className="inline-flex rounded-full border border-fuchsia-400/30 bg-[linear-gradient(90deg,rgba(91,140,255,0.9)_0%,rgba(147,51,234,0.92)_50%,rgba(236,72,153,0.92)_100%)] px-4 py-2 text-sm font-medium text-white shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_0_30px_rgba(147,51,234,0.25)]">
+                  5. Midnight Gradient
                 </div>
-              ))}
-            </div>
-          </div>
 
-          <motion.div
-            variants={sectionVariants}
-            className="glass-panel-strong relative overflow-hidden rounded-[2rem] p-5"
-          >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.06),transparent_25%),radial-gradient(circle_at_bottom_right,rgba(0,217,255,0.08),transparent_28%)]" />
-            <div className="relative flex h-full min-h-[19rem] flex-col justify-between rounded-[1.5rem] border border-white/[0.08] bg-[#07111f]/40 p-5">
-              <div className="flex items-center justify-between text-[0.72rem] uppercase tracking-[0.34em] text-white/45">
-                <span>Current focus</span>
-                <span>
-                  {String(activeSlide + 1).padStart(2, "0")} / {serviceSlides.length}
-                </span>
-              </div>
-              <div className="space-y-4">
-                <div className="text-sm uppercase tracking-[0.28em] text-cyan-200/60">
-                  {activeService.eyebrow}
+                <div className="space-y-4">
+                  <div className="text-[0.72rem] uppercase tracking-[0.42em] text-white/52">
+                    Services
+                  </div>
+                  <h1 className="max-w-[8ch] text-balance text-5xl font-semibold leading-[0.9] tracking-[-0.08em] text-white md:text-6xl xl:text-[4.5rem]">
+                    Our Services
+                  </h1>
+                  <p className="max-w-lg text-lg leading-8 text-white/78 md:text-[1.35rem] md:leading-9">
+                    AI solutions designed to drive innovation and growth.
+                  </p>
                 </div>
-                <h2 className="text-3xl font-semibold tracking-[-0.06em] text-white">
-                  {activeService.title}
-                </h2>
-                <p className="max-w-md text-sm leading-6 text-white/68">{activeService.summary}</p>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {activeService.chips.map((chip) => (
-                  <span
-                    key={chip}
-                    className="rounded-full border border-white/[0.09] bg-white/[0.04] px-3 py-1 text-xs uppercase tracking-[0.22em] text-white/66"
-                  >
-                    {chip}
-                  </span>
+
+              <div className="grid gap-4 sm:grid-cols-3">
+                {[
+                  { value: String(serviceSlides.length).padStart(2, "0"), label: "Service tracks" },
+                  { value: String(serviceSlides[0].bullets.length + serviceSlides[1].bullets.length).padStart(2, "0"), label: "Deep capabilities" },
+                  { value: String(featuredServices.length).padStart(2, "0"), label: "Featured cards" }
+                ].map((stat) => (
+                  <div key={stat.label} className="rounded-[1.4rem] border border-white/10 bg-white/[0.03] p-4 backdrop-blur-sm">
+                    <div className="text-3xl font-semibold tracking-[-0.08em] text-white">
+                      {stat.value}
+                    </div>
+                    <div className="mt-1 text-xs uppercase tracking-[0.28em] text-white/45">
+                      {stat.label}
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
-          </motion.div>
+
+            <div className="xl:pt-4">
+              <NeonHeadGraphic />
+            </div>
+          </div>
         </motion.div>
       </section>
 
       <section className="section-shell pb-16 md:pb-24">
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)]">
-          <div className="overflow-hidden rounded-[2.2rem] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.03)_100%)] shadow-[0_30px_110px_rgba(0,0,0,0.34)]">
-            <AnimatePresence mode="wait" custom={direction}>
-              <motion.div
-                key={activeService.number}
-                custom={direction}
-                initial={{ opacity: 0, x: direction > 0 ? 40 : -40 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: direction > 0 ? -40 : 40 }}
-                transition={{ duration: 0.5, ease: pageEase }}
-                className="grid gap-0 lg:grid-cols-[1.02fr_0.98fr]"
-              >
-                <div className="relative min-h-[26rem] overflow-hidden border-b border-white/[0.08] lg:min-h-[38rem] lg:border-b-0 lg:border-r">
-                  <Image
-                    src={activeImage}
-                    alt={activeService.title}
-                    fill
-                    priority={activeSlide === 0}
-                    sizes="(min-width: 1024px) 58vw, 100vw"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.02)_0%,rgba(5,8,22,0.22)_42%,rgba(5,8,22,0.82)_100%)]" />
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,217,255,0.2),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(124,77,255,0.18),transparent_30%)]" />
-
-                  <div className="absolute inset-x-0 top-0 flex items-center justify-between p-5 text-[0.7rem] uppercase tracking-[0.32em] text-white/50 sm:p-6">
-                    <span>Visual story</span>
-                    <span>
-                      {String(activeSlide + 1).padStart(2, "0")} / {serviceSlides.length}
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-120px" }}
+          variants={cardStagger}
+          className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4"
+        >
+          {featuredServices.map((service, index) => (
+            <motion.article
+              key={service.number}
+              variants={cardReveal}
+              className="group relative overflow-hidden rounded-[1.4rem] border border-white/10 bg-[linear-gradient(180deg,rgba(14,18,40,0.96)_0%,rgba(8,10,24,0.96)_100%)] p-5 shadow-[0_18px_60px_rgba(0,0,0,0.3)] transition duration-300 hover:-translate-y-1 hover:border-fuchsia-300/30"
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(139,92,246,0.18),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(0,217,255,0.12),transparent_34%)] opacity-0 transition duration-300 group-hover:opacity-100" />
+              <div className="relative flex h-full flex-col">
+                <div className="mb-4 flex items-center justify-between text-[0.72rem] uppercase tracking-[0.32em] text-white/40">
+                  <span>{service.eyebrow}</span>
+                  <span>0{index + 1}</span>
+                </div>
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-[1rem] border border-white/10 bg-white/[0.04] text-2xl text-cyan-200 shadow-[0_0_24px_rgba(34,211,238,0.16)]">
+                  {index + 1}
+                </div>
+                <h2 className="text-xl font-semibold tracking-[-0.05em] text-white">
+                  {service.title}
+                </h2>
+                <p className="mt-3 text-sm leading-6 text-white/64">{service.summary}</p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {service.chips.map((chip) => (
+                    <span
+                      key={chip}
+                      className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[0.64rem] uppercase tracking-[0.22em] text-white/54"
+                    >
+                      {chip}
                     </span>
-                  </div>
-
-                  <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
-                    <div className="max-w-lg rounded-[1.5rem] border border-white/[0.09] bg-[#060a14]/62 p-5 backdrop-blur-2xl">
-                      <div className="text-[0.7rem] uppercase tracking-[0.32em] text-white/45">
-                        {activeService.eyebrow}
-                      </div>
-                      <div className="mt-3 text-3xl font-semibold tracking-[-0.06em] text-white sm:text-[2.25rem]">
-                        {activeService.title}
-                      </div>
-                      <p className="mt-3 max-w-md text-sm leading-6 text-white/68">
-                        {activeService.subtitle}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex min-h-[26rem] flex-col justify-between gap-8 p-6 sm:p-8 lg:min-h-[38rem] lg:p-10">
-                  <div className="space-y-5">
-                    <div className="flex flex-wrap items-center gap-3">
-                      <span className="inline-flex rounded-full border border-white/[0.1] bg-white/[0.04] px-3 py-1 text-[0.7rem] uppercase tracking-[0.28em] text-white/58">
-                        {activeService.eyebrow}
-                      </span>
-                      <span className="text-[0.7rem] uppercase tracking-[0.32em] text-white/30">
-                        Service {activeService.number}
-                      </span>
-                    </div>
-
-                    <h2 className="max-w-[11ch] text-balance text-4xl font-semibold leading-[0.95] tracking-[-0.08em] text-white sm:text-5xl">
-                      {activeService.title}
-                    </h2>
-                    <p className="max-w-xl text-base leading-7 text-white/72 sm:text-lg sm:leading-8">
-                      {activeService.summary}
-                    </p>
-                  </div>
-
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between text-[0.7rem] uppercase tracking-[0.32em] text-white/34">
-                      <span>What it covers</span>
-                      <span>{activeService.bullets.length} points</span>
-                    </div>
-
-                    <motion.div variants={listVariants} initial="hidden" animate="show" className="grid gap-3">
-                      {activeService.bullets.map((bullet, index) => (
-                        <motion.div
-                          key={bullet}
-                          variants={cardVariants}
-                          className="group rounded-[1.1rem] border border-white/[0.08] bg-white/[0.03] px-4 py-4 transition hover:border-white/[0.16] hover:bg-white/[0.05]"
-                        >
-                          <div className="flex gap-4">
-                            <div className="min-w-10 text-xs uppercase tracking-[0.28em] text-white/34">
-                              0{index + 1}
-                            </div>
-                            <div className="text-sm leading-6 text-white/84">{bullet}</div>
-                          </div>
-                        </motion.div>
-                      ))}
-                    </motion.div>
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-
-            <div className="border-t border-white/[0.08] px-5 py-4 sm:px-6">
-              <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-                <div className="flex flex-wrap items-center gap-2">
-                  {serviceSlides.map((slide, index) => (
-                    <button
-                      key={slide.number}
-                      type="button"
-                      aria-label={`Go to ${slide.title}`}
-                      onClick={() => goToSlide(index)}
-                      className={`h-2.5 rounded-full transition-all duration-300 ${
-                        activeSlide === index
-                          ? "w-10 bg-white"
-                          : "w-2.5 bg-white/30 hover:bg-white/60"
-                      }`}
-                    />
                   ))}
                 </div>
+                <Link
+                  href="/services"
+                  className="mt-6 inline-flex items-center text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-100/80 transition group-hover:text-white"
+                >
+                  View service
+                </Link>
+              </div>
+            </motion.article>
+          ))}
+        </motion.div>
+      </section>
 
-                <div className="flex items-center justify-between gap-4">
-                  <div className="text-[0.7rem] uppercase tracking-[0.32em] text-white/35">
-                    Tap a track to explore
-                  </div>
+      {extraServices.length > 0 && (
+        <section className="section-shell pb-16 md:pb-24">
+          <div className="grid gap-4 lg:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)]">
+            <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 md:p-8">
+              <div className="text-[0.72rem] uppercase tracking-[0.36em] text-white/42">
+                Extended service stack
+              </div>
+              <div className="mt-4 space-y-4">
+                {extraServices.map((service) => (
                   <Link
-                    href="/#contact"
-                    className="inline-flex items-center justify-center rounded-full border border-white/[0.1] px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/72 transition hover:border-white/[0.18] hover:bg-white/[0.04] hover:text-white"
+                    key={service.number}
+                    href="/services"
+                    className="block rounded-[1.2rem] border border-white/10 bg-black/10 p-5 transition hover:border-white/20 hover:bg-white/[0.04]"
                   >
-                    Talk to us
+                    <div className="text-[0.72rem] uppercase tracking-[0.32em] text-white/32">
+                      {service.number}
+                    </div>
+                    <div className="mt-2 text-xl font-semibold tracking-[-0.04em] text-white">
+                      {service.title}
+                    </div>
+                    <p className="mt-2 max-w-2xl text-sm leading-6 text-white/62">
+                      {service.subtitle}
+                    </p>
                   </Link>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(91,140,255,0.12)_0%,rgba(7,10,24,0.95)_60%)] p-6 md:p-8">
+              <div className="text-[0.72rem] uppercase tracking-[0.36em] text-white/42">
+                Motion note
+              </div>
+              <p className="mt-4 text-lg leading-8 text-white/76">
+                The visual system now mirrors the reference: a bold midnight hero, glowing accent
+                pills, and premium cards with soft neon depth.
+              </p>
+              <div className="mt-6 rounded-[1.4rem] border border-white/10 bg-black/15 p-5">
+                <div className="text-sm uppercase tracking-[0.3em] text-white/38">
+                  Interaction
                 </div>
+                <p className="mt-3 text-sm leading-7 text-white/64">
+                  Cards lift on hover, the hero keeps a steady glow, and the entire page is tuned
+                  to feel like a polished product showcase.
+                </p>
               </div>
             </div>
           </div>
-
-          <aside className="space-y-4">
-            <div className="glass-panel-strong rounded-[1.8rem] p-5">
-              <div className="text-[0.7rem] uppercase tracking-[0.34em] text-white/38">
-                Service compass
-              </div>
-              <div className="mt-4 text-2xl font-semibold tracking-[-0.06em] text-white">
-                Explore the stack in any order.
-              </div>
-              <p className="mt-3 max-w-sm text-sm leading-6 text-white/64">
-                Every service remains the same content-wise, but the experience now feels like a
-                curated navigation system rather than a single carousel.
-              </p>
-            </div>
-
-            <motion.div
-              variants={listVariants}
-              initial="hidden"
-              animate="show"
-              className="space-y-3"
-            >
-              {serviceSlides.map((slide, index) => {
-                const isActive = index === activeSlide;
-
-                return (
-                  <motion.button
-                    key={slide.number}
-                    type="button"
-                    variants={cardVariants}
-                    onClick={() => goToSlide(index)}
-                    className={`group w-full rounded-[1.5rem] border p-4 text-left transition ${
-                      isActive
-                        ? "border-cyan-300/40 bg-white/[0.06] shadow-[0_18px_70px_rgba(0,0,0,0.24)]"
-                        : "border-white/[0.08] bg-white/[0.03] hover:border-white/[0.16] hover:bg-white/[0.05]"
-                    }`}
-                  >
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <div className="text-[0.7rem] uppercase tracking-[0.28em] text-white/34">
-                          {slide.number}
-                        </div>
-                        <div className="mt-2 text-lg font-semibold tracking-[-0.04em] text-white">
-                          {slide.title}
-                        </div>
-                      </div>
-                      <div
-                        className={`mt-1 h-2.5 w-2.5 rounded-full transition ${
-                          isActive ? "bg-cyan-300 shadow-[0_0_22px_rgba(0,217,255,0.6)]" : "bg-white/20"
-                        }`}
-                      />
-                    </div>
-                    <p className="mt-3 text-sm leading-6 text-white/62">{slide.subtitle}</p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {slide.chips.map((chip) => (
-                        <span
-                          key={chip}
-                          className="rounded-full border border-white/[0.08] px-2.5 py-1 text-[0.66rem] uppercase tracking-[0.22em] text-white/52"
-                        >
-                          {chip}
-                        </span>
-                      ))}
-                    </div>
-                  </motion.button>
-                );
-              })}
-            </motion.div>
-          </aside>
-        </div>
-      </section>
+        </section>
+      )}
     </main>
   );
 }
