@@ -98,7 +98,7 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
                     </span>
                   </Link>
                   <div
-                    className={`absolute left-1/2 top-full z-[90] mt-4 w-[38rem] -translate-x-1/2 overflow-hidden rounded-[1.6rem] border border-[#4b2ba9]/55 bg-[linear-gradient(180deg,rgba(8,10,28,0.98)_0%,rgba(9,8,27,0.98)_100%)] shadow-[0_28px_90px_rgba(0,0,0,0.5)] backdrop-blur-2xl transition-all duration-200 ${
+                    className={`absolute left-1/2 top-full z-[90] mt-2 w-[42rem] -translate-x-1/2 transition-all duration-200 ${
                       servicesOpen
                         ? "pointer-events-auto visible translate-y-0 opacity-100"
                         : "pointer-events-none invisible translate-y-2 opacity-0"
@@ -106,72 +106,29 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
                     role="menu"
                     aria-label="Services menu"
                   >
-                    <div className="grid grid-cols-[0.95fr_1.05fr]">
-                      <div className="relative min-h-[18rem] border-r border-white/[0.08] bg-[radial-gradient(circle_at_50%_40%,rgba(69,68,255,0.2),transparent_25%),radial-gradient(circle_at_50%_58%,rgba(159,74,255,0.18),transparent_31%),linear-gradient(180deg,rgba(6,10,28,0.98)_0%,rgba(7,8,24,0.98)_100%)] p-5">
-                        <div className="absolute inset-0 opacity-70">
-                          <div className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-400/15" />
-                          <div className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full border border-fuchsia-400/15" />
-                          <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10" />
-                          <div className="absolute left-1/2 top-[47%] h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full border border-violet-400/18" />
-                        </div>
-                        <div className="relative flex h-full items-center justify-center">
-                          <div className="flex h-24 w-24 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-4xl text-white shadow-[0_0_48px_rgba(128,88,255,0.3)]">
-                            A
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="p-4">
-                        <div className="grid gap-1">
-                          {serviceMenuItems.map((service) => (
-                            <Link
-                              key={service.href}
-                              href={service.href}
-                              className={`flex items-start gap-4 rounded-[1.05rem] px-4 py-3.5 transition ${
-                                pathname === service.href
-                                  ? "bg-white/[0.08] text-white"
-                                  : "text-white/78 hover:bg-white/[0.05] hover:text-white"
-                              }`}
-                            >
-                              <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-[0.85rem] border border-fuchsia-400/20 bg-white/[0.03] text-fuchsia-200 shadow-[0_0_24px_rgba(168,85,247,0.16)]">
-                                {service.label === "AI Strategy & Readiness Services" ? "🧠" : service.label === "AI Solution Development" ? "⬡" : service.label === "AI Integration Services" ? "↔" : service.label === "AI Data Services" ? "▮" : "🛡"}
-                              </span>
-                              <span className="flex-1">
-                                <span className="block text-[1rem] font-semibold leading-6">
-                                  {service.label === "AI Strategy & Readiness Services"
-                                    ? "AI Strategy"
-                                    : service.label === "AI Solution Development"
-                                      ? "AI Development"
-                                      : service.label === "AI Integration Services"
-                                        ? "AI Integration"
-                                        : service.label === "AI Data Services"
-                                          ? "Data & Analytics"
-                                          : "AI Managed Services"}
-                                </span>
-                                <span className="mt-1 block text-[0.92rem] leading-5 text-white/55">
-                                  {service.label === "AI Strategy & Readiness Services"
-                                    ? "Roadmaps for AI success"
-                                    : service.label === "AI Solution Development"
-                                      ? "Custom AI solutions"
-                                      : service.label === "AI Integration Services"
-                                        ? "Seamless system integration"
-                                        : service.label === "AI Data Services"
-                                          ? "Actionable insights"
-                                          : "Always-on optimization"}
-                                </span>
-                              </span>
-                            </Link>
-                          ))}
-                        </div>
-
+                    <div className="relative aspect-[1536/946] w-full drop-shadow-[0_28px_90px_rgba(0,0,0,0.55)]">
+                      <Image
+                        src="/services-dropdown.png"
+                        alt=""
+                        fill
+                        sizes="672px"
+                        className="object-contain"
+                        priority={false}
+                      />
+                      {serviceMenuItems.slice(0, 4).map((service, index) => (
                         <Link
-                          href="/services"
-                          className="mt-2 flex items-center justify-between rounded-[1rem] px-4 py-3 text-[1.02rem] font-semibold text-fuchsia-200 transition hover:bg-white/[0.05] hover:text-white"
-                        >
-                          <span>View All Services</span>
-                          <span className="text-xl leading-none">→</span>
-                        </Link>
-                      </div>
+                          key={service.href}
+                          href={service.href}
+                          aria-label={service.label}
+                          className="absolute left-[48%] h-[15%] w-[43%] rounded-xl focus:outline-none focus:ring-2 focus:ring-fuchsia-300/70"
+                          style={{ top: `${13 + index * 18.4}%` }}
+                        />
+                      ))}
+                      <Link
+                        href="/services"
+                        aria-label="View all services"
+                        className="absolute bottom-[8%] left-[48%] h-[10%] w-[35%] rounded-xl focus:outline-none focus:ring-2 focus:ring-fuchsia-300/70"
+                      />
                     </div>
                   </div>
                 </div>
