@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 import SiteHeader from "@/components/site-header";
 import { servicePageOrder, type ServicePageData } from "@/components/service-pages-data";
 
@@ -6,164 +9,234 @@ type ServiceDetailPageProps = {
   data: ServicePageData;
 };
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 18 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease }
+  }
+};
+
+const groupStagger = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.08
+    }
+  }
+};
+
+const itemReveal = {
+  hidden: { opacity: 0, y: 12 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease }
+  }
+};
+
 export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
   const activeServiceIndex = servicePageOrder.findIndex((service) => service.label === data.title);
   const activeServiceNumber = String(activeServiceIndex + 1).padStart(2, "0");
+  const nextService = servicePageOrder[(activeServiceIndex + 1) % servicePageOrder.length];
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#07111f] pt-52 text-white md:pt-56">
+    <main className="relative min-h-screen overflow-hidden pt-52 text-white md:pt-56">
       <SiteHeader mode="services" />
 
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,#08111d_0%,#0c1827_46%,#07111f_100%)]" />
-        <div className="absolute left-0 top-0 hidden h-full w-[30rem] lg:block xl:w-[36rem]">
-          <div
-            className="h-full w-full bg-contain bg-left-top bg-no-repeat opacity-80 mix-blend-screen"
-            style={{ backgroundImage: "url('/background.png')" }}
-          />
-        </div>
-        <div className="absolute inset-y-0 left-[22%] hidden w-px bg-[linear-gradient(180deg,transparent,rgba(255,255,255,0.18),transparent)] lg:block" />
-        <div className="absolute right-[-10rem] top-[8rem] h-[24rem] w-[24rem] rounded-full bg-[radial-gradient(circle,rgba(31,180,255,0.12),transparent_68%)] blur-3xl" />
-        <div className="absolute bottom-[-6rem] right-[10%] h-[18rem] w-[18rem] rounded-full bg-[radial-gradient(circle,rgba(96,120,255,0.12),transparent_70%)] blur-3xl" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,#060913_0%,#0a1322_48%,#060913_100%)]" />
+        <div className="absolute left-[-10%] top-[-8%] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,rgba(0,217,255,0.16),transparent_68%)] blur-3xl" />
+        <div className="absolute right-[-8%] top-[10%] h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,rgba(91,140,255,0.16),transparent_68%)] blur-3xl" />
+        <div className="absolute bottom-[-16%] left-[14%] h-[24rem] w-[24rem] rounded-full bg-[radial-gradient(circle,rgba(124,77,255,0.16),transparent_70%)] blur-3xl" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.04),transparent_25%),radial-gradient(circle_at_bottom_left,rgba(0,217,255,0.05),transparent_28%)]" />
       </div>
 
       <section className="section-shell pb-16 md:pb-24">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,24rem)] xl:grid-cols-[minmax(0,1.2fr)_minmax(20rem,25rem)]">
-          <div className="relative z-10">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.12fr)_minmax(18rem,0.88fr)] xl:grid-cols-[minmax(0,1.18fr)_minmax(20rem,0.82fr)]">
+          <motion.div initial="hidden" animate="show" variants={fadeUp} className="relative z-10">
             <div className="max-w-4xl">
-              <div className="flex flex-wrap items-center gap-4 text-[0.72rem] uppercase tracking-[0.38em] text-cyan-200/58">
+              <div className="flex flex-wrap items-center gap-4 text-[0.72rem] uppercase tracking-[0.36em] text-cyan-200/58">
                 <span>{data.eyebrow}</span>
                 <span className="h-px w-12 bg-white/20" />
                 <span>Service {activeServiceNumber}</span>
               </div>
 
-              <h1 className="mt-7 max-w-[10ch] text-balance text-5xl font-semibold leading-[0.88] tracking-[-0.08em] text-white md:text-6xl xl:text-[6rem]">
+              <h1 className="mt-6 max-w-[11ch] text-balance text-5xl font-semibold leading-[0.9] tracking-[-0.08em] text-white md:text-6xl xl:text-[5.9rem]">
                 {data.title}
               </h1>
 
-              <div className="mt-8 max-w-3xl border-l border-cyan-300/18 pl-6">
-                <p className="text-lg leading-8 text-white/82 md:text-[1.35rem] md:leading-9">
+              <div className="mt-8 max-w-3xl border-l border-cyan-300/18 pl-5">
+                <p className="text-lg leading-8 text-white/84 md:text-[1.35rem] md:leading-9">
                   {data.intro}
                 </p>
               </div>
             </div>
 
-            <div className="mt-12 grid gap-8 border-t border-white/10 pt-10 lg:grid-cols-[1.05fr_0.95fr]">
-              <div>
+            <div className="mt-12 grid gap-4 md:grid-cols-2">
+              <div className="glass-panel rounded-[1.6rem] p-6">
                 <div className="text-[0.72rem] uppercase tracking-[0.34em] text-white/38">
                   Core mandate
                 </div>
-                <p className="mt-5 max-w-2xl text-base leading-8 text-white/64 md:text-lg">
+                <p className="mt-4 max-w-2xl text-base leading-8 text-white/66 md:text-lg">
                   {data.summary}
                 </p>
               </div>
 
-              <div>
+              <div className="glass-panel-strong rounded-[1.6rem] p-6">
                 <div className="text-[0.72rem] uppercase tracking-[0.34em] text-white/38">
                   Engagement stance
                 </div>
-                <p className="mt-5 max-w-xl text-2xl font-semibold leading-tight tracking-[-0.05em] text-white">
+                <p className="mt-4 max-w-xl text-2xl font-semibold leading-tight tracking-[-0.05em] text-white">
                   Structured for teams that need signal, sequence, and operational momentum.
                 </p>
               </div>
             </div>
 
-            <div className="mt-16 border-t border-white/10 pt-10">
-              <div className="max-w-5xl">
+            <div className="mt-12 overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.025)_100%)]">
+              <div className="border-b border-white/[0.08] px-6 py-5">
                 <div className="text-[0.72rem] uppercase tracking-[0.34em] text-white/38">
                   Focus areas
                 </div>
-                <div className="mt-6 divide-y divide-white/10 border-y border-white/10">
+              </div>
+              <motion.div variants={groupStagger} initial="hidden" animate="show" className="p-6">
+                <div className="grid gap-4">
                   {data.focusPoints.map((point, index) => (
-                    <div
+                    <motion.div
                       key={point}
-                      className="grid gap-3 py-6 md:grid-cols-[5rem_minmax(0,1fr)] md:items-start"
+                      variants={itemReveal}
+                      className="grid gap-4 rounded-[1.2rem] border border-white/[0.08] bg-white/[0.03] p-5 md:grid-cols-[4rem_minmax(0,1fr)] md:items-start"
                     >
-                      <div className="text-[0.72rem] uppercase tracking-[0.34em] text-cyan-200/52">
+                      <div className="text-[0.72rem] uppercase tracking-[0.34em] text-cyan-200/58">
                         0{index + 1}
                       </div>
-                      <div className="max-w-3xl text-xl leading-8 text-white/86">{point}</div>
-                    </div>
+                      <div className="text-lg leading-8 text-white/86">{point}</div>
+                    </motion.div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             </div>
 
-            <div className="mt-16 border-t border-white/10 pt-10">
-              <div className="max-w-5xl">
+            <div className="mt-12 overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[linear-gradient(180deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.025)_100%)]">
+              <div className="border-b border-white/[0.08] px-6 py-5">
                 <div className="text-[0.72rem] uppercase tracking-[0.34em] text-white/38">
                   Deliverables
                 </div>
-                <div className="mt-8 grid gap-8 lg:grid-cols-3">
-                  {data.deliverables.map((item, index) => (
-                    <div key={item} className="border-t border-white/12 pt-5">
-                      <div className="text-[0.72rem] uppercase tracking-[0.34em] text-white/28">
-                        Deliverable 0{index + 1}
-                      </div>
-                      <div className="mt-4 text-lg leading-8 text-white/82">{item}</div>
-                    </div>
-                  ))}
-                </div>
               </div>
+              <motion.div
+                variants={groupStagger}
+                initial="hidden"
+                animate="show"
+                className="grid gap-4 p-6 lg:grid-cols-3"
+              >
+                {data.deliverables.map((item, index) => (
+                  <motion.div
+                    key={item}
+                    variants={itemReveal}
+                    className="rounded-[1.2rem] border border-white/[0.08] bg-white/[0.03] p-5"
+                  >
+                    <div className="text-[0.72rem] uppercase tracking-[0.34em] text-white/28">
+                      Deliverable 0{index + 1}
+                    </div>
+                    <div className="mt-4 text-lg leading-8 text-white/84">{item}</div>
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
 
-            <div className="mt-16 border-t border-white/10 pt-10">
-              <div className="flex flex-wrap items-center gap-4">
-                <Link
-                  href="/#contact"
-                  className="inline-flex items-center justify-center rounded-full bg-[linear-gradient(90deg,#1e69ff_0%,#23c0ff_100%)] px-6 py-3 text-sm font-semibold text-white shadow-[0_16px_50px_rgba(26,124,255,0.28)]"
-                >
-                  Start a conversation
-                </Link>
-                <Link
-                  href="/services"
-                  className="inline-flex items-center justify-center rounded-full border border-white/12 px-6 py-3 text-sm font-semibold text-white/86 transition hover:border-white/22 hover:bg-white/[0.04]"
-                >
-                  View all services
-                </Link>
-              </div>
+            <div className="mt-12 flex flex-wrap items-center gap-4">
+              <Link
+                href="/#contact"
+                className="inline-flex items-center justify-center rounded-full bg-[linear-gradient(90deg,#1e69ff_0%,#23c0ff_100%)] px-6 py-3 text-sm font-semibold text-white shadow-[0_16px_50px_rgba(26,124,255,0.28)] transition hover:brightness-110"
+              >
+                Start a conversation
+              </Link>
+              <Link
+                href="/services"
+                className="inline-flex items-center justify-center rounded-full border border-white/12 px-6 py-3 text-sm font-semibold text-white/86 transition hover:border-white/22 hover:bg-white/[0.04]"
+              >
+                View all services
+              </Link>
             </div>
-          </div>
+          </motion.div>
 
           <aside className="relative z-10 lg:pt-6">
             <div className="lg:sticky lg:top-36">
-              <div className="border-b border-white/10 pb-5">
-                <div className="text-[0.72rem] uppercase tracking-[0.36em] text-white/38">
-                  Service navigation
+              <div className="glass-panel-strong rounded-[1.8rem] p-5">
+                <div className="flex items-center justify-between">
+                  <div className="text-[0.72rem] uppercase tracking-[0.36em] text-white/38">
+                    Service navigation
+                  </div>
+                  <div className="text-[0.72rem] uppercase tracking-[0.36em] text-white/38">
+                    {activeServiceNumber}
+                  </div>
                 </div>
-              </div>
 
-              <div className="mt-6 space-y-5">
-                {servicePageOrder.map((service, index) => {
-                  const isCurrent = service.label === data.title;
-
-                  return (
-                    <Link
-                      key={service.href}
-                      href={service.href}
-                      className={`block border-l pl-5 transition ${
-                        isCurrent
-                          ? "border-cyan-300/70 text-white"
-                          : "border-white/10 text-white/54 hover:border-white/24 hover:text-white/88"
-                      }`}
-                    >
-                      <div className="text-[0.72rem] uppercase tracking-[0.34em] text-white/26">
-                        {String(index + 1).padStart(2, "0")}
-                      </div>
-                      <div className="mt-2 text-lg leading-7">{service.label}</div>
-                    </Link>
-                  );
-                })}
-              </div>
-
-              <div className="mt-12 border-t border-white/10 pt-8">
-                <div className="text-[0.72rem] uppercase tracking-[0.36em] text-white/38">
-                  Theme note
+                <div className="mt-4 rounded-[1.3rem] border border-white/[0.08] bg-white/[0.03] p-4">
+                  <div className="text-[0.72rem] uppercase tracking-[0.32em] text-white/34">
+                    Next up
+                  </div>
+                  <div className="mt-3 text-xl font-semibold tracking-[-0.05em] text-white">
+                    {nextService.label}
+                  </div>
+                  <p className="mt-2 text-sm leading-6 text-white/62">
+                    Move through the service stack with a single click.
+                  </p>
                 </div>
-                <p className="mt-4 max-w-sm text-sm leading-7 text-white/56">
-                  The dropdown-linked pages now use a more open editorial system with the visual
-                  artwork anchored into the layout instead of hidden beneath panel overlays.
-                </p>
+
+                <motion.div
+                  variants={groupStagger}
+                  initial="hidden"
+                  animate="show"
+                  className="mt-5 space-y-3"
+                >
+                  {servicePageOrder.map((service, index) => {
+                    const isCurrent = service.label === data.title;
+
+                    return (
+                      <motion.div key={service.href} variants={itemReveal}>
+                        <Link
+                          href={service.href}
+                          className={`group block rounded-[1.2rem] border p-4 transition ${
+                            isCurrent
+                              ? "border-cyan-300/40 bg-white/[0.06] shadow-[0_18px_60px_rgba(0,0,0,0.18)]"
+                              : "border-white/[0.08] bg-white/[0.03] hover:border-white/[0.16] hover:bg-white/[0.05]"
+                          }`}
+                        >
+                          <div className="flex items-start justify-between gap-4">
+                            <div>
+                              <div className="text-[0.72rem] uppercase tracking-[0.34em] text-white/26">
+                                {String(index + 1).padStart(2, "0")}
+                              </div>
+                              <div className="mt-2 text-lg leading-7 text-white">{service.label}</div>
+                            </div>
+                            <div
+                              className={`mt-1 h-2.5 w-2.5 rounded-full transition ${
+                                isCurrent
+                                  ? "bg-cyan-300 shadow-[0_0_22px_rgba(0,217,255,0.6)]"
+                                  : "bg-white/20"
+                              }`}
+                            />
+                          </div>
+                        </Link>
+                      </motion.div>
+                    );
+                  })}
+                </motion.div>
+
+                <div className="mt-6 rounded-[1.3rem] border border-white/[0.08] bg-white/[0.03] p-4">
+                  <div className="text-[0.72rem] uppercase tracking-[0.34em] text-white/38">
+                    Theme note
+                  </div>
+                  <p className="mt-3 text-sm leading-7 text-white/62">
+                    This version keeps the same service information, but reorganizes the page into
+                    a more open, editorial rhythm with softer motion and stronger hierarchy.
+                  </p>
+                </div>
               </div>
             </div>
           </aside>
