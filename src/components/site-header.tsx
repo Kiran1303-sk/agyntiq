@@ -88,8 +88,35 @@ function MenuIcon({ name }: { name: (typeof serviceMenuDisplay)[number]["icon"] 
   );
 }
 
+function IconMenuToggle() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+      <path
+        d="M4 7.5h16M4 12h16M4 16.5h16"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function IconClose() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+      <path
+        d="M6 6l12 12M18 6 6 18"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 export default function SiteHeader({ mode }: SiteHeaderProps) {
   const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
 
   const isActive = (href: string) => {
@@ -241,6 +268,86 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
             Book Demo
           </Link>
         )}
+
+        <button
+          type="button"
+          aria-expanded={mobileOpen}
+          aria-controls="services-mobile-menu"
+          onClick={() => setMobileOpen((open) => !open)}
+          className="ml-auto inline-flex shrink-0 items-center gap-2 rounded-full border border-[#4d2aad]/55 bg-[#0d1029]/90 px-3.5 py-2.5 text-xs font-semibold text-white/90 shadow-[0_12px_36px_rgba(0,0,0,0.28),0_0_22px_rgba(119,57,255,0.12)] backdrop-blur-xl transition hover:border-fuchsia-300/45 hover:bg-fuchsia-300/[0.08] md:hidden"
+        >
+          {mobileOpen ? <IconClose /> : <IconMenuToggle />}
+          <span>{mobileOpen ? "Close" : "Menu"}</span>
+        </button>
+      </div>
+
+      <div
+        id="services-mobile-menu"
+        className={`section-shell md:hidden transition-all duration-300 ${
+          mobileOpen
+            ? "pointer-events-auto max-h-[34rem] translate-y-0 pb-5 opacity-100"
+            : "pointer-events-none max-h-0 -translate-y-2 overflow-hidden opacity-0"
+        }`}
+      >
+        <div className="relative overflow-hidden rounded-[1.25rem] border border-[#4d2aad]/65 bg-[linear-gradient(135deg,rgba(5,12,38,0.98)_0%,rgba(7,8,28,0.98)_48%,rgba(42,7,46,0.98)_100%)] p-4 shadow-[0_22px_70px_rgba(0,0,0,0.48),0_0_34px_rgba(119,57,255,0.14)] backdrop-blur-2xl">
+          <div className="absolute -left-12 top-8 h-44 w-44 rotate-45 border border-[#1d8fff]/18" />
+          <div className="absolute -left-4 top-16 h-28 w-28 rotate-45 border border-fuchsia-400/22" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(14,103,255,0.12),transparent_32%),radial-gradient(circle_at_92%_80%,rgba(216,62,255,0.14),transparent_36%)]" />
+
+          <nav className="relative grid gap-2" aria-label="Mobile navigation">
+            {navItems.map((item) => {
+              const href = item.href === "/services" ? "/services" : sectionHref(item.href);
+
+              return item.href === "/services" ? (
+                <Link
+                  key={item.href}
+                  href="/services"
+                  onClick={() => setMobileOpen(false)}
+                  className={`rounded-[0.9rem] px-4 py-3 text-sm font-semibold transition ${
+                    isActive(item.href)
+                      ? "bg-[linear-gradient(180deg,rgba(72,62,214,0.9)_0%,rgba(149,53,215,0.9)_100%)] text-white"
+                      : "text-white/74 hover:bg-white/[0.06] hover:text-white"
+                  }`}
+                >
+                  Services
+                </Link>
+              ) : (
+                <a
+                  key={item.href}
+                  href={href}
+                  onClick={() => setMobileOpen(false)}
+                  className="rounded-[0.9rem] px-4 py-3 text-sm font-semibold text-white/74 transition hover:bg-white/[0.06] hover:text-white"
+                >
+                  {item.label}
+                </a>
+              );
+            })}
+          </nav>
+
+          <div className="relative mt-4 border-t border-white/[0.08] pt-4">
+            <div className="px-1 text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-200/60">
+              Services
+            </div>
+            <div className="mt-3 grid gap-2">
+              {serviceMenuDisplay.map((service) => (
+                <Link
+                  key={service.href}
+                  href={service.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="group flex items-center gap-3 rounded-[0.95rem] border border-white/[0.08] bg-[#080b25]/62 p-3 text-white/82 transition hover:border-fuchsia-300/35 hover:bg-fuchsia-300/[0.07] hover:text-white"
+                >
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[0.75rem] border border-fuchsia-400/18 bg-[#151239]/72 text-fuchsia-300 shadow-[0_0_24px_rgba(202,74,255,0.14)] transition group-hover:text-fuchsia-100">
+                    <MenuIcon name={service.icon} />
+                  </span>
+                  <span>
+                    <span className="block text-sm font-semibold leading-5">{service.title}</span>
+                    <span className="mt-0.5 block text-xs leading-5 text-white/52">{service.subtitle}</span>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </header>
   );
