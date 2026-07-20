@@ -80,64 +80,70 @@ function CardIcon({ name }: { name: string }) {
 
 export default function ServicesPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#050816] pt-44 text-white md:pt-48">
+    <main className="relative min-h-screen overflow-hidden bg-[#050816] pt-40 text-white md:pt-44">
       <SiteHeader mode="services" />
 
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,#071226_0%,#050816_42%,#08021a_100%)]" />
 
-      <section className="mx-auto w-full max-w-[1120px] px-4 pb-14 md:px-6">
+      <section className="mx-auto w-full max-w-[940px] px-4 pb-14 md:px-6">
         <motion.div
           initial="hidden"
           animate="show"
           variants={pageReveal}
-          className="relative overflow-hidden rounded-[1.6rem] border border-cyan-400/35 bg-[linear-gradient(145deg,rgba(5,13,40,0.98)_0%,rgba(8,8,32,0.99)_48%,rgba(27,5,38,0.98)_100%)] shadow-[0_22px_90px_rgba(0,0,0,0.48)]"
+          className="relative min-h-[34rem] overflow-hidden rounded-[1.45rem] border border-cyan-400/35 bg-[linear-gradient(145deg,rgba(5,13,40,0.98)_0%,rgba(8,8,32,0.99)_48%,rgba(33,5,42,0.98)_100%)] p-6 shadow-[0_22px_90px_rgba(0,0,0,0.48)] md:p-8"
         >
-          <div className="grid min-h-[27rem] gap-0 lg:grid-cols-[1.02fr_0.98fr]">
-            <div className="relative z-10 flex flex-col justify-between px-7 py-8 md:px-10 md:py-10">
-              <div>
-                <div className="inline-flex rounded-full bg-[linear-gradient(90deg,#1367d8_0%,#7b35dd_55%,#c238d8_100%)] px-5 py-2 text-sm font-semibold text-white shadow-[0_0_24px_rgba(101,80,255,0.35)]">
-                  5. Midnight Gradient
-                </div>
-
-                <div className="mt-12 text-xs font-semibold uppercase tracking-[0.28em] text-white/58">
-                  Services
-                </div>
-                <h1 className="mt-5 text-5xl font-semibold leading-none tracking-normal text-white md:text-6xl">
-                  Our Services
-                </h1>
-                <p className="mt-5 max-w-md text-lg leading-7 tracking-normal text-white/86 md:text-xl md:leading-8">
-                  AI solutions designed to drive innovation and growth.
-                </p>
-              </div>
-
-              <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {cards.map((card) => (
-                  <div
-                    key={card.title}
-                    className="min-h-[8.7rem] rounded-[0.8rem] border border-cyan-400/22 bg-[linear-gradient(180deg,rgba(12,25,61,0.82)_0%,rgba(9,12,35,0.92)_100%)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_14px_36px_rgba(0,0,0,0.25)]"
-                  >
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#0a2c67]/80 text-cyan-300 shadow-[0_0_26px_rgba(34,211,238,0.16)]">
-                      <CardIcon name={card.icon} />
-                    </div>
-                    <div className="mt-4 text-sm font-semibold leading-5 text-white">{card.title}</div>
-                    <p className="mt-2 text-xs leading-5 text-white/56">{card.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="relative hidden min-h-[27rem] lg:block">
-              <Image
-                src="/services-hero.png"
-                alt="AI head illustration"
-                fill
-                priority
-                sizes="520px"
-                className="object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,9,28,0.42)_0%,rgba(7,9,28,0.04)_42%,rgba(7,9,28,0.16)_100%)]" />
-            </div>
+          <div className="absolute inset-y-0 right-0 hidden w-[48%] lg:block">
+            <Image
+              src="/services-hero.png"
+              alt="AI head illustration"
+              fill
+              priority
+              sizes="450px"
+              className="object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,10,31,0.72)_0%,rgba(5,10,31,0.05)_42%,rgba(26,5,39,0.12)_100%)]" />
           </div>
+
+          <div className="relative z-10 max-w-[26rem]">
+            <div className="inline-flex rounded-full bg-[linear-gradient(90deg,#1367d8_0%,#7b35dd_55%,#c238d8_100%)] px-5 py-2 text-sm font-semibold text-white shadow-[0_0_24px_rgba(101,80,255,0.35)]">
+              5. Midnight Gradient
+            </div>
+
+            <div className="mt-10 text-xs font-semibold uppercase tracking-[0.28em] text-white/58">
+              Services
+            </div>
+            <h1 className="mt-5 text-5xl font-semibold leading-none tracking-normal text-white md:text-6xl">
+              Our Services
+            </h1>
+            <p className="mt-5 text-lg leading-7 tracking-normal text-white/86 md:text-xl md:leading-8">
+              AI solutions designed to drive innovation and growth.
+            </p>
+          </div>
+
+          <div className="relative z-10 mt-10 h-56 overflow-hidden rounded-[1rem] border border-white/10 lg:hidden">
+            <Image
+              src="/services-hero.png"
+              alt="AI head illustration"
+              fill
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+          </div>
+
+          <div className="relative z-10 mt-10 grid gap-4 sm:grid-cols-2 lg:absolute lg:inset-x-8 lg:bottom-8 lg:grid-cols-4">
+            {cards.map((card) => (
+              <div
+                key={card.title}
+                className="min-h-[8.25rem] rounded-[0.8rem] border border-cyan-400/22 bg-[linear-gradient(180deg,rgba(12,25,61,0.82)_0%,rgba(9,12,35,0.92)_100%)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_14px_36px_rgba(0,0,0,0.25)] backdrop-blur-sm"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#0a2c67]/80 text-cyan-300 shadow-[0_0_26px_rgba(34,211,238,0.16)]">
+                  <CardIcon name={card.icon} />
+                </div>
+                <div className="mt-4 text-sm font-semibold leading-5 text-white">{card.title}</div>
+                <p className="mt-2 text-xs leading-5 text-white/56">{card.description}</p>
+              </div>
+            ))}
+            </div>
         </motion.div>
       </section>
     </main>
