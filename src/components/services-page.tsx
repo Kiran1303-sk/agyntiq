@@ -328,7 +328,7 @@ export default function ServicesPage() {
 
         <motion.div initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, ease }} className="relative min-h-[30rem]">
           <Image
-            src="/services-img1.png"
+            src="/services-img.png"
             alt="Animated AI human illustration"
             fill
             priority
