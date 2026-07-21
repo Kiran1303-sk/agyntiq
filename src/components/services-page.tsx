@@ -793,24 +793,93 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <footer className="border-t border-[#4d2aad]/36 bg-[#07081c]/88 px-4 py-12 md:px-6">
-        <div className="mx-auto grid max-w-[1120px] gap-8 md:grid-cols-[1.2fr_repeat(4,1fr)]">
-          <div>
-            <div className="text-2xl font-semibold text-white">AgyntiQ</div>
-            <p className="mt-3 max-w-sm text-sm leading-6 text-white/52">
-              Enterprise AI services for strategy, development, integration, data, and managed operations.
-            </p>
-          </div>
-          {["Company", "Solutions", "Industries", "Resources"].map((column) => (
-            <div key={column}>
-              <div className="text-sm font-semibold text-white">{column}</div>
-              <div className="mt-4 grid gap-2 text-sm text-white/50">
-                <span>Blog</span>
-                <span>Careers</span>
-                <span>Contact</span>
+      <footer className="relative overflow-hidden border-t border-[#4d2aad]/26 bg-[#050816] px-4 py-10 md:px-6">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_8%,rgba(14,103,255,0.14),transparent_30%),radial-gradient(circle_at_86%_22%,rgba(216,62,255,0.16),transparent_34%)]" />
+        <div className="pointer-events-none absolute left-[-8rem] top-8 h-72 w-72 rotate-45 border border-[#1d8fff]/10" />
+        <div className="pointer-events-none absolute right-[-6rem] bottom-[-6rem] h-80 w-80 rounded-full bg-fuchsia-400/10 blur-[110px]" />
+
+        <div className="relative mx-auto max-w-[1120px]">
+          <div className="overflow-hidden rounded-[1.5rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.92)_0%,rgba(7,8,28,0.96)_50%,rgba(42,7,46,0.88)_100%)] p-6 shadow-[inset_0_0_0_1px_rgba(125,92,255,0.18),0_24px_90px_rgba(0,0,0,0.28)] md:p-8">
+            <div className="grid gap-8 lg:grid-cols-[1.25fr_0.85fr_0.85fr_1fr]">
+              <div>
+                <div className="inline-flex rounded-full bg-fuchsia-300/[0.07] px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-fuchsia-100/70 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.12)]">
+                  Enterprise AI Partner
+                </div>
+                <div className="mt-5 bg-[linear-gradient(90deg,#ffffff,#c7d2fe,#f0abfc)] bg-clip-text text-3xl font-semibold tracking-[-0.05em] text-transparent">
+                  AgyntiQ
+                </div>
+                <p className="mt-4 max-w-sm text-sm leading-7 text-white/58">
+                  Strategy, development, integration, data, and managed AI operations for teams ready to move from pilots to production.
+                </p>
+                <div className="mt-6 grid max-w-sm grid-cols-3 gap-2">
+                  {["Secure", "Scalable", "Managed"].map((item) => (
+                    <div key={item} className="rounded-[0.8rem] bg-white/[0.035] px-3 py-2 text-center text-xs font-semibold text-white/62 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]">
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-[0.24em] text-fuchsia-200/48">
+                  Services
+                </div>
+                <div className="mt-4 grid gap-3">
+                  {services.map((service) => (
+                    <Link
+                      key={service.href}
+                      href={service.href}
+                      className="group flex items-center justify-between gap-3 text-sm font-semibold text-white/58 transition hover:text-fuchsia-100"
+                    >
+                      <span>{service.nav}</span>
+                      <span className="h-px w-5 bg-fuchsia-300/18 transition group-hover:w-8 group-hover:bg-fuchsia-200/48" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-[0.24em] text-fuchsia-200/48">
+                  Explore
+                </div>
+                <div className="mt-4 grid gap-3 text-sm font-semibold text-white/58">
+                  {["Solutions", "Industries", "Case Studies", "FAQ", "Contact"].map((item) => (
+                    <a key={item} href={item === "Contact" ? "/#contact" : "#overview"} className="transition hover:text-fuchsia-100">
+                      {item}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-[1.15rem] bg-[#080b25]/70 p-5 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.1)]">
+                <div className="text-xs font-semibold uppercase tracking-[0.24em] text-blue-200/44">
+                  Build With Us
+                </div>
+                <p className="mt-3 text-xl font-semibold leading-tight tracking-[-0.04em] text-white">
+                  Turn your AI roadmap into a production system.
+                </p>
+                <Link href="/#contact" className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-[linear-gradient(90deg,#2E6CEB,#7547DF,#C23BD9)] px-5 py-3 text-sm font-semibold text-white shadow-[0_16px_46px_rgba(126,87,255,0.22)] transition hover:-translate-y-0.5">
+                  Talk to AgyntiQ
+                </Link>
+                <div className="mt-5 grid grid-cols-2 gap-2">
+                  {["24/7 support", "Enterprise ready"].map((item) => (
+                    <div key={item} className="rounded-[0.75rem] bg-white/[0.035] px-3 py-2 text-xs font-semibold text-white/56">
+                      {item}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          ))}
+
+            <div className="mt-8 flex flex-col gap-4 border-t border-white/[0.07] pt-5 text-xs text-white/42 md:flex-row md:items-center md:justify-between">
+              <div>© 2026 AgyntiQ. Enterprise AI services for real-world operations.</div>
+              <div className="flex flex-wrap gap-4">
+                <span>Privacy</span>
+                <span>Security</span>
+                <span>Terms</span>
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
     </main>
