@@ -13,8 +13,7 @@ const navItems = [
   { label: "Services", href: "/services" },
   { label: "Solutions", href: "#solutions" },
   { label: "Industries", href: "#industries" },
-  { label: "Blog", href: "#blog" },
-  { label: "Contact", href: "#contact" }
+  { label: "Blog", href: "#blog" }
 ] as const;
 
 const serviceMenuDisplay = [
@@ -268,21 +267,12 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
           })}
         </nav>
 
-        {mode === "home" ? (
-          <Link
-            href="/services"
-            className="magnetic hidden items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white/[0.12] bg-gradient-to-r from-aurora-blue via-aurora-violet to-aurora-cyan px-6 py-3.5 text-sm font-semibold leading-none text-white shadow-[0_18px_60px_rgba(79,140,255,0.26)] backdrop-blur-xl transition hover:shadow-[0_20px_70px_rgba(0,214,255,0.28)] md:flex"
-          >
-            Explore Services
-          </Link>
-        ) : (
-          <Link
-            href="/#contact"
-            className="magnetic hidden items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white/[0.12] bg-gradient-to-r from-aurora-blue via-aurora-violet to-aurora-cyan px-6 py-3.5 text-sm font-semibold leading-none text-white shadow-[0_18px_60px_rgba(79,140,255,0.26)] backdrop-blur-xl transition hover:shadow-[0_20px_70px_rgba(0,214,255,0.28)] md:flex"
-          >
-            Book Demo
-          </Link>
-        )}
+        <Link
+          href={mode === "home" ? "#contact" : "/#contact"}
+          className="magnetic hidden items-center justify-center gap-2 whitespace-nowrap rounded-full border border-[#7547df]/24 bg-[linear-gradient(90deg,#2E6CEB_0%,#5B5CFF_50%,#7547DF_100%)] px-6 py-3.5 text-sm font-semibold leading-none text-white shadow-[0_18px_60px_rgba(91,92,255,0.28)] backdrop-blur-xl transition hover:shadow-[0_20px_70px_rgba(117,71,223,0.28)] md:flex"
+        >
+          Contact
+        </Link>
 
         <button
           type="button"
