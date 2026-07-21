@@ -979,8 +979,9 @@ export default function AuroraLanding() {
 
         <ScrollShowcaseSection />
 
-        <section className="py-12 md:py-16">
-          <div className="section-shell">
+        <section className="relative overflow-hidden py-12 md:py-16">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(46,108,235,0.1),transparent_28%),radial-gradient(circle_at_82%_64%,rgba(117,71,223,0.1),transparent_30%)]" />
+          <div className="section-shell relative z-10">
             <div className="section-heading max-w-3xl" data-reveal>
               <div className="section-kicker">Workflow</div>
               <h2 className="section-title">Built around an intelligent business workflow.</h2>
@@ -991,20 +992,24 @@ export default function AuroraLanding() {
             </div>
 
             <div
-              className={`mt-10 grid gap-0 overflow-hidden rounded-[2rem] md:grid-cols-3 ${premiumSurface}`}
+              className="mt-10 grid gap-3 md:grid-cols-3"
               data-parallax="12"
             >
               {workflowSteps.map((step, index) => (
                 <div
                   key={step}
-                  className={`hover-underline border-b ${premiumSoftBorder} px-6 py-6 md:border-b-0 md:border-r md:last:border-r-0`}
+                  className={`group relative min-h-[10.5rem] overflow-hidden rounded-[1.4rem] p-6 ${premiumFlatCard} shadow-[0_18px_64px_rgba(0,0,0,0.22)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_84px_rgba(91,92,255,0.14)]`}
                   data-reveal
                 >
-                  <div className="flex items-center justify-between text-sm uppercase tracking-[0.28em] text-white/40">
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(46,108,235,0.13),transparent_28%),radial-gradient(circle_at_88%_88%,rgba(117,71,223,0.1),transparent_30%)] opacity-65 transition duration-500 group-hover:opacity-100 md:opacity-0" />
+                  <div className="pointer-events-none absolute bottom-4 left-6 right-6 h-1 overflow-hidden rounded-full bg-[#0b143a]">
+                    <div className="h-full w-1/2 origin-left rounded-full bg-[linear-gradient(90deg,#2e6ceb_0%,#5b5cff_52%,#7547df_100%)] transition duration-500 group-hover:w-full" />
+                  </div>
+                  <div className="relative flex items-center justify-between text-sm uppercase tracking-[0.28em] text-white/40">
                     <span>Step 0{index + 1}</span>
                     <span className="text-white/30">0{index + 1}</span>
                   </div>
-                  <div className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-white">
+                  <div className="relative mt-5 text-2xl font-semibold tracking-[-0.04em] text-white">
                     {step}
                   </div>
                 </div>
