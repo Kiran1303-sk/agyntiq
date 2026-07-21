@@ -1241,13 +1241,13 @@ export default function AuroraLanding() {
               {testimonials.map((item) => (
                 <article
                   key={item.name}
-                  className={`group relative grid gap-5 overflow-hidden rounded-[1.4rem] p-5 transition duration-500 hover:-translate-y-1 hover:shadow-[0_26px_92px_rgba(91,92,255,0.15)] lg:grid-cols-[0.34fr_0.66fr] lg:items-center ${premiumFlatCard}`}
+                  className={`group relative grid gap-5 overflow-hidden rounded-[1.4rem] p-5 shadow-[0_22px_78px_rgba(91,92,255,0.1)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_26px_92px_rgba(91,92,255,0.15)] sm:p-6 lg:grid-cols-[0.34fr_0.66fr] lg:items-center ${premiumFlatCard}`}
                   data-reveal
                 >
-                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_18%,rgba(46,108,235,0.12),transparent_28%),radial-gradient(circle_at_88%_84%,rgba(117,71,223,0.1),transparent_30%)] opacity-0 transition duration-500 group-hover:opacity-100" />
-                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 rounded-full bg-[linear-gradient(90deg,#2e6ceb_0%,#5b5cff_52%,#7547df_100%)] opacity-90 transition duration-500 group-hover:scale-x-100" />
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_18%,rgba(46,108,235,0.12),transparent_28%),radial-gradient(circle_at_88%_84%,rgba(117,71,223,0.1),transparent_30%)] opacity-70 transition duration-500 group-hover:opacity-100 md:opacity-0" />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1 origin-left rounded-full bg-[linear-gradient(90deg,#2e6ceb_0%,#5b5cff_52%,#7547df_100%)] opacity-90 transition duration-500 md:scale-x-0 md:group-hover:scale-x-100" />
                   <div className="relative flex items-center gap-4">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[linear-gradient(135deg,#07143a,#10183a)] text-sm font-semibold text-white shadow-[0_0_28px_rgba(79,140,255,0.18)] transition duration-500 group-hover:scale-105 group-hover:shadow-[0_0_38px_rgba(91,92,255,0.24)]">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#07143a,#10183a)] text-sm font-semibold text-white shadow-[0_0_28px_rgba(79,140,255,0.18)] transition duration-500 group-hover:scale-105 group-hover:shadow-[0_0_38px_rgba(91,92,255,0.24)]">
                       {item.name
                         .split(" ")
                         .map((part) => part[0])
@@ -1258,8 +1258,8 @@ export default function AuroraLanding() {
                       <div className="text-sm text-white/55">{item.role}</div>
                     </div>
                   </div>
-                  <div className="relative">
-                    <div className="mb-3 text-5xl font-semibold leading-none text-[#5b5cff]/28 transition duration-500 group-hover:text-[#8b7cff]/42">
+                  <div className="relative rounded-[1rem] bg-[#08143a]/36 p-4 sm:bg-transparent sm:p-0">
+                    <div className="mb-2 text-4xl font-semibold leading-none text-[#8b7cff]/38 transition duration-500 group-hover:text-[#8b7cff]/48 sm:mb-3 sm:text-5xl">
                       &ldquo;
                     </div>
                     <p className="text-base leading-7 text-white/78 transition duration-500 group-hover:text-white/88">
