@@ -200,7 +200,7 @@ button {
   position: absolute;
   left: 0;
   bottom: 0.35rem;
-  width: 4.25rem;
+  width: min(10rem, 64%);
   height: 2px;
   border-radius: 9999px;
   background: linear-gradient(90deg, rgba(46, 108, 235, 0.72), rgba(117, 71, 223, 0.62), rgba(194, 59, 217, 0.55));
