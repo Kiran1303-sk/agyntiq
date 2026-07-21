@@ -18,7 +18,7 @@ body {
   background:
     radial-gradient(circle at top left, rgba(91, 140, 255, 0.18), transparent 30%),
     radial-gradient(circle at 80% 18%, rgba(124, 77, 255, 0.16), transparent 26%),
-    radial-gradient(circle at 50% 100%, rgba(194, 59, 217, 0.08), transparent 32%),
+    radial-gradient(circle at 50% 100%, rgba(46, 108, 235, 0.075), transparent 32%),
     linear-gradient(180deg, #050816 0%, #070d1d 44%, #050816 100%);
   background-attachment: fixed;
   color: #f5f7ff;
@@ -29,7 +29,7 @@ body {
 }
 
 ::selection {
-  background: rgba(194, 59, 217, 0.28);
+  background: rgba(117, 71, 223, 0.3);
   color: #f5f7ff;
 }
 
@@ -59,7 +59,7 @@ body::after {
   opacity: 0.12;
   background:
     radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.05), transparent 22%),
-    radial-gradient(circle at 20% 80%, rgba(194, 59, 217, 0.055), transparent 18%);
+    radial-gradient(circle at 20% 80%, rgba(91, 140, 255, 0.055), transparent 18%);
   filter: blur(12px);
 }
 
@@ -70,25 +70,25 @@ button {
 
 .glass-panel {
   border: 1px solid rgba(117, 71, 223, 0.16);
-  background: linear-gradient(135deg, rgba(5, 12, 38, 0.72), rgba(42, 7, 46, 0.46));
+  background: linear-gradient(135deg, rgba(5, 12, 38, 0.78), rgba(8, 12, 42, 0.58));
   backdrop-filter: blur(28px);
   box-shadow:
     0 20px 80px rgba(4, 10, 32, 0.55);
 }
 
 .glass-panel-strong {
-  border: 1px solid rgba(194, 59, 217, 0.18);
+  border: 1px solid rgba(117, 71, 223, 0.18);
   background:
     radial-gradient(circle at top left, rgba(91, 140, 255, 0.12), transparent 28%),
-    radial-gradient(circle at top right, rgba(194, 59, 217, 0.1), transparent 24%),
-    linear-gradient(135deg, rgba(5, 12, 38, 0.78), rgba(42, 7, 46, 0.52));
+    radial-gradient(circle at top right, rgba(117, 71, 223, 0.1), transparent 24%),
+    linear-gradient(135deg, rgba(5, 12, 38, 0.82), rgba(8, 12, 42, 0.62));
   backdrop-filter: blur(32px);
   box-shadow:
     0 20px 80px rgba(4, 10, 32, 0.55);
 }
 
 .aurora-button {
-  background: linear-gradient(135deg, #2e6ceb 0%, #7547df 52%, #c23bd9 100%);
+  background: linear-gradient(135deg, #2e6ceb 0%, #5b5cff 52%, #7547df 100%);
   background-size: 200% 200%;
   position: relative;
   isolation: isolate;
@@ -161,8 +161,8 @@ button {
   background: linear-gradient(
     120deg,
     transparent 20%,
-    rgba(194, 59, 217, 0.08) 48%,
-    rgba(117, 71, 223, 0.07) 56%,
+    rgba(91, 140, 255, 0.075) 48%,
+    rgba(117, 71, 223, 0.065) 56%,
     transparent 80%
   );
   transform: translateX(-120%);
@@ -184,10 +184,10 @@ button {
 
 .hover-glow:hover {
   transform: translateY(-4px);
-  border-color: rgba(194, 59, 217, 0.24);
+  border-color: rgba(117, 71, 223, 0.24);
   box-shadow:
     0 24px 90px rgba(0, 0, 0, 0.36),
-    0 0 0 1px rgba(194, 59, 217, 0.08),
+    0 0 0 1px rgba(117, 71, 223, 0.08),
     0 0 48px rgba(126, 87, 255, 0.12);
 }
 
@@ -203,7 +203,7 @@ button {
   width: min(10rem, 64%);
   height: 2px;
   border-radius: 9999px;
-  background: linear-gradient(90deg, rgba(46, 108, 235, 0.72), rgba(117, 71, 223, 0.62), rgba(194, 59, 217, 0.55));
+  background: linear-gradient(90deg, rgba(46, 108, 235, 0.72), rgba(91, 92, 255, 0.62), rgba(117, 71, 223, 0.55));
   opacity: 0;
   transform: translateY(5px) scaleX(0.28);
   transform-origin: left;
@@ -236,7 +236,7 @@ button {
     90deg,
     transparent,
     rgba(117, 71, 223, 0.48),
-    rgba(194, 59, 217, 0.38),
+    rgba(91, 140, 255, 0.34),
     transparent
   );
   filter: blur(2px);
@@ -252,8 +252,8 @@ button {
   align-items: center;
   gap: 0.5rem;
   border-radius: 9999px;
-  border: 1px solid rgba(194, 59, 217, 0.18);
-  background: linear-gradient(135deg, rgba(8, 11, 37, 0.78), rgba(24, 8, 42, 0.62));
+  border: 1px solid rgba(117, 71, 223, 0.18);
+  background: linear-gradient(135deg, rgba(8, 11, 37, 0.82), rgba(10, 14, 48, 0.66));
   padding: 0.45rem 0.85rem;
   font-size: 0.75rem;
   letter-spacing: 0.32em;
@@ -279,7 +279,7 @@ button {
 
 .hero-glow {
   box-shadow:
-    0 0 0 1px rgba(194, 59, 217, 0.08),
+    0 0 0 1px rgba(117, 71, 223, 0.08),
     0 22px 90px rgba(126, 87, 255, 0.12);
 }
 
