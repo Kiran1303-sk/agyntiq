@@ -18,7 +18,7 @@ body {
   background:
     radial-gradient(circle at top left, rgba(91, 140, 255, 0.18), transparent 30%),
     radial-gradient(circle at 80% 18%, rgba(124, 77, 255, 0.16), transparent 26%),
-    radial-gradient(circle at 50% 100%, rgba(0, 217, 255, 0.09), transparent 32%),
+    radial-gradient(circle at 50% 100%, rgba(194, 59, 217, 0.08), transparent 32%),
     linear-gradient(180deg, #050816 0%, #070d1d 44%, #050816 100%);
   background-attachment: fixed;
   color: #f5f7ff;
@@ -29,7 +29,7 @@ body {
 }
 
 ::selection {
-  background: rgba(0, 217, 255, 0.28);
+  background: rgba(194, 59, 217, 0.28);
   color: #f5f7ff;
 }
 
@@ -43,7 +43,7 @@ body::before {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    radial-gradient(circle at 50% 50%, rgba(0, 217, 255, 0.08), transparent 45%);
+    radial-gradient(circle at 50% 50%, rgba(117, 71, 223, 0.08), transparent 45%);
   background-size:
     38px 38px,
     38px 38px,
@@ -59,7 +59,7 @@ body::after {
   opacity: 0.12;
   background:
     radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.05), transparent 22%),
-    radial-gradient(circle at 20% 80%, rgba(0, 217, 255, 0.06), transparent 18%);
+    radial-gradient(circle at 20% 80%, rgba(194, 59, 217, 0.055), transparent 18%);
   filter: blur(12px);
 }
 
@@ -69,8 +69,8 @@ button {
 }
 
 .glass-panel {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(117, 71, 223, 0.16);
+  background: linear-gradient(135deg, rgba(5, 12, 38, 0.72), rgba(42, 7, 46, 0.46));
   backdrop-filter: blur(28px);
   box-shadow:
     0 20px 80px rgba(4, 10, 32, 0.55),
@@ -78,11 +78,11 @@ button {
 }
 
 .glass-panel-strong {
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(194, 59, 217, 0.18);
   background:
     radial-gradient(circle at top left, rgba(91, 140, 255, 0.12), transparent 28%),
-    radial-gradient(circle at top right, rgba(0, 217, 255, 0.1), transparent 24%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.045));
+    radial-gradient(circle at top right, rgba(194, 59, 217, 0.1), transparent 24%),
+    linear-gradient(135deg, rgba(5, 12, 38, 0.78), rgba(42, 7, 46, 0.52));
   backdrop-filter: blur(32px);
   box-shadow:
     0 20px 80px rgba(4, 10, 32, 0.55),
@@ -90,7 +90,7 @@ button {
 }
 
 .aurora-button {
-  background: linear-gradient(135deg, #5b8cff 0%, #7c4dff 52%, #00d9ff 100%);
+  background: linear-gradient(135deg, #2e6ceb 0%, #7547df 52%, #c23bd9 100%);
   background-size: 200% 200%;
   position: relative;
   isolation: isolate;
@@ -185,11 +185,11 @@ button {
 
 .hover-glow:hover {
   transform: translateY(-4px);
-  border-color: rgba(0, 217, 255, 0.22);
+  border-color: rgba(194, 59, 217, 0.24);
   box-shadow:
     0 24px 90px rgba(0, 0, 0, 0.36),
-    0 0 0 1px rgba(255, 255, 255, 0.08),
-    0 0 48px rgba(0, 217, 255, 0.12);
+    0 0 0 1px rgba(194, 59, 217, 0.08),
+    0 0 48px rgba(126, 87, 255, 0.12);
 }
 
 .hover-underline {
@@ -206,7 +206,7 @@ button {
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 260ms ease;
-  background: linear-gradient(90deg, #2d9cff, #6c4bff, #00d9ff);
+  background: linear-gradient(90deg, #2e6ceb, #7547df, #c23bd9);
 }
 
 .hover-underline:hover::after {
@@ -227,7 +227,13 @@ button {
   inset: auto 20% -1rem 20%;
   height: 2px;
   border-radius: 9999px;
-  background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.55), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(117, 71, 223, 0.48),
+    rgba(194, 59, 217, 0.38),
+    transparent
+  );
   filter: blur(2px);
   opacity: 0.45;
 }
@@ -241,13 +247,13 @@ button {
   align-items: center;
   gap: 0.5rem;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(194, 59, 217, 0.18);
+  background: linear-gradient(135deg, rgba(8, 11, 37, 0.78), rgba(24, 8, 42, 0.62));
   padding: 0.45rem 0.85rem;
   font-size: 0.75rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.58);
+  color: rgba(232, 216, 255, 0.68);
 }
 
 .section-title {
@@ -268,8 +274,8 @@ button {
 
 .hero-glow {
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.06),
-    0 22px 90px rgba(0, 217, 255, 0.12);
+    0 0 0 1px rgba(194, 59, 217, 0.08),
+    0 22px 90px rgba(126, 87, 255, 0.12);
 }
 
 .text-gradient {

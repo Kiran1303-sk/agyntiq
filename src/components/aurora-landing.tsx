@@ -581,7 +581,7 @@ export default function AuroraLanding() {
   return (
     <div className="relative overflow-hidden">
       <motion.div
-        className="fixed left-0 top-0 z-50 h-1 origin-left bg-gradient-to-r from-aurora-blue via-aurora-violet to-aurora-cyan"
+        className="fixed left-0 top-0 z-50 h-1 origin-left bg-[linear-gradient(90deg,#2E6CEB_0%,#7547DF_52%,#C23BD9_100%)]"
         style={{ scaleX: progress }}
       />
 
@@ -594,7 +594,7 @@ export default function AuroraLanding() {
 
       <header
         className={`fixed inset-x-0 top-0 z-40 transition-all duration-500 ${
-          scrolled ? "border-b border-white/10 bg-[#050816]/72 backdrop-blur-2xl" : "bg-transparent"
+          scrolled ? "border-b border-[#7547df]/16 bg-[#050816]/72 backdrop-blur-2xl" : "bg-transparent"
         }`}
       >
         <div className="section-shell flex h-20 items-center justify-between gap-4 md:grid md:h-24 md:grid-cols-[1fr_auto_1fr] md:gap-10 md:gap-12">
@@ -656,13 +656,13 @@ export default function AuroraLanding() {
                       <div className="relative overflow-hidden rounded-[1.25rem] border border-[#4d2aad]/70 bg-[linear-gradient(135deg,rgba(5,12,38,0.98)_0%,rgba(7,8,28,0.98)_48%,rgba(42,7,46,0.98)_100%)] p-4 shadow-[0_22px_70px_rgba(0,0,0,0.48),0_0_34px_rgba(119,57,255,0.14)] backdrop-blur-2xl">
                         <div className="absolute left-1/2 top-[-0.3rem] h-3.5 w-3.5 -translate-x-1/2 rotate-45 border-l border-t border-[#4d2aad]/70 bg-[#080b25]" />
                         <div className="grid min-h-[16.5rem] grid-cols-[0.9fr_1.1fr]">
-                          <div className="relative overflow-hidden border-r border-white/[0.08] bg-[radial-gradient(circle_at_48%_46%,rgba(58,104,255,0.2),transparent_28%),linear-gradient(180deg,rgba(5,16,48,0.32),rgba(6,8,26,0.06))]">
-                            <div className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rotate-45 border border-cyan-400/25" />
-                            <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rotate-45 border border-violet-400/35" />
-                            <div className="absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 rotate-45 border border-fuchsia-400/35" />
+                          <div className="relative overflow-hidden border-r border-[#7547df]/14 bg-[radial-gradient(circle_at_48%_46%,rgba(58,104,255,0.16),transparent_28%),linear-gradient(180deg,rgba(5,16,48,0.32),rgba(24,8,42,0.08))]">
+                            <div className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rotate-45 border border-[#2e6ceb]/16" />
+                            <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rotate-45 border border-violet-400/20" />
+                            <div className="absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 rotate-45 border border-fuchsia-400/22" />
                             <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(14,103,255,0.1),transparent_42%,rgba(216,62,255,0.12))]" />
                             <div className="relative flex h-full items-center justify-center">
-                              <div className="flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-[0.85rem] border border-white/10 bg-[#0c0b2c]/70 text-4xl font-semibold text-white shadow-[0_0_38px_rgba(126,87,255,0.42)]">
+                              <div className="flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-[0.85rem] border border-fuchsia-200/14 bg-[#0c0b2c]/70 text-4xl font-semibold text-white shadow-[0_0_38px_rgba(126,87,255,0.42)]">
                                 A
                               </div>
                             </div>
@@ -673,7 +673,7 @@ export default function AuroraLanding() {
                               <Link
                                 key={service.href}
                                 href={service.href}
-                                className={`group flex items-center gap-3 border-b border-white/[0.08] py-3 transition last:border-b-0 ${
+                                className={`group flex items-center gap-3 border-b border-[#7547df]/12 py-3 transition last:border-b-0 ${
                                   pathname === service.href ? "text-white" : "text-white/78 hover:text-white"
                                 }`}
                               >
@@ -732,7 +732,7 @@ export default function AuroraLanding() {
 
           <Link
             href="/services"
-            className="magnetic hidden items-center justify-center gap-2 justify-self-end whitespace-nowrap rounded-full border border-white/[0.12] bg-gradient-to-r from-aurora-blue via-aurora-violet to-aurora-cyan px-6 py-3.5 text-sm font-semibold leading-none text-white shadow-[0_18px_60px_rgba(79,140,255,0.26)] backdrop-blur-xl transition hover:shadow-[0_20px_70px_rgba(0,214,255,0.28)] md:flex"
+            className="magnetic hidden items-center justify-center gap-2 justify-self-end whitespace-nowrap rounded-full border border-fuchsia-300/20 bg-[linear-gradient(90deg,#2E6CEB_0%,#7547DF_50%,#C23BD9_100%)] px-6 py-3.5 text-sm font-semibold leading-none text-white shadow-[0_18px_60px_rgba(126,87,255,0.28)] backdrop-blur-xl transition hover:shadow-[0_20px_70px_rgba(194,59,217,0.28)] md:flex"
           >
             Explore Services
             <IconArrow />
@@ -743,7 +743,7 @@ export default function AuroraLanding() {
             onClick={() => setMobileOpen((current) => !current)}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
-            className="magnetic ml-auto shrink-0 rounded-full border border-white/[0.12] bg-white/5 px-3.5 py-2.5 text-xs font-medium text-white/90 backdrop-blur-xl transition hover:border-white/20 hover:bg-white/10 md:hidden"
+            className="magnetic ml-auto shrink-0 rounded-full border border-fuchsia-200/18 bg-[#151239]/72 px-3.5 py-2.5 text-xs font-medium text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-xl transition hover:border-fuchsia-200/34 hover:bg-fuchsia-300/[0.08] md:hidden"
           >
             <span className="flex items-center gap-2">
               {mobileOpen ? <IconClose /> : <IconMenu />}
@@ -760,7 +760,7 @@ export default function AuroraLanding() {
               : "pointer-events-none max-h-0 opacity-0"
           } overflow-hidden`}
         >
-          <div className="mt-3 rounded-[1.75rem] border border-white/[0.12] bg-[#050816]/92 p-4 backdrop-blur-2xl shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
+          <div className="mt-3 rounded-[1.75rem] border border-fuchsia-200/16 bg-[#050816]/92 p-4 backdrop-blur-2xl shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
             <div className="grid gap-2">
               {navItems.map((item) => {
                 const isRoute = item.href === "/services";
@@ -798,7 +798,7 @@ export default function AuroraLanding() {
               <Link
                 href="#contact"
                 onClick={() => setMobileOpen(false)}
-                className="magnetic inline-flex items-center justify-center gap-2 rounded-2xl border border-white/[0.12] bg-white/[0.04] px-5 py-4 text-sm font-semibold text-white/90 backdrop-blur-xl"
+                className="magnetic inline-flex items-center justify-center gap-2 rounded-2xl border border-fuchsia-200/18 bg-[#151239]/72 px-5 py-4 text-sm font-semibold text-white/90 backdrop-blur-xl"
               >
                 Book Demo
               </Link>
@@ -818,8 +818,8 @@ export default function AuroraLanding() {
           <div className="section-shell relative z-10">
             <div className="noise-overlay" />
             <div className="absolute inset-x-0 top-[-18%] h-[54rem] bg-[radial-gradient(circle_at_18%_18%,rgba(14,103,255,0.2),transparent_25%),radial-gradient(circle_at_82%_22%,rgba(216,62,255,0.18),transparent_22%),radial-gradient(circle_at_52%_78%,rgba(126,87,255,0.14),transparent_28%)]" />
-            <div className="absolute left-[2%] top-[14%] h-72 w-72 rotate-45 border border-[#1d8fff]/10" />
-            <div className="absolute left-[8%] top-[21%] h-44 w-44 rotate-45 border border-fuchsia-400/14" />
+            <div className="pointer-events-none absolute left-[2%] top-[14%] hidden h-72 w-72 rotate-45 border border-[#2e6ceb]/8 md:block" />
+            <div className="pointer-events-none absolute left-[8%] top-[21%] hidden h-44 w-44 rotate-45 border border-fuchsia-400/10 md:block" />
             <div className="absolute right-[10%] top-[4%] h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(216,62,255,0.18),transparent_70%)] blur-3xl" />
             <div className="absolute left-[6%] top-[10%] h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(126,87,255,0.22),transparent_70%)] blur-3xl" />
             <div className="absolute bottom-[8%] left-1/2 h-44 w-[82%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(126,87,255,0.2),rgba(216,62,255,0.08)_34%,transparent_70%)] blur-2xl" />
@@ -833,7 +833,7 @@ export default function AuroraLanding() {
                 className="relative z-10 max-w-3xl self-start"
               >
                 <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.34),rgba(42,7,46,0.22))] blur-2xl" />
-                <div className="section-kicker mb-6 shadow-[0_0_32px_rgba(126,87,255,0.18)]">
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-fuchsia-200/16 bg-[#151239]/58 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-100/66 shadow-[0_0_32px_rgba(126,87,255,0.14)] backdrop-blur-xl">
                   <IconSpark />
                   Flagship enterprise AI platform
                 </div>
@@ -855,14 +855,14 @@ export default function AuroraLanding() {
                 <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                   <Link
                     href="/services"
-                    className="aurora-button hover-sheen magnetic inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-semibold text-white shadow-[0_18px_70px_rgba(79,140,255,0.24)] transition hover:shadow-[0_18px_80px_rgba(0,214,255,0.28)]"
+                    className="aurora-button hover-sheen magnetic inline-flex items-center justify-center gap-2 rounded-full border border-fuchsia-300/16 px-7 py-4 text-sm font-semibold text-white shadow-[0_18px_70px_rgba(126,87,255,0.26)] transition hover:shadow-[0_18px_80px_rgba(194,59,217,0.26)]"
                   >
                     Explore Services
                     <IconArrow />
                   </Link>
                   <Link
                     href="#contact"
-                    className="hover-glow magnetic inline-flex items-center justify-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.04] px-7 py-4 text-sm font-semibold text-white/90 backdrop-blur-xl transition hover:border-white/20 hover:bg-white/[0.08]"
+                    className="hover-glow magnetic inline-flex items-center justify-center gap-2 rounded-full border border-fuchsia-200/16 bg-[#151239]/58 px-7 py-4 text-sm font-semibold text-white/90 backdrop-blur-xl transition hover:border-fuchsia-200/32 hover:bg-fuchsia-300/[0.08]"
                   >
                     Book Demo
                   </Link>
@@ -1010,7 +1010,7 @@ export default function AuroraLanding() {
                   <div className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-white">
                     {step}
                   </div>
-                  <div className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-fuchsia-300/35 to-cyan-300/20" />
+                  <div className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-[#7547df]/34 to-fuchsia-300/24" />
                 </div>
               ))}
             </div>
@@ -1300,7 +1300,7 @@ export default function AuroraLanding() {
         type="button"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         aria-label="Scroll to top"
-        className={`fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-[#e457ff]/24 bg-[#07091f]/86 text-white shadow-[0_18px_60px_rgba(147,51,234,0.2)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/45 hover:bg-[#0b1234] md:bottom-8 md:right-8 ${
+        className={`fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-[#e457ff]/24 bg-[#07091f]/86 text-white shadow-[0_18px_60px_rgba(147,51,234,0.2)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-fuchsia-300/45 hover:bg-[#151239] md:bottom-8 md:right-8 ${
           showScrollTop
             ? "pointer-events-auto translate-y-0 opacity-100"
             : "pointer-events-none translate-y-3 opacity-0"
@@ -1554,7 +1554,7 @@ function ScrollShowcaseSection() {
                       <span>Next frame updates automatically</span>
                       <span className="text-white/35">{String(activeSlide + 1).padStart(2, "0")}</span>
                     </div>
-                    <div className="h-px w-full bg-gradient-to-r from-transparent via-fuchsia-300/30 to-cyan-300/22" />
+                    <div className="h-px w-full bg-gradient-to-r from-transparent via-[#7547df]/30 to-fuchsia-300/22" />
                   </div>
                 </div>
               </div>
