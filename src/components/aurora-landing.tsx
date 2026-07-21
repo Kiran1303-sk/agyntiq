@@ -762,13 +762,14 @@ export default function AuroraLanding() {
               : "pointer-events-none max-h-0 opacity-0"
           } overflow-hidden`}
         >
-          <div className="mt-3 rounded-[1.75rem] border border-fuchsia-200/16 bg-[#050816]/92 p-4 backdrop-blur-2xl shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
-            <div className="grid gap-2">
+          <div className="relative mt-3 overflow-hidden rounded-[1.75rem] border border-[#7547df]/24 bg-[linear-gradient(135deg,rgba(5,12,38,0.98)_0%,rgba(7,8,28,0.98)_52%,rgba(10,14,48,0.98)_100%)] p-4 shadow-[0_20px_80px_rgba(0,0,0,0.35)] backdrop-blur-2xl">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(14,103,255,0.12),transparent_32%),radial-gradient(circle_at_92%_80%,rgba(117,71,223,0.12),transparent_36%)]" />
+            <div className="relative grid gap-2">
               {navItems.map((item) => {
                 const isRoute = item.href === "/services";
                 const commonClassName = `rounded-2xl px-4 py-3 text-sm font-medium transition ${
                   isNavItemActive(item.href)
-                    ? "bg-white/[0.12] text-white"
+                    ? "bg-[linear-gradient(90deg,#4f73ff_0%,#6d3fe7_52%,#8b35d8_100%)] text-white"
                     : "text-white/75 hover:bg-white/[0.06] hover:text-white"
                 }`;
 
@@ -788,7 +789,34 @@ export default function AuroraLanding() {
                 );
               })}
             </div>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+
+            <div className="relative mt-5 pt-4">
+              <div className="px-1 text-xs font-semibold uppercase tracking-[0.22em] text-indigo-100/58">
+                Services
+              </div>
+              <div className="mt-3 grid gap-2">
+                {serviceMenuDisplay.map((service) => (
+                  <Link
+                    key={service.href}
+                    href={service.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="group flex items-center gap-3 rounded-[0.95rem] border border-[#315cff]/12 bg-[#080b25]/62 p-3 text-white/82 transition hover:border-[#8b7cff]/32 hover:bg-[#315cff]/[0.07] hover:text-white"
+                  >
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[0.75rem] border border-[#7547df]/18 bg-[#10183a]/72 text-indigo-200 shadow-[0_0_24px_rgba(91,92,255,0.12)] transition group-hover:text-white">
+                      <MenuIcon name={service.icon} />
+                    </span>
+                    <span>
+                      <span className="block text-sm font-semibold leading-5">{service.title}</span>
+                      <span className="mt-0.5 block text-xs leading-5 text-white/52">
+                        {service.subtitle}
+                      </span>
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative mt-4 grid gap-3 sm:grid-cols-2">
               <Link
                 href="/services"
                 onClick={() => setMobileOpen(false)}

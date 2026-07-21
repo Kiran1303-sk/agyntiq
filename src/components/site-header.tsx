@@ -200,13 +200,10 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
                     role="menu"
                     aria-label="Services menu"
                   >
-                    <div className="absolute left-1/2 top-[-0.42rem] z-10 h-4 w-4 -translate-x-1/2 rotate-45 border-l border-t border-[#4d2aad]/70 bg-[#080b25]" />
+                    <div className="absolute left-1/2 top-[-0.42rem] z-10 h-4 w-4 -translate-x-1/2 rotate-45 bg-[#080b25]" />
                     <div className="relative overflow-hidden rounded-[1.25rem] border border-[#4d2aad]/70 bg-[linear-gradient(135deg,rgba(5,12,38,0.98)_0%,rgba(7,8,28,0.98)_48%,rgba(42,7,46,0.98)_100%)] p-4 shadow-[0_22px_70px_rgba(0,0,0,0.48),0_0_34px_rgba(119,57,255,0.14)] backdrop-blur-2xl">
                       <div className="grid min-h-[16.5rem] grid-cols-[0.9fr_1.1fr]">
-                        <div className="relative overflow-hidden border-r border-white/[0.08] bg-[radial-gradient(circle_at_48%_46%,rgba(58,104,255,0.2),transparent_28%),linear-gradient(180deg,rgba(5,16,48,0.32),rgba(6,8,26,0.06))]">
-                          <div className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rotate-45 border border-cyan-400/25" />
-                          <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rotate-45 border border-violet-400/35" />
-                          <div className="absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 rotate-45 border border-fuchsia-400/35" />
+                        <div className="relative overflow-hidden border-r border-white/[0.08] bg-[radial-gradient(circle_at_48%_46%,rgba(58,104,255,0.18),transparent_28%),linear-gradient(180deg,rgba(5,16,48,0.32),rgba(6,8,26,0.06))]">
                           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(14,103,255,0.1),transparent_42%,rgba(216,62,255,0.12))]" />
                           <div className="relative flex h-full items-center justify-center">
                             <div className="flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-[0.85rem] border border-white/10 bg-[#0c0b2c]/70 text-4xl font-semibold text-white shadow-[0_0_38px_rgba(126,87,255,0.42)]">
@@ -307,10 +304,8 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
             : "pointer-events-none max-h-0 -translate-y-2 overflow-hidden opacity-0"
         }`}
       >
-        <div className="relative overflow-hidden rounded-[1.25rem] border border-[#4d2aad]/65 bg-[linear-gradient(135deg,rgba(5,12,38,0.98)_0%,rgba(7,8,28,0.98)_48%,rgba(42,7,46,0.98)_100%)] p-4 shadow-[0_22px_70px_rgba(0,0,0,0.48),0_0_34px_rgba(119,57,255,0.14)] backdrop-blur-2xl">
-          <div className="absolute -left-12 top-8 h-44 w-44 rotate-45 border border-[#1d8fff]/18" />
-          <div className="absolute -left-4 top-16 h-28 w-28 rotate-45 border border-fuchsia-400/22" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(14,103,255,0.12),transparent_32%),radial-gradient(circle_at_92%_80%,rgba(216,62,255,0.14),transparent_36%)]" />
+        <div className="relative overflow-hidden rounded-[1.75rem] border border-[#7547df]/24 bg-[linear-gradient(135deg,rgba(5,12,38,0.98)_0%,rgba(7,8,28,0.98)_52%,rgba(10,14,48,0.98)_100%)] p-4 shadow-[0_22px_70px_rgba(0,0,0,0.48),0_0_34px_rgba(119,57,255,0.14)] backdrop-blur-2xl">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(14,103,255,0.12),transparent_32%),radial-gradient(circle_at_92%_80%,rgba(117,71,223,0.12),transparent_36%)]" />
 
           <nav className="relative grid gap-2" aria-label="Mobile navigation">
             {navItems.map((item) => {
@@ -323,7 +318,7 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
                   onClick={() => setMobileOpen(false)}
                   className={`rounded-[0.9rem] px-4 py-3 text-sm font-semibold transition ${
                     isActive(item.href)
-                      ? "bg-[linear-gradient(180deg,rgba(72,62,214,0.9)_0%,rgba(149,53,215,0.9)_100%)] text-white"
+                      ? "bg-[linear-gradient(90deg,#4f73ff_0%,#6d3fe7_52%,#8b35d8_100%)] text-white"
                       : "text-white/74 hover:bg-white/[0.06] hover:text-white"
                   }`}
                 >
