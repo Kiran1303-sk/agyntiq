@@ -322,18 +322,18 @@ function NeuralGraphic({ index }: { index: number }) {
   const visual = serviceVisuals[index];
 
   return (
-    <div className="group relative min-h-[28rem] overflow-hidden rounded-[1.4rem] border border-[#4d2aad]/30 bg-[linear-gradient(135deg,rgba(5,12,38,0.96)_0%,rgba(7,8,28,0.98)_48%,rgba(42,7,46,0.96)_100%)] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.02),0_24px_90px_rgba(0,0,0,0.32),0_0_34px_rgba(119,57,255,0.08)]">
+    <div className="group relative min-h-[28rem] overflow-hidden rounded-[1.4rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.96)_0%,rgba(7,8,28,0.98)_48%,rgba(42,7,46,0.96)_100%)] p-5 shadow-[inset_0_0_0_1px_rgba(125,92,255,0.18),0_24px_90px_rgba(0,0,0,0.32),0_0_34px_rgba(119,57,255,0.08)]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_18%,rgba(14,103,255,0.16),transparent_34%),radial-gradient(circle_at_78%_72%,rgba(216,62,255,0.16),transparent_34%)] opacity-90 transition duration-500 group-hover:opacity-100" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:32px_32px] opacity-25" />
       <motion.div
         animate={{ y: [0, -10, 0], rotate: [0, 2.5, 0] }}
         transition={{ duration: 6 + index, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -right-10 top-24 h-56 w-56 rotate-45 rounded-[0.65rem] border border-[#1d8fff]/8 bg-[#1d8fff]/[0.02] shadow-[0_0_90px_rgba(126,87,255,0.14)]"
+        className="absolute -right-10 top-24 h-56 w-56 rotate-45 rounded-[0.65rem] bg-[#1d8fff]/[0.018] shadow-[inset_0_0_0_1px_rgba(29,143,255,0.06),0_0_90px_rgba(126,87,255,0.12)]"
       />
       <motion.div
         animate={{ scale: [1, 1.1, 1], opacity: [0.45, 0.85, 0.45] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute right-14 top-36 h-32 w-32 rotate-45 rounded-[0.55rem] border border-fuchsia-300/10"
+        className="absolute right-14 top-36 h-32 w-32 rotate-45 rounded-[0.55rem] bg-fuchsia-300/[0.018] shadow-[inset_0_0_0_1px_rgba(240,171,252,0.08)]"
       />
       <motion.div
         animate={{ x: ["-25%", "125%"] }}
@@ -349,7 +349,7 @@ function NeuralGraphic({ index }: { index: number }) {
       <div className="relative z-10 flex h-full min-h-[25.5rem] flex-col">
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-14 w-14 items-center justify-center rounded-[1rem] border border-fuchsia-200/14 bg-[#0c0b2c]/82 text-fuchsia-200 shadow-[0_0_42px_rgba(202,74,255,0.14)] transition duration-500 group-hover:scale-110 group-hover:text-white">
+            <div className="flex h-14 w-14 items-center justify-center rounded-[1rem] bg-[#0c0b2c]/82 text-fuchsia-200 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.12),0_0_42px_rgba(202,74,255,0.14)] transition duration-500 group-hover:scale-110 group-hover:text-white">
               <Icon name={services[index].icon} />
             </div>
             <div>
@@ -360,7 +360,7 @@ function NeuralGraphic({ index }: { index: number }) {
             </div>
           </div>
           <div className="text-right">
-            <div className="rounded-full border border-fuchsia-300/18 bg-fuchsia-300/[0.06] px-3 py-1 text-xs font-semibold text-fuchsia-100/74">
+            <div className="rounded-full bg-fuchsia-300/[0.07] px-3 py-1 text-xs font-semibold text-fuchsia-100/74 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.1)]">
               {services[index].number}
             </div>
             <div className="mt-2 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/36">
@@ -370,7 +370,7 @@ function NeuralGraphic({ index }: { index: number }) {
         </div>
 
         <div className="mt-6 grid gap-3 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="rounded-[1.05rem] border border-[#4d2aad]/22 bg-[#080b25]/72 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.015)]">
+          <div className="rounded-[1.05rem] bg-[#080b25]/72 p-4 shadow-[inset_0_0_0_1px_rgba(125,92,255,0.1),inset_0_1px_0_rgba(255,255,255,0.012)]">
             <div className="flex items-center justify-between gap-3">
               <div className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-white/36">
                 Use Case
@@ -382,7 +382,7 @@ function NeuralGraphic({ index }: { index: number }) {
               {visual.inputs.map((input) => (
                 <span
                   key={input}
-                  className="rounded-full border border-[#7c5cff]/14 bg-[#061339]/46 px-3 py-1 text-[0.7rem] font-semibold text-blue-100/72"
+                  className="rounded-full bg-[#061339]/50 px-3 py-1 text-[0.7rem] font-semibold text-blue-100/72 shadow-[inset_0_0_0_1px_rgba(124,92,255,0.09)]"
                 >
                   {input}
                 </span>
@@ -390,7 +390,7 @@ function NeuralGraphic({ index }: { index: number }) {
             </div>
           </div>
 
-          <div className="rounded-[1.05rem] border border-fuchsia-300/14 bg-[linear-gradient(135deg,rgba(18,12,50,0.66),rgba(42,7,46,0.5))] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.015)]">
+          <div className="rounded-[1.05rem] bg-[linear-gradient(135deg,rgba(18,12,50,0.66),rgba(42,7,46,0.5))] p-4 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.1),inset_0_1px_0_rgba(255,255,255,0.012)]">
             <div className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-200/42">
               Requirements
             </div>
@@ -399,7 +399,7 @@ function NeuralGraphic({ index }: { index: number }) {
               {visual.deliverables.map((deliverable) => (
                 <div
                   key={deliverable}
-                  className="flex items-center gap-2 rounded-[0.7rem] border border-fuchsia-200/8 bg-white/[0.024] px-3 py-2"
+                  className="flex items-center gap-2 rounded-[0.7rem] bg-white/[0.026] px-3 py-2 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.06)]"
                 >
                   <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-300" />
                   <span className="text-xs font-semibold text-white/70">{deliverable}</span>
@@ -409,9 +409,9 @@ function NeuralGraphic({ index }: { index: number }) {
           </div>
         </div>
 
-        <div className="mt-3 rounded-[1.05rem] border border-[#7c5cff]/14 bg-[linear-gradient(90deg,rgba(6,19,57,0.56),rgba(18,12,50,0.5),rgba(42,7,46,0.44))] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.015)]">
+        <div className="mt-3 rounded-[1.05rem] bg-[linear-gradient(90deg,rgba(6,19,57,0.56),rgba(18,12,50,0.5),rgba(42,7,46,0.44))] p-4 shadow-[inset_0_0_0_1px_rgba(124,92,255,0.1),inset_0_1px_0_rgba(255,255,255,0.012)]">
           <div className="grid gap-3 sm:grid-cols-[auto_1fr_auto] sm:items-center">
-            <div className="rounded-full border border-[#7c5cff]/12 bg-[#061339]/56 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-blue-100/58">
+            <div className="rounded-full bg-[#061339]/58 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-blue-100/58 shadow-[inset_0_0_0_1px_rgba(124,92,255,0.08)]">
               Output
             </div>
             <p className="text-sm font-semibold leading-6 text-white/78">{visual.outcome}</p>
@@ -441,10 +441,10 @@ function NeuralGraphic({ index }: { index: number }) {
                   ease: "easeInOut",
                   delay: stepIndex * 0.25
                 }}
-                className="relative overflow-hidden rounded-[0.9rem] border border-[#4d2aad]/18 bg-[#0c0b2c]/78 p-3 text-center shadow-[0_12px_34px_rgba(0,0,0,0.18)]"
+                className="relative overflow-hidden rounded-[0.9rem] bg-[#0c0b2c]/78 p-3 text-center shadow-[inset_0_0_0_1px_rgba(125,92,255,0.1),0_12px_34px_rgba(0,0,0,0.18)]"
               >
-                <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(232,121,249,0.55),transparent)]" />
-                <span className="mx-auto mb-2 grid h-5 w-5 place-items-center rounded-full border border-fuchsia-300/10 bg-fuchsia-300/[0.07]">
+                <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(232,121,249,0.22),transparent)]" />
+                <span className="mx-auto mb-2 grid h-5 w-5 place-items-center rounded-full bg-fuchsia-300/[0.07] shadow-[inset_0_0_0_1px_rgba(240,171,252,0.08)]">
                   <span className="block h-2 w-2 rounded-full bg-fuchsia-300 shadow-[0_0_18px_rgba(202,74,255,0.64)]" />
                 </span>
                 <span className="text-xs font-semibold text-white/76">{step}</span>
@@ -721,15 +721,15 @@ export default function ServicesPage() {
             <motion.article
               key={study.industry}
               whileHover={{ y: -6, scale: 1.01 }}
-              className="rounded-[1rem] border border-[#4d2aad]/42 bg-[linear-gradient(135deg,rgba(5,12,38,0.82)_0%,rgba(7,8,28,0.9)_52%,rgba(42,7,46,0.76)_100%)] p-5 transition hover:border-fuchsia-300/38 hover:shadow-[0_18px_60px_rgba(202,74,255,0.1)]"
+              className="rounded-[1rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.84)_0%,rgba(7,8,28,0.92)_52%,rgba(42,7,46,0.78)_100%)] p-6 shadow-[inset_0_0_0_1px_rgba(125,92,255,0.16),0_18px_60px_rgba(0,0,0,0.18)] transition hover:shadow-[inset_0_0_0_1px_rgba(240,171,252,0.22),0_18px_60px_rgba(202,74,255,0.1)]"
             >
-              <div className="text-lg font-semibold text-white">{study.industry}</div>
-              <p className="mt-4 text-xs uppercase tracking-[0.18em] text-fuchsia-200/36">Problem</p>
-              <p className="mt-2 text-sm leading-6 text-white/62">{study.problem}</p>
-              <p className="mt-4 text-xs uppercase tracking-[0.18em] text-fuchsia-200/36">Solution</p>
-              <p className="mt-2 text-sm leading-6 text-white/62">{study.solution}</p>
-              <p className="mt-4 text-xs uppercase tracking-[0.18em] text-fuchsia-200/36">Impact</p>
-              <p className="mt-2 text-sm leading-6 text-fuchsia-100/78">{study.impact}</p>
+              <div className="text-xl font-semibold tracking-[-0.03em] text-white">{study.industry}</div>
+              <p className="mt-5 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-200/44">Problem</p>
+              <p className="mt-2 text-sm leading-6 text-white/56">{study.problem}</p>
+              <p className="mt-5 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-blue-200/42">Solution</p>
+              <p className="mt-2 text-sm leading-6 text-white/64">{study.solution}</p>
+              <p className="mt-5 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-200/48">Impact</p>
+              <p className="mt-2 text-[0.95rem] font-semibold leading-6 text-fuchsia-100/78">{study.impact}</p>
             </motion.article>
           ))}
         </div>
