@@ -127,6 +127,39 @@ const services = [
   }
 ] as const;
 
+const serviceVisuals = [
+  {
+    useCase: "Prioritize AI opportunities",
+    requirement: "Business goals, process map, risk posture",
+    outcome: "Roadmap with ROI-backed next steps",
+    steps: ["Discover", "Score", "Roadmap"]
+  },
+  {
+    useCase: "Build AI products and agents",
+    requirement: "User journeys, data access, acceptance criteria",
+    outcome: "Production-ready AI workflow",
+    steps: ["Prototype", "Validate", "Launch"]
+  },
+  {
+    useCase: "Connect AI into operations",
+    requirement: "APIs, tools, permissions, knowledge sources",
+    outcome: "Integrated automation across systems",
+    steps: ["Connect", "Automate", "Measure"]
+  },
+  {
+    useCase: "Prepare reliable AI data",
+    requirement: "Raw data, labels, governance rules",
+    outcome: "Clean knowledge layer for AI",
+    steps: ["Ingest", "Structure", "Govern"]
+  },
+  {
+    useCase: "Run and improve AI systems",
+    requirement: "Monitoring, feedback, reliability metrics",
+    outcome: "Stable AI operations at scale",
+    steps: ["Monitor", "Optimize", "Improve"]
+  }
+] as const;
+
 const journey = [
   "Curiosity",
   "Strategy",
@@ -271,28 +304,89 @@ function Icon({ name }: { name: string }) {
 }
 
 function NeuralGraphic({ index }: { index: number }) {
+  const visual = serviceVisuals[index];
+
   return (
-    <div className="group relative min-h-[22rem] overflow-hidden rounded-[1.4rem] border border-[#4d2aad]/55 bg-[linear-gradient(135deg,rgba(5,12,38,0.96)_0%,rgba(7,8,28,0.98)_48%,rgba(42,7,46,0.96)_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_24px_90px_rgba(0,0,0,0.32),0_0_34px_rgba(119,57,255,0.12)]">
+    <div className="group relative min-h-[25rem] overflow-hidden rounded-[1.4rem] border border-[#4d2aad]/55 bg-[linear-gradient(135deg,rgba(5,12,38,0.96)_0%,rgba(7,8,28,0.98)_48%,rgba(42,7,46,0.96)_100%)] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_24px_90px_rgba(0,0,0,0.32),0_0_34px_rgba(119,57,255,0.12)]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_18%,rgba(14,103,255,0.16),transparent_34%),radial-gradient(circle_at_78%_72%,rgba(216,62,255,0.16),transparent_34%)] opacity-90 transition duration-500 group-hover:opacity-100" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:32px_32px] opacity-25" />
       <motion.div
         animate={{ y: [0, -10, 0], rotate: [0, 2.5, 0] }}
         transition={{ duration: 6 + index, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-[0.5rem] border border-[#1d8fff]/26 bg-[#1d8fff]/[0.035] shadow-[0_0_90px_rgba(126,87,255,0.22)]"
+        className="absolute right-10 top-24 h-44 w-44 rotate-45 rounded-[0.5rem] border border-[#1d8fff]/26 bg-[#1d8fff]/[0.035] shadow-[0_0_90px_rgba(126,87,255,0.22)]"
       />
       <motion.div
         animate={{ scale: [1, 1.1, 1], opacity: [0.45, 0.85, 0.45] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rotate-45 rounded-[0.45rem] border border-fuchsia-300/34"
+        className="absolute right-24 top-32 h-28 w-28 rotate-45 rounded-[0.45rem] border border-fuchsia-300/34"
       />
       <motion.div
         animate={{ x: ["-25%", "125%"] }}
         transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: index * 0.25 }}
         className="absolute top-20 h-px w-1/2 bg-[linear-gradient(90deg,transparent,rgba(232,121,249,0.75),transparent)]"
       />
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="flex h-16 w-16 items-center justify-center rounded-[1rem] border border-white/12 bg-[#0c0b2c]/82 text-fuchsia-200 shadow-[0_0_42px_rgba(202,74,255,0.2)] transition duration-500 group-hover:scale-110 group-hover:text-white">
-          <Icon name={services[index].icon} />
+
+      <div className="relative z-10 flex h-full min-h-[22.5rem] flex-col">
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="flex h-14 w-14 items-center justify-center rounded-[1rem] border border-white/12 bg-[#0c0b2c]/82 text-fuchsia-200 shadow-[0_0_42px_rgba(202,74,255,0.2)] transition duration-500 group-hover:scale-110 group-hover:text-white">
+              <Icon name={services[index].icon} />
+            </div>
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-[0.24em] text-fuchsia-200/54">
+                Usage Map
+              </div>
+              <div className="mt-1 text-lg font-semibold text-white">{services[index].nav}</div>
+            </div>
+          </div>
+          <div className="rounded-full border border-fuchsia-300/18 bg-fuchsia-300/[0.06] px-3 py-1 text-xs font-semibold text-fuchsia-100/74">
+            {services[index].number}
+          </div>
+        </div>
+
+        <div className="mt-6 grid gap-3">
+          <div className="rounded-[1rem] border border-white/10 bg-[#080b25]/70 p-4">
+            <div className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-white/36">
+              Use Case
+            </div>
+            <div className="mt-2 text-base font-semibold leading-6 text-white">{visual.useCase}</div>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="rounded-[1rem] border border-[#4d2aad]/40 bg-[#120c32]/62 p-4">
+              <div className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-200/42">
+                Requirements
+              </div>
+              <p className="mt-2 text-sm leading-6 text-white/66">{visual.requirement}</p>
+            </div>
+            <div className="rounded-[1rem] border border-[#1d8fff]/22 bg-[#061339]/54 p-4">
+              <div className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-blue-200/42">
+                Outcome
+              </div>
+              <p className="mt-2 text-sm leading-6 text-white/66">{visual.outcome}</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-auto pt-6">
+          <div className="relative grid grid-cols-3 gap-2">
+            <div className="absolute left-[16%] right-[16%] top-5 h-px bg-[linear-gradient(90deg,rgba(14,103,255,0.15),rgba(232,121,249,0.58),rgba(14,103,255,0.15))]" />
+            {visual.steps.map((step, stepIndex) => (
+              <motion.div
+                key={step}
+                animate={{ y: [0, stepIndex % 2 === 0 ? -4 : 4, 0] }}
+                transition={{
+                  duration: 3.6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: stepIndex * 0.25
+                }}
+                className="relative rounded-[0.85rem] border border-white/10 bg-[#0c0b2c]/82 p-3 text-center shadow-[0_12px_34px_rgba(0,0,0,0.18)]"
+              >
+                <span className="mx-auto mb-2 block h-3 w-3 rounded-full bg-fuchsia-300 shadow-[0_0_18px_rgba(202,74,255,0.64)]" />
+                <span className="text-xs font-semibold text-white/74">{step}</span>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
