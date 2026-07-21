@@ -60,6 +60,8 @@ const premiumSurface =
   "border border-[#7547df]/14 bg-[linear-gradient(135deg,rgba(5,12,38,0.9)_0%,rgba(7,8,28,0.96)_52%,rgba(10,14,48,0.86)_100%)] shadow-[0_20px_70px_rgba(0,0,0,0.26)]";
 const premiumSurfaceHover =
   "transition duration-500 hover:-translate-y-1 hover:border-[#e457ff]/24 hover:shadow-[0_24px_90px_rgba(147,51,234,0.14)]";
+const premiumFlatCard =
+  "bg-[linear-gradient(135deg,rgba(5,12,38,0.9)_0%,rgba(7,8,28,0.96)_52%,rgba(10,14,48,0.86)_100%)] shadow-[0_20px_70px_rgba(0,0,0,0.24)]";
 const premiumDivider = "divide-y divide-transparent border-y border-transparent";
 const premiumSoftBorder = "border-transparent";
 const premiumInput =
@@ -1277,12 +1279,11 @@ export default function AuroraLanding() {
                 </p>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-4 lg:pt-0" data-reveal>
                 {faqItems.map((item) => (
                   <details
                     key={item.question}
-                    className={`group hover-underline rounded-[1.25rem] p-5 ${premiumSurface} ${premiumSurfaceHover}`}
-                    data-reveal
+                    className={`group hover-underline overflow-hidden rounded-[1.25rem] p-5 ${premiumFlatCard} transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_90px_rgba(91,92,255,0.13)]`}
                   >
                     <summary className="cursor-pointer list-none text-lg font-semibold tracking-[-0.03em] text-white">
                       {item.question}
