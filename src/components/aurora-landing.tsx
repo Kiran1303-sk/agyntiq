@@ -815,12 +815,10 @@ export default function AuroraLanding() {
           id="hero"
           className="relative scroll-mt-28 overflow-hidden pb-10 pt-16 md:scroll-mt-32 md:pb-28 md:pt-24"
         >
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(46,108,235,0.12),transparent_28%),radial-gradient(circle_at_82%_64%,rgba(117,71,223,0.11),transparent_30%)]" />
           <div className="section-shell relative z-10">
             <div className="noise-overlay" />
-            <div className="absolute inset-x-0 top-[-18%] h-[54rem] bg-[radial-gradient(circle_at_18%_18%,rgba(14,103,255,0.2),transparent_25%),radial-gradient(circle_at_82%_22%,rgba(117,71,223,0.16),transparent_22%),radial-gradient(circle_at_52%_78%,rgba(91,140,255,0.12),transparent_28%)]" />
-            <div className="absolute right-[10%] top-[4%] h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(117,71,223,0.16),transparent_70%)] blur-3xl" />
-            <div className="absolute left-[6%] top-[10%] h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(126,87,255,0.22),transparent_70%)] blur-3xl" />
-            <div className="absolute bottom-[8%] left-1/2 h-44 w-[82%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(126,87,255,0.18),rgba(46,108,235,0.08)_34%,transparent_70%)] blur-2xl" />
+            <div className="absolute inset-x-0 top-[-18%] h-[54rem] bg-[radial-gradient(circle_at_18%_20%,rgba(46,108,235,0.12),transparent_28%),radial-gradient(circle_at_82%_64%,rgba(117,71,223,0.11),transparent_30%)]" />
 
             <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
               <motion.div
@@ -944,6 +942,7 @@ export default function AuroraLanding() {
           id="about"
           className="relative overflow-hidden scroll-mt-28 py-12 md:scroll-mt-32 md:py-16"
         >
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(91,140,255,0.1),transparent_28%),radial-gradient(circle_at_18%_76%,rgba(117,71,223,0.09),transparent_30%)]" />
           <div className="section-shell relative z-10">
             <div className="section-heading mb-10" data-reveal>
               <div className="section-kicker">About</div>
@@ -1491,8 +1490,9 @@ function ScrollShowcaseSection() {
   }, [isPaused]);
 
   return (
-    <section className="relative py-12 md:py-16">
-      <div className="section-shell">
+    <section className="relative overflow-hidden py-12 md:py-16">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_14%,rgba(46,108,235,0.1),transparent_30%),radial-gradient(circle_at_78%_76%,rgba(91,92,255,0.1),transparent_32%)]" />
+      <div className="section-shell relative z-10">
         <div className="mx-auto flex max-w-5xl flex-col items-center">
           <div className="section-heading mx-auto max-w-2xl text-center" data-reveal>
             <div className="section-kicker">Visual Story</div>
