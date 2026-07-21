@@ -60,8 +60,8 @@ const premiumSurface =
   "border border-[#315cff]/18 bg-[linear-gradient(135deg,rgba(5,12,38,0.86)_0%,rgba(7,8,28,0.94)_48%,rgba(42,7,46,0.82)_100%)] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.025),0_20px_70px_rgba(0,0,0,0.26)]";
 const premiumSurfaceHover =
   "transition duration-500 hover:-translate-y-1 hover:border-[#e457ff]/30 hover:shadow-[inset_0_0_0_1px_rgba(240,171,252,0.08),0_24px_90px_rgba(147,51,234,0.16)]";
-const premiumDivider = "divide-y divide-[#4d2aad]/25 border-y border-[#315cff]/16";
-const premiumSoftBorder = "border-[#315cff]/16";
+const premiumDivider = "divide-y divide-transparent border-y border-transparent";
+const premiumSoftBorder = "border-transparent";
 const premiumInput =
   "rounded-2xl border border-[#315cff]/18 bg-[#05081f]/72 px-4 py-3 text-sm text-white placeholder:text-white/35 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition focus:border-fuchsia-300/70 focus:bg-[#080a28] focus:outline-none focus:shadow-[0_0_0_4px_rgba(217,70,239,0.12)]";
 
@@ -594,7 +594,7 @@ export default function AuroraLanding() {
 
       <header
         className={`fixed inset-x-0 top-0 z-40 transition-all duration-500 ${
-          scrolled ? "border-b border-[#7547df]/16 bg-[#050816]/72 backdrop-blur-2xl" : "bg-transparent"
+          scrolled ? "bg-[#050816]/72 backdrop-blur-2xl" : "bg-transparent"
         }`}
       >
         <div className="section-shell flex h-20 items-center justify-between gap-4 md:grid md:h-24 md:grid-cols-[1fr_auto_1fr] md:gap-10 md:gap-12">
@@ -654,9 +654,9 @@ export default function AuroraLanding() {
                       aria-label="Services menu"
                     >
                       <div className="relative overflow-hidden rounded-[1.25rem] border border-[#4d2aad]/70 bg-[linear-gradient(135deg,rgba(5,12,38,0.98)_0%,rgba(7,8,28,0.98)_48%,rgba(42,7,46,0.98)_100%)] p-4 shadow-[0_22px_70px_rgba(0,0,0,0.48),0_0_34px_rgba(119,57,255,0.14)] backdrop-blur-2xl">
-                        <div className="absolute left-1/2 top-[-0.3rem] h-3.5 w-3.5 -translate-x-1/2 rotate-45 border-l border-t border-[#4d2aad]/70 bg-[#080b25]" />
+                        <div className="absolute left-1/2 top-[-0.3rem] h-3.5 w-3.5 -translate-x-1/2 rotate-45 bg-[#080b25]" />
                         <div className="grid min-h-[16.5rem] grid-cols-[0.9fr_1.1fr]">
-                          <div className="relative overflow-hidden border-r border-[#7547df]/14 bg-[radial-gradient(circle_at_48%_46%,rgba(58,104,255,0.16),transparent_28%),linear-gradient(180deg,rgba(5,16,48,0.32),rgba(24,8,42,0.08))]">
+                          <div className="relative overflow-hidden bg-[radial-gradient(circle_at_48%_46%,rgba(58,104,255,0.16),transparent_28%),linear-gradient(180deg,rgba(5,16,48,0.32),rgba(24,8,42,0.08))]">
                             <div className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rotate-45 border border-[#2e6ceb]/16" />
                             <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rotate-45 border border-violet-400/20" />
                             <div className="absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 rotate-45 border border-fuchsia-400/22" />
@@ -673,7 +673,7 @@ export default function AuroraLanding() {
                               <Link
                                 key={service.href}
                                 href={service.href}
-                                className={`group flex items-center gap-3 border-b border-[#7547df]/12 py-3 transition last:border-b-0 ${
+                                className={`group flex items-center gap-3 rounded-[1rem] px-2 py-3 transition hover:bg-fuchsia-300/[0.035] ${
                                   pathname === service.href ? "text-white" : "text-white/78 hover:text-white"
                                 }`}
                               >
@@ -818,8 +818,6 @@ export default function AuroraLanding() {
           <div className="section-shell relative z-10">
             <div className="noise-overlay" />
             <div className="absolute inset-x-0 top-[-18%] h-[54rem] bg-[radial-gradient(circle_at_18%_18%,rgba(14,103,255,0.2),transparent_25%),radial-gradient(circle_at_82%_22%,rgba(216,62,255,0.18),transparent_22%),radial-gradient(circle_at_52%_78%,rgba(126,87,255,0.14),transparent_28%)]" />
-            <div className="pointer-events-none absolute left-[2%] top-[14%] hidden h-72 w-72 rotate-45 border border-[#2e6ceb]/8 md:block" />
-            <div className="pointer-events-none absolute left-[8%] top-[21%] hidden h-44 w-44 rotate-45 border border-fuchsia-400/10 md:block" />
             <div className="absolute right-[10%] top-[4%] h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(216,62,255,0.18),transparent_70%)] blur-3xl" />
             <div className="absolute left-[6%] top-[10%] h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(126,87,255,0.22),transparent_70%)] blur-3xl" />
             <div className="absolute bottom-[8%] left-1/2 h-44 w-[82%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(126,87,255,0.2),rgba(216,62,255,0.08)_34%,transparent_70%)] blur-2xl" />
@@ -1010,7 +1008,6 @@ export default function AuroraLanding() {
                   <div className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-white">
                     {step}
                   </div>
-                  <div className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-[#7547df]/34 to-fuchsia-300/24" />
                 </div>
               ))}
             </div>
@@ -1311,7 +1308,7 @@ export default function AuroraLanding() {
 
       <footer
         id="contact"
-        className="relative overflow-hidden border-t border-[#315cff]/16 bg-[linear-gradient(135deg,#050c26_0%,#07081c_48%,#2a072e_100%)] py-12 md:py-16"
+        className="relative overflow-hidden bg-[linear-gradient(135deg,#050c26_0%,#07081c_48%,#2a072e_100%)] py-12 md:py-16"
       >
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(14,103,255,0.2),transparent_24%),radial-gradient(circle_at_82%_16%,rgba(216,62,255,0.16),transparent_26%),linear-gradient(180deg,rgba(5,12,38,0),rgba(5,8,22,0.62))]" />
         <div className="pointer-events-none absolute bottom-[-10rem] left-1/2 h-80 w-[80%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(126,87,255,0.22),rgba(216,62,255,0.1)_36%,transparent_70%)] blur-3xl" />
@@ -1554,7 +1551,6 @@ function ScrollShowcaseSection() {
                       <span>Next frame updates automatically</span>
                       <span className="text-white/35">{String(activeSlide + 1).padStart(2, "0")}</span>
                     </div>
-                    <div className="h-px w-full bg-gradient-to-r from-transparent via-[#7547df]/30 to-fuchsia-300/22" />
                   </div>
                 </div>
               </div>
