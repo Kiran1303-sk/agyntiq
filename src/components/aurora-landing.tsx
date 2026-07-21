@@ -577,9 +577,10 @@ export default function AuroraLanding() {
       />
 
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="aurora-blob absolute left-[-8%] top-[-6%] h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.24),transparent_66%)] blur-3xl animate-drift" />
-        <div className="aurora-blob absolute right-[-6%] top-[10%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(14,165,233,0.2),transparent_64%)] blur-3xl animate-drift" />
-        <div className="aurora-blob absolute bottom-[16%] left-[26%] h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(0,166,216,0.14),transparent_64%)] blur-3xl animate-drift" />
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,#050c26_0%,#07081c_48%,#2a072e_100%)]" />
+        <div className="aurora-blob absolute left-[-8%] top-[-6%] h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(14,103,255,0.2),transparent_66%)] blur-3xl animate-drift" />
+        <div className="aurora-blob absolute right-[-6%] top-[10%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(216,62,255,0.18),transparent_64%)] blur-3xl animate-drift" />
+        <div className="aurora-blob absolute bottom-[16%] left-[26%] h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(126,87,255,0.14),transparent_64%)] blur-3xl animate-drift" />
       </div>
 
       <header
@@ -804,10 +805,12 @@ export default function AuroraLanding() {
         >
           <div className="section-shell relative z-10">
             <div className="noise-overlay" />
-            <div className="absolute inset-x-0 top-[-10%] h-[48rem] bg-[radial-gradient(circle_at_18%_18%,rgba(76,110,255,0.22),transparent_24%),radial-gradient(circle_at_82%_22%,rgba(0,162,255,0.2),transparent_20%),radial-gradient(circle_at_52%_78%,rgba(74,93,255,0.12),transparent_26%)]" />
-            <div className="absolute left-[6%] top-[10%] h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(80,122,255,0.26),transparent_70%)] blur-3xl" />
-            <div className="absolute right-[4%] top-[8%] h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(0,194,255,0.22),transparent_68%)] blur-3xl" />
-            <div className="absolute bottom-[8%] left-1/2 h-40 w-[80%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(17,101,255,0.26),rgba(17,101,255,0.08)_34%,transparent_70%)] blur-2xl" />
+            <div className="absolute inset-x-0 top-[-18%] h-[54rem] bg-[radial-gradient(circle_at_18%_18%,rgba(14,103,255,0.2),transparent_25%),radial-gradient(circle_at_82%_22%,rgba(216,62,255,0.18),transparent_22%),radial-gradient(circle_at_52%_78%,rgba(126,87,255,0.14),transparent_28%)]" />
+            <div className="absolute left-[2%] top-[14%] h-72 w-72 rotate-45 border border-[#1d8fff]/10" />
+            <div className="absolute left-[8%] top-[21%] h-44 w-44 rotate-45 border border-fuchsia-400/14" />
+            <div className="absolute right-[10%] top-[4%] h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(216,62,255,0.18),transparent_70%)] blur-3xl" />
+            <div className="absolute left-[6%] top-[10%] h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(126,87,255,0.22),transparent_70%)] blur-3xl" />
+            <div className="absolute bottom-[8%] left-1/2 h-44 w-[82%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(126,87,255,0.2),rgba(216,62,255,0.08)_34%,transparent_70%)] blur-2xl" />
 
             <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
               <motion.div
@@ -817,19 +820,22 @@ export default function AuroraLanding() {
                 transition={{ duration: 0.9, ease: "easeOut" }}
                 className="relative z-10 max-w-3xl self-start"
               >
-                <div className="section-kicker mb-6">
+                <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.34),rgba(42,7,46,0.22))] blur-2xl" />
+                <div className="section-kicker mb-6 shadow-[0_0_32px_rgba(126,87,255,0.18)]">
                   <IconSpark />
                   Flagship enterprise AI platform
                 </div>
 
-                <h1 className="max-w-4xl text-5xl font-semibold leading-[0.92] tracking-[-0.08em] text-white md:text-7xl xl:text-[6.4rem]">
-                  <span className="block">AI That Acts.</span>
-                  <span className="mt-2 block bg-[linear-gradient(90deg,#f7fbff_0%,#9aa8ff_42%,#5a62ff_76%,#8b7bff_100%)] bg-clip-text text-transparent">
+                <h1 className="max-w-4xl text-5xl font-semibold leading-[0.92] tracking-[-0.08em] text-white drop-shadow-[0_0_34px_rgba(126,87,255,0.16)] md:text-7xl xl:text-[6.4rem]">
+                  <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#dbe7ff_45%,#f0abfc_100%)] bg-clip-text text-transparent">
+                    AI That Acts.
+                  </span>
+                  <span className="mt-2 block bg-[linear-gradient(90deg,#ffffff_0%,#c7d2fe_38%,#d946ef_100%)] bg-clip-text text-transparent">
                     Results That Matter.
                   </span>
                 </h1>
 
-                <p className="section-copy mt-7 max-w-2xl md:text-xl">
+                <p className="section-copy mt-7 max-w-2xl [text-shadow:0_0_24px_rgba(126,87,255,0.12)] md:text-xl">
                   Agentic AI systems that plan, decide, and act autonomously to solve real-world
                   problems at scale.
                 </p>
