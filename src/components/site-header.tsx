@@ -174,17 +174,25 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
                 >
                   <Link
                     href="/services"
-                    className={`${className} inline-flex items-center gap-1.5`}
+                    className={`${className} inline-flex items-center gap-1.5 leading-none`}
                     aria-haspopup="menu"
                     aria-expanded={servicesOpen}
                   >
                     {item.label}
-                    <span className={`text-[0.75rem] transition ${servicesOpen ? "rotate-180" : ""}`}>
-                      ▾
+                    <span className={`grid h-4 w-4 place-items-center transition ${servicesOpen ? "rotate-180" : ""}`}>
+                      <svg viewBox="0 0 16 16" className="h-3 w-3" fill="none" aria-hidden="true">
+                        <path
+                          d="m4.5 6.25 3.5 3.5 3.5-3.5"
+                          stroke="currentColor"
+                          strokeWidth="1.6"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
                     </span>
                   </Link>
                   <div
-                    className={`absolute left-1/2 top-full z-[90] mt-3 w-[31rem] -translate-x-1/2 transition-all duration-200 ${
+                    className={`absolute left-1/2 top-full z-[90] mt-4 w-[31rem] -translate-x-1/2 transition-all duration-200 ${
                       servicesOpen
                         ? "pointer-events-auto visible translate-y-0 opacity-100"
                         : "pointer-events-none invisible translate-y-2 opacity-0"
@@ -192,8 +200,8 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
                     role="menu"
                     aria-label="Services menu"
                   >
+                    <div className="absolute left-1/2 top-[-0.42rem] z-10 h-4 w-4 -translate-x-1/2 rotate-45 border-l border-t border-[#4d2aad]/70 bg-[#080b25]" />
                     <div className="relative overflow-hidden rounded-[1.25rem] border border-[#4d2aad]/70 bg-[linear-gradient(135deg,rgba(5,12,38,0.98)_0%,rgba(7,8,28,0.98)_48%,rgba(42,7,46,0.98)_100%)] p-4 shadow-[0_22px_70px_rgba(0,0,0,0.48),0_0_34px_rgba(119,57,255,0.14)] backdrop-blur-2xl">
-                      <div className="absolute left-1/2 top-[-0.3rem] h-3.5 w-3.5 -translate-x-1/2 rotate-45 border-l border-t border-[#4d2aad]/70 bg-[#080b25]" />
                       <div className="grid min-h-[16.5rem] grid-cols-[0.9fr_1.1fr]">
                         <div className="relative overflow-hidden border-r border-white/[0.08] bg-[radial-gradient(circle_at_48%_46%,rgba(58,104,255,0.2),transparent_28%),linear-gradient(180deg,rgba(5,16,48,0.32),rgba(6,8,26,0.06))]">
                           <div className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rotate-45 border border-cyan-400/25" />
@@ -207,16 +215,16 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
                           </div>
                         </div>
 
-                        <div className="px-4 py-1">
+                        <div className="flex flex-col justify-center px-4 py-1">
                           {serviceMenuDisplay.map((service) => (
                             <Link
                               key={service.href}
                               href={service.href}
-                              className={`group flex items-center gap-3 border-b border-white/[0.08] py-3 transition last:border-b-0 ${
+                              className={`group grid grid-cols-[3.75rem_minmax(0,1fr)] items-center gap-3 border-b border-white/[0.08] py-3 transition last:border-b-0 ${
                                 pathname === service.href ? "text-white" : "text-white/78 hover:text-white"
                               }`}
                             >
-                              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[0.8rem] border border-fuchsia-400/18 bg-[#151239]/72 text-fuchsia-300 shadow-[0_0_24px_rgba(202,74,255,0.14)] transition group-hover:border-fuchsia-300/35 group-hover:text-fuchsia-200">
+                              <span className="flex h-11 w-11 items-center justify-center justify-self-start rounded-[0.8rem] border border-fuchsia-400/18 bg-[#151239]/72 text-fuchsia-300 shadow-[0_0_24px_rgba(202,74,255,0.14)] transition group-hover:border-fuchsia-300/35 group-hover:text-fuchsia-200">
                                 <MenuIcon name={service.icon} />
                               </span>
                               <span>
@@ -232,10 +240,20 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
 
                           <Link
                             href="/services"
-                            className="mt-1 flex items-center justify-between pt-3 text-[1rem] font-semibold text-fuchsia-300 transition hover:text-fuchsia-100"
+                            className="mt-1 grid grid-cols-[1fr_auto] items-center gap-4 pt-4 text-[1rem] font-semibold text-fuchsia-300 transition hover:text-fuchsia-100"
                           >
                             <span>View All Services</span>
-                            <span className="text-2xl leading-none">-&gt;</span>
+                            <span className="grid h-9 w-9 place-items-center rounded-full border border-fuchsia-300/16 bg-fuchsia-300/[0.06]">
+                              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden="true">
+                                <path
+                                  d="M5 12h13m-5-5 5 5-5 5"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                            </span>
                           </Link>
                         </div>
                       </div>
