@@ -402,7 +402,7 @@ export default function ServicesPage() {
               <motion.div key={service.id} variants={fadeUp} className={index < 3 ? "md:col-span-2" : "md:col-span-3"}>
                 <Link
                   href={`#${service.id}`}
-                  className="group relative block h-full overflow-hidden rounded-[1.25rem] border border-[#4d2aad]/50 bg-[linear-gradient(135deg,rgba(5,12,38,0.9)_0%,rgba(7,8,28,0.94)_52%,rgba(42,7,46,0.88)_100%)] p-6 shadow-[0_18px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl transition duration-500 hover:-translate-y-1.5 hover:border-fuchsia-300/42 hover:shadow-[0_24px_90px_rgba(126,87,255,0.16)]"
+                  className="group relative flex h-full min-h-[21rem] flex-col overflow-hidden rounded-[1.25rem] border border-[#4d2aad]/50 bg-[linear-gradient(135deg,rgba(5,12,38,0.9)_0%,rgba(7,8,28,0.94)_52%,rgba(42,7,46,0.88)_100%)] p-6 shadow-[0_18px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl transition duration-500 hover:-translate-y-1.5 hover:border-fuchsia-300/42 hover:shadow-[0_24px_90px_rgba(126,87,255,0.16)]"
                 >
                   <span className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_20%_0%,rgba(14,103,255,0.16),transparent_42%),radial-gradient(circle_at_90%_90%,rgba(216,62,255,0.18),transparent_38%)]" />
                   <div className="relative flex items-start justify-between gap-6">
@@ -413,9 +413,19 @@ export default function ServicesPage() {
                   </div>
                   <h3 className="relative mt-8 text-2xl font-semibold text-white">{service.title}</h3>
                   <p className="relative mt-3 text-sm leading-6 text-white/62">{service.description}</p>
-                  <div className="relative mt-6 flex items-center justify-between text-sm font-semibold text-fuchsia-200">
+                  <div className="relative mt-auto flex items-center justify-between pt-6 text-sm font-semibold text-fuchsia-200">
                     <span>{service.solutions.length} solutions</span>
-                    <span className="transition group-hover:translate-x-1">-&gt;</span>
+                    <span className="grid h-9 w-9 place-items-center rounded-full border border-fuchsia-300/16 bg-fuchsia-300/[0.06] transition group-hover:translate-x-1 group-hover:border-fuchsia-200/34 group-hover:bg-fuchsia-300/[0.12]">
+                      <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden="true">
+                        <path
+                          d="M5 12h13m-5-5 5 5-5 5"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </span>
                   </div>
                 </Link>
               </motion.div>

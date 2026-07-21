@@ -683,10 +683,20 @@ export default function AuroraLanding() {
 
                             <Link
                               href="/services"
-                              className="mt-1 flex items-center justify-between pt-3 text-[1rem] font-semibold text-fuchsia-300 transition hover:text-fuchsia-100"
+                              className="mt-1 grid grid-cols-[1fr_auto] items-center gap-4 pt-4 text-[1rem] font-semibold text-fuchsia-300 transition hover:text-fuchsia-100"
                             >
                               <span>View All Services</span>
-                              <span className="text-2xl leading-none">-&gt;</span>
+                              <span className="grid h-9 w-9 place-items-center rounded-full border border-fuchsia-300/16 bg-fuchsia-300/[0.06]">
+                                <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden="true">
+                                  <path
+                                    d="M5 12h13m-5-5 5 5-5 5"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              </span>
                             </Link>
                           </div>
                         </div>
