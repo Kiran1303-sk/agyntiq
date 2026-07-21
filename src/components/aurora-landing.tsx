@@ -1297,7 +1297,7 @@ export default function AuroraLanding() {
         type="button"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         aria-label="Scroll to top"
-        className={`fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-[#e457ff]/24 bg-[#07091f]/86 text-white shadow-[0_18px_60px_rgba(147,51,234,0.2)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-fuchsia-300/45 hover:bg-[#151239] md:bottom-8 md:right-8 ${
+        className={`fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-[#8b7cff]/20 bg-[radial-gradient(circle_at_24%_12%,rgba(255,255,255,0.2),transparent_25%),linear-gradient(135deg,#4f73ff_0%,#6d3fe7_52%,#8b35d8_100%)] text-white shadow-[0_18px_58px_rgba(109,63,231,0.34),0_0_0_1px_rgba(139,124,255,0.16)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#a79bff]/32 hover:shadow-[0_22px_72px_rgba(109,63,231,0.44),0_0_0_1px_rgba(139,124,255,0.22)] md:bottom-8 md:right-8 ${
           showScrollTop
             ? "pointer-events-auto translate-y-0 opacity-100"
             : "pointer-events-none translate-y-3 opacity-0"
