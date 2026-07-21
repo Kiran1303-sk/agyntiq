@@ -56,6 +56,15 @@ const serviceMenuDisplay = [
   }
 ] as const;
 
+const premiumSurface =
+  "border border-[#315cff]/18 bg-[linear-gradient(135deg,rgba(5,12,38,0.86)_0%,rgba(7,8,28,0.94)_48%,rgba(42,7,46,0.82)_100%)] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.025),0_20px_70px_rgba(0,0,0,0.26)]";
+const premiumSurfaceHover =
+  "transition duration-500 hover:-translate-y-1 hover:border-[#e457ff]/30 hover:shadow-[inset_0_0_0_1px_rgba(240,171,252,0.08),0_24px_90px_rgba(147,51,234,0.16)]";
+const premiumDivider = "divide-y divide-[#4d2aad]/25 border-y border-[#315cff]/16";
+const premiumSoftBorder = "border-[#315cff]/16";
+const premiumInput =
+  "rounded-2xl border border-[#315cff]/18 bg-[#05081f]/72 px-4 py-3 text-sm text-white placeholder:text-white/35 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition focus:border-fuchsia-300/70 focus:bg-[#080a28] focus:outline-none focus:shadow-[0_0_0_4px_rgba(217,70,239,0.12)]";
+
 function MenuIcon({ name }: { name: (typeof serviceMenuDisplay)[number]["icon"] }) {
   if (name === "brain") {
     return (
@@ -798,7 +807,10 @@ export default function AuroraLanding() {
         </div>
       </header>
 
-      <main className="pt-24">
+      <main className="relative overflow-hidden bg-[linear-gradient(135deg,#050c26_0%,#07081c_48%,#2a072e_100%)] pt-24">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_16%,rgba(14,103,255,0.18),transparent_24%),radial-gradient(circle_at_88%_34%,rgba(216,62,255,0.16),transparent_25%),radial-gradient(circle_at_48%_70%,rgba(126,87,255,0.12),transparent_30%)]" />
+        <div className="pointer-events-none absolute left-[-8rem] top-[36rem] h-[34rem] w-[34rem] rounded-full bg-[#0e67ff]/10 blur-3xl" />
+        <div className="pointer-events-none absolute right-[-10rem] top-[74rem] h-[38rem] w-[38rem] rounded-full bg-[#d83eff]/12 blur-3xl" />
         <section
           id="hero"
           className="relative scroll-mt-28 overflow-hidden pb-10 pt-16 md:scroll-mt-32 md:pb-28 md:pt-24"
@@ -857,13 +869,13 @@ export default function AuroraLanding() {
                 </div>
 
                 <div className="mt-8 flex flex-wrap items-center gap-3">
-                  <span className="rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-xs uppercase tracking-[0.26em] text-white/65">
+                  <span className="rounded-full border border-[#315cff]/18 bg-[#08102d]/72 px-3 py-2 text-xs uppercase tracking-[0.26em] text-white/70 shadow-[0_0_30px_rgba(79,140,255,0.12)]">
                     Goal: Increase conversion by 25%
                   </span>
                   {["Analyze data", "Identify opportunities", "Execute strategy"].map((item) => (
                     <span
                       key={item}
-                      className="hover-glow rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-2 text-sm text-white/65"
+                      className="hover-glow rounded-full border border-[#e457ff]/16 bg-[#100824]/72 px-3 py-2 text-sm text-white/68"
                     >
                       {item}
                     </span>
@@ -874,7 +886,7 @@ export default function AuroraLanding() {
                   {clientLogos.map((name) => (
                     <span
                       key={name}
-                      className="hover-glow rounded-full border border-white/[0.1] bg-white/[0.04] px-4 py-2 text-sm text-white/65 backdrop-blur-xl"
+                      className="hover-glow rounded-full border border-[#315cff]/18 bg-[#060b25]/74 px-4 py-2 text-sm text-white/68 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-xl"
                     >
                       {name}
                     </span>
@@ -907,13 +919,13 @@ export default function AuroraLanding() {
           </div>
         </section>
 
-        <section className="scroll-soft-glow py-4 md:py-12">
+        <section className="relative scroll-soft-glow py-4 md:py-12">
           <div className="section-shell relative z-10">
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-6" data-parallax="14">
               {statCards.map((item) => (
                 <div
                   key={item.label}
-                  className="glass-panel hover-sheen hover-glow magnetic rounded-[1.7rem] p-5"
+                  className={`hover-sheen hover-glow magnetic rounded-[1.7rem] p-5 ${premiumSurface} ${premiumSurfaceHover}`}
                   data-reveal
                 >
                   <div className="text-3xl font-semibold tracking-[-0.05em] text-white">
@@ -944,10 +956,7 @@ export default function AuroraLanding() {
               </p>
             </div>
 
-            <div
-              className="divide-y divide-white/[0.08] border-y border-white/[0.08]"
-              data-parallax="8"
-            >
+            <div className={premiumDivider} data-parallax="8">
               {problems.map((item) => (
                 <article
                   key={item.title}
@@ -985,13 +994,13 @@ export default function AuroraLanding() {
             </div>
 
             <div
-              className="mt-10 grid gap-0 overflow-hidden rounded-[2rem] border border-white/[0.08] bg-white/[0.02] md:grid-cols-3"
+              className={`mt-10 grid gap-0 overflow-hidden rounded-[2rem] md:grid-cols-3 ${premiumSurface}`}
               data-parallax="12"
             >
               {workflowSteps.map((step, index) => (
                 <div
                   key={step}
-                  className="hover-underline border-b border-white/[0.08] px-6 py-6 md:border-b-0 md:border-r md:last:border-r-0"
+                  className={`hover-underline border-b ${premiumSoftBorder} px-6 py-6 md:border-b-0 md:border-r md:last:border-r-0`}
                   data-reveal
                 >
                   <div className="flex items-center justify-between text-sm uppercase tracking-[0.28em] text-white/40">
@@ -1001,7 +1010,7 @@ export default function AuroraLanding() {
                   <div className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-white">
                     {step}
                   </div>
-                  <div className="mt-4 h-px w-full bg-gradient-to-r from-white/15 via-cyan-300/40 to-transparent" />
+                  <div className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-fuchsia-300/35 to-cyan-300/20" />
                 </div>
               ))}
             </div>
@@ -1023,7 +1032,7 @@ export default function AuroraLanding() {
               {solutions.map((item, index) => (
                 <article
                   key={item.title}
-                  className="hover-sheen hover-glow group relative overflow-hidden rounded-[1.4rem] border border-white/[0.08] bg-white/[0.03] px-5 py-5 transition hover:border-white/16 hover:bg-white/[0.05]"
+                  className={`hover-sheen hover-glow group relative overflow-hidden rounded-[1.4rem] px-5 py-5 ${premiumSurface} ${premiumSurfaceHover}`}
                   data-reveal
                 >
                   <div className="flex items-start justify-between gap-6">
@@ -1064,7 +1073,7 @@ export default function AuroraLanding() {
                 {reasons.map((item) => (
                   <div
                     key={item}
-                    className="hover-underline border-t border-white/[0.08] py-4"
+                    className={`hover-underline border-t ${premiumSoftBorder} py-4`}
                     data-reveal
                   >
                     <div className="text-lg font-semibold tracking-[-0.03em] text-white">
@@ -1096,7 +1105,7 @@ export default function AuroraLanding() {
               {aiProducts.map((item, index) => (
                 <article
                   key={item}
-                  className="hover-sheen hover-glow group relative overflow-hidden rounded-[1.4rem] border border-white/[0.08] bg-white/[0.03] px-5 py-5 transition hover:border-white/16 hover:bg-white/[0.05]"
+                  className={`hover-sheen hover-glow group relative overflow-hidden rounded-[1.4rem] px-5 py-5 ${premiumSurface} ${premiumSurfaceHover}`}
                   data-reveal
                 >
                   <div className="flex items-start justify-between gap-6">
@@ -1132,10 +1141,7 @@ export default function AuroraLanding() {
               </p>
             </div>
 
-            <div
-              className="divide-y divide-white/[0.08] border-y border-white/[0.08]"
-              data-parallax="8"
-            >
+            <div className={premiumDivider} data-parallax="8">
               {industryCards.map((item, index) => (
                 <article
                   key={item.name}
@@ -1171,7 +1177,7 @@ export default function AuroraLanding() {
               </div>
 
               <div
-                className="divide-y divide-white/[0.08] border-y border-white/[0.08] hover-sheen"
+                className={`${premiumDivider} hover-sheen`}
                 data-reveal
                 data-parallax="8"
               >
@@ -1203,10 +1209,10 @@ export default function AuroraLanding() {
               {pricingTiers.map((tier) => (
                 <article
                   key={tier.name}
-                  className="hover-sheen hover-glow rounded-[1.4rem] border border-white/[0.08] bg-white/[0.03] p-6 md:p-7"
+                  className={`hover-sheen hover-glow rounded-[1.4rem] p-6 md:p-7 ${premiumSurface} ${premiumSurfaceHover}`}
                   data-reveal
                 >
-                  <div className="inline-flex rounded-full border border-white/[0.1] bg-white/[0.04] px-3 py-1 text-xs uppercase tracking-[0.28em] text-white/55">
+                  <div className="inline-flex rounded-full border border-[#e457ff]/20 bg-[#120827]/74 px-3 py-1 text-xs uppercase tracking-[0.28em] text-fuchsia-100/70">
                     {tier.name}
                   </div>
                   <h3 className="mt-6 text-2xl font-semibold tracking-[-0.03em] text-white">
@@ -1231,10 +1237,7 @@ export default function AuroraLanding() {
               </p>
             </div>
 
-            <div
-              className="divide-y divide-white/[0.08] border-y border-white/[0.08]"
-              data-parallax="10"
-            >
+            <div className={premiumDivider} data-parallax="10">
               {testimonials.map((item) => (
                 <article
                   key={item.name}
@@ -1242,7 +1245,7 @@ export default function AuroraLanding() {
                   data-reveal
                 >
                   <div className="flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/[0.1] bg-white/[0.06] text-sm font-semibold text-white">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#315cff]/22 bg-[#09143a]/80 text-sm font-semibold text-white shadow-[0_0_28px_rgba(79,140,255,0.16)]">
                       {item.name
                         .split(" ")
                         .map((part) => part[0])
@@ -1278,7 +1281,7 @@ export default function AuroraLanding() {
                 {faqItems.map((item) => (
                   <details
                     key={item.question}
-                    className="group hover-underline border-b border-white/[0.08] py-5"
+                    className={`group hover-underline border-b ${premiumSoftBorder} py-5`}
                     data-reveal
                   >
                     <summary className="cursor-pointer list-none text-lg font-semibold tracking-[-0.03em] text-white">
@@ -1297,7 +1300,7 @@ export default function AuroraLanding() {
         type="button"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         aria-label="Scroll to top"
-        className={`fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-white/[0.12] bg-[#050816]/82 text-white shadow-[0_18px_60px_rgba(0,0,0,0.35)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/10 md:bottom-8 md:right-8 ${
+        className={`fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-[#e457ff]/24 bg-[#07091f]/86 text-white shadow-[0_18px_60px_rgba(147,51,234,0.2)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/45 hover:bg-[#0b1234] md:bottom-8 md:right-8 ${
           showScrollTop
             ? "pointer-events-auto translate-y-0 opacity-100"
             : "pointer-events-none translate-y-3 opacity-0"
@@ -1308,21 +1311,23 @@ export default function AuroraLanding() {
 
       <footer
         id="contact"
-        className="relative mt-8 overflow-hidden border-t border-white/10 bg-[#050816]/80 py-12 md:py-16"
+        className="relative overflow-hidden border-t border-[#315cff]/16 bg-[linear-gradient(135deg,#050c26_0%,#07081c_48%,#2a072e_100%)] py-12 md:py-16"
       >
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(14,103,255,0.2),transparent_24%),radial-gradient(circle_at_82%_16%,rgba(216,62,255,0.16),transparent_26%),linear-gradient(180deg,rgba(5,12,38,0),rgba(5,8,22,0.62))]" />
+        <div className="pointer-events-none absolute bottom-[-10rem] left-1/2 h-80 w-[80%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(126,87,255,0.22),rgba(216,62,255,0.1)_36%,transparent_70%)] blur-3xl" />
         <div className="section-shell relative z-10">
-          <div className="hover-sheen overflow-hidden rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-7 md:p-10 backdrop-blur-[2px]">
+          <div className={`hover-sheen overflow-hidden rounded-[2rem] p-7 md:p-10 ${premiumSurface}`}>
             <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
               <div className="grid gap-5">
                 <div className="section-kicker">Contact</div>
-                <h2 className="section-title max-w-3xl">
+                <h2 className="section-title max-w-3xl bg-[linear-gradient(90deg,#ffffff_0%,#dbe7ff_44%,#f0abfc_100%)] bg-clip-text text-transparent drop-shadow-[0_0_34px_rgba(126,87,255,0.16)]">
                   Let&apos;s build the right AI engagement.
                 </h2>
                 <p className="section-copy max-w-2xl">
                   Whether you need AI strategy, workflow automation, or a custom product, we&apos;ll
                   help define the highest-value next step.
                 </p>
-                <div className="grid gap-4 border-t border-white/[0.08] pt-4 text-sm text-white/70 sm:grid-cols-2">
+                <div className={`grid gap-4 border-t ${premiumSoftBorder} pt-4 text-sm text-white/72 sm:grid-cols-2`}>
                   <div>hello@agyntiq.ai</div>
                   <div>New Delhi, India</div>
                   <div>Global remote delivery</div>
@@ -1331,42 +1336,42 @@ export default function AuroraLanding() {
               </div>
 
               <div className="grid gap-4">
-                <div className="hover-glow rounded-[1.5rem] border border-white/[0.08] bg-white/[0.02] p-5">
-                  <div className="text-xs uppercase tracking-[0.28em] text-white/40">
+                <div className="hover-glow rounded-[1.5rem] border border-[#e457ff]/18 bg-[#090720]/72 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+                  <div className="text-xs uppercase tracking-[0.28em] text-fuchsia-100/55">
                     Contact Form
                   </div>
                   <form className="mt-4 grid gap-4">
                     <div className="grid gap-4 md:grid-cols-2">
                       <input
-                        className="rounded-2xl border border-white/[0.1] bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-cyan-300 focus:outline-none"
+                        className={premiumInput}
                         placeholder="Full Name"
                       />
                       <input
-                        className="rounded-2xl border border-white/[0.1] bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-cyan-300 focus:outline-none"
+                        className={premiumInput}
                         placeholder="Company Name"
                       />
                       <input
-                        className="rounded-2xl border border-white/[0.1] bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-cyan-300 focus:outline-none"
+                        className={premiumInput}
                         placeholder="Email"
                       />
                       <input
-                        className="rounded-2xl border border-white/[0.1] bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-cyan-300 focus:outline-none"
+                        className={premiumInput}
                         placeholder="Phone"
                       />
                     </div>
                     <div className="grid gap-4 md:grid-cols-2">
                       <input
-                        className="rounded-2xl border border-white/[0.1] bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-cyan-300 focus:outline-none"
+                        className={premiumInput}
                         placeholder="Business Type"
                       />
                       <input
-                        className="rounded-2xl border border-white/[0.1] bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-cyan-300 focus:outline-none"
+                        className={premiumInput}
                         placeholder="Industry"
                       />
                     </div>
                     <textarea
                       rows={5}
-                      className="rounded-2xl border border-white/[0.1] bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-cyan-300 focus:outline-none"
+                      className={premiumInput}
                       placeholder="Tell us about your AI requirement, budget, timeline, and country."
                     />
                     <label className="flex items-center gap-3 text-sm text-white/65">
@@ -1386,7 +1391,7 @@ export default function AuroraLanding() {
                       </button>
                       <a
                         href="mailto:hello@agyntiq.ai"
-                        className="magnetic inline-flex items-center justify-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.04] px-7 py-4 text-sm font-semibold text-white/90 backdrop-blur-xl"
+                        className="magnetic inline-flex items-center justify-center gap-2 rounded-full border border-[#315cff]/20 bg-[#08102d]/76 px-7 py-4 text-sm font-semibold text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-xl transition hover:border-fuchsia-300/35 hover:bg-[#100824]/82"
                       >
                         Schedule Meeting
                       </a>
@@ -1395,8 +1400,8 @@ export default function AuroraLanding() {
                 </div>
 
                 <div className="grid gap-4 md:grid-cols-2">
-                  <div className="border-t border-white/[0.08] pt-4">
-                    <div className="text-sm uppercase tracking-[0.28em] text-white/45">
+                  <div className={`border-t ${premiumSoftBorder} pt-4`}>
+                    <div className="text-sm uppercase tracking-[0.28em] text-fuchsia-100/50">
                       Navigation
                     </div>
                     <div className="mt-4 space-y-3 text-sm text-white/70">
@@ -1421,8 +1426,8 @@ export default function AuroraLanding() {
                       )}
                     </div>
                   </div>
-                  <div className="border-t border-white/[0.08] pt-4">
-                    <div className="text-sm uppercase tracking-[0.28em] text-white/45">Social</div>
+                  <div className={`border-t ${premiumSoftBorder} pt-4`}>
+                    <div className="text-sm uppercase tracking-[0.28em] text-fuchsia-100/50">Social</div>
                     <div className="mt-4 space-y-3 text-sm text-white/70">
                       <div>LinkedIn</div>
                       <div>GitHub</div>
@@ -1434,7 +1439,7 @@ export default function AuroraLanding() {
               </div>
             </div>
 
-            <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/40 md:flex-row md:items-center md:justify-between">
+            <div className={`mt-8 flex flex-col gap-3 border-t ${premiumSoftBorder} pt-6 text-sm text-white/45 md:flex-row md:items-center md:justify-between`}>
               <span>© 2026 Agyntiq.ai. All rights reserved.</span>
               <span>Premium AI solutions for enterprise transformation.</span>
             </div>
@@ -1494,8 +1499,8 @@ function ScrollShowcaseSection() {
             </p>
           </div>
 
-          <div className="mt-10 w-full max-w-5xl rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-4 sm:p-5">
-            <div className="mb-4 flex items-center justify-between gap-4 px-1 text-xs uppercase tracking-[0.32em] text-white/40">
+          <div className={`mt-10 w-full max-w-5xl rounded-[2rem] p-4 sm:p-5 ${premiumSurface}`}>
+            <div className="mb-4 flex items-center justify-between gap-4 px-1 text-xs uppercase tracking-[0.32em] text-fuchsia-100/50">
               <span>Visual story</span>
               <span>{String(activeSlide + 1).padStart(2, "0")} / 04</span>
             </div>
@@ -1504,10 +1509,10 @@ function ScrollShowcaseSection() {
               onMouseLeave={() => setIsPaused(false)}
               onTouchStart={() => setIsPaused(true)}
               onTouchEnd={() => setIsPaused(false)}
-              className="overflow-hidden rounded-[1.5rem] border border-white/[0.08] bg-[#050816] shadow-[0_24px_90px_rgba(0,0,0,0.35)]"
+              className="overflow-hidden rounded-[1.5rem] border border-[#315cff]/16 bg-[#050816] shadow-[0_24px_90px_rgba(0,0,0,0.35)]"
             >
               <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
-                <div className="relative min-h-[18rem] overflow-hidden border-b border-white/[0.08] lg:min-h-[28rem] lg:border-b-0 lg:border-r">
+                <div className={`relative min-h-[18rem] overflow-hidden border-b ${premiumSoftBorder} lg:min-h-[28rem] lg:border-b-0 lg:border-r`}>
                   <AnimatePresence mode="wait" custom={direction}>
                     <motion.div
                       key={activeSlide}
@@ -1531,7 +1536,7 @@ function ScrollShowcaseSection() {
                   </AnimatePresence>
                 </div>
 
-                <div className="flex min-h-[18rem] flex-col justify-between p-5 sm:p-6 lg:min-h-[28rem] lg:p-8">
+                <div className="flex min-h-[18rem] flex-col justify-between bg-[linear-gradient(135deg,rgba(5,12,38,0.72),rgba(42,7,46,0.48))] p-5 sm:p-6 lg:min-h-[28rem] lg:p-8">
                   <div className="space-y-3">
                     <div className="text-xs uppercase tracking-[0.32em] text-white/45">
                       {slideShowcase[activeSlide].tag}
@@ -1544,12 +1549,12 @@ function ScrollShowcaseSection() {
                     </p>
                   </div>
 
-                  <div className="grid gap-3 border-t border-white/[0.08] pt-5 text-sm text-white/60">
+                  <div className={`grid gap-3 border-t ${premiumSoftBorder} pt-5 text-sm text-white/62`}>
                     <div className="flex items-center justify-between gap-4">
                       <span>Next frame updates automatically</span>
                       <span className="text-white/35">{String(activeSlide + 1).padStart(2, "0")}</span>
                     </div>
-                    <div className="h-px w-full bg-gradient-to-r from-white/12 via-cyan-300/30 to-transparent" />
+                    <div className="h-px w-full bg-gradient-to-r from-transparent via-fuchsia-300/30 to-cyan-300/22" />
                   </div>
                 </div>
               </div>
@@ -1564,8 +1569,8 @@ function ScrollShowcaseSection() {
                   onClick={() => goToSlide(index)}
                   className={`h-2.5 rounded-full transition-all duration-300 ${
                     activeSlide === index
-                      ? "w-10 bg-white shadow-[0_0_0_4px_rgba(255,255,255,0.08)]"
-                      : "w-2.5 bg-white/30 hover:bg-white/45"
+                      ? "w-10 bg-gradient-to-r from-[#1d8fff] to-[#d83eff] shadow-[0_0_0_4px_rgba(216,62,255,0.12)]"
+                      : "w-2.5 bg-white/25 hover:bg-fuchsia-200/55"
                   }`}
                 />
               ))}
