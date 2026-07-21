@@ -57,9 +57,9 @@ const serviceMenuDisplay = [
 ] as const;
 
 const premiumSurface =
-  "border border-[#315cff]/18 bg-[linear-gradient(135deg,rgba(5,12,38,0.86)_0%,rgba(7,8,28,0.94)_48%,rgba(42,7,46,0.82)_100%)] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.025),0_20px_70px_rgba(0,0,0,0.26)]";
+  "border border-[#7547df]/14 bg-[linear-gradient(135deg,rgba(5,12,38,0.86)_0%,rgba(7,8,28,0.94)_48%,rgba(42,7,46,0.82)_100%)] shadow-[0_20px_70px_rgba(0,0,0,0.26)]";
 const premiumSurfaceHover =
-  "transition duration-500 hover:-translate-y-1 hover:border-[#e457ff]/30 hover:shadow-[inset_0_0_0_1px_rgba(240,171,252,0.08),0_24px_90px_rgba(147,51,234,0.16)]";
+  "transition duration-500 hover:-translate-y-1 hover:border-[#e457ff]/24 hover:shadow-[0_24px_90px_rgba(147,51,234,0.14)]";
 const premiumDivider = "divide-y divide-transparent border-y border-transparent";
 const premiumSoftBorder = "border-transparent";
 const premiumInput =
@@ -587,9 +587,9 @@ export default function AuroraLanding() {
 
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(135deg,#050c26_0%,#07081c_48%,#2a072e_100%)]" />
-        <div className="aurora-blob absolute left-[-8%] top-[-6%] h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(14,103,255,0.2),transparent_66%)] blur-3xl animate-drift" />
-        <div className="aurora-blob absolute right-[-6%] top-[10%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(216,62,255,0.18),transparent_64%)] blur-3xl animate-drift" />
-        <div className="aurora-blob absolute bottom-[16%] left-[26%] h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(126,87,255,0.14),transparent_64%)] blur-3xl animate-drift" />
+        <div className="aurora-blob absolute left-[-8%] top-[-6%] h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(46,108,235,0.16),transparent_66%)] blur-3xl animate-drift" />
+        <div className="aurora-blob absolute right-[-6%] top-[10%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(194,59,217,0.16),transparent_64%)] blur-3xl animate-drift" />
+        <div className="aurora-blob absolute bottom-[16%] left-[26%] h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(117,71,223,0.13),transparent_64%)] blur-3xl animate-drift" />
       </div>
 
       <header
@@ -1506,7 +1506,7 @@ function ScrollShowcaseSection() {
               onMouseLeave={() => setIsPaused(false)}
               onTouchStart={() => setIsPaused(true)}
               onTouchEnd={() => setIsPaused(false)}
-              className="overflow-hidden rounded-[1.5rem] border border-[#315cff]/16 bg-[#050816] shadow-[0_24px_90px_rgba(0,0,0,0.35)]"
+              className="overflow-hidden rounded-[1.5rem] bg-[#050816] shadow-[0_24px_90px_rgba(0,0,0,0.35)]"
             >
               <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
                 <div className={`relative min-h-[18rem] overflow-hidden border-b ${premiumSoftBorder} lg:min-h-[28rem] lg:border-b-0 lg:border-r`}>
