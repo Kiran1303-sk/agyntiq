@@ -491,13 +491,21 @@ export default function ServicesPage() {
 
       <section className="relative mx-auto grid min-h-screen w-full max-w-[1220px] items-center gap-10 px-4 pb-20 pt-36 md:px-6 lg:grid-cols-[1fr_0.92fr]">
         <motion.div initial="hidden" animate="show" variants={stagger}>
-          <motion.div variants={fadeUp} className="inline-flex rounded-full border border-fuchsia-300/24 bg-[#151239]/72 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-100/86 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_0_24px_rgba(202,74,255,0.12)]">
+          <motion.div variants={fadeUp} className="inline-flex rounded-full bg-[linear-gradient(90deg,rgba(46,108,235,0.28),rgba(117,71,223,0.28),rgba(194,59,217,0.28))] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-50 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.28),0_0_32px_rgba(126,87,255,0.22)]">
             Enterprise AI Solutions
           </motion.div>
-          <motion.h1 variants={fadeUp} className="mt-7 max-w-3xl text-5xl font-semibold leading-[0.98] text-white md:text-7xl">
-            Transform Every Stage of Your AI Journey
+          <motion.h1 variants={fadeUp} className="mt-7 max-w-3xl text-5xl font-semibold leading-[0.98] tracking-[-0.055em] text-white drop-shadow-[0_0_34px_rgba(126,87,255,0.16)] md:text-7xl">
+            <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#dbe7ff_42%,#f0abfc_100%)] bg-clip-text text-transparent">
+              Transform Every
+            </span>
+            <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#c7d2fe_36%,#d946ef_100%)] bg-clip-text text-transparent">
+              Stage of Your AI
+            </span>
+            <span className="block text-white [text-shadow:0_0_28px_rgba(194,59,217,0.22),0_0_56px_rgba(46,108,235,0.12)]">
+              Journey
+            </span>
           </motion.h1>
-          <motion.p variants={fadeUp} className="mt-6 max-w-2xl text-lg leading-8 text-white/68 md:text-xl">
+          <motion.p variants={fadeUp} className="mt-6 max-w-2xl text-lg leading-8 text-white/72 [text-shadow:0_0_24px_rgba(126,87,255,0.12)] md:text-xl">
             From AI Strategy to Enterprise Deployment and Managed AI Operations, we help
             organizations build, integrate and scale intelligent systems.
           </motion.p>
