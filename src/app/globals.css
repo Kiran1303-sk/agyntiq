@@ -200,13 +200,15 @@ button {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -0.2rem;
-  width: 100%;
+  bottom: 0;
+  width: min(8rem, 42%);
   height: 1px;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 260ms ease;
-  background: linear-gradient(90deg, #2e6ceb, #7547df, #c23bd9);
+  background: linear-gradient(90deg, rgba(46, 108, 235, 0.52), rgba(117, 71, 223, 0.42), rgba(194, 59, 217, 0.36));
+  opacity: 0.7;
+  filter: blur(0.2px);
 }
 
 .hover-underline:hover::after {
