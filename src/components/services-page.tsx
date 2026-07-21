@@ -132,30 +132,45 @@ const serviceVisuals = [
     useCase: "Prioritize AI opportunities",
     requirement: "Business goals, process map, risk posture",
     outcome: "Roadmap with ROI-backed next steps",
+    metric: "ROI clarity",
+    inputs: ["Goals", "Processes", "Risks"],
+    deliverables: ["Priority matrix", "AI roadmap"],
     steps: ["Discover", "Score", "Roadmap"]
   },
   {
     useCase: "Build AI products and agents",
     requirement: "User journeys, data access, acceptance criteria",
     outcome: "Production-ready AI workflow",
+    metric: "Launch ready",
+    inputs: ["Journeys", "Data", "Criteria"],
+    deliverables: ["MVP", "Agent workflow"],
     steps: ["Prototype", "Validate", "Launch"]
   },
   {
     useCase: "Connect AI into operations",
     requirement: "APIs, tools, permissions, knowledge sources",
     outcome: "Integrated automation across systems",
+    metric: "System fit",
+    inputs: ["APIs", "Tools", "Access"],
+    deliverables: ["Connected apps", "Automations"],
     steps: ["Connect", "Automate", "Measure"]
   },
   {
     useCase: "Prepare reliable AI data",
     requirement: "Raw data, labels, governance rules",
     outcome: "Clean knowledge layer for AI",
+    metric: "Data trust",
+    inputs: ["Raw data", "Labels", "Rules"],
+    deliverables: ["Knowledge layer", "Quality controls"],
     steps: ["Ingest", "Structure", "Govern"]
   },
   {
     useCase: "Run and improve AI systems",
     requirement: "Monitoring, feedback, reliability metrics",
     outcome: "Stable AI operations at scale",
+    metric: "Ops stability",
+    inputs: ["Signals", "Feedback", "SLAs"],
+    deliverables: ["Health reports", "Optimization loop"],
     steps: ["Monitor", "Optimize", "Improve"]
   }
 ] as const;
@@ -307,26 +322,31 @@ function NeuralGraphic({ index }: { index: number }) {
   const visual = serviceVisuals[index];
 
   return (
-    <div className="group relative min-h-[25rem] overflow-hidden rounded-[1.4rem] border border-[#4d2aad]/55 bg-[linear-gradient(135deg,rgba(5,12,38,0.96)_0%,rgba(7,8,28,0.98)_48%,rgba(42,7,46,0.96)_100%)] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_24px_90px_rgba(0,0,0,0.32),0_0_34px_rgba(119,57,255,0.12)]">
+    <div className="group relative min-h-[28rem] overflow-hidden rounded-[1.4rem] border border-[#4d2aad]/55 bg-[linear-gradient(135deg,rgba(5,12,38,0.96)_0%,rgba(7,8,28,0.98)_48%,rgba(42,7,46,0.96)_100%)] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_24px_90px_rgba(0,0,0,0.32),0_0_34px_rgba(119,57,255,0.12)]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_18%,rgba(14,103,255,0.16),transparent_34%),radial-gradient(circle_at_78%_72%,rgba(216,62,255,0.16),transparent_34%)] opacity-90 transition duration-500 group-hover:opacity-100" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:32px_32px] opacity-25" />
       <motion.div
         animate={{ y: [0, -10, 0], rotate: [0, 2.5, 0] }}
         transition={{ duration: 6 + index, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute right-10 top-24 h-44 w-44 rotate-45 rounded-[0.5rem] border border-[#1d8fff]/26 bg-[#1d8fff]/[0.035] shadow-[0_0_90px_rgba(126,87,255,0.22)]"
+        className="absolute -right-10 top-24 h-56 w-56 rotate-45 rounded-[0.65rem] border border-[#1d8fff]/24 bg-[#1d8fff]/[0.03] shadow-[0_0_90px_rgba(126,87,255,0.22)]"
       />
       <motion.div
         animate={{ scale: [1, 1.1, 1], opacity: [0.45, 0.85, 0.45] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute right-24 top-32 h-28 w-28 rotate-45 rounded-[0.45rem] border border-fuchsia-300/34"
+        className="absolute right-14 top-36 h-32 w-32 rotate-45 rounded-[0.55rem] border border-fuchsia-300/34"
       />
       <motion.div
         animate={{ x: ["-25%", "125%"] }}
         transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: index * 0.25 }}
         className="absolute top-20 h-px w-1/2 bg-[linear-gradient(90deg,transparent,rgba(232,121,249,0.75),transparent)]"
       />
+      <motion.div
+        animate={{ opacity: [0.3, 0.85, 0.3], scaleX: [0.4, 1, 0.4] }}
+        transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
+        className="absolute left-10 right-10 top-[13.5rem] h-px origin-left bg-[linear-gradient(90deg,rgba(14,103,255,0.1),rgba(232,121,249,0.72),rgba(14,103,255,0.12))]"
+      />
 
-      <div className="relative z-10 flex h-full min-h-[22.5rem] flex-col">
+      <div className="relative z-10 flex h-full min-h-[25.5rem] flex-col">
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="flex h-14 w-14 items-center justify-center rounded-[1rem] border border-white/12 bg-[#0c0b2c]/82 text-fuchsia-200 shadow-[0_0_42px_rgba(202,74,255,0.2)] transition duration-500 group-hover:scale-110 group-hover:text-white">
@@ -339,37 +359,78 @@ function NeuralGraphic({ index }: { index: number }) {
               <div className="mt-1 text-lg font-semibold text-white">{services[index].nav}</div>
             </div>
           </div>
-          <div className="rounded-full border border-fuchsia-300/18 bg-fuchsia-300/[0.06] px-3 py-1 text-xs font-semibold text-fuchsia-100/74">
-            {services[index].number}
+          <div className="text-right">
+            <div className="rounded-full border border-fuchsia-300/18 bg-fuchsia-300/[0.06] px-3 py-1 text-xs font-semibold text-fuchsia-100/74">
+              {services[index].number}
+            </div>
+            <div className="mt-2 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/36">
+              {visual.metric}
+            </div>
           </div>
         </div>
 
-        <div className="mt-6 grid gap-3">
-          <div className="rounded-[1rem] border border-white/10 bg-[#080b25]/70 p-4">
-            <div className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-white/36">
-              Use Case
+        <div className="mt-6 grid gap-3 lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="rounded-[1.05rem] border border-white/10 bg-[#080b25]/72 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+            <div className="flex items-center justify-between gap-3">
+              <div className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-white/36">
+                Use Case
+              </div>
+              <span className="h-2 w-2 rounded-full bg-fuchsia-300 shadow-[0_0_18px_rgba(202,74,255,0.68)]" />
             </div>
             <div className="mt-2 text-base font-semibold leading-6 text-white">{visual.useCase}</div>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            <div className="rounded-[1rem] border border-[#4d2aad]/40 bg-[#120c32]/62 p-4">
-              <div className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-200/42">
-                Requirements
-              </div>
-              <p className="mt-2 text-sm leading-6 text-white/66">{visual.requirement}</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {visual.inputs.map((input) => (
+                <span
+                  key={input}
+                  className="rounded-full border border-[#1d8fff]/18 bg-[#061339]/56 px-3 py-1 text-[0.7rem] font-semibold text-blue-100/72"
+                >
+                  {input}
+                </span>
+              ))}
             </div>
-            <div className="rounded-[1rem] border border-[#1d8fff]/22 bg-[#061339]/54 p-4">
-              <div className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-blue-200/42">
-                Outcome
-              </div>
-              <p className="mt-2 text-sm leading-6 text-white/66">{visual.outcome}</p>
+          </div>
+
+          <div className="rounded-[1.05rem] border border-[#4d2aad]/42 bg-[linear-gradient(135deg,rgba(18,12,50,0.72),rgba(42,7,46,0.58))] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+            <div className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-200/42">
+              Requirements
+            </div>
+            <p className="mt-2 text-sm leading-6 text-white/66">{visual.requirement}</p>
+            <div className="mt-4 grid gap-2">
+              {visual.deliverables.map((deliverable) => (
+                <div
+                  key={deliverable}
+                  className="flex items-center gap-2 rounded-[0.7rem] border border-white/8 bg-white/[0.035] px-3 py-2"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-300" />
+                  <span className="text-xs font-semibold text-white/70">{deliverable}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        <div className="mt-auto pt-6">
+        <div className="mt-3 rounded-[1.05rem] border border-[#1d8fff]/22 bg-[linear-gradient(90deg,rgba(6,19,57,0.62),rgba(18,12,50,0.56),rgba(42,7,46,0.5))] p-4">
+          <div className="grid gap-3 sm:grid-cols-[auto_1fr_auto] sm:items-center">
+            <div className="rounded-full border border-[#1d8fff]/20 bg-[#061339]/68 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-blue-100/58">
+              Output
+            </div>
+            <p className="text-sm font-semibold leading-6 text-white/78">{visual.outcome}</p>
+            <div className="flex gap-1.5">
+              {[0, 1, 2].map((bar) => (
+                <motion.span
+                  key={bar}
+                  animate={{ height: ["0.45rem", "1.25rem", "0.45rem"] }}
+                  transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: bar * 0.18 }}
+                  className="block w-1.5 rounded-full bg-[linear-gradient(180deg,#f0abfc,#60a5fa)]"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-auto pt-5">
           <div className="relative grid grid-cols-3 gap-2">
-            <div className="absolute left-[16%] right-[16%] top-5 h-px bg-[linear-gradient(90deg,rgba(14,103,255,0.15),rgba(232,121,249,0.58),rgba(14,103,255,0.15))]" />
+            <div className="absolute left-[16%] right-[16%] top-6 h-px bg-[linear-gradient(90deg,rgba(14,103,255,0.15),rgba(232,121,249,0.58),rgba(14,103,255,0.15))]" />
             {visual.steps.map((step, stepIndex) => (
               <motion.div
                 key={step}
@@ -380,13 +441,24 @@ function NeuralGraphic({ index }: { index: number }) {
                   ease: "easeInOut",
                   delay: stepIndex * 0.25
                 }}
-                className="relative rounded-[0.85rem] border border-white/10 bg-[#0c0b2c]/82 p-3 text-center shadow-[0_12px_34px_rgba(0,0,0,0.18)]"
+                className="relative overflow-hidden rounded-[0.9rem] border border-white/10 bg-[#0c0b2c]/84 p-3 text-center shadow-[0_12px_34px_rgba(0,0,0,0.18)]"
               >
-                <span className="mx-auto mb-2 block h-3 w-3 rounded-full bg-fuchsia-300 shadow-[0_0_18px_rgba(202,74,255,0.64)]" />
-                <span className="text-xs font-semibold text-white/74">{step}</span>
+                <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(232,121,249,0.55),transparent)]" />
+                <span className="mx-auto mb-2 grid h-5 w-5 place-items-center rounded-full border border-fuchsia-300/18 bg-fuchsia-300/[0.08]">
+                  <span className="block h-2 w-2 rounded-full bg-fuchsia-300 shadow-[0_0_18px_rgba(202,74,255,0.64)]" />
+                </span>
+                <span className="text-xs font-semibold text-white/76">{step}</span>
               </motion.div>
             ))}
           </div>
+        </div>
+
+        <div className="mt-3 grid grid-cols-3 gap-2 text-center">
+          {["Input", "AI Layer", "Business Value"].map((label) => (
+            <div key={label} className="text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-white/32">
+              {label}
+            </div>
+          ))}
         </div>
       </div>
     </div>
