@@ -586,7 +586,7 @@ export default function AuroraLanding() {
       />
 
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,#050c26_0%,#07081c_48%,#2a072e_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,#050c26_0%,#07081c_52%,#0a0e30_100%)]" />
         <div className="aurora-blob absolute left-[-8%] top-[-6%] h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(46,108,235,0.16),transparent_66%)] blur-3xl animate-drift" />
         <div className="aurora-blob absolute right-[-6%] top-[10%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(117,71,223,0.15),transparent_64%)] blur-3xl animate-drift" />
         <div className="aurora-blob absolute bottom-[16%] left-[26%] h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(117,71,223,0.13),transparent_64%)] blur-3xl animate-drift" />
@@ -807,7 +807,7 @@ export default function AuroraLanding() {
         </div>
       </header>
 
-      <main className="relative overflow-hidden bg-[linear-gradient(135deg,#050c26_0%,#07081c_48%,#2a072e_100%)] pt-24">
+      <main className="relative overflow-hidden bg-[linear-gradient(135deg,#050c26_0%,#07081c_52%,#0a0e30_100%)] pt-24">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_16%,rgba(14,103,255,0.18),transparent_24%),radial-gradient(circle_at_88%_34%,rgba(117,71,223,0.14),transparent_25%),radial-gradient(circle_at_48%_70%,rgba(91,140,255,0.11),transparent_30%)]" />
         <div className="pointer-events-none absolute left-[-8rem] top-[36rem] h-[34rem] w-[34rem] rounded-full bg-[#0e67ff]/10 blur-3xl" />
         <div className="pointer-events-none absolute right-[-10rem] top-[74rem] h-[38rem] w-[38rem] rounded-full bg-[#7547df]/12 blur-3xl" />
@@ -1191,8 +1191,9 @@ export default function AuroraLanding() {
           </div>
         </section>
 
-        <section id="pricing" className="scroll-mt-28 py-12 md:scroll-mt-32 md:py-16">
-          <div className="section-shell">
+        <section id="pricing" className="relative scroll-mt-28 overflow-hidden py-12 md:scroll-mt-32 md:py-16">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(46,108,235,0.12),transparent_28%),radial-gradient(circle_at_82%_64%,rgba(117,71,223,0.11),transparent_30%)]" />
+          <div className="section-shell relative z-10">
             <div className="section-heading mb-10" data-reveal>
               <div className="section-kicker">Pricing</div>
               <h2 className="section-title">Flexible engagement models for different stages.</h2>
@@ -1209,7 +1210,7 @@ export default function AuroraLanding() {
                   className={`hover-sheen hover-glow rounded-[1.4rem] p-6 md:p-7 ${premiumSurface} ${premiumSurfaceHover}`}
                   data-reveal
                 >
-                  <div className="inline-flex rounded-full border border-[#7547df]/22 bg-[#10183a]/76 px-3 py-1 text-xs uppercase tracking-[0.28em] text-fuchsia-100/70">
+                  <div className="inline-flex rounded-full border border-[#315cff]/18 bg-[#08143a]/76 px-3 py-1 text-xs uppercase tracking-[0.28em] text-indigo-100/72">
                     {tier.name}
                   </div>
                   <h3 className="mt-6 text-2xl font-semibold tracking-[-0.03em] text-white">
@@ -1223,8 +1224,9 @@ export default function AuroraLanding() {
           </div>
         </section>
 
-        <section className="py-12 md:py-16">
-          <div className="section-shell">
+        <section className="relative overflow-hidden py-12 md:py-16">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(91,140,255,0.1),transparent_28%),radial-gradient(circle_at_18%_76%,rgba(117,71,223,0.09),transparent_30%)]" />
+          <div className="section-shell relative z-10">
             <div className="section-heading mb-10" data-reveal>
               <div className="section-kicker">Testimonials</div>
               <h2 className="section-title">Built to feel credible to enterprise buyers.</h2>
@@ -1234,11 +1236,11 @@ export default function AuroraLanding() {
               </p>
             </div>
 
-            <div className={premiumDivider} data-parallax="10">
+            <div className="grid gap-4" data-parallax="10">
               {testimonials.map((item) => (
                 <article
                   key={item.name}
-                  className="hover-underline grid gap-4 py-5 lg:grid-cols-[0.35fr_0.65fr]"
+                  className={`hover-underline grid gap-4 rounded-[1.4rem] p-5 lg:grid-cols-[0.35fr_0.65fr] ${premiumSurface} ${premiumSurfaceHover}`}
                   data-reveal
                 >
                   <div className="flex items-center gap-3">
@@ -1262,8 +1264,9 @@ export default function AuroraLanding() {
           </div>
         </section>
 
-        <section className="py-12 md:py-16">
-          <div className="section-shell">
+        <section className="relative overflow-hidden py-12 md:py-16">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_14%,rgba(46,108,235,0.1),transparent_30%),radial-gradient(circle_at_78%_76%,rgba(91,92,255,0.1),transparent_32%)]" />
+          <div className="section-shell relative z-10">
             <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
               <div className="section-heading" data-reveal>
                 <div className="section-kicker">FAQ</div>
@@ -1278,7 +1281,7 @@ export default function AuroraLanding() {
                 {faqItems.map((item) => (
                   <details
                     key={item.question}
-                    className={`group hover-underline border-b ${premiumSoftBorder} py-5`}
+                    className={`group hover-underline rounded-[1.25rem] p-5 ${premiumSurface} ${premiumSurfaceHover}`}
                     data-reveal
                   >
                     <summary className="cursor-pointer list-none text-lg font-semibold tracking-[-0.03em] text-white">
