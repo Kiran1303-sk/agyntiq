@@ -615,7 +615,7 @@ export default function ServicesPage() {
             whileInView="show"
             viewport={{ once: true, margin: "-120px" }}
             variants={stagger}
-            className={`grid gap-10 lg:grid-cols-2 lg:items-center ${index % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}
+            className={`grid gap-10 lg:grid-cols-2 lg:items-start ${index % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}
           >
             <motion.div variants={fadeUp}>
               <NeuralGraphic index={index} />
