@@ -300,11 +300,11 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
         id="services-mobile-menu"
         className={`section-shell md:hidden transition-all duration-300 ${
           mobileOpen
-            ? "pointer-events-auto max-h-[34rem] translate-y-0 pb-5 opacity-100"
+            ? "pointer-events-auto max-h-[42rem] translate-y-0 pb-5 opacity-100"
             : "pointer-events-none max-h-0 -translate-y-2 overflow-hidden opacity-0"
         }`}
       >
-        <div className="relative overflow-hidden rounded-[1.75rem] border border-[#7547df]/24 bg-[linear-gradient(135deg,rgba(5,12,38,0.98)_0%,rgba(7,8,28,0.98)_52%,rgba(10,14,48,0.98)_100%)] p-4 shadow-[0_22px_70px_rgba(0,0,0,0.48),0_0_34px_rgba(119,57,255,0.14)] backdrop-blur-2xl">
+        <div className="relative overflow-hidden rounded-[1.75rem] border border-[#7547df]/24 bg-[linear-gradient(135deg,rgba(5,12,38,0.98)_0%,rgba(7,8,28,0.98)_52%,rgba(10,14,48,0.98)_100%)] p-5 shadow-[0_22px_70px_rgba(0,0,0,0.48),0_0_34px_rgba(119,57,255,0.14)] backdrop-blur-2xl">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(14,103,255,0.12),transparent_32%),radial-gradient(circle_at_92%_80%,rgba(117,71,223,0.12),transparent_36%)]" />
 
           <nav className="relative grid gap-2" aria-label="Mobile navigation">
@@ -316,7 +316,7 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
                   key={item.href}
                   href="/services"
                   onClick={() => setMobileOpen(false)}
-                  className={`rounded-[0.9rem] px-4 py-3 text-sm font-semibold transition ${
+                  className={`rounded-[1rem] px-4 py-3.5 text-sm font-semibold transition ${
                     isActive(item.href)
                       ? "bg-[linear-gradient(90deg,#4f73ff_0%,#6d3fe7_52%,#8b35d8_100%)] text-white"
                       : "text-white/74 hover:bg-white/[0.06] hover:text-white"
@@ -329,7 +329,7 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
                   key={item.href}
                   href={href}
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-[0.9rem] px-4 py-3 text-sm font-semibold text-white/74 transition hover:bg-white/[0.06] hover:text-white"
+                  className="rounded-[1rem] px-4 py-3.5 text-sm font-semibold text-white/74 transition hover:bg-[#315cff]/[0.07] hover:text-white"
                 >
                   {item.label}
                 </a>
@@ -337,8 +337,8 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
             })}
           </nav>
 
-          <div className="relative mt-4 border-t border-white/[0.08] pt-4">
-            <div className="px-1 text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-200/60">
+          <div className="relative mt-4 pt-2">
+            <div className="px-1 text-xs font-semibold uppercase tracking-[0.22em] text-indigo-100/58">
               Services
             </div>
             <div className="mt-3 grid gap-2">
@@ -347,9 +347,9 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
                   key={service.href}
                   href={service.href}
                   onClick={() => setMobileOpen(false)}
-                  className="group flex items-center gap-3 rounded-[0.95rem] border border-white/[0.08] bg-[#080b25]/62 p-3 text-white/82 transition hover:border-fuchsia-300/35 hover:bg-fuchsia-300/[0.07] hover:text-white"
+                  className="group flex items-center gap-3 rounded-[1rem] border border-[#315cff]/12 bg-[#080b25]/62 p-3 text-white/82 transition hover:border-[#8b7cff]/32 hover:bg-[#315cff]/[0.07] hover:text-white"
                 >
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[0.75rem] border border-fuchsia-400/18 bg-[#151239]/72 text-fuchsia-300 shadow-[0_0_24px_rgba(202,74,255,0.14)] transition group-hover:text-fuchsia-100">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[0.75rem] border border-[#7547df]/18 bg-[#10183a]/72 text-indigo-200 shadow-[0_0_24px_rgba(91,92,255,0.12)] transition group-hover:text-white">
                     <MenuIcon name={service.icon} />
                   </span>
                   <span>

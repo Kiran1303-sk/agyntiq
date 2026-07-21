@@ -659,9 +659,6 @@ export default function AuroraLanding() {
                         <div className="absolute left-1/2 top-[-0.3rem] h-3.5 w-3.5 -translate-x-1/2 rotate-45 bg-[#080b25]" />
                         <div className="grid min-h-[16.5rem] grid-cols-[0.9fr_1.1fr]">
                           <div className="relative overflow-hidden bg-[radial-gradient(circle_at_48%_46%,rgba(58,104,255,0.16),transparent_28%),linear-gradient(180deg,rgba(5,16,48,0.32),rgba(24,8,42,0.08))]">
-                            <div className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rotate-45 border border-[#2e6ceb]/16" />
-                            <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rotate-45 border border-violet-400/20" />
-                            <div className="absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 rotate-45 border border-fuchsia-400/22" />
                             <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(14,103,255,0.1),transparent_42%,rgba(117,71,223,0.1))]" />
                             <div className="relative flex h-full items-center justify-center">
                               <div className="flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-[0.85rem] border border-fuchsia-200/14 bg-[#0c0b2c]/70 text-4xl font-semibold text-white shadow-[0_0_38px_rgba(126,87,255,0.42)]">
@@ -788,32 +785,6 @@ export default function AuroraLanding() {
                   </a>
                 );
               })}
-            </div>
-
-            <div className="relative mt-5 pt-4">
-              <div className="px-1 text-xs font-semibold uppercase tracking-[0.22em] text-indigo-100/58">
-                Services
-              </div>
-              <div className="mt-3 grid gap-2">
-                {serviceMenuDisplay.map((service) => (
-                  <Link
-                    key={service.href}
-                    href={service.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="group flex items-center gap-3 rounded-[0.95rem] border border-[#315cff]/12 bg-[#080b25]/62 p-3 text-white/82 transition hover:border-[#8b7cff]/32 hover:bg-[#315cff]/[0.07] hover:text-white"
-                  >
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[0.75rem] border border-[#7547df]/18 bg-[#10183a]/72 text-indigo-200 shadow-[0_0_24px_rgba(91,92,255,0.12)] transition group-hover:text-white">
-                      <MenuIcon name={service.icon} />
-                    </span>
-                    <span>
-                      <span className="block text-sm font-semibold leading-5">{service.title}</span>
-                      <span className="mt-0.5 block text-xs leading-5 text-white/52">
-                        {service.subtitle}
-                      </span>
-                    </span>
-                  </Link>
-                ))}
-              </div>
             </div>
 
             <div className="relative mt-4 grid gap-3 sm:grid-cols-2">
