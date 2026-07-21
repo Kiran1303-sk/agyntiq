@@ -807,24 +807,26 @@ export default function AuroraLanding() {
         </div>
       </header>
 
-      <main className="relative overflow-hidden bg-[linear-gradient(135deg,#050c26_0%,#07081c_48%,#2a072e_100%)] pt-24">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_16%,rgba(14,103,255,0.18),transparent_24%),radial-gradient(circle_at_88%_34%,rgba(216,62,255,0.16),transparent_25%),radial-gradient(circle_at_48%_70%,rgba(126,87,255,0.12),transparent_30%)]" />
+      <main className="relative overflow-hidden bg-[linear-gradient(135deg,#04071a_0%,#060820_46%,#190421_100%)] pt-24">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_12%,rgba(29,143,255,0.14),transparent_24%),radial-gradient(circle_at_86%_22%,rgba(216,62,255,0.13),transparent_26%),radial-gradient(circle_at_50%_62%,rgba(126,87,255,0.1),transparent_32%)]" />
         <div className="pointer-events-none absolute left-[-8rem] top-[36rem] h-[34rem] w-[34rem] rounded-full bg-[#0e67ff]/10 blur-3xl" />
         <div className="pointer-events-none absolute right-[-10rem] top-[74rem] h-[38rem] w-[38rem] rounded-full bg-[#d83eff]/12 blur-3xl" />
         <section
           id="hero"
-          className="relative scroll-mt-28 overflow-hidden pb-10 pt-16 md:scroll-mt-32 md:pb-28 md:pt-24"
+          className="relative scroll-mt-28 overflow-hidden pb-12 pt-10 md:scroll-mt-32 md:pb-24 md:pt-16"
         >
           <div className="section-shell relative z-10">
-            <div className="noise-overlay" />
-            <div className="absolute inset-x-0 top-[-18%] h-[54rem] bg-[radial-gradient(circle_at_18%_18%,rgba(14,103,255,0.2),transparent_25%),radial-gradient(circle_at_82%_22%,rgba(216,62,255,0.18),transparent_22%),radial-gradient(circle_at_52%_78%,rgba(126,87,255,0.14),transparent_28%)]" />
-            <div className="absolute left-[2%] top-[14%] h-72 w-72 rotate-45 border border-[#1d8fff]/10" />
-            <div className="absolute left-[8%] top-[21%] h-44 w-44 rotate-45 border border-fuchsia-400/14" />
-            <div className="absolute right-[10%] top-[4%] h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(216,62,255,0.18),transparent_70%)] blur-3xl" />
-            <div className="absolute left-[6%] top-[10%] h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(126,87,255,0.22),transparent_70%)] blur-3xl" />
-            <div className="absolute bottom-[8%] left-1/2 h-44 w-[82%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(126,87,255,0.2),rgba(216,62,255,0.08)_34%,transparent_70%)] blur-2xl" />
+            <div className="pointer-events-none absolute left-1/2 top-[-7rem] h-64 w-[78%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(29,143,255,0.2),rgba(216,62,255,0.1)_40%,transparent_72%)] blur-3xl" />
 
-            <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+            <div className="relative overflow-hidden rounded-[2rem] border border-[#1d8fff]/22 bg-[linear-gradient(135deg,rgba(5,12,38,0.96)_0%,rgba(5,7,24,0.98)_48%,rgba(38,7,44,0.94)_100%)] px-5 py-8 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.035),0_28px_110px_rgba(0,0,0,0.42)] sm:rounded-[2.4rem] md:px-9 md:py-11 lg:px-12 lg:py-12">
+              <div className="noise-overlay opacity-45" />
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_18%,rgba(29,143,255,0.22),transparent_28%),radial-gradient(circle_at_82%_24%,rgba(216,62,255,0.2),transparent_30%),linear-gradient(90deg,rgba(5,12,38,0.18),rgba(5,7,24,0.08)_46%,rgba(216,62,255,0.07))]" />
+              <div className="pointer-events-none absolute -left-20 top-24 h-80 w-80 rotate-45 border border-[#1d8fff]/10" />
+              <div className="pointer-events-none absolute -left-6 top-36 h-44 w-44 rotate-45 border border-fuchsia-300/12" />
+              <div className="pointer-events-none absolute bottom-[-6rem] left-1/2 h-40 w-[86%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(126,87,255,0.24),rgba(216,62,255,0.1)_36%,transparent_70%)] blur-2xl" />
+              <div className="pointer-events-none absolute inset-x-8 bottom-0 h-px bg-gradient-to-r from-transparent via-cyan-300/40 to-fuchsia-300/30" />
+
+              <div className="relative z-10 mx-auto grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
               <motion.div
                 data-reveal
                 initial={{ opacity: 0, y: 24 }}
@@ -832,22 +834,22 @@ export default function AuroraLanding() {
                 transition={{ duration: 0.9, ease: "easeOut" }}
                 className="relative z-10 max-w-3xl self-start"
               >
-                <div className="absolute -inset-8 -z-10 rounded-[2rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.34),rgba(42,7,46,0.22))] blur-2xl" />
-                <div className="section-kicker mb-6 shadow-[0_0_32px_rgba(126,87,255,0.18)]">
+                <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_20%_15%,rgba(29,143,255,0.16),transparent_34%),radial-gradient(circle_at_82%_72%,rgba(216,62,255,0.12),transparent_36%)] blur-2xl" />
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#315cff]/24 bg-[#071133]/82 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-100/76 shadow-[0_0_34px_rgba(29,143,255,0.16)] backdrop-blur-xl">
                   <IconSpark />
                   Flagship enterprise AI platform
                 </div>
 
-                <h1 className="max-w-4xl text-5xl font-semibold leading-[0.92] tracking-[-0.08em] text-white drop-shadow-[0_0_34px_rgba(126,87,255,0.16)] md:text-7xl xl:text-[6.4rem]">
-                  <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#dbe7ff_45%,#f0abfc_100%)] bg-clip-text text-transparent">
+                <h1 className="max-w-4xl text-5xl font-semibold leading-[0.92] tracking-[-0.08em] text-white drop-shadow-[0_0_42px_rgba(29,143,255,0.14)] md:text-7xl xl:text-[6.1rem]">
+                  <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#eaf2ff_38%,#85c8ff_68%,#f0abfc_100%)] bg-clip-text text-transparent">
                     AI That Acts.
                   </span>
-                  <span className="mt-2 block bg-[linear-gradient(90deg,#ffffff_0%,#c7d2fe_38%,#d946ef_100%)] bg-clip-text text-transparent">
+                  <span className="mt-2 block bg-[linear-gradient(90deg,#ffffff_0%,#dbe7ff_32%,#a78bfa_66%,#d83eff_100%)] bg-clip-text text-transparent">
                     Results That Matter.
                   </span>
                 </h1>
 
-                <p className="section-copy mt-7 max-w-2xl [text-shadow:0_0_24px_rgba(126,87,255,0.12)] md:text-xl">
+                <p className="mt-7 max-w-2xl text-lg leading-8 text-[#c8d4f5] [text-shadow:0_0_24px_rgba(126,87,255,0.12)] md:text-xl">
                   Agentic AI systems that plan, decide, and act autonomously to solve real-world
                   problems at scale.
                 </p>
@@ -855,27 +857,27 @@ export default function AuroraLanding() {
                 <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                   <Link
                     href="/services"
-                    className="aurora-button hover-sheen magnetic inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-semibold text-white shadow-[0_18px_70px_rgba(79,140,255,0.24)] transition hover:shadow-[0_18px_80px_rgba(0,214,255,0.28)]"
+                    className="hover-sheen magnetic inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#1d8fff_0%,#7c4dff_48%,#d83eff_100%)] px-7 py-4 text-sm font-semibold text-white shadow-[0_18px_70px_rgba(79,140,255,0.3)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_90px_rgba(216,62,255,0.22)]"
                   >
                     Explore Services
                     <IconArrow />
                   </Link>
                   <Link
                     href="#contact"
-                    className="hover-glow magnetic inline-flex items-center justify-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.04] px-7 py-4 text-sm font-semibold text-white/90 backdrop-blur-xl transition hover:border-white/20 hover:bg-white/[0.08]"
+                    className="hover-glow magnetic inline-flex items-center justify-center gap-2 rounded-full border border-[#9db8ff]/22 bg-[#071133]/72 px-7 py-4 text-sm font-semibold text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:border-fuchsia-300/38 hover:bg-[#130a2b]/82"
                   >
                     Book Demo
                   </Link>
                 </div>
 
                 <div className="mt-8 flex flex-wrap items-center gap-3">
-                  <span className="rounded-full border border-[#315cff]/18 bg-[#08102d]/72 px-3 py-2 text-xs uppercase tracking-[0.26em] text-white/70 shadow-[0_0_30px_rgba(79,140,255,0.12)]">
+                  <span className="rounded-full border border-[#315cff]/22 bg-[#071133]/78 px-3 py-2 text-xs uppercase tracking-[0.26em] text-cyan-100/74 shadow-[0_0_30px_rgba(79,140,255,0.12)]">
                     Goal: Increase conversion by 25%
                   </span>
                   {["Analyze data", "Identify opportunities", "Execute strategy"].map((item) => (
                     <span
                       key={item}
-                      className="hover-glow rounded-full border border-[#e457ff]/16 bg-[#100824]/72 px-3 py-2 text-sm text-white/68"
+                      className="hover-glow rounded-full border border-[#e457ff]/18 bg-[#100824]/74 px-3 py-2 text-sm text-white/72 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
                     >
                       {item}
                     </span>
@@ -886,7 +888,7 @@ export default function AuroraLanding() {
                   {clientLogos.map((name) => (
                     <span
                       key={name}
-                      className="hover-glow rounded-full border border-[#315cff]/18 bg-[#060b25]/74 px-4 py-2 text-sm text-white/68 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-xl"
+                      className="hover-glow rounded-full border border-[#315cff]/16 bg-[#050b25]/76 px-4 py-2 text-sm text-white/62 shadow-[inset_0_1px_0_rgba(255,255,255,0.035)] backdrop-blur-xl transition hover:border-fuchsia-300/24 hover:text-white/82"
                     >
                       {name}
                     </span>
@@ -899,22 +901,28 @@ export default function AuroraLanding() {
                 initial={{ opacity: 0, y: 32 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
-                className="scroll-float relative self-start justify-self-end"
+                className="scroll-float relative min-h-[28rem] self-center justify-self-center lg:min-h-[34rem] lg:justify-self-end"
                 data-parallax="30"
               >
-                <div className="relative min-h-[560px] overflow-visible md:min-h-[680px]">
-                  <div className="absolute right-0 top-[-48px] w-[320px] md:top-[-72px] md:w-[390px] lg:top-[-92px] lg:w-[470px]">
+                <div className="absolute inset-0 rounded-[2rem] bg-[radial-gradient(circle_at_50%_42%,rgba(29,143,255,0.2),rgba(126,87,255,0.11)_34%,rgba(216,62,255,0.08)_52%,transparent_74%)] blur-2xl" />
+                <div className="relative min-h-[28rem] w-[min(100vw-4rem,30rem)] overflow-hidden rounded-[2rem] border border-[#315cff]/16 bg-[linear-gradient(140deg,rgba(3,8,28,0.35),rgba(18,8,40,0.22))] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.03),0_24px_100px_rgba(0,0,0,0.28)] lg:min-h-[34rem] lg:w-[31rem]">
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_34%,rgba(29,143,255,0.14),transparent_30%),radial-gradient(circle_at_64%_52%,rgba(216,62,255,0.12),transparent_35%)]" />
+                  <div className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#1d8fff]/14" />
+                  <div className="pointer-events-none absolute left-1/2 top-1/2 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full border border-fuchsia-300/14" />
+                  <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-cyan-300/35 to-fuchsia-300/30" />
+                  <div className="absolute bottom-0 right-[-1rem] w-[115%]">
                     <Image
                       src="/hero2.png"
                       alt="AI hero visual"
                       width={1024}
                       height={1536}
                       priority
-                      className="h-auto w-full object-contain"
+                      className="h-auto w-full object-contain drop-shadow-[0_0_42px_rgba(29,143,255,0.18)]"
                     />
                   </div>
                 </div>
               </motion.div>
+              </div>
             </div>
           </div>
         </section>
