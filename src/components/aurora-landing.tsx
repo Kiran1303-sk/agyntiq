@@ -1355,7 +1355,7 @@ export default function AuroraLanding() {
                 {faqItems.map((item) => (
                   <details
                     key={item.question}
-                    className={`group hover-underline overflow-hidden rounded-[1.25rem] p-5 ${premiumFlatCard} transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_90px_rgba(202,74,255,0.13)]`}
+                    className={`group hover-underline overflow-hidden rounded-[1.25rem] p-5 pb-6 ${premiumFlatCard} transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_90px_rgba(202,74,255,0.13)]`}
                   >
                     <summary className="cursor-pointer list-none text-lg font-semibold tracking-[-0.03em] text-white">
                       {item.question}
