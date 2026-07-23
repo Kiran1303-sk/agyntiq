@@ -318,6 +318,15 @@ function Icon({ name }: { name: string }) {
   );
 }
 
+function ArrowRightIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M5 12h14" />
+      <path d="m13 6 6 6-6 6" />
+    </svg>
+  );
+}
+
 function NeuralGraphic({ index }: { index: number }) {
   const visual = serviceVisuals[index];
 
@@ -647,8 +656,14 @@ export default function ServicesPage() {
                   </motion.div>
                 ))}
               </div>
-              <Link href={service.href} className="mt-8 inline-flex rounded-full border border-fuchsia-200/22 bg-fuchsia-300/[0.055] px-5 py-3 text-sm font-semibold text-white/82 transition hover:-translate-y-0.5 hover:border-fuchsia-200/42 hover:bg-fuchsia-300/[0.1] hover:text-white">
-                View detailed service
+              <Link
+                href={service.href}
+                className="group mt-8 inline-flex items-center gap-3 rounded-full bg-[linear-gradient(135deg,#2e6ceb_0%,#5b5cff_48%,#7547df_100%)] px-5 py-3 text-sm font-semibold text-white shadow-[0_16px_42px_rgba(91,92,255,0.24)] transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_22px_58px_rgba(91,92,255,0.34)]"
+              >
+                <span>View detailed service</span>
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/12 transition duration-500 group-hover:translate-x-1 group-hover:bg-white/18">
+                  <ArrowRightIcon />
+                </span>
               </Link>
             </motion.div>
           </motion.div>
