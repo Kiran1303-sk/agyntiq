@@ -782,7 +782,7 @@ export default function AuroraLanding() {
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            className="magnetic ml-auto flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#7547df]/22 bg-[#10183a]/72 text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-xl transition hover:border-[#8b7cff]/36 hover:bg-[#315cff]/[0.08] md:hidden"
+            className="ml-auto inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#4d2aad]/55 bg-[#0d1029]/90 text-white/90 shadow-[0_12px_36px_rgba(0,0,0,0.28),0_0_22px_rgba(119,57,255,0.12)] backdrop-blur-xl transition hover:border-fuchsia-300/45 hover:bg-fuchsia-300/[0.08] md:hidden"
           >
             {mobileOpen ? <IconClose /> : <IconMenu />}
             <span className="sr-only">{mobileOpen ? "Close menu" : "Open menu"}</span>
@@ -793,11 +793,11 @@ export default function AuroraLanding() {
           id="mobile-menu"
           className={`section-shell md:hidden transition-all duration-300 ${
             mobileOpen
-              ? "pointer-events-auto max-h-[32rem] opacity-100"
-              : "pointer-events-none max-h-0 opacity-0"
-          } overflow-hidden`}
+              ? "pointer-events-auto max-h-[42rem] translate-y-0 pb-5 opacity-100"
+              : "pointer-events-none max-h-0 -translate-y-2 overflow-hidden opacity-0"
+          }`}
         >
-          <div className="relative mt-3 overflow-hidden rounded-[1.75rem] border border-[#7547df]/24 bg-[linear-gradient(135deg,rgba(5,12,38,0.98)_0%,rgba(7,8,28,0.98)_52%,rgba(10,14,48,0.98)_100%)] p-4 shadow-[0_20px_80px_rgba(0,0,0,0.35)] backdrop-blur-2xl">
+          <div className="relative overflow-hidden rounded-[1.75rem] border border-[#7547df]/24 bg-[linear-gradient(135deg,rgba(5,12,38,0.98)_0%,rgba(7,8,28,0.98)_52%,rgba(10,14,48,0.98)_100%)] p-5 shadow-[0_22px_70px_rgba(0,0,0,0.48),0_0_34px_rgba(119,57,255,0.14)] backdrop-blur-2xl">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(14,103,255,0.12),transparent_32%),radial-gradient(circle_at_92%_80%,rgba(117,71,223,0.12),transparent_36%)]" />
             <div className="relative grid gap-2">
               {navItems.map((item) => {
