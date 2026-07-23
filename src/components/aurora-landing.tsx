@@ -846,19 +846,19 @@ export default function AuroraLanding() {
         </div>
       </header>
 
-      <main className="relative overflow-hidden bg-[linear-gradient(145deg,#03081b_0%,#061237_34%,#07081d_62%,#120822_100%)] pt-24">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_10%,rgba(46,108,235,0.2),transparent_24%),radial-gradient(circle_at_88%_28%,rgba(91,92,255,0.16),transparent_28%),radial-gradient(circle_at_52%_72%,rgba(117,71,223,0.13),transparent_34%)]" />
+      <main className="relative overflow-hidden bg-[linear-gradient(145deg,#050719_0%,#100826_34%,#09071e_62%,#220625_100%)] pt-24">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_10%,rgba(202,74,255,0.2),transparent_24%),radial-gradient(circle_at_88%_28%,rgba(217,70,239,0.16),transparent_28%),radial-gradient(circle_at_52%_72%,rgba(117,71,223,0.13),transparent_34%)]" />
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(3,8,27,0)_0%,rgba(3,8,27,0.34)_42%,rgba(3,5,18,0.86)_100%)]" />
-        <div className="pointer-events-none absolute left-[-10rem] top-[26rem] h-[38rem] w-[38rem] rounded-full bg-[#2e6ceb]/12 blur-3xl" />
-        <div className="pointer-events-none absolute right-[-12rem] top-[64rem] h-[42rem] w-[42rem] rounded-full bg-[#7547df]/14 blur-3xl" />
+        <div className="pointer-events-none absolute left-[-10rem] top-[26rem] h-[38rem] w-[38rem] rounded-full bg-[#ca4aff]/12 blur-3xl" />
+        <div className="pointer-events-none absolute right-[-12rem] top-[64rem] h-[42rem] w-[42rem] rounded-full bg-[#d946ef]/14 blur-3xl" />
         <section
           id="hero"
           className="relative scroll-mt-28 overflow-hidden pb-10 pt-16 md:scroll-mt-32 md:pb-28 md:pt-24"
         >
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-[78%] bg-[radial-gradient(circle_at_18%_18%,rgba(46,108,235,0.18),transparent_30%),radial-gradient(circle_at_78%_36%,rgba(117,71,223,0.14),transparent_34%)]" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-[78%] bg-[radial-gradient(circle_at_18%_18%,rgba(202,74,255,0.18),transparent_30%),radial-gradient(circle_at_78%_36%,rgba(117,71,223,0.14),transparent_34%)]" />
           <div className="section-shell relative z-10">
             <div className="noise-overlay" />
-            <div className="absolute inset-x-0 top-[-18%] h-[54rem] rounded-[3rem] bg-[linear-gradient(135deg,rgba(6,18,55,0.42),rgba(7,8,28,0.2)_46%,rgba(24,8,46,0.3))] blur-2xl" />
+            <div className="absolute inset-x-0 top-[-18%] h-[54rem] rounded-[3rem] bg-[linear-gradient(135deg,rgba(30,8,55,0.44),rgba(7,8,28,0.2)_46%,rgba(42,7,46,0.34))] blur-2xl" />
 
             <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
               <motion.div
@@ -868,17 +868,17 @@ export default function AuroraLanding() {
                 transition={{ duration: 0.9, ease: "easeOut" }}
                 className="relative z-10 max-w-3xl self-start"
               >
-                <div className="absolute -inset-8 -z-10 rounded-[2.5rem] bg-[radial-gradient(circle_at_18%_18%,rgba(46,108,235,0.18),transparent_34%),linear-gradient(135deg,rgba(5,12,38,0.5),rgba(10,14,48,0.2))] blur-2xl" />
-                <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#071337]/74 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-indigo-100/72 shadow-[inset_0_0_0_1px_rgba(91,92,255,0.24),0_0_34px_rgba(46,108,235,0.14)] backdrop-blur-xl">
+                <div className="absolute -inset-8 -z-10 rounded-[2.5rem] bg-[radial-gradient(circle_at_18%_18%,rgba(202,74,255,0.18),transparent_34%),linear-gradient(135deg,rgba(24,8,46,0.5),rgba(10,14,48,0.2))] blur-2xl" />
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#180d32]/74 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-100/72 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.18),0_0_34px_rgba(202,74,255,0.14)] backdrop-blur-xl">
                   <IconSpark />
                   Flagship enterprise AI platform
                 </div>
 
-                <h1 className="max-w-4xl text-5xl font-semibold leading-[0.92] tracking-[-0.08em] text-white drop-shadow-[0_0_44px_rgba(46,108,235,0.18)] md:text-7xl xl:text-[6.4rem]">
-                  <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#dbe7ff_44%,#9fb7ff_100%)] bg-clip-text text-transparent">
+                <h1 className="max-w-4xl text-5xl font-semibold leading-[0.92] tracking-[-0.08em] text-white drop-shadow-[0_0_44px_rgba(202,74,255,0.18)] md:text-7xl xl:text-[6.4rem]">
+                  <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#f3e8ff_44%,#f0abfc_100%)] bg-clip-text text-transparent">
                     AI That Acts.
                   </span>
-                  <span className="mt-2 block bg-[linear-gradient(90deg,#ffffff_0%,#9fb7ff_34%,#8b7cff_66%,#c084fc_100%)] bg-clip-text text-transparent">
+                  <span className="mt-2 block bg-[linear-gradient(90deg,#ffffff_0%,#f0abfc_34%,#c084fc_66%,#d946ef_100%)] bg-clip-text text-transparent">
                     Results That Matter.
                   </span>
                 </h1>
@@ -905,13 +905,13 @@ export default function AuroraLanding() {
                 </div>
 
                 <div className="mt-8 flex flex-wrap items-center gap-3">
-                  <span className="rounded-full bg-[#071337]/72 px-3 py-2 text-xs uppercase tracking-[0.26em] text-indigo-100/74 shadow-[inset_0_0_0_1px_rgba(91,92,255,0.18),0_0_30px_rgba(79,140,255,0.12)]">
+                  <span className="rounded-full bg-[#180d32]/72 px-3 py-2 text-xs uppercase tracking-[0.26em] text-fuchsia-100/74 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.14),0_0_30px_rgba(202,74,255,0.12)]">
                     Goal: Increase conversion by 25%
                   </span>
                   {["Analyze data", "Identify opportunities", "Execute strategy"].map((item) => (
                     <span
                       key={item}
-                      className="hover-glow rounded-full bg-[#0b1332]/68 px-3 py-2 text-sm text-indigo-100/68 shadow-[inset_0_0_0_1px_rgba(124,92,255,0.14)]"
+                      className="hover-glow rounded-full bg-[#180d32]/68 px-3 py-2 text-sm text-fuchsia-100/68 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.1)]"
                     >
                       {item}
                     </span>
@@ -922,7 +922,7 @@ export default function AuroraLanding() {
                   {clientLogos.map((name) => (
                     <span
                       key={name}
-                      className="hover-glow rounded-full bg-[#060b25]/74 px-4 py-2 text-sm text-indigo-100/66 shadow-[inset_0_0_0_1px_rgba(91,92,255,0.14)] backdrop-blur-xl"
+                      className="hover-glow rounded-full bg-[#100b2a]/74 px-4 py-2 text-sm text-fuchsia-100/66 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.1)] backdrop-blur-xl"
                     >
                       {name}
                     </span>
@@ -982,9 +982,9 @@ export default function AuroraLanding() {
           id="about"
           className="relative overflow-hidden scroll-mt-28 py-12 md:scroll-mt-32 md:py-18"
         >
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(46,108,235,0.14),transparent_28%),radial-gradient(circle_at_18%_76%,rgba(117,71,223,0.11),transparent_30%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(202,74,255,0.14),transparent_28%),radial-gradient(circle_at_18%_76%,rgba(117,71,223,0.11),transparent_30%)]" />
           <div className="section-shell relative z-10">
-            <div className="rounded-[2.4rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.72)_0%,rgba(7,8,28,0.9)_52%,rgba(16,8,42,0.78)_100%)] p-5 shadow-[0_28px_100px_rgba(0,0,0,0.24),inset_0_0_0_1px_rgba(91,92,255,0.18)] md:p-8">
+            <div className="rounded-[2.4rem] bg-[linear-gradient(135deg,rgba(12,8,38,0.72)_0%,rgba(7,8,28,0.9)_52%,rgba(42,7,46,0.78)_100%)] p-5 shadow-[0_28px_100px_rgba(0,0,0,0.24),inset_0_0_0_1px_rgba(202,74,255,0.16)] md:p-8">
               <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
                 <div className="section-heading" data-reveal>
                   <div className="section-kicker">About</div>
@@ -999,22 +999,22 @@ export default function AuroraLanding() {
                   {problems.map((item, index) => (
                     <article
                       key={item.title}
-                      className="group relative overflow-hidden rounded-[1.45rem] bg-[#060b25]/76 p-5 shadow-[inset_0_0_0_1px_rgba(91,92,255,0.14),0_18px_60px_rgba(0,0,0,0.18)] transition duration-500 hover:-translate-y-1 hover:shadow-[inset_0_0_0_1px_rgba(124,92,255,0.24),0_24px_80px_rgba(91,92,255,0.12)]"
+                      className="group relative overflow-hidden rounded-[1.45rem] bg-[#100b2a]/76 p-5 shadow-[inset_0_0_0_1px_rgba(202,74,255,0.12),0_18px_60px_rgba(0,0,0,0.18)] transition duration-500 hover:-translate-y-1 hover:shadow-[inset_0_0_0_1px_rgba(240,171,252,0.2),0_24px_80px_rgba(202,74,255,0.12)]"
                       data-reveal
                     >
-                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(46,108,235,0.13),transparent_30%),radial-gradient(circle_at_94%_88%,rgba(117,71,223,0.12),transparent_34%)] opacity-0 transition duration-500 group-hover:opacity-100" />
+                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(202,74,255,0.13),transparent_30%),radial-gradient(circle_at_94%_88%,rgba(117,71,223,0.12),transparent_34%)] opacity-0 transition duration-500 group-hover:opacity-100" />
                       <div className="relative grid gap-4 md:grid-cols-[auto_1fr] md:items-start">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-[1rem] bg-[#0d1434]/88 text-sm font-semibold text-indigo-100 shadow-[inset_0_0_0_1px_rgba(91,92,255,0.18)]">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-[1rem] bg-[#180d32]/88 text-sm font-semibold text-fuchsia-100 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.14)]">
                           0{index + 1}
                         </div>
                         <div>
-                          <div className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-indigo-200/48">
+                          <div className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-200/48">
                             {item.stat}
                           </div>
                           <h3 className="mt-2 text-2xl font-semibold tracking-[-0.05em] text-white">
                             {item.title}
                           </h3>
-                          <p className="mt-3 max-w-2xl text-base leading-7 text-indigo-100/64">
+                          <p className="mt-3 max-w-2xl text-base leading-7 text-fuchsia-100/62">
                             {item.description}
                           </p>
                         </div>
@@ -1559,7 +1559,7 @@ function ScrollShowcaseSection() {
 
   return (
     <section className="relative overflow-hidden py-12 md:py-18">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_14%,rgba(46,108,235,0.15),transparent_30%),radial-gradient(circle_at_78%_76%,rgba(117,71,223,0.13),transparent_32%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_14%,rgba(202,74,255,0.15),transparent_30%),radial-gradient(circle_at_78%_76%,rgba(117,71,223,0.13),transparent_32%)]" />
       <div className="section-shell relative z-10">
         <div className="mx-auto flex max-w-5xl flex-col items-center">
           <div className="section-heading mx-auto max-w-2xl text-center" data-reveal>
@@ -1573,8 +1573,8 @@ function ScrollShowcaseSection() {
             </p>
           </div>
 
-          <div className="mt-10 w-full max-w-5xl overflow-hidden rounded-[2.25rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.82)_0%,rgba(7,8,28,0.96)_52%,rgba(16,8,42,0.82)_100%)] p-4 shadow-[0_30px_100px_rgba(0,0,0,0.3),inset_0_0_0_1px_rgba(91,92,255,0.18)] sm:p-5">
-            <div className="mb-4 flex items-center justify-between gap-4 px-1 text-xs uppercase tracking-[0.32em] text-indigo-100/52">
+          <div className="mt-10 w-full max-w-5xl overflow-hidden rounded-[2.25rem] bg-[linear-gradient(135deg,rgba(12,8,38,0.82)_0%,rgba(7,8,28,0.96)_52%,rgba(42,7,46,0.82)_100%)] p-4 shadow-[0_30px_100px_rgba(0,0,0,0.3),inset_0_0_0_1px_rgba(202,74,255,0.16)] sm:p-5">
+            <div className="mb-4 flex items-center justify-between gap-4 px-1 text-xs uppercase tracking-[0.32em] text-fuchsia-100/52">
               <span>Visual story</span>
               <span>{String(activeSlide + 1).padStart(2, "0")} / 04</span>
             </div>
@@ -1583,10 +1583,10 @@ function ScrollShowcaseSection() {
               onMouseLeave={() => setIsPaused(false)}
               onTouchStart={() => setIsPaused(true)}
               onTouchEnd={() => setIsPaused(false)}
-              className="overflow-hidden rounded-[1.6rem] bg-[#050816] shadow-[0_24px_90px_rgba(0,0,0,0.35),inset_0_0_0_1px_rgba(91,92,255,0.14)]"
+              className="overflow-hidden rounded-[1.6rem] bg-[#050816] shadow-[0_24px_90px_rgba(0,0,0,0.35),inset_0_0_0_1px_rgba(202,74,255,0.12)]"
             >
               <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
-                <div className="relative min-h-[18rem] overflow-hidden shadow-[inset_0_-1px_0_rgba(91,92,255,0.14)] lg:min-h-[28rem] lg:shadow-[inset_-1px_0_0_rgba(91,92,255,0.14)]">
+                <div className="relative min-h-[18rem] overflow-hidden shadow-[inset_0_-1px_0_rgba(202,74,255,0.12)] lg:min-h-[28rem] lg:shadow-[inset_-1px_0_0_rgba(202,74,255,0.12)]">
                   <AnimatePresence mode="wait" custom={direction}>
                     <motion.div
                       key={activeSlide}
@@ -1605,28 +1605,28 @@ function ScrollShowcaseSection() {
                         className="object-cover"
                       />
                       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.08)_0%,rgba(5,8,22,0.24)_42%,rgba(5,8,22,0.82)_100%)]" />
-                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(91,92,255,0.18),transparent_34%)]" />
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(202,74,255,0.18),transparent_34%)]" />
                     </motion.div>
                   </AnimatePresence>
                 </div>
 
-                <div className="flex min-h-[18rem] flex-col justify-between bg-[linear-gradient(135deg,rgba(5,12,38,0.86),rgba(7,8,28,0.92)_52%,rgba(16,8,42,0.78))] p-5 sm:p-6 lg:min-h-[28rem] lg:p-8">
+                <div className="flex min-h-[18rem] flex-col justify-between bg-[linear-gradient(135deg,rgba(12,8,38,0.86),rgba(7,8,28,0.92)_52%,rgba(42,7,46,0.78))] p-5 sm:p-6 lg:min-h-[28rem] lg:p-8">
                   <div className="space-y-3">
-                    <div className="text-xs uppercase tracking-[0.32em] text-indigo-200/52">
+                    <div className="text-xs uppercase tracking-[0.32em] text-fuchsia-200/52">
                       {slideShowcase[activeSlide].tag}
                     </div>
-                    <h3 className="max-w-sm text-2xl font-semibold tracking-[-0.05em] text-white drop-shadow-[0_0_24px_rgba(91,92,255,0.14)] sm:text-3xl">
+                    <h3 className="max-w-sm text-2xl font-semibold tracking-[-0.05em] text-white drop-shadow-[0_0_24px_rgba(202,74,255,0.14)] sm:text-3xl">
                       {slideShowcase[activeSlide].title}
                     </h3>
-                    <p className="max-w-md text-sm leading-6 text-indigo-100/68 sm:text-base sm:leading-7">
+                    <p className="max-w-md text-sm leading-6 text-fuchsia-100/64 sm:text-base sm:leading-7">
                       {slideShowcase[activeSlide].copy}
                     </p>
                   </div>
 
-                  <div className="grid gap-3 pt-5 text-sm text-indigo-100/62 shadow-[inset_0_1px_0_rgba(91,92,255,0.14)]">
+                  <div className="grid gap-3 pt-5 text-sm text-fuchsia-100/62 shadow-[inset_0_1px_0_rgba(202,74,255,0.12)]">
                     <div className="flex items-center justify-between gap-4">
                       <span>Next frame updates automatically</span>
-                      <span className="text-indigo-100/35">{String(activeSlide + 1).padStart(2, "0")}</span>
+                      <span className="text-fuchsia-100/35">{String(activeSlide + 1).padStart(2, "0")}</span>
                     </div>
                   </div>
                 </div>
@@ -1642,8 +1642,8 @@ function ScrollShowcaseSection() {
                   onClick={() => goToSlide(index)}
                   className={`h-2.5 rounded-full transition-all duration-300 ${
                     activeSlide === index
-                      ? "w-10 bg-gradient-to-r from-[#2e6ceb] via-[#5b5cff] to-[#7547df] shadow-[0_0_0_4px_rgba(91,92,255,0.12)]"
-                      : "w-2.5 bg-indigo-100/22 hover:bg-[#8b7cff]/55"
+                      ? "w-10 bg-gradient-to-r from-[#7547df] via-[#ca4aff] to-[#d946ef] shadow-[0_0_0_4px_rgba(202,74,255,0.12)]"
+                      : "w-2.5 bg-fuchsia-100/22 hover:bg-[#ca4aff]/55"
                   }`}
                 />
               ))}
