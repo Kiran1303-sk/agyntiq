@@ -56,15 +56,15 @@ const serviceMenuDisplay = [
 ] as const;
 
 const premiumSurface =
-  "border border-[#7547df]/14 bg-[linear-gradient(135deg,rgba(5,12,38,0.9)_0%,rgba(7,8,28,0.96)_52%,rgba(10,14,48,0.86)_100%)] shadow-[0_20px_70px_rgba(0,0,0,0.26)]";
+  "border border-[#ca4aff]/12 bg-[linear-gradient(135deg,rgba(12,8,38,0.9)_0%,rgba(7,8,28,0.96)_52%,rgba(42,7,46,0.82)_100%)] shadow-[0_20px_70px_rgba(0,0,0,0.26)]";
 const premiumSurfaceHover =
-  "transition duration-500 hover:-translate-y-1 hover:border-[#e457ff]/24 hover:shadow-[0_24px_90px_rgba(147,51,234,0.14)]";
+  "transition duration-500 hover:-translate-y-1 hover:border-[#f0abfc]/24 hover:shadow-[0_24px_90px_rgba(202,74,255,0.14)]";
 const premiumFlatCard =
-  "bg-[linear-gradient(135deg,rgba(5,12,38,0.9)_0%,rgba(7,8,28,0.96)_52%,rgba(10,14,48,0.86)_100%)] shadow-[0_20px_70px_rgba(0,0,0,0.24)]";
+  "bg-[linear-gradient(135deg,rgba(12,8,38,0.9)_0%,rgba(7,8,28,0.96)_52%,rgba(42,7,46,0.82)_100%)] shadow-[0_20px_70px_rgba(0,0,0,0.24)]";
 const premiumDivider = "divide-y divide-transparent border-y border-transparent";
 const premiumSoftBorder = "border-transparent";
 const premiumInput =
-  "rounded-2xl border border-[#315cff]/18 bg-[#05081f]/72 px-4 py-3 text-sm text-white placeholder:text-white/35 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition focus:border-fuchsia-300/70 focus:bg-[#080a28] focus:outline-none focus:shadow-[0_0_0_4px_rgba(217,70,239,0.12)]";
+  "rounded-2xl border border-[#ca4aff]/14 bg-[#100b2a]/72 px-4 py-3 text-sm text-white placeholder:text-white/35 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition focus:border-fuchsia-300/70 focus:bg-[#180d32] focus:outline-none focus:shadow-[0_0_0_4px_rgba(217,70,239,0.12)]";
 
 function MenuIcon({ name }: { name: (typeof serviceMenuDisplay)[number]["icon"] }) {
   if (name === "brain") {
@@ -622,14 +622,14 @@ export default function AuroraLanding() {
   return (
     <div className="relative overflow-hidden">
       <motion.div
-        className="fixed left-0 top-0 z-50 h-1 origin-left bg-[linear-gradient(90deg,#2E6CEB_0%,#5B5CFF_52%,#7547DF_100%)]"
+        className="fixed left-0 top-0 z-50 h-1 origin-left bg-[linear-gradient(90deg,#7547DF_0%,#CA4AFF_52%,#D946EF_100%)]"
         style={{ scaleX: progress }}
       />
 
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,#050c26_0%,#07081c_52%,#0a0e30_100%)]" />
-        <div className="aurora-blob absolute left-[-8%] top-[-6%] h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(46,108,235,0.16),transparent_66%)] blur-3xl animate-drift" />
-        <div className="aurora-blob absolute right-[-6%] top-[10%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(117,71,223,0.15),transparent_64%)] blur-3xl animate-drift" />
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,#050719_0%,#100826_52%,#220625_100%)]" />
+        <div className="aurora-blob absolute left-[-8%] top-[-6%] h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(202,74,255,0.16),transparent_66%)] blur-3xl animate-drift" />
+        <div className="aurora-blob absolute right-[-6%] top-[10%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(217,70,239,0.15),transparent_64%)] blur-3xl animate-drift" />
         <div className="aurora-blob absolute bottom-[16%] left-[26%] h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(117,71,223,0.13),transparent_64%)] blur-3xl animate-drift" />
       </div>
 
@@ -697,8 +697,8 @@ export default function AuroraLanding() {
                       <div className="relative overflow-hidden rounded-[1.25rem] border border-[#4d2aad]/70 bg-[linear-gradient(135deg,rgba(5,12,38,0.98)_0%,rgba(7,8,28,0.98)_52%,rgba(10,14,48,0.98)_100%)] p-4 shadow-[0_22px_70px_rgba(0,0,0,0.48),0_0_34px_rgba(119,57,255,0.14)] backdrop-blur-2xl">
                         <div className="absolute left-1/2 top-[-0.3rem] h-3.5 w-3.5 -translate-x-1/2 rotate-45 bg-[#080b25]" />
                         <div className="grid min-h-[16.5rem] grid-cols-[0.9fr_1.1fr]">
-                          <div className="relative overflow-hidden bg-[radial-gradient(circle_at_48%_46%,rgba(58,104,255,0.16),transparent_28%),linear-gradient(180deg,rgba(5,16,48,0.32),rgba(24,8,42,0.08))]">
-                            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(14,103,255,0.1),transparent_42%,rgba(117,71,223,0.1))]" />
+                          <div className="relative overflow-hidden bg-[radial-gradient(circle_at_48%_46%,rgba(202,74,255,0.16),transparent_28%),linear-gradient(180deg,rgba(24,8,46,0.32),rgba(42,7,46,0.08))]">
+                            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(202,74,255,0.1),transparent_42%,rgba(117,71,223,0.1))]" />
                             <div className="relative flex h-full items-center justify-center">
                               <div className="flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-[0.85rem] border border-fuchsia-200/14 bg-[#0c0b2c]/70 text-4xl font-semibold text-white shadow-[0_0_38px_rgba(126,87,255,0.42)]">
                                 A
@@ -711,7 +711,7 @@ export default function AuroraLanding() {
                               <Link
                                 key={service.href}
                                 href={service.href}
-                                className={`group flex items-center gap-3 rounded-[1rem] px-2 py-3 transition hover:bg-[#315cff]/[0.055] ${
+                                className={`group flex items-center gap-3 rounded-[1rem] px-2 py-3 transition hover:bg-[#ca4aff]/[0.055] ${
                                   pathname === service.href ? "text-white" : "text-white/78 hover:text-white"
                                 }`}
                               >
@@ -734,7 +734,7 @@ export default function AuroraLanding() {
                               className="mt-1 grid grid-cols-[1fr_auto] items-center gap-4 pt-4 text-[1rem] font-semibold text-fuchsia-300 transition hover:text-fuchsia-100"
                             >
                               <span>View All Services</span>
-                              <span className="grid h-9 w-9 place-items-center rounded-full border border-[#7547df]/20 bg-[#315cff]/[0.08]">
+                              <span className="grid h-9 w-9 place-items-center rounded-full border border-[#ca4aff]/20 bg-[#ca4aff]/[0.08]">
                                 <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden="true">
                                   <path
                                     d="M5 12h13m-5-5 5 5-5 5"
@@ -804,7 +804,7 @@ export default function AuroraLanding() {
                 const isRoute = item.href === "/services";
                 const commonClassName = `rounded-2xl px-4 py-3 text-sm font-medium transition ${
                   isNavItemActive(item.href)
-                    ? "bg-[linear-gradient(90deg,#4f73ff_0%,#6d3fe7_52%,#8b35d8_100%)] text-white"
+                    ? "bg-[linear-gradient(90deg,#7547df_0%,#ca4aff_52%,#d946ef_100%)] text-white"
                     : "text-white/75 hover:bg-white/[0.06] hover:text-white"
                 }`;
 
@@ -829,7 +829,7 @@ export default function AuroraLanding() {
               <Link
                 href="/services"
                 onClick={() => setMobileOpen(false)}
-                className="aurora-button inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-4 text-sm font-semibold text-white shadow-[0_18px_70px_rgba(79,140,255,0.22)]"
+                className="aurora-button inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-4 text-sm font-semibold text-white shadow-[0_18px_70px_rgba(202,74,255,0.22)]"
               >
                 Explore Services
                 <IconArrow />
@@ -891,14 +891,14 @@ export default function AuroraLanding() {
                 <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                   <Link
                     href="/services"
-                    className="aurora-button hover-sheen magnetic inline-flex items-center justify-center gap-2 rounded-full border border-[#7547df]/22 px-7 py-4 text-sm font-semibold text-white shadow-[0_18px_70px_rgba(91,92,255,0.26)] transition hover:shadow-[0_18px_80px_rgba(117,71,223,0.26)]"
+                    className="aurora-button hover-sheen magnetic inline-flex items-center justify-center gap-2 rounded-full border border-[#ca4aff]/22 px-7 py-4 text-sm font-semibold text-white shadow-[0_18px_70px_rgba(202,74,255,0.24)] transition hover:shadow-[0_18px_80px_rgba(217,70,239,0.26)]"
                   >
                     Explore Services
                     <IconArrow />
                   </Link>
                   <Link
                     href="#contact"
-                    className="hover-glow magnetic inline-flex items-center justify-center gap-2 rounded-full border border-[#7547df]/20 bg-[#10183a]/62 px-7 py-4 text-sm font-semibold text-white/90 backdrop-blur-xl transition hover:border-[#8b7cff]/36 hover:bg-[#315cff]/[0.08]"
+                    className="hover-glow magnetic inline-flex items-center justify-center gap-2 rounded-full border border-[#ca4aff]/18 bg-[#180d32]/62 px-7 py-4 text-sm font-semibold text-white/90 backdrop-blur-xl transition hover:border-fuchsia-300/36 hover:bg-[#ca4aff]/[0.08]"
                   >
                     Book Demo
                   </Link>
@@ -1030,7 +1030,7 @@ export default function AuroraLanding() {
         <ScrollShowcaseSection />
 
         <section className="relative overflow-hidden py-12 md:py-16">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(46,108,235,0.1),transparent_28%),radial-gradient(circle_at_82%_64%,rgba(117,71,223,0.1),transparent_30%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(202,74,255,0.1),transparent_28%),radial-gradient(circle_at_82%_64%,rgba(117,71,223,0.1),transparent_30%)]" />
           <div className="section-shell relative z-10">
             <div className="section-heading max-w-3xl" data-reveal>
               <div className="section-kicker">Workflow</div>
@@ -1048,12 +1048,12 @@ export default function AuroraLanding() {
               {workflowSteps.map((step, index) => (
                 <div
                   key={step}
-                  className={`group relative min-h-[10.5rem] overflow-hidden rounded-[1.4rem] p-6 ${premiumFlatCard} shadow-[0_18px_64px_rgba(0,0,0,0.22)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_84px_rgba(91,92,255,0.14)]`}
+                  className={`group relative min-h-[10.5rem] overflow-hidden rounded-[1.4rem] p-6 ${premiumFlatCard} shadow-[0_18px_64px_rgba(0,0,0,0.22)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_84px_rgba(202,74,255,0.14)]`}
                   data-reveal
                 >
-                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(46,108,235,0.13),transparent_28%),radial-gradient(circle_at_88%_88%,rgba(117,71,223,0.1),transparent_30%)] opacity-65 transition duration-500 group-hover:opacity-100 md:opacity-0" />
-                  <div className="pointer-events-none absolute bottom-4 left-6 right-6 h-1 overflow-hidden rounded-full bg-[#0b143a]">
-                    <div className="h-full w-1/2 origin-left rounded-full bg-[linear-gradient(90deg,#2e6ceb_0%,#5b5cff_52%,#7547df_100%)] transition duration-500 group-hover:w-full" />
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(202,74,255,0.13),transparent_28%),radial-gradient(circle_at_88%_88%,rgba(117,71,223,0.1),transparent_30%)] opacity-65 transition duration-500 group-hover:opacity-100 md:opacity-0" />
+                  <div className="pointer-events-none absolute bottom-4 left-6 right-6 h-1 overflow-hidden rounded-full bg-[#1a0d32]">
+                    <div className="h-full w-1/2 origin-left rounded-full bg-[linear-gradient(90deg,#7547df_0%,#ca4aff_52%,#d946ef_100%)] transition duration-500 group-hover:w-full" />
                   </div>
                   <div className="relative flex items-center justify-between text-sm uppercase tracking-[0.28em] text-white/40">
                     <span>Step 0{index + 1}</span>
@@ -1156,35 +1156,35 @@ export default function AuroraLanding() {
               {aiProducts.map((item, index) => (
                 <article
                   key={item.title}
-                  className="group relative min-h-[18rem] overflow-hidden rounded-[1.55rem] bg-[linear-gradient(145deg,rgba(5,12,38,0.9)_0%,rgba(7,8,28,0.96)_54%,rgba(20,8,45,0.88)_100%)] p-5 shadow-[0_20px_70px_rgba(0,0,0,0.24),inset_0_0_0_1px_rgba(91,92,255,0.16)] transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_28px_90px_rgba(91,92,255,0.18),inset_0_0_0_1px_rgba(124,92,255,0.26)]"
+                  className="group relative min-h-[18rem] overflow-hidden rounded-[1.55rem] bg-[linear-gradient(145deg,rgba(12,8,38,0.9)_0%,rgba(7,8,28,0.96)_54%,rgba(42,7,46,0.86)_100%)] p-5 shadow-[0_20px_70px_rgba(0,0,0,0.24),inset_0_0_0_1px_rgba(202,74,255,0.14)] transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_28px_90px_rgba(202,74,255,0.18),inset_0_0_0_1px_rgba(240,171,252,0.2)]"
                   data-reveal
                 >
-                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_16%,rgba(46,108,235,0.14),transparent_30%),radial-gradient(circle_at_90%_92%,rgba(117,71,223,0.13),transparent_34%)] opacity-60 transition duration-500 group-hover:opacity-100" />
-                  <div className="pointer-events-none absolute inset-x-5 bottom-0 h-1 origin-left scale-x-0 rounded-full bg-[linear-gradient(90deg,#2e6ceb_0%,#5b5cff_52%,#7547df_100%)] transition duration-500 group-hover:scale-x-100" />
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_16%,rgba(202,74,255,0.14),transparent_30%),radial-gradient(circle_at_90%_92%,rgba(117,71,223,0.13),transparent_34%)] opacity-60 transition duration-500 group-hover:opacity-100" />
+                  <div className="pointer-events-none absolute inset-x-5 bottom-0 h-1 origin-left scale-x-0 rounded-full bg-[linear-gradient(90deg,#7547df_0%,#ca4aff_52%,#d946ef_100%)] transition duration-500 group-hover:scale-x-100" />
                   <div className="relative flex h-full flex-col">
                     <div className="flex items-start justify-between gap-5">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-[0.9rem] bg-[#0d1434]/86 text-sm font-semibold text-indigo-100 shadow-[inset_0_0_0_1px_rgba(91,92,255,0.2),0_0_28px_rgba(91,92,255,0.12)] transition duration-500 group-hover:scale-110 group-hover:text-white">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-[0.9rem] bg-[#180d32]/86 text-sm font-semibold text-fuchsia-100 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.14),0_0_28px_rgba(202,74,255,0.12)] transition duration-500 group-hover:scale-110 group-hover:text-white">
                         0{index + 1}
                       </div>
-                      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#080c29]/70 text-white/36 shadow-[inset_0_0_0_1px_rgba(124,92,255,0.16)] transition duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-white/82">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#180d32]/70 text-white/36 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.12)] transition duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-white/82">
                         <IconArrow />
                       </div>
                     </div>
 
                     <div className="mt-6">
-                      <div className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-indigo-200/52">
+                      <div className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-200/52">
                         {item.category}
                       </div>
                       <h3 className="mt-3 text-2xl font-semibold leading-tight tracking-[-0.05em] text-white">
                         {item.title}
                       </h3>
-                      <p className="mt-4 text-sm leading-7 text-indigo-100/64">
+                      <p className="mt-4 text-sm leading-7 text-fuchsia-100/62">
                         {item.copy}
                       </p>
                     </div>
 
                     <div className="mt-auto pt-6">
-                      <div className="inline-flex rounded-full bg-[#10183a]/72 px-3 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-indigo-100/72 shadow-[inset_0_0_0_1px_rgba(124,92,255,0.16)]">
+                      <div className="inline-flex rounded-full bg-[#180d32]/72 px-3 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-fuchsia-100/72 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.12)]">
                         {item.result}
                       </div>
                     </div>
@@ -1259,7 +1259,7 @@ export default function AuroraLanding() {
         </section>
 
         <section id="pricing" className="relative scroll-mt-28 overflow-hidden py-12 md:scroll-mt-32 md:py-16">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(46,108,235,0.12),transparent_28%),radial-gradient(circle_at_82%_64%,rgba(117,71,223,0.11),transparent_30%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(202,74,255,0.12),transparent_28%),radial-gradient(circle_at_82%_64%,rgba(117,71,223,0.11),transparent_30%)]" />
           <div className="section-shell relative z-10">
             <div className="section-heading mb-10" data-reveal>
               <div className="section-kicker">Pricing</div>
@@ -1277,7 +1277,7 @@ export default function AuroraLanding() {
                   className={`hover-sheen hover-glow rounded-[1.4rem] p-6 md:p-7 ${premiumSurface} ${premiumSurfaceHover}`}
                   data-reveal
                 >
-                  <div className="inline-flex rounded-full border border-[#315cff]/18 bg-[#08143a]/76 px-3 py-1 text-xs uppercase tracking-[0.28em] text-indigo-100/72">
+                  <div className="inline-flex rounded-full border border-[#ca4aff]/14 bg-[#180d32]/76 px-3 py-1 text-xs uppercase tracking-[0.28em] text-fuchsia-100/72">
                     {tier.name}
                   </div>
                   <h3 className="mt-6 text-2xl font-semibold tracking-[-0.03em] text-white">
@@ -1292,7 +1292,7 @@ export default function AuroraLanding() {
         </section>
 
         <section className="relative overflow-hidden py-12 md:py-16">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(91,140,255,0.1),transparent_28%),radial-gradient(circle_at_18%_76%,rgba(117,71,223,0.09),transparent_30%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(202,74,255,0.1),transparent_28%),radial-gradient(circle_at_18%_76%,rgba(117,71,223,0.09),transparent_30%)]" />
           <div className="section-shell relative z-10">
             <div className="section-heading mb-10" data-reveal>
               <div className="section-kicker">Testimonials</div>
@@ -1307,13 +1307,13 @@ export default function AuroraLanding() {
               {testimonials.map((item) => (
                 <article
                   key={item.name}
-                  className={`group relative grid gap-5 overflow-hidden rounded-[1.4rem] p-5 shadow-[0_22px_78px_rgba(91,92,255,0.1)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_26px_92px_rgba(91,92,255,0.15)] sm:p-6 lg:grid-cols-[0.34fr_0.66fr] lg:items-center ${premiumFlatCard}`}
+                  className={`group relative grid gap-5 overflow-hidden rounded-[1.4rem] p-5 shadow-[0_22px_78px_rgba(202,74,255,0.1)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_26px_92px_rgba(202,74,255,0.15)] sm:p-6 lg:grid-cols-[0.34fr_0.66fr] lg:items-center ${premiumFlatCard}`}
                   data-reveal
                 >
-                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_18%,rgba(46,108,235,0.12),transparent_28%),radial-gradient(circle_at_88%_84%,rgba(117,71,223,0.1),transparent_30%)] opacity-70 transition duration-500 group-hover:opacity-100 md:opacity-0" />
-                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1 origin-left rounded-full bg-[linear-gradient(90deg,#2e6ceb_0%,#5b5cff_52%,#7547df_100%)] opacity-90 transition duration-500 md:scale-x-0 md:group-hover:scale-x-100" />
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_18%,rgba(202,74,255,0.12),transparent_28%),radial-gradient(circle_at_88%_84%,rgba(117,71,223,0.1),transparent_30%)] opacity-70 transition duration-500 group-hover:opacity-100 md:opacity-0" />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1 origin-left rounded-full bg-[linear-gradient(90deg,#7547df_0%,#ca4aff_52%,#d946ef_100%)] opacity-90 transition duration-500 md:scale-x-0 md:group-hover:scale-x-100" />
                   <div className="relative flex items-center gap-4">
-                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#07143a,#10183a)] text-sm font-semibold text-white shadow-[0_0_28px_rgba(79,140,255,0.18)] transition duration-500 group-hover:scale-105 group-hover:shadow-[0_0_38px_rgba(91,92,255,0.24)]">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#180d32,#260c35)] text-sm font-semibold text-white shadow-[0_0_28px_rgba(202,74,255,0.16)] transition duration-500 group-hover:scale-105 group-hover:shadow-[0_0_38px_rgba(202,74,255,0.22)]">
                       {item.name
                         .split(" ")
                         .map((part) => part[0])
@@ -1324,7 +1324,7 @@ export default function AuroraLanding() {
                       <div className="text-sm text-white/55">{item.role}</div>
                     </div>
                   </div>
-                  <div className="relative rounded-[1rem] bg-[#08143a]/36 p-4 sm:bg-transparent sm:p-0">
+                  <div className="relative rounded-[1rem] bg-[#180d32]/36 p-4 sm:bg-transparent sm:p-0">
                     <div className="mb-2 text-4xl font-semibold leading-none text-[#8b7cff]/38 transition duration-500 group-hover:text-[#8b7cff]/48 sm:mb-3 sm:text-5xl">
                       &ldquo;
                     </div>
@@ -1339,7 +1339,7 @@ export default function AuroraLanding() {
         </section>
 
         <section className="relative overflow-hidden py-12 md:py-16">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_14%,rgba(46,108,235,0.1),transparent_30%),radial-gradient(circle_at_78%_76%,rgba(91,92,255,0.1),transparent_32%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_14%,rgba(202,74,255,0.1),transparent_30%),radial-gradient(circle_at_78%_76%,rgba(117,71,223,0.1),transparent_32%)]" />
           <div className="section-shell relative z-10">
             <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
               <div className="section-heading" data-reveal>
@@ -1355,7 +1355,7 @@ export default function AuroraLanding() {
                 {faqItems.map((item) => (
                   <details
                     key={item.question}
-                    className={`group hover-underline overflow-hidden rounded-[1.25rem] p-5 ${premiumFlatCard} transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_90px_rgba(91,92,255,0.13)]`}
+                    className={`group hover-underline overflow-hidden rounded-[1.25rem] p-5 ${premiumFlatCard} transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_90px_rgba(202,74,255,0.13)]`}
                   >
                     <summary className="cursor-pointer list-none text-lg font-semibold tracking-[-0.03em] text-white">
                       {item.question}
@@ -1373,7 +1373,7 @@ export default function AuroraLanding() {
         type="button"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         aria-label="Scroll to top"
-        className={`fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-[#8b7cff]/20 bg-[radial-gradient(circle_at_24%_12%,rgba(255,255,255,0.2),transparent_25%),linear-gradient(135deg,#4f73ff_0%,#6d3fe7_52%,#8b35d8_100%)] text-white shadow-[0_18px_58px_rgba(109,63,231,0.34),0_0_0_1px_rgba(139,124,255,0.16)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#a79bff]/32 hover:shadow-[0_22px_72px_rgba(109,63,231,0.44),0_0_0_1px_rgba(139,124,255,0.22)] md:bottom-8 md:right-8 ${
+        className={`fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-[#f0abfc]/18 bg-[radial-gradient(circle_at_24%_12%,rgba(255,255,255,0.2),transparent_25%),linear-gradient(135deg,#7547df_0%,#ca4aff_52%,#d946ef_100%)] text-white shadow-[0_18px_58px_rgba(202,74,255,0.3),0_0_0_1px_rgba(240,171,252,0.14)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#f0abfc]/32 hover:shadow-[0_22px_72px_rgba(202,74,255,0.4),0_0_0_1px_rgba(240,171,252,0.2)] md:bottom-8 md:right-8 ${
           showScrollTop
             ? "pointer-events-auto translate-y-0 opacity-100"
             : "pointer-events-none translate-y-3 opacity-0"
@@ -1384,16 +1384,16 @@ export default function AuroraLanding() {
 
       <footer
         id="contact"
-        className="relative overflow-hidden bg-[linear-gradient(135deg,#050c26_0%,#07081c_52%,#0a0e30_100%)] py-12 md:py-16"
+        className="relative overflow-hidden bg-[linear-gradient(135deg,#050719_0%,#100826_52%,#220625_100%)] py-12 md:py-16"
       >
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(14,103,255,0.18),transparent_24%),radial-gradient(circle_at_82%_16%,rgba(117,71,223,0.13),transparent_26%),linear-gradient(180deg,rgba(5,12,38,0),rgba(5,8,22,0.62))]" />
-        <div className="pointer-events-none absolute bottom-[-10rem] left-1/2 h-80 w-[80%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(91,140,255,0.16),rgba(117,71,223,0.1)_36%,transparent_70%)] blur-3xl" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(202,74,255,0.18),transparent_24%),radial-gradient(circle_at_82%_16%,rgba(117,71,223,0.13),transparent_26%),linear-gradient(180deg,rgba(24,8,46,0),rgba(5,8,22,0.62))]" />
+        <div className="pointer-events-none absolute bottom-[-10rem] left-1/2 h-80 w-[80%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(202,74,255,0.16),rgba(117,71,223,0.1)_36%,transparent_70%)] blur-3xl" />
         <div className="section-shell relative z-10">
           <div className={`hover-sheen overflow-hidden rounded-[2rem] p-7 md:p-10 ${premiumSurface}`}>
             <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
               <div className="grid gap-5">
                 <div className="section-kicker">Contact</div>
-                <h2 className="section-title max-w-3xl bg-[linear-gradient(90deg,#ffffff_0%,#dbe7ff_44%,#f0abfc_100%)] bg-clip-text text-transparent drop-shadow-[0_0_34px_rgba(126,87,255,0.16)]">
+                <h2 className="section-title max-w-3xl bg-[linear-gradient(90deg,#ffffff_0%,#f3e8ff_44%,#f0abfc_100%)] bg-clip-text text-transparent drop-shadow-[0_0_34px_rgba(202,74,255,0.16)]">
                   Let&apos;s build the right AI engagement.
                 </h2>
                 <p className="section-copy max-w-2xl">
@@ -1409,7 +1409,7 @@ export default function AuroraLanding() {
               </div>
 
               <div className="grid gap-4">
-                <div className="hover-glow rounded-[1.5rem] border border-[#7547df]/20 bg-[#080d2c]/76 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+                <div className="hover-glow rounded-[1.5rem] border border-[#ca4aff]/16 bg-[#180d32]/76 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
                   <div className="text-xs uppercase tracking-[0.28em] text-fuchsia-100/55">
                     Contact Form
                   </div>
@@ -1464,7 +1464,7 @@ export default function AuroraLanding() {
                       </button>
                       <a
                         href="mailto:hello@agyntiq.ai"
-                        className="magnetic inline-flex items-center justify-center gap-2 rounded-full border border-[#315cff]/20 bg-[#08102d]/76 px-7 py-4 text-sm font-semibold text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-xl transition hover:border-[#8b7cff]/38 hover:bg-[#10183a]/82"
+                        className="magnetic inline-flex items-center justify-center gap-2 rounded-full border border-[#ca4aff]/18 bg-[#180d32]/76 px-7 py-4 text-sm font-semibold text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-xl transition hover:border-fuchsia-300/38 hover:bg-[#260c35]/82"
                       >
                         Schedule Meeting
                       </a>
