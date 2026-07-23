@@ -52,60 +52,69 @@ function SignalIcon() {
 
 function ServiceOrbital() {
   return (
-    <div className="relative min-h-[25rem] overflow-hidden rounded-[2.2rem] bg-[linear-gradient(135deg,rgba(5,13,40,0.96)_0%,rgba(7,8,28,0.98)_50%,rgba(24,8,46,0.94)_100%)] shadow-[0_30px_90px_rgba(0,0,0,0.32),inset_0_0_0_1px_rgba(83,65,170,0.32)]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_22%,rgba(46,108,235,0.2),transparent_34%),radial-gradient(circle_at_78%_70%,rgba(117,71,223,0.24),transparent_38%)]" />
-      <div className="absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(91,92,255,0.18),transparent_68%)] blur-2xl" />
-
+    <div className="relative min-h-[25rem] overflow-hidden rounded-[2.2rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.94)_0%,rgba(7,8,28,0.98)_48%,rgba(42,7,46,0.86)_100%)] p-6 shadow-[0_30px_90px_rgba(0,0,0,0.3),inset_0_0_0_1px_rgba(77,42,173,0.46)] sm:p-8">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_22%,rgba(14,103,255,0.2),transparent_34%),radial-gradient(circle_at_88%_76%,rgba(202,74,255,0.16),transparent_38%)]" />
       <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ duration: 26, repeat: Infinity, ease: "linear" }}
-        className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#5b5cff]/18"
-      />
-      <motion.div
-        animate={{ rotate: -360 }}
-        transition={{ duration: 34, repeat: Infinity, ease: "linear" }}
-        className="absolute left-1/2 top-1/2 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#7547df]/18"
+        animate={{ opacity: [0.36, 0.7, 0.36], scale: [1, 1.06, 1] }}
+        transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute left-1/2 top-[42%] h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(91,92,255,0.24),transparent_70%)] blur-2xl"
       />
 
-      <div className="absolute left-1/2 top-1/2 flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[2rem] bg-[#090d27]/90 text-5xl font-semibold text-white shadow-[0_0_55px_rgba(91,92,255,0.34),inset_0_0_0_1px_rgba(122,105,255,0.32)]">
-        A
-      </div>
-
-      {serviceStages.map((stage, index) => (
-        <motion.div
-          key={stage}
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2 + index * 0.08, duration: 0.5, ease }}
-          className={[
-            "absolute rounded-full bg-[#080c29]/86 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-indigo-100 shadow-[0_14px_44px_rgba(0,0,0,0.26),inset_0_0_0_1px_rgba(91,92,255,0.24)]",
-            index === 0 ? "left-8 top-10" : "",
-            index === 1 ? "right-8 top-16" : "",
-            index === 2 ? "bottom-14 left-10" : "",
-            index === 3 ? "bottom-10 right-8" : ""
-          ].join(" ")}
-        >
-          {stage}
-        </motion.div>
-      ))}
-
-      <div className="absolute inset-x-8 bottom-8 rounded-[1.4rem] bg-[#070a22]/78 p-4 shadow-[inset_0_0_0_1px_rgba(91,92,255,0.2)]">
-        <div className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-indigo-200/58">
-          Enterprise-ready path
+      <div className="relative grid min-h-[21rem] grid-rows-[auto_1fr_auto] gap-6">
+        <div className="grid grid-cols-2 gap-3">
+          {serviceStages.map((stage, index) => (
+            <motion.div
+              key={stage}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.16 + index * 0.06, duration: 0.45, ease }}
+              className="rounded-full bg-[#080c29]/78 px-4 py-2 text-center text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-indigo-100/78 shadow-[inset_0_0_0_1px_rgba(124,92,255,0.22)]"
+            >
+              {stage}
+            </motion.div>
+          ))}
         </div>
-        <div className="mt-2 h-2 overflow-hidden rounded-full bg-[#12183e]">
-          <motion.div
-            initial={{ width: "18%" }}
-            animate={{ width: ["18%", "74%", "52%", "88%"] }}
-            transition={{ duration: 5, repeat: Infinity, ease }}
-            className="h-full rounded-full bg-[linear-gradient(90deg,#2e6ceb,#5b5cff,#7547df)]"
-          />
+
+        <div className="flex items-center justify-center">
+          <div className="relative flex h-40 w-40 items-center justify-center">
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-0 rounded-[2.2rem] bg-[linear-gradient(135deg,rgba(46,108,235,0.18),rgba(202,74,255,0.16))] shadow-[inset_0_0_0_1px_rgba(124,92,255,0.24)]"
+            />
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-5 rounded-[1.6rem] bg-[#090d27]/82 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.16)]"
+            />
+            <div className="relative flex h-24 w-24 items-center justify-center rounded-[1.6rem] bg-[#090d27]/94 text-5xl font-semibold text-white shadow-[0_0_55px_rgba(91,92,255,0.34),inset_0_0_0_1px_rgba(122,105,255,0.28)]">
+              A
+            </div>
+          </div>
+        </div>
+
+        <div className="rounded-[1.35rem] bg-[#070a22]/72 p-4 shadow-[inset_0_0_0_1px_rgba(124,92,255,0.18)]">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-indigo-200/62">
+              Enterprise-ready path
+            </div>
+            <div className="rounded-full bg-[#12183e]/80 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white/56">
+              Live delivery map
+            </div>
+          </div>
+          <div className="mt-3 h-2 overflow-hidden rounded-full bg-[#12183e]">
+            <motion.div
+              initial={{ width: "18%" }}
+              animate={{ width: ["18%", "74%", "52%", "88%"] }}
+              transition={{ duration: 5, repeat: Infinity, ease }}
+              className="h-full rounded-full bg-[linear-gradient(90deg,#2e6ceb,#5b5cff,#7547df)]"
+            />
+          </div>
         </div>
       </div>
     </div>
   );
 }
-
 export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
   const activeServiceIndex = servicePageOrder.findIndex((service) => service.label === data.title);
   const activeServiceNumber = String(activeServiceIndex + 1).padStart(2, "0");
