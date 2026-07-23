@@ -293,11 +293,12 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
           type="button"
           aria-expanded={mobileOpen}
           aria-controls="services-mobile-menu"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
           onClick={() => setMobileOpen((open) => !open)}
-          className="ml-auto inline-flex shrink-0 items-center gap-2 rounded-full border border-[#4d2aad]/55 bg-[#0d1029]/90 px-3.5 py-2.5 text-xs font-semibold text-white/90 shadow-[0_12px_36px_rgba(0,0,0,0.28),0_0_22px_rgba(119,57,255,0.12)] backdrop-blur-xl transition hover:border-fuchsia-300/45 hover:bg-fuchsia-300/[0.08] md:hidden"
+          className="ml-auto inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#4d2aad]/55 bg-[#0d1029]/90 text-white/90 shadow-[0_12px_36px_rgba(0,0,0,0.28),0_0_22px_rgba(119,57,255,0.12)] backdrop-blur-xl transition hover:border-fuchsia-300/45 hover:bg-fuchsia-300/[0.08] md:hidden"
         >
           {mobileOpen ? <IconClose /> : <IconMenuToggle />}
-          <span>{mobileOpen ? "Close" : "Menu"}</span>
+          <span className="sr-only">{mobileOpen ? "Close menu" : "Open menu"}</span>
         </button>
       </div>
 

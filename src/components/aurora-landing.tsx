@@ -189,14 +189,54 @@ const reasons = [
 ];
 
 const aiProducts = [
-  "AI Chatbot",
-  "AI Copilot",
-  "AI Search",
-  "AI Analytics",
-  "AI Voice Assistant",
-  "Document Intelligence",
-  "Recommendation Engine",
-  "Fraud Detection"
+  {
+    title: "AI Chatbot",
+    category: "Customer Ops",
+    copy: "Support assistants that answer, qualify, route, and resolve customer requests with governed context.",
+    result: "24/7 response"
+  },
+  {
+    title: "AI Copilot",
+    category: "Team Workflow",
+    copy: "Role-aware copilots for sales, operations, finance, and support teams inside existing tools.",
+    result: "Faster decisions"
+  },
+  {
+    title: "AI Search",
+    category: "Knowledge Layer",
+    copy: "Enterprise search across documents, tickets, policies, and systems with cited answers.",
+    result: "Trusted retrieval"
+  },
+  {
+    title: "AI Analytics",
+    category: "Decision Intel",
+    copy: "Dashboards and insight layers that convert live business signals into next-best actions.",
+    result: "Clear signal"
+  },
+  {
+    title: "AI Voice Assistant",
+    category: "Voice AI",
+    copy: "Natural voice experiences for scheduling, support, intake, and high-volume operations.",
+    result: "Human handoff"
+  },
+  {
+    title: "Document Intelligence",
+    category: "Automation",
+    copy: "Extract, classify, summarize, and validate documents across regulated enterprise workflows.",
+    result: "Less manual work"
+  },
+  {
+    title: "Recommendation Engine",
+    category: "Personalization",
+    copy: "Recommendation systems for content, products, actions, and next-step workflow guidance.",
+    result: "Better targeting"
+  },
+  {
+    title: "Fraud Detection",
+    category: "Risk AI",
+    copy: "Pattern detection and risk scoring for transactions, claims, accounts, and suspicious behavior.",
+    result: "Earlier alerts"
+  }
 ];
 
 const industryCards = [
@@ -741,12 +781,11 @@ export default function AuroraLanding() {
             onClick={() => setMobileOpen((current) => !current)}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
-            className="magnetic ml-auto shrink-0 rounded-full border border-[#7547df]/22 bg-[#10183a]/72 px-3.5 py-2.5 text-xs font-medium text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-xl transition hover:border-[#8b7cff]/36 hover:bg-[#315cff]/[0.08] md:hidden"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            className="magnetic ml-auto flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#7547df]/22 bg-[#10183a]/72 text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-xl transition hover:border-[#8b7cff]/36 hover:bg-[#315cff]/[0.08] md:hidden"
           >
-            <span className="flex items-center gap-2">
-              {mobileOpen ? <IconClose /> : <IconMenu />}
-              <span>{mobileOpen ? "Close" : "Menu"}</span>
-            </span>
+            {mobileOpen ? <IconClose /> : <IconMenu />}
+            <span className="sr-only">{mobileOpen ? "Close menu" : "Open menu"}</span>
           </button>
         </div>
 
@@ -1102,28 +1141,41 @@ export default function AuroraLanding() {
               </p>
             </div>
 
-            <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4" data-parallax="10">
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4" data-parallax="10">
               {aiProducts.map((item, index) => (
                 <article
-                  key={item}
-                  className={`hover-sheen hover-glow group relative overflow-hidden rounded-[1.4rem] px-5 py-5 ${premiumSurface} ${premiumSurfaceHover}`}
+                  key={item.title}
+                  className="group relative min-h-[18rem] overflow-hidden rounded-[1.55rem] bg-[linear-gradient(145deg,rgba(5,12,38,0.9)_0%,rgba(7,8,28,0.96)_54%,rgba(20,8,45,0.88)_100%)] p-5 shadow-[0_20px_70px_rgba(0,0,0,0.24),inset_0_0_0_1px_rgba(91,92,255,0.16)] transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_28px_90px_rgba(91,92,255,0.18),inset_0_0_0_1px_rgba(124,92,255,0.26)]"
                   data-reveal
                 >
-                  <div className="flex items-start justify-between gap-6">
-                    <div>
-                      <div className="text-xs uppercase tracking-[0.3em] text-white/40">
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_16%,rgba(46,108,235,0.14),transparent_30%),radial-gradient(circle_at_90%_92%,rgba(117,71,223,0.13),transparent_34%)] opacity-60 transition duration-500 group-hover:opacity-100" />
+                  <div className="pointer-events-none absolute inset-x-5 bottom-0 h-1 origin-left scale-x-0 rounded-full bg-[linear-gradient(90deg,#2e6ceb_0%,#5b5cff_52%,#7547df_100%)] transition duration-500 group-hover:scale-x-100" />
+                  <div className="relative flex h-full flex-col">
+                    <div className="flex items-start justify-between gap-5">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-[0.9rem] bg-[#0d1434]/86 text-sm font-semibold text-indigo-100 shadow-[inset_0_0_0_1px_rgba(91,92,255,0.2),0_0_28px_rgba(91,92,255,0.12)] transition duration-500 group-hover:scale-110 group-hover:text-white">
                         0{index + 1}
                       </div>
-                      <h3 className="mt-3 text-lg font-semibold tracking-[-0.03em] text-white">
-                        {item}
+                      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#080c29]/70 text-white/36 shadow-[inset_0_0_0_1px_rgba(124,92,255,0.16)] transition duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-white/82">
+                        <IconArrow />
+                      </div>
+                    </div>
+
+                    <div className="mt-6">
+                      <div className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-indigo-200/52">
+                        {item.category}
+                      </div>
+                      <h3 className="mt-3 text-2xl font-semibold leading-tight tracking-[-0.05em] text-white">
+                        {item.title}
                       </h3>
-                      <p className="mt-3 max-w-sm text-sm leading-7 text-aurora-muted">
-                        AI-powered experiences crafted for enterprise workflows, customer-facing
-                        experiences, and internal operations.
+                      <p className="mt-4 text-sm leading-7 text-indigo-100/64">
+                        {item.copy}
                       </p>
                     </div>
-                    <div className="mt-1 text-white/30 transition group-hover:text-white/70">
-                      <IconArrow />
+
+                    <div className="mt-auto pt-6">
+                      <div className="inline-flex rounded-full bg-[#10183a]/72 px-3 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-indigo-100/72 shadow-[inset_0_0_0_1px_rgba(124,92,255,0.16)]">
+                        {item.result}
+                      </div>
                     </div>
                   </div>
                 </article>
