@@ -634,13 +634,15 @@ export default function ServicesPage() {
                     key={solution}
                     whileHover={{ y: -5, scale: 1.015 }}
                     transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                    className="group rounded-[1rem] border border-[#4d2aad]/42 bg-[linear-gradient(135deg,rgba(5,12,38,0.78)_0%,rgba(18,12,50,0.78)_52%,rgba(42,7,46,0.72)_100%)] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition hover:border-fuchsia-300/40 hover:bg-fuchsia-300/[0.055] hover:shadow-[0_18px_50px_rgba(202,74,255,0.1)]"
+                    className="group relative overflow-hidden rounded-[1rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.9)_0%,rgba(7,8,28,0.96)_52%,rgba(10,14,48,0.88)_100%)] p-4 shadow-[0_16px_46px_rgba(0,0,0,0.2)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(91,92,255,0.14)]"
                   >
-                    <div className="flex items-center gap-3">
-                      <span className="flex h-9 w-9 items-center justify-center rounded-[0.7rem] border border-white/10 bg-[#151239]/76 text-fuchsia-200 transition group-hover:scale-110 group-hover:text-white">
+                    <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_20%,rgba(46,108,235,0.13),transparent_30%),radial-gradient(circle_at_88%_82%,rgba(117,71,223,0.1),transparent_34%)] opacity-0 transition duration-500 group-hover:opacity-100" />
+                    <span className="pointer-events-none absolute inset-x-4 bottom-0 h-1 origin-left scale-x-0 rounded-full bg-[linear-gradient(90deg,#2e6ceb_0%,#5b5cff_52%,#7547df_100%)] transition duration-500 group-hover:scale-x-100" />
+                    <div className="relative flex items-center gap-3">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[0.8rem] bg-[#10183a]/86 text-indigo-200 shadow-[0_0_24px_rgba(91,92,255,0.12)] transition duration-500 group-hover:scale-110 group-hover:text-white group-hover:shadow-[0_0_34px_rgba(91,92,255,0.2)]">
                         <Icon name={service.icon} />
                       </span>
-                      <span className="text-sm font-semibold text-white">{solution}</span>
+                      <span className="text-sm font-semibold leading-6 text-white">{solution}</span>
                     </div>
                   </motion.div>
                 ))}
