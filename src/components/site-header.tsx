@@ -269,7 +269,7 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
 
         <Link
           href={mode === "home" ? "#contact" : "/#contact"}
-          className="aurora-button magnetic hidden items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3.5 text-sm font-semibold leading-none text-white md:flex"
+          className="magnetic hidden items-center justify-center gap-2 whitespace-nowrap rounded-full bg-[linear-gradient(180deg,rgba(72,62,214,0.95)_0%,rgba(101,55,214,0.96)_45%,rgba(149,53,215,0.96)_100%)] px-6 py-3.5 text-sm font-semibold leading-none text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_26px_rgba(127,63,255,0.25)] md:flex"
         >
           Contact
         </Link>
