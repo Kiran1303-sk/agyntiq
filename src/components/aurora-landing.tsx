@@ -730,7 +730,7 @@ export default function AuroraLanding() {
 
           <Link
             href="#contact"
-            className="magnetic hidden items-center justify-center gap-2 justify-self-end whitespace-nowrap rounded-full border border-[#7547df]/24 bg-[linear-gradient(90deg,#2E6CEB_0%,#5B5CFF_50%,#7547DF_100%)] px-6 py-3.5 text-sm font-semibold leading-none text-white shadow-[0_18px_60px_rgba(91,92,255,0.28)] backdrop-blur-xl transition hover:shadow-[0_20px_70px_rgba(117,71,223,0.28)] md:flex"
+            className="aurora-button magnetic hidden items-center justify-center gap-2 justify-self-end whitespace-nowrap rounded-full px-6 py-3.5 text-sm font-semibold leading-none text-white md:flex"
           >
             Contact
             <IconArrow />
