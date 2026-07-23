@@ -113,6 +113,20 @@ function IconClose() {
   );
 }
 
+function IconArrow() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden="true">
+      <path
+        d="M7 17 17 7M9 7h8v8"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export default function SiteHeader({ mode }: SiteHeaderProps) {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -269,9 +283,10 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
 
         <Link
           href={mode === "home" ? "#contact" : "/#contact"}
-          className="magnetic hidden items-center justify-center gap-2 whitespace-nowrap rounded-full bg-[linear-gradient(180deg,rgba(72,62,214,0.95)_0%,rgba(101,55,214,0.96)_45%,rgba(149,53,215,0.96)_100%)] px-6 py-3.5 text-sm font-semibold leading-none text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_26px_rgba(127,63,255,0.25)] md:flex"
+          className="magnetic hidden items-center justify-center gap-2 justify-self-end whitespace-nowrap rounded-full bg-[linear-gradient(180deg,rgba(72,62,214,0.95)_0%,rgba(101,55,214,0.96)_45%,rgba(149,53,215,0.96)_100%)] px-6 py-3.5 text-sm font-semibold leading-none text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_26px_rgba(127,63,255,0.25)] md:flex"
         >
           Contact
+          <IconArrow />
         </Link>
 
         <button
