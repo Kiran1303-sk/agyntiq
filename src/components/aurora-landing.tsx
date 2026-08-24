@@ -829,22 +829,26 @@ export default function AuroraLanding() {
               })}
             </div>
 
-            <div className="relative mt-4 grid gap-3 sm:grid-cols-2">
-              <Link
-                href="/services"
-                onClick={() => setMobileOpen(false)}
-                className="aurora-button inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-4 text-sm font-semibold text-white shadow-[0_18px_70px_rgba(202,74,255,0.22)]"
-              >
-                Explore Services
-                <IconArrow />
-              </Link>
-              <Link
-                href="#contact"
-                onClick={() => setMobileOpen(false)}
-                className="magnetic inline-flex items-center justify-center gap-2 rounded-2xl border border-fuchsia-200/18 bg-[#151239]/72 px-5 py-4 text-sm font-semibold text-white/90 backdrop-blur-xl"
-              >
-                Book Demo
-              </Link>
+            <div className="relative mt-4 border-t border-white/10 pt-4">
+              <div className="px-1 text-xs font-semibold uppercase tracking-[0.22em] text-indigo-100/58">Services</div>
+              <div className="mt-3 grid gap-2">
+                {serviceMenuDisplay.map((service) => (
+                  <Link
+                    key={service.href}
+                    href={service.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="group flex items-center gap-3 rounded-[1rem] border border-[#315cff]/12 bg-[#080b25]/62 p-3 text-white/82 transition hover:border-[#8b7cff]/32 hover:bg-[#315cff]/[0.07] hover:text-white"
+                  >
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[0.75rem] bg-[#10183a]/72 text-fuchsia-200 shadow-[0_0_24px_rgba(91,92,255,0.12)] transition group-hover:bg-[#1c1944] group-hover:text-white">
+                      <MenuIcon name={service.icon} />
+                    </span>
+                    <span>
+                      <span className="services-dropdown-title block text-sm font-semibold leading-5">{service.title}</span>
+                      <span className="mt-0.5 block text-xs leading-5 text-white/52">{service.subtitle}</span>
+                    </span>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>
