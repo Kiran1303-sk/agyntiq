@@ -554,16 +554,22 @@ export default function ServicesPage() {
       </section>
 
       <nav className="sticky top-24 z-30 mx-auto w-full max-w-[1120px] px-4 md:px-6">
-        <div className="overflow-x-auto rounded-full border border-[#4d2aad]/55 bg-[#0d1029]/88 p-2 shadow-[0_18px_70px_rgba(0,0,0,0.35),0_0_34px_rgba(119,57,255,0.12),inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-2xl">
-          <div className="flex min-w-max gap-2">
+        <div className="rounded-[1.4rem] border border-[#4d2aad]/55 bg-[linear-gradient(120deg,rgba(13,16,41,0.94),rgba(21,11,44,0.9))] p-2 shadow-[0_18px_70px_rgba(0,0,0,0.35),0_0_34px_rgba(119,57,255,0.12),inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-2xl">
+          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
             {services.map((service) => (
-              <a
+              <Link
                 key={service.id}
-                href={`#${service.id}`}
-                className="rounded-full px-4 py-2.5 text-sm font-semibold text-white/60 transition hover:bg-fuchsia-300/[0.1] hover:text-fuchsia-100 hover:shadow-[0_0_24px_rgba(202,74,255,0.16)]"
+                href={service.href}
+                className="group relative overflow-hidden rounded-[1rem] border border-white/[0.07] bg-white/[0.025] px-4 py-3 text-left transition duration-300 hover:-translate-y-0.5 hover:border-fuchsia-300/35 hover:bg-fuchsia-300/[0.09] hover:text-fuchsia-100 hover:shadow-[0_0_24px_rgba(202,74,255,0.16)]"
               >
-                {service.nav}
-              </a>
+                <span className="absolute inset-y-2 left-0 w-0.5 rounded-full bg-gradient-to-b from-blue-300 to-fuchsia-300 opacity-50 transition group-hover:opacity-100" />
+                <span className="block text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-fuchsia-200/50 transition group-hover:text-fuchsia-200/80">
+                  {service.number}
+                </span>
+                <span className="mt-1 block text-sm font-semibold text-white/75 transition group-hover:text-white">
+                  {service.nav}
+                </span>
+              </Link>
             ))}
           </div>
         </div>
