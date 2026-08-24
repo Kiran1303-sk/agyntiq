@@ -38,7 +38,7 @@ export default function ServiceFooter() {
             </div>
           </div>
         </div>
-        <div className="mt-14 grid gap-5 border-t border-white/10 pt-5 text-xs text-white/35 md:grid-cols-[1fr_auto] md:items-end"><div><div>hello@agyntiq.ai · New Delhi, India · Global remote delivery</div><div className="mt-2">© 2026 AgyntiQ. Enterprise AI for real-world operations.</div></div><div className="flex gap-4 md:justify-self-end"><Link href="#" className="transition hover:text-fuchsia-100">Privacy</Link><Link href="#" className="transition hover:text-fuchsia-100">Terms</Link><span>Strategy · Build · Integrate · Operate</span></div></div>
+        <div className="mt-14 grid gap-5 border-t border-white/10 pt-5 text-xs text-white/35 md:grid-cols-[1fr_auto] md:items-end"><div><div>© 2026 AgyntiQ. Enterprise AI for real-world operations.</div></div><div className="flex gap-4 md:justify-self-end"><Link href="#" className="transition hover:text-fuchsia-100">Privacy</Link><Link href="#" className="transition hover:text-fuchsia-100">Terms</Link><span>Strategy · Build · Integrate · Operate</span></div></div>
       </div>
     </footer>
   );
