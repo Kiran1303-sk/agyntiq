@@ -655,7 +655,7 @@ export default function AuroraLanding() {
 
       <header
         className={`fixed inset-x-0 top-0 z-40 transition-all duration-500 ${
-          scrolled ? "bg-[#050816]/72 backdrop-blur-2xl" : "bg-transparent"
+          scrolled || mobileOpen ? "bg-[#050816]/72 backdrop-blur-2xl" : "bg-transparent"
         }`}
       >
         <div className="section-shell flex h-20 items-center justify-between gap-4 md:grid md:h-24 md:grid-cols-[1fr_auto_1fr] md:gap-10 md:gap-12">
@@ -806,14 +806,10 @@ export default function AuroraLanding() {
             <div className="relative grid gap-2">
               {navItems.map((item) => {
                 if (item.href === "/services") {
-                  return <Link key={item.href} href="/services" onClick={() => setMobileOpen(false)} className="rounded-2xl px-4 py-3 text-sm font-medium text-white/75 transition hover:bg-white/[0.06] hover:text-white">Services</Link>;
+                  return <Link key={item.href} href="/services" onClick={() => setMobileOpen(false)} className="rounded-[1rem] px-4 py-3.5 text-sm font-semibold text-white/74 transition hover:bg-white/[0.06] hover:text-white">Services</Link>;
                 }
 
-                const commonClassName = `rounded-2xl px-4 py-3 text-sm font-medium transition ${
-                  isNavItemActive(item.href)
-                    ? "bg-[linear-gradient(90deg,#7547df_0%,#ca4aff_52%,#d946ef_100%)] text-white"
-                    : "text-white/75 hover:bg-white/[0.06] hover:text-white"
-                }`;
+                const commonClassName = "rounded-[1rem] px-4 py-3.5 text-sm font-semibold text-white/74 transition hover:bg-white/[0.06] hover:text-white";
 
                 return <a key={item.href} href={item.href} className={commonClassName}>{item.label}</a>;
               })}
