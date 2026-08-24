@@ -262,7 +262,7 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
                                 <MenuIcon name={service.icon} />
                               </span>
                               <span>
-                                <span className="block text-[1rem] font-semibold leading-6 text-white">
+                                <span className="services-dropdown-title block text-[1rem] font-semibold leading-6 text-white">
                                   {service.title}
                                 </span>
                                 <span className="mt-0.5 block text-sm leading-5 text-white/56">
