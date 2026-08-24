@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ServiceDetailPage from "@/components/service-detail-page";
+import StrategyReadinessPage from "@/components/strategy-readiness-page";
 import { servicePages } from "@/components/service-pages-data";
 
 export const metadata: Metadata = {
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ServiceDetailPage data={servicePages["ai-strategy-readiness"]} />;
+  return <StrategyReadinessPage />;
 }
