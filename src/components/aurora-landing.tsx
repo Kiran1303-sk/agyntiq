@@ -815,7 +815,7 @@ export default function AuroraLanding() {
               })}
             </div>
 
-            <div className="relative mt-4 border-t border-white/10 pt-4">
+            <div className="relative mt-3">
               <div className="grid gap-2">
                 {serviceMenuDisplay.map((service) => (
                   <Link

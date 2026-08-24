@@ -341,7 +341,7 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
             })}
           </nav>
 
-          <div className="relative mt-4 pt-2">
+          <div className="relative mt-3">
             <div className="grid gap-2">
               {serviceMenuDisplay.map((service) => (
                 <Link
