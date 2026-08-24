@@ -804,12 +804,7 @@ export default function AuroraLanding() {
           <div className="relative overflow-hidden rounded-[1.75rem] border border-[#7547df]/24 bg-[linear-gradient(135deg,rgba(5,12,38,0.98)_0%,rgba(7,8,28,0.98)_52%,rgba(10,14,48,0.98)_100%)] p-5 shadow-[0_22px_70px_rgba(0,0,0,0.48),0_0_34px_rgba(119,57,255,0.14)] backdrop-blur-2xl">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(14,103,255,0.12),transparent_32%),radial-gradient(circle_at_92%_80%,rgba(117,71,223,0.12),transparent_36%)]" />
             <div className="relative grid gap-2">
-              {navItems.map((item) => {
-                const isRoute = item.href === "/services";
-                if (isRoute) {
-                  return null;
-                }
-
+              {navItems.filter((item) => item.href !== "/services").map((item) => {
                 const commonClassName = `rounded-2xl px-4 py-3 text-sm font-medium transition ${
                   isNavItemActive(item.href)
                     ? "bg-[linear-gradient(90deg,#7547df_0%,#ca4aff_52%,#d946ef_100%)] text-white"
