@@ -22,6 +22,10 @@ h6 {
   font-family: var(--font-roboto-condensed), sans-serif;
 }
 
+p {
+  font-family: var(--font-roboto-condensed), sans-serif;
+}
+
 .services-dropdown-title {
   font-family: var(--font-roboto-condensed), sans-serif;
 }
