@@ -351,10 +351,7 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
           </nav>
 
           <div className="relative mt-4 pt-2">
-            <div className="px-1 text-xs font-semibold uppercase tracking-[0.22em] text-indigo-100/58">
-              Services
-            </div>
-            <div className="mt-3 grid gap-2">
+            <div className="grid gap-2">
               {serviceMenuDisplay.map((service) => (
                 <Link
                   key={service.href}
