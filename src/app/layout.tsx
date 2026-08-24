@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Roboto_Condensed, Space_Grotesk } from "next/font/google";
+import { Manrope, Roboto_Condensed } from "next/font/google";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-space-grotesk"
+  variable: "--font-manrope"
 });
 
 const robotoCondensed = Roboto_Condensed({
@@ -68,7 +68,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body
-        className={`${spaceGrotesk.className} ${spaceGrotesk.variable} ${robotoCondensed.variable} bg-agyntiq-deep-black text-agyntiq-text-primary antialiased`}
+        className={`${manrope.className} ${manrope.variable} ${robotoCondensed.variable} bg-agyntiq-deep-black text-agyntiq-text-primary antialiased`}
       >
         {children}
       </body>
