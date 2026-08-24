@@ -63,6 +63,29 @@ function JourneyIcon({ index }: { index: number }) {
   );
 }
 
+function ArrowStep() {
+  return (
+    <span className="pointer-events-none absolute -right-5 top-1/2 z-20 hidden -translate-y-1/2 items-center lg:flex">
+      <span className="h-px w-5 bg-gradient-to-r from-fuchsia-300/45 to-blue-300/55" />
+      <svg viewBox="0 0 16 16" className="h-4 w-4 text-blue-200/75" fill="none" aria-hidden="true">
+        <path d="m6 3 5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
+  );
+}
+
+function OutcomeIcon({ index }: { index: number }) {
+  return (
+    <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
+      {index === 0 && <><path d="M4 19V9M10 19V5M16 19v-8M22 19H2" /><path d="m4 7 5-3 4 3 7-5" /></>}
+      {index === 1 && <><circle cx="12" cy="12" r="8" /><path d="M12 7v10M15 9.5c-.7-.7-1.7-1-3-1-1.8 0-3 .9-3 2.2 0 3.4 6 1.4 6 4.1 0 1.3-1.2 2.2-3 2.2-1.3 0-2.3-.3-3-1" /></>}
+      {index === 2 && <><circle cx="8" cy="9" r="3" /><circle cx="16" cy="9" r="3" /><path d="M3 20c.5-3 2.1-4.5 5-4.5S12.5 17 13 20M11 20c.5-3 2.1-4.5 5-4.5s4.5 1.5 5 4.5" /></>}
+      {index === 3 && <><path d="m12 3 8 3v5c0 5-3.4 8.2-8 10-4.6-1.8-8-5-8-10V6l8-3Z" /><path d="m8.5 12 2.2 2.2 4.8-5" /></>}
+      {index === 4 && <><path d="m4 17 6-6 3 3 7-8" /><path d="M15 6h5v5" /></>}
+    </svg>
+  );
+}
+
 export default function StrategyReadinessPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#050719] text-white">
@@ -103,10 +126,13 @@ export default function StrategyReadinessPage() {
         <div className="relative grid gap-4 rounded-[1.6rem] border border-white/10 bg-white/[0.018] p-3 md:p-5 lg:grid-cols-5">
           <span className="pointer-events-none absolute left-[8%] right-[8%] top-[3.1rem] hidden h-px bg-gradient-to-r from-fuchsia-400/30 via-blue-400/35 to-fuchsia-400/30 lg:block" />
           {stages.map((stage, index) => (
-            <motion.article key={stage.title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ delay: index * 0.06 }} className="group relative z-10 overflow-hidden rounded-[1.25rem] border border-fuchsia-200/16 bg-[#0b0929]/90 shadow-[0_18px_60px_rgba(0,0,0,0.22)] transition duration-300 hover:-translate-y-1 hover:border-fuchsia-200/35 hover:shadow-[0_22px_70px_rgba(117,71,223,0.18)]">
-              <div className="bg-[linear-gradient(135deg,#7547df,#2e6ceb_72%,#1e8fc7)] p-5"><div className="flex items-center gap-3"><span className="grid h-9 w-9 place-items-center rounded-full bg-white text-lg font-bold text-[#3f237d] shadow-[0_0_0_5px_rgba(255,255,255,0.1)]">{index + 1}</span><span className="text-white/85"><JourneyIcon index={index} /></span><span className="text-sm font-semibold leading-5 text-white">{stage.title}</span></div></div>
-              <div className="p-5"><p className="text-sm leading-6 text-white/78">{stage.description}</p><ul className="mt-4 space-y-2 text-xs leading-5 text-white/60">{stage.items.map((item) => <li key={item} className="flex gap-2"><span className="text-fuchsia-300">•</span>{item}</li>)}</ul></div>
-            </motion.article>
+            <div key={stage.title} className="relative">
+              <motion.article initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ delay: index * 0.06 }} className="group relative z-10 overflow-hidden rounded-[1.25rem] border border-fuchsia-200/16 bg-[#0b0929]/90 shadow-[0_18px_60px_rgba(0,0,0,0.22)] transition duration-300 hover:-translate-y-1 hover:border-fuchsia-200/35 hover:shadow-[0_22px_70px_rgba(117,71,223,0.18)]">
+                <div className="bg-[linear-gradient(135deg,#7547df,#2e6ceb_72%,#1e8fc7)] p-5"><div className="flex items-center gap-3"><span className="grid h-9 w-9 place-items-center rounded-full bg-white text-lg font-bold text-[#3f237d] shadow-[0_0_0_5px_rgba(255,255,255,0.1)]">{index + 1}</span><span className="text-white/85"><JourneyIcon index={index} /></span><span className="text-sm font-semibold leading-5 text-white">{stage.title}</span></div></div>
+                <div className="p-5"><p className="text-sm leading-6 text-white/78">{stage.description}</p><ul className="mt-4 space-y-2 text-xs leading-5 text-white/60">{stage.items.map((item) => <li key={item} className="flex gap-2"><span className="text-fuchsia-300">•</span>{item}</li>)}</ul></div>
+              </motion.article>
+              {index < stages.length - 1 && <ArrowStep />}
+            </div>
           ))}
         </div>
       </section>
@@ -115,7 +141,7 @@ export default function StrategyReadinessPage() {
 
       <section className="section-shell pb-14 md:pb-20"><div className="rounded-[1.5rem] border border-white/10 bg-[#0b0929]/62 p-5 md:p-7"><h2 className="text-2xl font-semibold text-fuchsia-100">Key Questions</h2><div className="mt-6 grid gap-6 md:grid-cols-5">{stages.map((stage) => <div key={stage.title} className="space-y-2 text-sm leading-6 text-white/65">{stage.questions.map((question) => <div key={question} className="flex gap-2"><span className="text-fuchsia-300">•</span>{question}</div>)}</div>)}</div></div></section>
 
-      <section className="section-shell pb-14 md:pb-20"><div className="grid gap-3 rounded-[1.5rem] border border-fuchsia-200/22 bg-[linear-gradient(120deg,rgba(117,71,223,0.1),rgba(202,74,255,0.06))] p-5 md:grid-cols-5 md:p-7">{outcomes.map(([title, text]) => <div key={title} className="border-fuchsia-200/15 p-3 md:border-l"><div className="text-lg font-semibold text-fuchsia-100">{title}</div><p className="mt-2 text-sm leading-6 text-white/65">{text}</p></div>)}</div></section>
+      <section className="section-shell pb-14 md:pb-20"><div className="mb-6"><div className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-fuchsia-200/56">Business impact</div><h2 className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-white md:text-4xl">What this workflow unlocks</h2></div><div className="grid gap-3 rounded-[1.5rem] border border-fuchsia-200/22 bg-[linear-gradient(120deg,rgba(117,71,223,0.1),rgba(202,74,255,0.06))] p-3 sm:grid-cols-2 md:grid-cols-5 md:p-5">{outcomes.map(([title, text], index) => <div key={title} className="group rounded-[1rem] border border-white/[0.06] bg-[#0b0929]/52 p-4 transition duration-300 hover:-translate-y-1 hover:border-fuchsia-200/25 hover:bg-fuchsia-300/[0.06]"><div className="flex h-11 w-11 items-center justify-center rounded-[0.85rem] bg-fuchsia-300/[0.1] text-fuchsia-200 shadow-[0_0_24px_rgba(202,74,255,0.12)] transition group-hover:bg-fuchsia-300/[0.16]"><OutcomeIcon index={index} /></div><div className="mt-4 text-lg font-semibold text-fuchsia-100">{title}</div><p className="mt-2 text-sm leading-6 text-white/65">{text}</p></div>)}</div></section>
 
       <section className="section-shell pb-28"><div className="flex flex-col gap-5 rounded-[1.35rem] bg-[linear-gradient(100deg,#3f207f,#7547df,#4d238a)] p-6 text-white shadow-[0_20px_70px_rgba(117,71,223,0.24)] md:flex-row md:items-center md:p-8"><div className="text-4xl">✦</div><div><strong className="text-lg">In Short:</strong><span className="ml-3 text-base leading-7 text-white/82">AI Strategy &amp; Readiness ensures we start with the right opportunities, build the right foundation and create a clear path so AI delivers real, measurable and sustainable business value.</span></div></div><Link href="/services" className="mt-8 inline-flex items-center rounded-full border border-fuchsia-200/22 px-5 py-3 text-sm font-semibold text-white/78 transition hover:bg-white/[0.08] hover:text-white">Back to all services</Link></section>
       <ScrollToTopButton />
