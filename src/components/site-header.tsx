@@ -225,7 +225,7 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
                     </span>
                   </Link>
                   <div
-                    className={`absolute left-1/2 top-full z-[90] mt-4 w-[31rem] -translate-x-1/2 transition-all duration-200 ${
+                    className={`absolute left-1/2 top-full z-[90] mt-4 w-[27rem] -translate-x-1/2 transition-all duration-200 ${
                       servicesOpen
                         ? "pointer-events-auto visible translate-y-0 opacity-100"
                         : "pointer-events-none invisible translate-y-2 opacity-0"
