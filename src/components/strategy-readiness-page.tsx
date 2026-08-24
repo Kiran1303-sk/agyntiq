@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import ScrollToTopButton from "@/components/scroll-to-top-button";
 import SiteHeader from "@/components/site-header";
+import ServiceFooter from "@/components/service-footer";
 
 const stages = [
   { title: "Opportunity Identification", description: "Identify high-impact areas where AI can solve real business problems and create measurable value.", items: ["Business process discovery", "Pain point analysis", "AI use case ideation", "Value vs. feasibility screening"], output: "Prioritized AI opportunity list", question: "Where can AI create the most impact?" },
@@ -41,6 +42,7 @@ export default function StrategyReadinessPage() {
       <SiteHeader mode="services" />
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_8%_4%,rgba(202,74,255,0.15),transparent_28%),radial-gradient(circle_at_92%_20%,rgba(46,108,235,0.12),transparent_30%),linear-gradient(180deg,#050719,#100826_50%,#050719)]" />
       <div className="pointer-events-none absolute left-[-15rem] top-[30rem] h-[34rem] w-[34rem] rounded-full bg-fuchsia-400/[0.07] blur-[130px]" />
+      <motion.div animate={{ x: [0, 18, 0], y: [0, -12, 0], opacity: [0.25, 0.5, 0.25] }} transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute right-[8%] top-[14rem] h-72 w-72 rounded-full bg-fuchsia-400/[0.08] blur-[100px]" />
 
       <section className="section-shell pt-36 pb-16 md:pt-44 md:pb-24">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_24rem] lg:items-end">
@@ -61,6 +63,7 @@ export default function StrategyReadinessPage() {
       <section className="section-shell pb-20 md:pb-28"><div className="mb-8"><div className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-fuchsia-200/55">Business impact</div><h2 className="mt-3 text-3xl font-semibold tracking-[-0.06em] text-white md:text-5xl">What this workflow unlocks.</h2></div><div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">{outcomes.map(([title, text], index) => <div key={title} className="group rounded-[1.25rem] border border-white/10 bg-[#0b0929]/62 p-5 transition duration-300 hover:-translate-y-1 hover:border-fuchsia-200/28 hover:bg-fuchsia-300/[0.06]"><OutcomeIcon index={index} /><h3 className="mt-5 text-lg font-semibold text-white">{title}</h3><p className="mt-2 text-sm leading-6 text-white/52">{text}</p></div>)}</div></section>
 
       <section className="section-shell pb-28"><div className="rounded-[1.5rem] bg-[linear-gradient(105deg,#3f207f,#7547df,#4d238a)] p-7 shadow-[0_24px_90px_rgba(117,71,223,0.22)] md:p-10"><div className="max-w-4xl"><div className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-white/58">The result</div><h2 className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.05em] md:text-5xl">Start with the right opportunities. Build the right foundation. Move with confidence.</h2><p className="mt-5 max-w-3xl text-base leading-7 text-white/72">AI Strategy &amp; Readiness turns ambition into a practical operating model and a measurable path to sustainable business value.</p><Link href="/#contact" className="mt-7 inline-flex items-center gap-3 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#3f207f] transition hover:-translate-y-0.5">Talk through your readiness <ArrowIcon /></Link></div></div><Link href="/services" className="mt-7 inline-flex items-center text-sm font-semibold text-white/52 transition hover:text-fuchsia-100">Back to all services <span className="ml-2">→</span></Link></section>
+      <ServiceFooter />
       <ScrollToTopButton />
     </main>
   );
