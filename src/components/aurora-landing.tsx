@@ -846,27 +846,27 @@ export default function AuroraLanding() {
         </div>
       </header>
 
-      <main className="relative overflow-hidden bg-[linear-gradient(145deg,#050719_0%,#100826_34%,#09071e_62%,#220625_100%)] pt-24">
+      <main className="relative overflow-hidden bg-[linear-gradient(145deg,#050719_0%,#100826_34%,#09071e_62%,#220625_100%)] pt-20 md:pt-24">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_10%,rgba(202,74,255,0.2),transparent_24%),radial-gradient(circle_at_88%_28%,rgba(217,70,239,0.16),transparent_28%),radial-gradient(circle_at_52%_72%,rgba(117,71,223,0.13),transparent_34%)]" />
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(3,8,27,0)_0%,rgba(3,8,27,0.34)_42%,rgba(3,5,18,0.86)_100%)]" />
         <div className="pointer-events-none absolute left-[-10rem] top-[26rem] h-[38rem] w-[38rem] rounded-full bg-[#ca4aff]/12 blur-3xl" />
         <div className="pointer-events-none absolute right-[-12rem] top-[64rem] h-[42rem] w-[42rem] rounded-full bg-[#d946ef]/14 blur-3xl" />
         <section
           id="hero"
-          className="relative scroll-mt-28 overflow-hidden pb-10 pt-16 md:scroll-mt-32 md:pb-28 md:pt-24"
+          className="relative scroll-mt-28 overflow-hidden pb-8 pt-10 md:scroll-mt-32 md:pb-16 md:pt-14"
         >
           <div className="pointer-events-none absolute inset-x-0 top-0 h-[78%] bg-[radial-gradient(circle_at_18%_18%,rgba(202,74,255,0.18),transparent_30%),radial-gradient(circle_at_78%_36%,rgba(117,71,223,0.14),transparent_34%)]" />
           <div className="section-shell relative z-10">
             <div className="noise-overlay" />
             <div className="absolute inset-x-0 top-[-18%] h-[54rem] rounded-[3rem] bg-[linear-gradient(135deg,rgba(30,8,55,0.44),rgba(7,8,28,0.2)_46%,rgba(42,7,46,0.34))] blur-2xl" />
 
-            <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+            <div className="mx-auto grid max-w-[1520px] gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
               <motion.div
                 data-reveal
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease: "easeOut" }}
-                className="relative z-10 max-w-3xl self-start"
+                className="relative z-10 max-w-3xl self-center lg:pt-4"
               >
                 <div className="absolute -inset-8 -z-10 rounded-[2.5rem] bg-[radial-gradient(circle_at_18%_18%,rgba(202,74,255,0.18),transparent_34%),linear-gradient(135deg,rgba(24,8,46,0.5),rgba(10,14,48,0.2))] blur-2xl" />
                 <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#180d32]/74 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-100/72 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.18),0_0_34px_rgba(202,74,255,0.14)] backdrop-blur-xl">
@@ -874,7 +874,7 @@ export default function AuroraLanding() {
                   Flagship enterprise AI platform
                 </div>
 
-                <h1 className="max-w-4xl text-5xl font-semibold leading-[0.92] tracking-[-0.08em] text-white drop-shadow-[0_0_44px_rgba(202,74,255,0.18)] md:text-7xl xl:text-[6.4rem]">
+                <h1 className="max-w-4xl text-4xl font-semibold leading-[0.94] tracking-[-0.08em] text-white drop-shadow-[0_0_44px_rgba(202,74,255,0.18)] sm:text-5xl md:text-6xl xl:text-[6rem]">
                   <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#f3e8ff_44%,#f0abfc_100%)] bg-clip-text text-transparent">
                     AI That Acts.
                   </span>
@@ -883,12 +883,12 @@ export default function AuroraLanding() {
                   </span>
                 </h1>
 
-                <p className="section-copy mt-7 max-w-2xl [text-shadow:0_0_24px_rgba(126,87,255,0.12)] md:text-xl">
+                <p className="section-copy mt-5 max-w-2xl [text-shadow:0_0_24px_rgba(126,87,255,0.12)] md:text-lg xl:text-xl">
                   Agentic AI systems that plan, decide, and act autonomously to solve real-world
                   problems at scale.
                 </p>
 
-                <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                <div className="mt-7 flex flex-col gap-4 sm:flex-row">
                   <Link
                     href="/services"
                     className="aurora-button hover-sheen magnetic inline-flex items-center justify-center gap-2 rounded-full border border-[#ca4aff]/22 px-7 py-4 text-sm font-semibold text-white shadow-[0_18px_70px_rgba(202,74,255,0.24)] transition hover:shadow-[0_18px_80px_rgba(217,70,239,0.26)]"
@@ -904,7 +904,7 @@ export default function AuroraLanding() {
                   </Link>
                 </div>
 
-                <div className="mt-8 flex flex-wrap items-center gap-3">
+                <div className="mt-6 flex flex-wrap items-center gap-3">
                   <span className="rounded-full bg-[#180d32]/72 px-3 py-2 text-xs uppercase tracking-[0.26em] text-fuchsia-100/74 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.14),0_0_30px_rgba(202,74,255,0.12)]">
                     Goal: Increase conversion by 25%
                   </span>
@@ -918,7 +918,7 @@ export default function AuroraLanding() {
                   ))}
                 </div>
 
-                <div className="mt-10 flex flex-wrap items-center gap-3">
+                <div className="mt-6 flex flex-wrap items-center gap-3">
                   {clientLogos.map((name) => (
                     <span
                       key={name}
@@ -935,11 +935,11 @@ export default function AuroraLanding() {
                 initial={{ opacity: 0, y: 32 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
-                className="scroll-float relative self-start justify-self-end"
+                className="scroll-float relative self-center justify-self-end"
                 data-parallax="30"
               >
-                <div className="relative min-h-[560px] overflow-visible md:min-h-[680px]">
-                  <div className="absolute right-0 top-[-48px] w-[320px] md:top-[-72px] md:w-[390px] lg:top-[-92px] lg:w-[470px]">
+                <div className="relative min-h-[460px] overflow-visible md:min-h-[560px]">
+                  <div className="absolute right-0 top-[-20px] w-[280px] sm:top-[-36px] sm:w-[320px] md:top-[-52px] md:w-[380px] lg:top-[-66px] lg:w-[440px] xl:w-[500px]">
                     <Image
                       src="/hero2.png"
                       alt="AI hero visual"
