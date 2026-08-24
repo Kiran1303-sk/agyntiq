@@ -58,7 +58,7 @@ function ServiceOrbital() {
       <motion.div
         animate={{ opacity: [0.36, 0.7, 0.36], scale: [1, 1.06, 1] }}
         transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute left-1/2 top-[42%] h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(91,92,255,0.24),transparent_70%)] blur-2xl"
+        className="absolute left-1/2 top-[42%] h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(202,74,255,0.24),transparent_70%)] blur-2xl"
       />
 
       <div className="relative grid min-h-[21rem] grid-rows-[auto_1fr_auto] gap-6">
@@ -88,7 +88,7 @@ function ServiceOrbital() {
               transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
               className="absolute inset-5 rounded-[1.6rem] bg-[#090d27]/82 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.16)]"
             />
-            <div className="relative flex h-24 w-24 items-center justify-center rounded-[1.6rem] bg-[#090d27]/94 text-5xl font-semibold text-white shadow-[0_0_55px_rgba(91,92,255,0.34),inset_0_0_0_1px_rgba(122,105,255,0.28)]">
+            <div className="relative flex h-24 w-24 items-center justify-center rounded-[1.6rem] bg-[#180d32]/94 text-5xl font-semibold text-white shadow-[0_0_55px_rgba(202,74,255,0.34),inset_0_0_0_1px_rgba(240,171,252,0.28)]">
               A
             </div>
           </div>
@@ -108,7 +108,7 @@ function ServiceOrbital() {
               initial={{ width: "18%" }}
               animate={{ width: ["18%", "74%", "52%", "88%"] }}
               transition={{ duration: 5, repeat: Infinity, ease }}
-              className="h-full rounded-full bg-[linear-gradient(90deg,#2e6ceb,#5b5cff,#7547df)]"
+              className="h-full rounded-full bg-[linear-gradient(90deg,#2e6ceb,#7547df,#c23bd9)]"
             />
           </div>
         </div>
@@ -129,7 +129,7 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#050a1f_0%,#050817_36%,#07041a_100%)]" />
         <div className="absolute left-[-14%] top-[-10%] h-[38rem] w-[38rem] rounded-full bg-[radial-gradient(circle,rgba(46,108,235,0.2),transparent_68%)] blur-3xl" />
         <div className="absolute right-[-16%] top-[12%] h-[38rem] w-[38rem] rounded-full bg-[radial-gradient(circle,rgba(117,71,223,0.2),transparent_70%)] blur-3xl" />
-        <div className="absolute bottom-[-16%] left-[12%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(91,92,255,0.14),transparent_70%)] blur-3xl" />
+        <div className="absolute bottom-[-16%] left-[12%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(202,74,255,0.14),transparent_70%)] blur-3xl" />
       </div>
 
       <section className="section-shell pb-14 md:pb-20">
@@ -140,11 +140,11 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
           className="grid items-center gap-8 xl:grid-cols-[minmax(0,1.02fr)_minmax(22rem,0.82fr)]"
         >
           <div>
-            <motion.div variants={fadeUp} className="inline-flex rounded-full bg-[#0b1332]/84 px-5 py-3 text-[0.72rem] font-semibold uppercase tracking-[0.32em] text-indigo-100 shadow-[inset_0_0_0_1px_rgba(91,92,255,0.26),0_0_34px_rgba(91,92,255,0.12)]">
+            <motion.div variants={fadeUp} className="inline-flex rounded-full bg-[#180d32]/84 px-5 py-3 text-[0.72rem] font-semibold uppercase tracking-[0.32em] text-fuchsia-100 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.26),0_0_34px_rgba(202,74,255,0.12)]">
               {activeServiceNumber} / {data.eyebrow}
             </motion.div>
 
-            <motion.h1 variants={fadeUp} className="mt-7 max-w-[12ch] text-balance text-5xl font-semibold leading-[0.92] tracking-[-0.08em] text-white drop-shadow-[0_0_34px_rgba(91,92,255,0.18)] md:text-6xl xl:text-[5.2rem]">
+            <motion.h1 variants={fadeUp} className="mt-7 max-w-[12ch] text-balance text-5xl font-semibold leading-[0.92] tracking-[-0.08em] text-white drop-shadow-[0_0_34px_rgba(202,74,255,0.18)] md:text-6xl xl:text-[5.2rem]">
               {data.title}
             </motion.h1>
 
@@ -153,13 +153,13 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
             </motion.p>
 
             <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="#service-plan" className="group inline-flex items-center justify-center gap-3 rounded-full bg-[linear-gradient(135deg,#2e6ceb_0%,#5b5cff_48%,#7547df_100%)] px-6 py-4 text-sm font-semibold text-white shadow-[0_18px_50px_rgba(91,92,255,0.24)] transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_24px_66px_rgba(91,92,255,0.34)]">
+              <Link href="#service-plan" className="group inline-flex items-center justify-center gap-3 rounded-full bg-[linear-gradient(135deg,#2e6ceb_0%,#7547df_48%,#c23bd9_100%)] px-6 py-4 text-sm font-semibold text-white shadow-[0_18px_50px_rgba(126,87,255,0.24)] transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_24px_66px_rgba(194,59,217,0.34)]">
                 <span>Explore service plan</span>
                 <span className="transition duration-500 group-hover:translate-x-1">
                   <ArrowRightIcon />
                 </span>
               </Link>
-              <Link href="/#contact" className="inline-flex items-center justify-center rounded-full bg-[#0b1332]/82 px-6 py-4 text-sm font-semibold text-white/86 shadow-[inset_0_0_0_1px_rgba(91,92,255,0.28)] transition duration-500 hover:-translate-y-0.5 hover:bg-[#111a42] hover:text-white">
+              <Link href="/#contact" className="inline-flex items-center justify-center rounded-full bg-[#180d32]/82 px-6 py-4 text-sm font-semibold text-white/86 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.22)] transition duration-500 hover:-translate-y-0.5 hover:bg-[#241143] hover:text-white">
                 Exclusive Today
               </Link>
             </motion.div>
@@ -179,7 +179,7 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
           variants={stagger}
           className="grid gap-5 lg:grid-cols-[0.95fr_1.05fr]"
         >
-          <motion.div variants={fadeUp} className="rounded-[2rem] bg-[linear-gradient(135deg,rgba(5,13,40,0.9),rgba(12,8,34,0.96))] p-6 shadow-[inset_0_0_0_1px_rgba(91,92,255,0.22),0_24px_80px_rgba(0,0,0,0.24)] md:p-8">
+          <motion.div variants={fadeUp} className="rounded-[2rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.9),rgba(42,7,46,0.96))] p-6 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.22),0_24px_80px_rgba(0,0,0,0.24)] md:p-8">
             <div className="text-[0.72rem] font-semibold uppercase tracking-[0.36em] text-indigo-200/58">
               Service brief
             </div>
@@ -192,7 +192,7 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
                 { label: "Outputs", value: String(data.deliverables.length).padStart(2, "0") },
                 { label: "Mode", value: data.eyebrow }
               ].map((item) => (
-                <div key={item.label} className="rounded-[1.2rem] bg-[#070b24]/72 p-4 shadow-[inset_0_0_0_1px_rgba(91,92,255,0.16)]">
+                <div key={item.label} className="rounded-[1.2rem] bg-[#180d32]/72 p-4 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.16)]">
                   <div className="text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-indigo-200/46">
                     {item.label}
                   </div>
@@ -210,11 +210,11 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
                 key={point}
                 whileHover={{ y: -6 }}
                 transition={{ type: "spring", stiffness: 260, damping: 22 }}
-                className="group relative overflow-hidden rounded-[1.45rem] bg-[linear-gradient(135deg,rgba(5,13,40,0.9)_0%,rgba(7,8,28,0.96)_58%,rgba(24,8,46,0.82)_100%)] p-5 shadow-[inset_0_0_0_1px_rgba(91,92,255,0.18),0_18px_55px_rgba(0,0,0,0.18)] transition duration-500"
+                className="group relative overflow-hidden rounded-[1.45rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.9)_0%,rgba(7,8,28,0.96)_58%,rgba(42,7,46,0.82)_100%)] p-5 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.18),0_18px_55px_rgba(0,0,0,0.18)] transition duration-500"
               >
                 <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_12%,rgba(46,108,235,0.14),transparent_32%),radial-gradient(circle_at_90%_90%,rgba(117,71,223,0.12),transparent_34%)] opacity-0 transition duration-500 group-hover:opacity-100" />
                 <div className="relative flex items-center justify-between gap-4">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-[0.9rem] bg-[#0d1434] text-indigo-200 shadow-[inset_0_0_0_1px_rgba(91,92,255,0.18)]">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-[0.9rem] bg-[#151239] text-fuchsia-200 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.18)]">
                     <SignalIcon />
                   </div>
                   <span className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-indigo-200/48">
@@ -234,7 +234,7 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
           whileInView="show"
           viewport={{ once: true, margin: "-120px" }}
           variants={stagger}
-          className="rounded-[2.2rem] bg-[linear-gradient(135deg,rgba(5,13,40,0.9)_0%,rgba(7,8,28,0.98)_52%,rgba(24,8,46,0.9)_100%)] p-6 shadow-[inset_0_0_0_1px_rgba(91,92,255,0.22),0_30px_90px_rgba(0,0,0,0.24)] md:p-8"
+          className="rounded-[2.2rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.9)_0%,rgba(7,8,28,0.98)_52%,rgba(42,7,46,0.9)_100%)] p-6 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.22),0_30px_90px_rgba(0,0,0,0.24)] md:p-8"
         >
           <motion.div variants={fadeUp} className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div>
@@ -257,9 +257,9 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
                 variants={fadeUp}
                 whileHover={{ y: -6 }}
                 transition={{ type: "spring", stiffness: 260, damping: 22 }}
-                className="group relative overflow-hidden rounded-[1.45rem] bg-[#060a22]/78 p-5 shadow-[inset_0_0_0_1px_rgba(91,92,255,0.16)]"
+                className="group relative overflow-hidden rounded-[1.45rem] bg-[#060a22]/78 p-5 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.16)]"
               >
-                <span className="absolute inset-x-5 top-0 h-1 origin-left scale-x-0 rounded-full bg-[linear-gradient(90deg,#2e6ceb,#5b5cff,#7547df)] transition duration-500 group-hover:scale-x-100" />
+                <span className="absolute inset-x-5 top-0 h-1 origin-left scale-x-0 rounded-full bg-[linear-gradient(90deg,#2e6ceb,#7547df,#c23bd9)] transition duration-500 group-hover:scale-x-100" />
                 <div className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-indigo-200/45">
                   Output 0{index + 1}
                 </div>
@@ -280,7 +280,7 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
           variants={stagger}
           className="grid gap-5 lg:grid-cols-[0.7fr_1fr]"
         >
-          <motion.div variants={fadeUp} className="rounded-[2rem] bg-[#070b24]/78 p-6 shadow-[inset_0_0_0_1px_rgba(91,92,255,0.18)] md:p-8">
+          <motion.div variants={fadeUp} className="rounded-[2rem] bg-[#180d32]/78 p-6 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.18)] md:p-8">
             <div className="text-[0.72rem] font-semibold uppercase tracking-[0.36em] text-indigo-200/52">
               Next service
             </div>
@@ -290,7 +290,7 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
           </motion.div>
 
           <motion.div variants={fadeUp}>
-            <Link href={nextService.href} className="group relative block overflow-hidden rounded-[2rem] bg-[linear-gradient(135deg,rgba(46,108,235,0.18)_0%,rgba(91,92,255,0.14)_48%,rgba(117,71,223,0.2)_100%)] p-6 shadow-[inset_0_0_0_1px_rgba(91,92,255,0.22),0_24px_76px_rgba(0,0,0,0.22)] transition duration-500 hover:-translate-y-1 md:p-8">
+            <Link href={nextService.href} className="group relative block overflow-hidden rounded-[2rem] bg-[linear-gradient(135deg,rgba(46,108,235,0.18)_0%,rgba(117,71,223,0.14)_48%,rgba(194,59,217,0.2)_100%)] p-6 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.22),0_24px_76px_rgba(0,0,0,0.22)] transition duration-500 hover:-translate-y-1 md:p-8">
               <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_86%_24%,rgba(117,71,223,0.22),transparent_36%)] opacity-60 transition duration-500 group-hover:opacity-100" />
               <div className="relative flex items-start justify-between gap-6">
                 <div>
@@ -301,7 +301,7 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
                     Open next service page
                   </div>
                 </div>
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#0b1332]/88 text-white shadow-[inset_0_0_0_1px_rgba(91,92,255,0.25)] transition duration-500 group-hover:translate-x-1">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#180d32]/88 text-white shadow-[inset_0_0_0_1px_rgba(240,171,252,0.25)] transition duration-500 group-hover:translate-x-1">
                   <ArrowRightIcon />
                 </span>
               </div>
