@@ -554,8 +554,7 @@ export default function ServicesPage() {
       </section>
 
       <nav className="sticky top-24 z-30 mx-auto w-full max-w-[1120px] px-4 md:px-6">
-        <div className="rounded-[1.4rem] bg-[linear-gradient(120deg,rgba(13,16,41,0.94),rgba(21,11,44,0.9))] p-2 shadow-[0_18px_70px_rgba(0,0,0,0.35),0_0_34px_rgba(119,57,255,0.12),inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-2xl">
-          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
             {services.map((service) => (
               <Link
                 key={service.id}
@@ -571,7 +570,6 @@ export default function ServicesPage() {
                 </span>
               </Link>
             ))}
-          </div>
         </div>
       </nav>
 
