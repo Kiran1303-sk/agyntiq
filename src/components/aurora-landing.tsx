@@ -853,20 +853,20 @@ export default function AuroraLanding() {
         <div className="pointer-events-none absolute right-[-12rem] top-[64rem] h-[42rem] w-[42rem] rounded-full bg-[#d946ef]/14 blur-3xl" />
         <section
           id="hero"
-          className="relative scroll-mt-28 overflow-hidden pb-6 pt-8 md:scroll-mt-32 md:pb-12 md:pt-12 xl:min-h-[calc(100vh-5rem)] xl:flex xl:items-center"
+          className="relative scroll-mt-28 overflow-hidden pb-6 pt-8 md:scroll-mt-32 md:pb-12 md:pt-12 xl:min-h-[calc(100vh-5rem)] xl:flex xl:items-start"
         >
           <div className="pointer-events-none absolute inset-x-0 top-0 h-[78%] bg-[radial-gradient(circle_at_18%_18%,rgba(202,74,255,0.18),transparent_30%),radial-gradient(circle_at_78%_36%,rgba(117,71,223,0.14),transparent_34%)]" />
           <div className="section-shell relative z-10">
             <div className="noise-overlay" />
             <div className="absolute inset-x-0 top-[-18%] h-[54rem] rounded-[3rem] bg-[linear-gradient(135deg,rgba(30,8,55,0.44),rgba(7,8,28,0.2)_46%,rgba(42,7,46,0.34))] blur-2xl" />
 
-            <div className="mx-auto grid max-w-[1480px] gap-6 lg:grid-cols-[1.12fr_0.88fr] lg:items-center xl:gap-10">
+            <div className="mx-auto grid max-w-[1480px] gap-6 lg:grid-cols-[1.12fr_0.88fr] lg:items-start xl:gap-10">
               <motion.div
                 data-reveal
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease: "easeOut" }}
-                className="relative z-10 max-w-3xl self-center lg:pt-2"
+                className="relative z-10 max-w-3xl self-start lg:pt-2"
               >
                 <div className="absolute -inset-8 -z-10 rounded-[2.5rem] bg-[radial-gradient(circle_at_18%_18%,rgba(202,74,255,0.18),transparent_34%),linear-gradient(135deg,rgba(24,8,46,0.5),rgba(10,14,48,0.2))] blur-2xl" />
                 <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#180d32]/74 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-100/72 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.18),0_0_34px_rgba(202,74,255,0.14)] backdrop-blur-xl">
@@ -935,11 +935,11 @@ export default function AuroraLanding() {
                 initial={{ opacity: 0, y: 32 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
-                className="scroll-float relative self-center justify-self-end"
+                className="scroll-float relative self-start justify-self-end"
                 data-parallax="30"
               >
-                <div className="relative min-h-[400px] overflow-visible md:min-h-[500px]">
-                  <div className="absolute right-0 top-0 w-[250px] sm:top-[-12px] sm:w-[290px] md:top-[-24px] md:w-[340px] lg:top-[-36px] lg:w-[390px] xl:w-[440px]">
+                <div className="relative min-h-[400px] overflow-visible md:min-h-[500px] lg:-mt-4">
+                  <div className="absolute right-0 top-[-12px] w-[250px] sm:top-[-12px] sm:w-[290px] md:top-[-24px] md:w-[340px] lg:top-[-44px] lg:w-[390px] xl:w-[440px]">
                     <Image
                       src="/hero2.png"
                       alt="AI hero visual"
