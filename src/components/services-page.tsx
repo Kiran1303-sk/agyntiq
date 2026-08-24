@@ -554,7 +554,7 @@ export default function ServicesPage() {
       </section>
 
       <nav className="sticky top-24 z-30 mx-auto w-full max-w-[1120px] px-4 md:px-6">
-        <div className="rounded-[1.4rem] border border-[#4d2aad]/55 bg-[linear-gradient(120deg,rgba(13,16,41,0.94),rgba(21,11,44,0.9))] p-2 shadow-[0_18px_70px_rgba(0,0,0,0.35),0_0_34px_rgba(119,57,255,0.12),inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-2xl">
+        <div className="rounded-[1.4rem] bg-[linear-gradient(120deg,rgba(13,16,41,0.94),rgba(21,11,44,0.9))] p-2 shadow-[0_18px_70px_rgba(0,0,0,0.35),0_0_34px_rgba(119,57,255,0.12),inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-2xl">
           <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
             {services.map((service) => (
               <Link
@@ -630,12 +630,12 @@ export default function ServicesPage() {
             whileInView="show"
             viewport={{ once: true, margin: "-120px" }}
             variants={stagger}
-            className={`grid gap-10 lg:grid-cols-2 lg:items-start ${index % 2 === 1 ? "lg:[&>*:first-child]:order-2" : ""}`}
+            className="grid gap-10 lg:grid-cols-2 lg:items-start"
           >
-            <motion.div variants={fadeUp}>
+            <motion.div variants={fadeUp} className="lg:order-2">
               <NeuralGraphic index={index} />
             </motion.div>
-            <motion.div variants={fadeUp}>
+            <motion.div variants={fadeUp} className="lg:order-1">
               <div className="text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-200/58">
                 {service.number} / {service.title}
               </div>
