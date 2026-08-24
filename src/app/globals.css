@@ -13,6 +13,15 @@ html {
     linear-gradient(180deg, #050719 0%, #100826 35%, #050719 100%);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-roboto-condensed), sans-serif;
+}
+
 body {
   min-height: 100vh;
   background:

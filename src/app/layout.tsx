@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Roboto_Condensed, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk"
+});
+
+const robotoCondensed = Roboto_Condensed({
+  subsets: ["latin"],
+  variable: "--font-roboto-condensed"
 });
 
 export const metadata: Metadata = {
@@ -63,7 +68,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body
-        className={`${spaceGrotesk.className} ${spaceGrotesk.variable} bg-agyntiq-deep-black text-agyntiq-text-primary antialiased`}
+        className={`${spaceGrotesk.className} ${spaceGrotesk.variable} ${robotoCondensed.variable} bg-agyntiq-deep-black text-agyntiq-text-primary antialiased`}
       >
         {children}
       </body>
