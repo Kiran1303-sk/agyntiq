@@ -480,6 +480,7 @@ export default function AuroraLanding() {
   const [active, setActive] = useState("hero");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const servicesCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const pathname = usePathname();
   const { scrollYProgress } = useScroll();
@@ -488,6 +489,25 @@ export default function AuroraLanding() {
     damping: 24,
     mass: 0.2
   });
+
+  const openServices = () => {
+    if (servicesCloseTimer.current) {
+      clearTimeout(servicesCloseTimer.current);
+      servicesCloseTimer.current = null;
+    }
+
+    setServicesOpen(true);
+  };
+
+  const closeServices = () => {
+    if (servicesCloseTimer.current) {
+      clearTimeout(servicesCloseTimer.current);
+    }
+
+    servicesCloseTimer.current = setTimeout(() => {
+      setServicesOpen(false);
+    }, 140);
+  };
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -661,12 +681,12 @@ export default function AuroraLanding() {
                   <div
                     key={item.href}
                     className="relative"
-                    onMouseEnter={() => setServicesOpen(true)}
-                    onMouseLeave={() => setServicesOpen(false)}
-                    onFocusCapture={() => setServicesOpen(true)}
+                    onMouseEnter={openServices}
+                    onMouseLeave={closeServices}
+                    onFocusCapture={openServices}
                     onBlurCapture={(event) => {
                       if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-                        setServicesOpen(false);
+                        closeServices();
                       }
                     }}
                   >
@@ -686,36 +706,38 @@ export default function AuroraLanding() {
                       </span>
                     </Link>
                     <div
-                      className={`absolute left-1/2 top-full z-[90] mt-3 w-[31rem] -translate-x-1/2 transition-all duration-200 ${
+                      className={`absolute left-1/2 top-full z-[90] mt-4 w-[27rem] -translate-x-1/2 transition-all duration-200 ${
                         servicesOpen
                           ? "pointer-events-auto visible translate-y-0 opacity-100"
                           : "pointer-events-none invisible translate-y-2 opacity-0"
                       }`}
                       role="menu"
                       aria-label="Services menu"
+                      onMouseEnter={openServices}
+                      onMouseLeave={closeServices}
                     >
-                      <div className="relative overflow-hidden rounded-[1.25rem] border border-[#4d2aad]/70 bg-[linear-gradient(135deg,rgba(5,12,38,0.98)_0%,rgba(7,8,28,0.98)_52%,rgba(10,14,48,0.98)_100%)] p-4 shadow-[0_22px_70px_rgba(0,0,0,0.48),0_0_34px_rgba(119,57,255,0.14)] backdrop-blur-2xl">
-                        <div className="absolute left-1/2 top-[-0.3rem] h-3.5 w-3.5 -translate-x-1/2 rotate-45 bg-[#080b25]" />
-                        <div className="grid min-h-[16.5rem] grid-cols-[0.9fr_1.1fr]">
-                          <div className="relative overflow-hidden bg-[radial-gradient(circle_at_48%_46%,rgba(202,74,255,0.16),transparent_28%),linear-gradient(180deg,rgba(24,8,46,0.32),rgba(42,7,46,0.08))]">
-                            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(202,74,255,0.1),transparent_42%,rgba(117,71,223,0.1))]" />
-                            <div className="relative flex h-full items-center justify-center">
-                              <div className="flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-[0.85rem] border border-fuchsia-200/14 bg-[#0c0b2c]/70 text-4xl font-semibold text-white shadow-[0_0_38px_rgba(126,87,255,0.42)]">
-                                A
-                              </div>
-                            </div>
-                          </div>
+                      <div className="absolute left-1/2 top-[-0.42rem] z-10 h-4 w-4 -translate-x-1/2 rotate-45 bg-[#080b25]" />
+                      <div className="relative overflow-hidden rounded-[1.25rem] border border-[#4d2aad]/70 bg-[linear-gradient(135deg,rgba(5,12,38,0.98)_0%,rgba(7,8,28,0.98)_48%,rgba(42,7,46,0.98)_100%)] p-4 shadow-[0_22px_70px_rgba(0,0,0,0.48),0_0_34px_rgba(119,57,255,0.14)] backdrop-blur-2xl">
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(202,74,255,0.12),transparent_28%),radial-gradient(circle_at_90%_90%,rgba(117,71,223,0.1),transparent_26%)]" />
+                        <div className="relative grid gap-1">
+                          {serviceMenuDisplay.map((service) => {
+                            const isServiceActive = pathname === service.href;
 
-                          <div className="px-4 py-1">
-                            {serviceMenuDisplay.map((service) => (
+                            return (
                               <Link
                                 key={service.href}
                                 href={service.href}
-                                className={`group flex items-center gap-3 rounded-[1rem] px-2 py-3 transition hover:bg-[#ca4aff]/[0.055] ${
-                                  pathname === service.href ? "text-white" : "text-white/78 hover:text-white"
+                                className={`group grid grid-cols-[3.25rem_minmax(0,1fr)] items-center gap-3 rounded-[1rem] px-2 py-3 transition ${
+                                  isServiceActive
+                                    ? "bg-fuchsia-300/[0.08] text-white"
+                                    : "text-white/78 hover:bg-[#ca4aff]/[0.055] hover:text-white"
                                 }`}
                               >
-                                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[0.8rem] border border-fuchsia-400/18 bg-[#151239]/72 text-fuchsia-300 shadow-[0_0_24px_rgba(202,74,255,0.14)] transition group-hover:border-fuchsia-300/35 group-hover:text-fuchsia-200">
+                                <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-[0.95rem] bg-[#151239]/72 text-fuchsia-200 transition duration-300 ${
+                                  isServiceActive
+                                    ? "shadow-[0_0_0_1px_rgba(240,171,252,0.08),0_0_24px_rgba(202,74,255,0.25)]"
+                                    : "shadow-[0_0_0_1px_rgba(255,255,255,0.04)] group-hover:bg-[#1c1944] group-hover:text-white group-hover:shadow-[0_0_0_1px_rgba(240,171,252,0.08),0_0_24px_rgba(202,74,255,0.22)]"
+                                }`}>
                                   <MenuIcon name={service.icon} />
                                 </span>
                                 <span>
@@ -727,26 +749,8 @@ export default function AuroraLanding() {
                                   </span>
                                 </span>
                               </Link>
-                            ))}
-
-                            <Link
-                              href="/services"
-                              className="mt-1 grid grid-cols-[1fr_auto] items-center gap-4 pt-4 text-[1rem] font-semibold text-fuchsia-300 transition hover:text-fuchsia-100"
-                            >
-                              <span>View All Services</span>
-                              <span className="grid h-9 w-9 place-items-center rounded-full border border-[#ca4aff]/20 bg-[#ca4aff]/[0.08]">
-                                <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden="true">
-                                  <path
-                                    d="M5 12h13m-5-5 5 5-5 5"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                  />
-                                </svg>
-                              </span>
-                            </Link>
-                          </div>
+                            );
+                          })}
                         </div>
                       </div>
                     </div>
