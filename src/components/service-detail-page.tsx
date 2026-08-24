@@ -159,7 +159,7 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
                 </span>
               </Link>
               <Link href="/#contact" className="inline-flex items-center justify-center rounded-full bg-[#0b1332]/82 px-6 py-4 text-sm font-semibold text-white/86 shadow-[inset_0_0_0_1px_rgba(91,92,255,0.28)] transition duration-500 hover:-translate-y-0.5 hover:bg-[#111a42] hover:text-white">
-                Talk to expert
+                Exclusive Today
               </Link>
             </motion.div>
           </div>

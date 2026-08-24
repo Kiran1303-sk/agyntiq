@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -131,6 +131,26 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const servicesCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const openServices = () => {
+    if (servicesCloseTimer.current) {
+      clearTimeout(servicesCloseTimer.current);
+      servicesCloseTimer.current = null;
+    }
+
+    setServicesOpen(true);
+  };
+
+  const closeServices = () => {
+    if (servicesCloseTimer.current) {
+      clearTimeout(servicesCloseTimer.current);
+    }
+
+    servicesCloseTimer.current = setTimeout(() => {
+      setServicesOpen(false);
+    }, 140);
+  };
 
   const isActive = (href: string) => {
     if (href === "/services") {
@@ -176,12 +196,12 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
                 <div
                   key={item.href}
                   className="relative"
-                  onMouseEnter={() => setServicesOpen(true)}
-                  onMouseLeave={() => setServicesOpen(false)}
-                  onFocusCapture={() => setServicesOpen(true)}
+                  onMouseEnter={openServices}
+                  onMouseLeave={closeServices}
+                  onFocusCapture={openServices}
                   onBlurCapture={(event) => {
                     if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-                      setServicesOpen(false);
+                      closeServices();
                     }
                   }}
                 >
@@ -212,29 +232,33 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
                     }`}
                     role="menu"
                     aria-label="Services menu"
+                    onMouseEnter={openServices}
+                    onMouseLeave={closeServices}
                   >
                     <div className="absolute left-1/2 top-[-0.42rem] z-10 h-4 w-4 -translate-x-1/2 rotate-45 bg-[#080b25]" />
                     <div className="relative overflow-hidden rounded-[1.25rem] border border-[#4d2aad]/70 bg-[linear-gradient(135deg,rgba(5,12,38,0.98)_0%,rgba(7,8,28,0.98)_48%,rgba(42,7,46,0.98)_100%)] p-4 shadow-[0_22px_70px_rgba(0,0,0,0.48),0_0_34px_rgba(119,57,255,0.14)] backdrop-blur-2xl">
-                      <div className="grid min-h-[16.5rem] grid-cols-[0.9fr_1.1fr]">
-                        <div className="relative overflow-hidden border-r border-white/[0.08] bg-[radial-gradient(circle_at_48%_46%,rgba(58,104,255,0.18),transparent_28%),linear-gradient(180deg,rgba(5,16,48,0.32),rgba(6,8,26,0.06))]">
-                          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(14,103,255,0.1),transparent_42%,rgba(216,62,255,0.12))]" />
-                          <div className="relative flex h-full items-center justify-center">
-                            <div className="flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-[0.85rem] border border-white/10 bg-[#0c0b2c]/70 text-4xl font-semibold text-white shadow-[0_0_38px_rgba(126,87,255,0.42)]">
-                              A
-                            </div>
-                          </div>
-                        </div>
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(202,74,255,0.12),transparent_28%),radial-gradient(circle_at_90%_90%,rgba(117,71,223,0.1),transparent_26%)]" />
+                      <div className="relative grid gap-1">
+                        {serviceMenuDisplay.map((service) => {
+                          const isServiceActive = pathname === service.href;
 
-                        <div className="flex flex-col justify-center px-4 py-1">
-                          {serviceMenuDisplay.map((service) => (
+                          return (
                             <Link
                               key={service.href}
                               href={service.href}
-                              className={`group grid grid-cols-[3.75rem_minmax(0,1fr)] items-center gap-3 border-b border-white/[0.08] py-3 transition last:border-b-0 ${
-                                pathname === service.href ? "text-white" : "text-white/78 hover:text-white"
+                              className={`group grid grid-cols-[3.25rem_minmax(0,1fr)] items-center gap-3 rounded-[1rem] px-2 py-3 transition ${
+                                isServiceActive
+                                  ? "bg-fuchsia-300/[0.08] text-white"
+                                  : "text-white/78 hover:bg-[#ca4aff]/[0.055] hover:text-white"
                               }`}
                             >
-                              <span className="flex h-11 w-11 items-center justify-center justify-self-start rounded-[0.8rem] border border-fuchsia-400/18 bg-[#151239]/72 text-fuchsia-300 shadow-[0_0_24px_rgba(202,74,255,0.14)] transition group-hover:border-fuchsia-300/35 group-hover:text-fuchsia-200">
+                              <span
+                                className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-[0.95rem] bg-[#151239]/72 text-fuchsia-200 transition duration-300 ${
+                                  isServiceActive
+                                    ? "shadow-[0_0_0_1px_rgba(240,171,252,0.08),0_0_24px_rgba(202,74,255,0.25)]"
+                                    : "shadow-[0_0_0_1px_rgba(255,255,255,0.04)] group-hover:bg-[#1c1944] group-hover:text-white group-hover:shadow-[0_0_0_1px_rgba(240,171,252,0.08),0_0_24px_rgba(202,74,255,0.22)]"
+                                }`}
+                              >
                                 <MenuIcon name={service.icon} />
                               </span>
                               <span>
@@ -246,26 +270,26 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
                                 </span>
                               </span>
                             </Link>
-                          ))}
+                          );
+                        })}
 
-                          <Link
-                            href="/services"
-                            className="mt-1 grid grid-cols-[1fr_auto] items-center gap-4 pt-4 text-[1rem] font-semibold text-fuchsia-300 transition hover:text-fuchsia-100"
-                          >
-                            <span>View All Services</span>
-                            <span className="grid h-9 w-9 place-items-center rounded-full border border-fuchsia-300/16 bg-fuchsia-300/[0.06]">
-                              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden="true">
-                                <path
-                                  d="M5 12h13m-5-5 5 5-5 5"
-                                  stroke="currentColor"
-                                  strokeWidth="2"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                />
-                              </svg>
-                            </span>
-                          </Link>
-                        </div>
+                        <Link
+                          href="/services"
+                          className="mt-1 grid grid-cols-[1fr_auto] items-center gap-4 pt-4 text-[1rem] font-semibold text-fuchsia-300 transition hover:text-fuchsia-100"
+                        >
+                          <span>View All Services</span>
+                          <span className="grid h-9 w-9 place-items-center rounded-full border border-[#ca4aff]/20 bg-[#ca4aff]/[0.08]">
+                            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden="true">
+                              <path
+                                d="M5 12h13m-5-5 5 5-5 5"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          </span>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -285,7 +309,7 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
           href={mode === "home" ? "#contact" : "/#contact"}
           className="magnetic hidden items-center justify-center gap-2 justify-self-end whitespace-nowrap rounded-full bg-[linear-gradient(180deg,rgba(72,62,214,0.95)_0%,rgba(101,55,214,0.96)_45%,rgba(149,53,215,0.96)_100%)] px-6 py-3.5 text-sm font-semibold leading-none text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_26px_rgba(127,63,255,0.25)] md:flex"
         >
-          Contact
+          Exclusive Today
           <IconArrow />
         </Link>
 
