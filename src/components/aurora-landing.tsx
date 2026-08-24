@@ -806,26 +806,17 @@ export default function AuroraLanding() {
             <div className="relative grid gap-2">
               {navItems.map((item) => {
                 const isRoute = item.href === "/services";
+                if (isRoute) {
+                  return null;
+                }
+
                 const commonClassName = `rounded-2xl px-4 py-3 text-sm font-medium transition ${
                   isNavItemActive(item.href)
                     ? "bg-[linear-gradient(90deg,#7547df_0%,#ca4aff_52%,#d946ef_100%)] text-white"
                     : "text-white/75 hover:bg-white/[0.06] hover:text-white"
                 }`;
 
-                return isRoute ? (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setMobileOpen(false)}
-                    className={commonClassName}
-                  >
-                    {item.label}
-                  </Link>
-                ) : (
-                  <a key={item.href} href={item.href} className={commonClassName}>
-                    {item.label}
-                  </a>
-                );
+                return <a key={item.href} href={item.href} className={commonClassName}>{item.label}</a>;
               })}
             </div>
 

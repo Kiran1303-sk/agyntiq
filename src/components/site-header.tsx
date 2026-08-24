@@ -322,31 +322,13 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
 
           <nav className="relative grid gap-2" aria-label="Mobile navigation">
             {navItems.map((item) => {
+              if (item.href === "/services") {
+                return null;
+              }
+
               const href = item.href === "/services" ? "/services" : sectionHref(item.href);
 
-              return item.href === "/services" ? (
-                <Link
-                  key={item.href}
-                  href="/services"
-                  onClick={() => setMobileOpen(false)}
-                  className={`rounded-[1rem] px-4 py-3.5 text-sm font-semibold transition ${
-                    isActive(item.href)
-                      ? "bg-[linear-gradient(90deg,#4f73ff_0%,#6d3fe7_52%,#8b35d8_100%)] text-white"
-                      : "text-white/74 hover:bg-white/[0.06] hover:text-white"
-                  }`}
-                >
-                  Services
-                </Link>
-              ) : (
-                <a
-                  key={item.href}
-                  href={href}
-                  onClick={() => setMobileOpen(false)}
-                  className="rounded-[1rem] px-4 py-3.5 text-sm font-semibold text-white/74 transition hover:bg-[#315cff]/[0.07] hover:text-white"
-                >
-                  {item.label}
-                </a>
-              );
+              return <a key={item.href} href={href} onClick={() => setMobileOpen(false)} className="rounded-[1rem] px-4 py-3.5 text-sm font-semibold text-white/74 transition hover:bg-[#315cff]/[0.07] hover:text-white">{item.label}</a>;
             })}
           </nav>
 
