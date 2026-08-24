@@ -918,11 +918,11 @@ export default function AuroraLanding() {
                 initial={{ opacity: 0, y: 32 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
-                className="scroll-float relative self-start justify-self-end"
+                className="scroll-float relative self-start justify-self-center lg:justify-self-end"
                 data-parallax="30"
               >
                 <div className="relative min-h-[400px] overflow-visible md:min-h-[500px] lg:-mt-4">
-                  <div className="absolute right-0 top-[-12px] w-[250px] sm:top-[-12px] sm:w-[290px] md:top-[-24px] md:w-[340px] lg:top-[-44px] lg:w-[390px] xl:w-[440px]">
+                  <div className="absolute left-1/2 top-[-12px] w-[250px] -translate-x-1/2 sm:top-[-12px] sm:w-[290px] md:top-[-24px] md:w-[340px] lg:left-auto lg:right-0 lg:top-[-44px] lg:w-[390px] lg:translate-x-0 xl:w-[440px]">
                     <Image
                       src="/hero2.png"
                       alt="AI hero visual"
