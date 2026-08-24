@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import SiteHeader from "@/components/site-header";
+import ScrollToTopButton from "@/components/scroll-to-top-button";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -903,6 +904,7 @@ export default function ServicesPage() {
           </div>
         </div>
       </footer>
+      <ScrollToTopButton />
     </main>
   );
 }

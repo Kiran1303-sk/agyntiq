@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import SiteHeader from "@/components/site-header";
+import ScrollToTopButton from "@/components/scroll-to-top-button";
 import { servicePageOrder, type ServicePageData } from "@/components/service-pages-data";
 
 type ServiceDetailPageProps = {
@@ -308,6 +309,7 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
           </motion.div>
         </motion.div>
       </section>
+      <ScrollToTopButton />
     </main>
   );
 }
