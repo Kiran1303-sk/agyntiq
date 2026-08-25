@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope, Roboto_Condensed } from "next/font/google";
+import PointerAura from "@/components/pointer-aura";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -70,6 +71,7 @@ export default function RootLayout({
       <body
         className={`${manrope.className} ${manrope.variable} ${robotoCondensed.variable} bg-agyntiq-deep-black text-agyntiq-text-primary antialiased`}
       >
+        <PointerAura />
         {children}
       </body>
     </html>
