@@ -155,6 +155,43 @@ export const servicePages: Record<string, ServicePageData> = {
       "Data readiness plan",
       "Governance checklist",
       "Knowledge architecture map"
+    ],
+    serviceStages: [
+      {
+        title: "AI Data Engineering",
+        eyebrow: "Engineer",
+        description: "Build reliable pipelines and data foundations that give AI systems consistent, usable enterprise inputs.",
+        output: "Scalable AI data foundation",
+        points: ["Data pipeline design", "Enterprise data integration", "Production-ready data flows"]
+      },
+      {
+        title: "AI Data Preparation",
+        eyebrow: "Prepare",
+        description: "Transform raw enterprise information into clean, structured, and AI-ready datasets for dependable model performance.",
+        output: "AI-ready prepared datasets",
+        points: ["Data cleansing", "Data transformation", "Dataset readiness assessment"]
+      },
+      {
+        title: "Data Annotation & Labeling",
+        eyebrow: "Enrich",
+        description: "Improve the quality and usefulness of training data with consistent annotation, labeling, and review processes.",
+        output: "High-quality labeled data",
+        points: ["Annotation strategy", "Labeling workflows", "Quality review framework"]
+      },
+      {
+        title: "AI Knowledge Architecture",
+        eyebrow: "Structure",
+        description: "Organize enterprise knowledge so AI applications can retrieve, understand, and use information in context.",
+        output: "Connected AI knowledge layer",
+        points: ["Knowledge architecture", "Retrieval-ready content", "Enterprise information mapping"]
+      },
+      {
+        title: "Data Quality & Governance",
+        eyebrow: "Govern",
+        description: "Create the standards, controls, and visibility required to keep AI data trustworthy, compliant, and useful over time.",
+        output: "Governed data operating model",
+        points: ["Data quality controls", "Governance standards", "Ongoing data stewardship"]
+      }
     ]
   },
   "ai-managed-services": {
@@ -172,6 +209,43 @@ export const servicePages: Record<string, ServicePageData> = {
       "Managed service model",
       "Support and escalation plan",
       "Optimization cadence"
+    ],
+    serviceStages: [
+      {
+        title: "AI Model Monitoring",
+        eyebrow: "Observe",
+        description: "Track model behavior, performance, usage, and drift so teams can see issues early and act with confidence.",
+        output: "Always-on AI observability",
+        points: ["Performance monitoring", "Model drift detection", "Usage and health reporting"]
+      },
+      {
+        title: "AI Optimization Services",
+        eyebrow: "Improve",
+        description: "Continuously improve quality, efficiency, cost, and user outcomes as the AI system learns from real-world use.",
+        output: "Continuous AI optimization cadence",
+        points: ["Quality optimization", "Cost and latency tuning", "Use-case performance reviews"]
+      },
+      {
+        title: "AI Reliability & Support",
+        eyebrow: "Support",
+        description: "Keep critical AI experiences dependable with responsive support, incident handling, and clear escalation paths.",
+        output: "Reliable AI support model",
+        points: ["Reliability operations", "Incident response", "Support and escalation plan"]
+      },
+      {
+        title: "AI Governance & Compliance",
+        eyebrow: "Protect",
+        description: "Maintain responsible AI controls and compliance practices as models, policies, and business requirements evolve.",
+        output: "Operational AI governance",
+        points: ["Governance monitoring", "Compliance reviews", "Policy and control updates"]
+      },
+      {
+        title: "Continuous AI Improvement",
+        eyebrow: "Evolve",
+        description: "Create a long-term improvement loop that keeps AI aligned with changing business needs, users, and technology.",
+        output: "Long-term AI value program",
+        points: ["Improvement roadmap", "Adoption feedback loops", "Ongoing service reviews"]
+      }
     ]
   }
 };
