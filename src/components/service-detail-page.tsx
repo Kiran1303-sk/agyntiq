@@ -2,392 +2,60 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import SiteHeader from "@/components/site-header";
 import ScrollToTopButton from "@/components/scroll-to-top-button";
+import SiteHeader from "@/components/site-header";
 import ServiceFooter from "@/components/service-footer";
 import { servicePageOrder, type ServicePageData } from "@/components/service-pages-data";
 
-type ServiceDetailPageProps = {
-  data: ServicePageData;
-};
-
+type ServiceDetailPageProps = { data: ServicePageData };
 const ease = [0.22, 1, 0.36, 1] as const;
+const fadeUp = { hidden: { opacity: 0, y: 24, filter: "blur(10px)" }, show: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.7, ease } } };
+const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } } };
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 22 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease }
-  }
-};
-
-const stagger = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.08
-    }
-  }
-};
-
-const serviceStages = ["Diagnose", "Design", "Build", "Scale"];
-
-function ArrowRightIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M5 12h14" />
-      <path d="m13 6 6 6-6 6" />
-    </svg>
-  );
-}
-
-function SignalIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
-      <path d="M4 14.5 9.5 9l4 4L20 6.5" />
-      <path d="M4 19h16" />
-    </svg>
-  );
-}
-
-function SolutionStageIcon({ index }: { index: number }) {
-  const icons = [
-    <path key="assistants" d="M7 11.5a5 5 0 1 1 8.8 3.2L18 17v2H8a4 4 0 0 1-4-4 4.5 4.5 0 0 1 3-4.25ZM15 5.5h4v4M17 7.5h-3" />,
-    <path key="genai" d="M5 5h14v14H5zM8 9h8M8 12h5M8 15h7" />,
-    <path key="predictive" d="M4 18.5 9 13l3 2 7-8M15 7h4v4M4 21h16" />,
-    <path key="decision" d="M12 4v16M4 8h16M4 16h16M6.5 4h11A2.5 2.5 0 0 1 20 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5v-11A2.5 2.5 0 0 1 6.5 4Z" />,
-    <path key="accelerator" d="m13 3-8 11h6l-1 7 8-11h-6l1-7Z" />
+function ArrowIcon() { return <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" /></svg>; }
+function CheckIcon() { return <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" /></svg>; }
+function ServiceIcon({ index }: { index: number }) {
+  const paths = [
+    <path key="one" d="M12 3.5a8.5 8.5 0 1 0 8.5 8.5M12 7v5l3.5 2M20.5 3.5v5h-5" />,
+    <path key="two" d="M5 5h14v14H5zM8 9h8M8 12h5M8 15h7" />,
+    <path key="three" d="M4 18.5 9 13l3 2 7-8M15 7h4v4M4 21h16" />,
+    <path key="four" d="M12 4v16M4 8h16M4 16h16M6.5 4h11A2.5 2.5 0 0 1 20 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5v-11A2.5 2.5 0 0 1 6.5 4Z" />,
+    <path key="five" d="m13 3-8 11h6l-1 7 8-11h-6l1-7Z" />
   ];
-
-  return (
-    <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" aria-hidden="true">
-      <g stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5">
-        {icons[index]}
-      </g>
-    </svg>
-  );
+  return <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" aria-hidden="true"><g stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5">{paths[index % paths.length]}</g></svg>;
 }
 
-function ServiceOrbital() {
-  return (
-    <div className="relative min-h-[25rem] overflow-hidden rounded-[2.2rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.94)_0%,rgba(7,8,28,0.98)_48%,rgba(42,7,46,0.86)_100%)] p-6 shadow-[0_30px_90px_rgba(0,0,0,0.3),inset_0_0_0_1px_rgba(77,42,173,0.46)] sm:p-8">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_22%,rgba(14,103,255,0.2),transparent_34%),radial-gradient(circle_at_88%_76%,rgba(202,74,255,0.16),transparent_38%)]" />
-      <motion.div
-        animate={{ opacity: [0.36, 0.7, 0.36], scale: [1, 1.06, 1] }}
-        transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute left-1/2 top-[42%] h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(202,74,255,0.24),transparent_70%)] blur-2xl"
-      />
-
-      <div className="relative grid min-h-[21rem] grid-rows-[auto_1fr_auto] gap-6">
-        <div className="grid grid-cols-2 gap-3">
-          {serviceStages.map((stage, index) => (
-            <motion.div
-              key={stage}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.16 + index * 0.06, duration: 0.45, ease }}
-              className="rounded-full bg-[#080c29]/78 px-4 py-2 text-center text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-indigo-100/78 shadow-[inset_0_0_0_1px_rgba(124,92,255,0.22)]"
-            >
-              {stage}
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="flex items-center justify-center">
-          <div className="relative flex h-40 w-40 items-center justify-center">
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 rounded-[2.2rem] bg-[linear-gradient(135deg,rgba(46,108,235,0.18),rgba(202,74,255,0.16))] shadow-[inset_0_0_0_1px_rgba(124,92,255,0.24)]"
-            />
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-5 rounded-[1.6rem] bg-[#090d27]/82 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.16)]"
-            />
-            <div className="relative flex h-24 w-24 items-center justify-center rounded-[1.6rem] bg-[#180d32]/94 text-5xl font-semibold text-white shadow-[0_0_55px_rgba(202,74,255,0.34),inset_0_0_0_1px_rgba(240,171,252,0.28)]">
-              A
-            </div>
-          </div>
-        </div>
-
-        <div className="rounded-[1.35rem] bg-[#070a22]/72 p-4 shadow-[inset_0_0_0_1px_rgba(124,92,255,0.18)]">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-indigo-200/62">
-              Enterprise-ready path
-            </div>
-            <div className="rounded-full bg-[#12183e]/80 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white/56">
-              Live delivery map
-            </div>
-          </div>
-          <div className="mt-3 h-2 overflow-hidden rounded-full bg-[#12183e]">
-            <motion.div
-              initial={{ width: "18%" }}
-              animate={{ width: ["18%", "74%", "52%", "88%"] }}
-              transition={{ duration: 5, repeat: Infinity, ease }}
-              className="h-full rounded-full bg-[linear-gradient(90deg,#2e6ceb,#7547df,#c23bd9)]"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
-  const activeServiceIndex = servicePageOrder.findIndex((service) => service.label === data.title);
-  const activeServiceNumber = String(activeServiceIndex + 1).padStart(2, "0");
-  const nextService = servicePageOrder[(activeServiceIndex + 1) % servicePageOrder.length];
-  const isIntegration = data.title === "AI Integration Services";
+  const activeIndex = servicePageOrder.findIndex((service) => service.label === data.title);
+  const nextService = servicePageOrder[(activeIndex + 1) % servicePageOrder.length];
+  const stages = data.serviceStages ?? data.focusPoints.map((point, index) => ({ title: point, eyebrow: ["Focus", "Build", "Scale"][index] ?? "Deliver", description: data.summary, output: data.deliverables[index] ?? data.deliverables[0], points: [point] }));
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#040817] pt-48 text-white md:pt-52">
+    <main className="relative min-h-screen overflow-hidden bg-[#050719] text-white">
       <SiteHeader mode="services" />
+      <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_10%_8%,rgba(202,74,255,0.15),transparent_28%),radial-gradient(circle_at_86%_18%,rgba(46,108,235,0.13),transparent_30%),linear-gradient(180deg,#050719,#0b0825_48%,#050719)]" />
+      <div className="pointer-events-none fixed inset-0 -z-10 opacity-[0.16] [background-image:linear-gradient(rgba(240,171,252,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(240,171,252,0.08)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:linear-gradient(to_bottom,black,transparent_75%)]" />
+      <motion.div animate={{ x: [0, 20, 0], y: [0, -16, 0], opacity: [0.25, 0.48, 0.25] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute right-[6%] top-[12rem] h-72 w-72 rounded-full bg-fuchsia-400/[0.08] blur-[100px]" />
 
-      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,#050a1f_0%,#050817_36%,#07041a_100%)]" />
-        <div className="absolute left-[-14%] top-[-10%] h-[38rem] w-[38rem] rounded-full bg-[radial-gradient(circle,rgba(46,108,235,0.2),transparent_68%)] blur-3xl" />
-        <div className="absolute right-[-16%] top-[12%] h-[38rem] w-[38rem] rounded-full bg-[radial-gradient(circle,rgba(117,71,223,0.2),transparent_70%)] blur-3xl" />
-        <div className="absolute bottom-[-16%] left-[12%] h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(202,74,255,0.14),transparent_70%)] blur-3xl" />
-      </div>
-
-      <section className="section-shell pb-14 md:pb-20">
-        <motion.div
-          initial="hidden"
-          animate="show"
-          variants={stagger}
-          className="grid items-center gap-8 xl:grid-cols-[minmax(0,1.02fr)_minmax(22rem,0.82fr)]"
-        >
-          <div>
-            <motion.div variants={fadeUp} className="flex items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.32em] text-fuchsia-100/78">
-              <span className="h-0.5 w-12 rounded-full bg-fuchsia-200 shadow-[0_0_12px_rgba(240,171,252,0.9)]" />
-              {activeServiceNumber} / {data.eyebrow}
-            </motion.div>
-
-            <motion.h1 variants={fadeUp} className="mt-7 max-w-[12ch] text-balance text-5xl font-semibold leading-[0.92] tracking-normal text-white drop-shadow-[0_0_34px_rgba(202,74,255,0.18)] md:text-6xl xl:text-[5.2rem]">
-              {data.title}
-            </motion.h1>
-
-            <motion.p variants={fadeUp} className="mt-6 max-w-2xl text-lg leading-8 text-indigo-100/72 md:text-[1.25rem] md:leading-9">
-              {data.intro}
-            </motion.p>
-
-            <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="#service-plan" className="group inline-flex items-center justify-center gap-3 rounded-full bg-[linear-gradient(135deg,#2e6ceb_0%,#7547df_48%,#c23bd9_100%)] px-6 py-4 text-sm font-semibold text-white shadow-[0_18px_50px_rgba(126,87,255,0.24)] transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_24px_66px_rgba(194,59,217,0.34)]">
-                <span>Explore service plan</span>
-                <span className="transition duration-500 group-hover:translate-x-1">
-                  <ArrowRightIcon />
-                </span>
-              </Link>
-              <Link href="/#contact" className="inline-flex items-center justify-center rounded-full bg-[#180d32]/82 px-6 py-4 text-sm font-semibold text-white/86 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.22)] transition duration-500 hover:-translate-y-0.5 hover:bg-[#241143] hover:text-white">
-                Exclusive Today
-              </Link>
-            </motion.div>
-          </div>
-
-          <motion.div variants={fadeUp}>
-            <ServiceOrbital />
-          </motion.div>
+      <section className="section-shell relative pt-36 pb-16 md:pt-44 md:pb-24">
+        <motion.div initial="hidden" animate="show" variants={stagger} className="max-w-5xl">
+          <motion.div variants={fadeUp} className="flex items-center gap-3 text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-fuchsia-100/78"><span className="h-0.5 w-12 rounded-full bg-fuchsia-200 shadow-[0_0_12px_rgba(240,171,252,0.9)]" />Service {String(activeIndex + 1).padStart(2, "0")} / {data.eyebrow}</motion.div>
+          <motion.h1 variants={fadeUp} className="mt-6 max-w-4xl text-balance text-5xl font-semibold leading-[0.94] tracking-normal text-white md:text-7xl">{data.title}</motion.h1>
+          <motion.p variants={fadeUp} className="mt-7 max-w-2xl text-lg leading-8 text-white/64 md:text-xl">{data.intro}</motion.p>
+          <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3"><Link href="#service-system" className="group inline-flex items-center gap-3 rounded-full bg-[linear-gradient(100deg,#2e6ceb,#7547df,#c23bd9)] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_18px_60px_rgba(126,87,255,0.25)] transition hover:-translate-y-0.5"><span>Explore service system</span><span className="transition group-hover:translate-x-1"><ArrowIcon /></span></Link><Link href="/#contact" className="inline-flex items-center rounded-full border border-fuchsia-200/22 bg-[#180d32]/65 px-6 py-3.5 text-sm font-semibold text-white/80 transition hover:border-fuchsia-200/45 hover:bg-fuchsia-300/[0.08] hover:text-white">Start a conversation</Link></motion.div>
         </motion.div>
       </section>
 
-      {data.serviceStages && (
-        <section id="solution-system" className="section-shell scroll-mt-28 pb-16 md:pb-24">
-          <div className="mb-10 grid gap-4 md:grid-cols-[0.8fr_1fr] md:items-end">
-            <div>
-              <div className="text-[0.72rem] font-semibold uppercase tracking-[0.36em] text-indigo-200/58">
-                {isIntegration ? "Integration capability system" : "Solution development system"}
-              </div>
-              <h2 className="mt-3 max-w-3xl text-4xl font-semibold leading-tight tracking-normal text-white md:text-5xl">
-                {isIntegration ? "Connect AI to the systems where work already happens." : "Build intelligent products people are ready to use."}
-              </h2>
-            </div>
-            <p className="max-w-xl text-base leading-7 text-indigo-100/62 md:justify-self-end">
-              {isIntegration
-                ? "From enterprise platforms and automated workflows to knowledge systems and digital workplace tools, each connection is designed for reliable adoption."
-                : "From assistants and generative applications to predictive systems and industry accelerators, each capability is designed for enterprise impact."}
-            </p>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2">
-            {data.serviceStages.map((stage, index) => (
-              <motion.article
-                key={stage.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-90px" }}
-                transition={{ duration: 0.6, delay: index * 0.07, ease }}
-                className={`group relative overflow-hidden rounded-[1.7rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.92),rgba(7,8,28,0.96)_56%,rgba(42,7,46,0.86))] p-6 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.18),0_22px_68px_rgba(0,0,0,0.2)] transition duration-500 hover:-translate-y-1 hover:shadow-[inset_0_0_0_1px_rgba(240,171,252,0.34),0_30px_86px_rgba(117,71,223,0.2)] ${index === 4 ? "md:col-span-2 md:mx-auto md:w-[calc(50%-0.625rem)]" : ""}`}
-              >
-                <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(240,171,252,0.75),transparent)] opacity-0 transition duration-500 group-hover:opacity-100" />
-                <div className="flex items-start justify-between gap-5">
-                  <div className="grid h-14 w-14 shrink-0 place-items-center rounded-[1.15rem] border border-fuchsia-200/24 bg-[linear-gradient(145deg,rgba(117,71,223,0.38),rgba(46,108,235,0.2))] text-fuchsia-100 shadow-[0_0_30px_rgba(117,71,223,0.16)] transition duration-500 group-hover:rotate-6 group-hover:scale-110 group-hover:border-fuchsia-100/50">
-                    <SolutionStageIcon index={index} />
-                  </div>
-                  <div className="rounded-full border border-fuchsia-200/14 bg-fuchsia-300/[0.05] px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-100/62">
-                    {stage.eyebrow}
-                  </div>
-                </div>
-                <h3 className="mt-6 text-2xl font-semibold leading-tight tracking-normal text-white md:text-3xl">{stage.title}</h3>
-                <p className="mt-3 max-w-2xl text-sm leading-7 text-indigo-100/62">{stage.description}</p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {stage.points.map((point) => (
-                    <span key={point} className="rounded-full border border-fuchsia-200/12 bg-fuchsia-300/[0.045] px-3 py-1.5 text-xs font-semibold text-white/62 transition group-hover:border-fuchsia-200/24 group-hover:text-white/82">
-                      {point}
-                    </span>
-                  ))}
-                </div>
-                <div className="mt-6 rounded-[1.1rem] border border-white/[0.08] bg-white/[0.04] p-4 transition group-hover:border-fuchsia-200/20 group-hover:bg-fuchsia-300/[0.06]">
-                  <div className="text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-indigo-200/48">Output</div>
-                  <p className="mt-2 text-sm font-semibold leading-6 text-white/84">{stage.output}</p>
-                </div>
-              </motion.article>
-            ))}
-          </div>
-        </section>
-      )}
-
-      <section id="service-plan" className="section-shell pb-16 md:pb-24">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-120px" }}
-          variants={stagger}
-          className="grid gap-5 lg:grid-cols-[0.95fr_1.05fr]"
-        >
-          <motion.div variants={fadeUp} className="rounded-[2rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.9),rgba(42,7,46,0.96))] p-6 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.22),0_24px_80px_rgba(0,0,0,0.24)] md:p-8">
-            <div className="text-[0.72rem] font-semibold uppercase tracking-[0.36em] text-indigo-200/58">
-              Service brief
-            </div>
-            <p className="mt-5 text-2xl font-semibold leading-tight tracking-normal text-white md:text-3xl">
-              {data.summary}
-            </p>
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              {[
-                { label: "Focus", value: String(data.focusPoints.length).padStart(2, "0") },
-                { label: "Outputs", value: String(data.deliverables.length).padStart(2, "0") },
-                { label: "Mode", value: data.eyebrow }
-              ].map((item) => (
-                <div key={item.label} className="rounded-[1.2rem] bg-[#180d32]/72 p-4 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.16)]">
-                  <div className="text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-indigo-200/46">
-                    {item.label}
-                  </div>
-                  <div className="mt-2 text-2xl font-semibold tracking-normal text-white">
-                    {item.value}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div variants={fadeUp} className="grid gap-3 sm:grid-cols-2">
-            {data.focusPoints.map((point, index) => (
-              <motion.div
-                key={point}
-                whileHover={{ y: -6 }}
-                transition={{ type: "spring", stiffness: 260, damping: 22 }}
-                className="group relative overflow-hidden rounded-[1.45rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.9)_0%,rgba(7,8,28,0.96)_58%,rgba(42,7,46,0.82)_100%)] p-5 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.18),0_18px_55px_rgba(0,0,0,0.18)] transition duration-500"
-              >
-                <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_12%,rgba(46,108,235,0.14),transparent_32%),radial-gradient(circle_at_90%_90%,rgba(117,71,223,0.12),transparent_34%)] opacity-0 transition duration-500 group-hover:opacity-100" />
-                <div className="relative flex items-center justify-between gap-4">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-[0.9rem] bg-[#151239] text-fuchsia-200 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.18)]">
-                    <SignalIcon />
-                  </div>
-                  <span className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-indigo-200/48">
-                    0{index + 1}
-                  </span>
-                </div>
-                <p className="relative mt-5 text-lg font-semibold leading-7 text-white">{point}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
+      <section id="service-system" className="section-shell scroll-mt-28 pb-20 md:pb-28">
+        <div className="mb-10 grid gap-4 md:grid-cols-[0.8fr_1fr] md:items-end"><div><div className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-fuchsia-200/55">{data.eyebrow} capability system</div><h2 className="mt-3 max-w-3xl text-3xl font-semibold leading-tight tracking-normal text-white md:text-5xl">A connected system for enterprise impact.</h2></div><p className="max-w-xl text-sm leading-7 text-white/52 md:justify-self-end">{data.summary}</p></div>
+        <div className="grid gap-5 md:grid-cols-2">{stages.map((stage, index) => <motion.article key={stage.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-90px" }} transition={{ duration: 0.65, delay: index * 0.08, ease }} className={`group relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[linear-gradient(120deg,rgba(10,8,36,0.94),rgba(7,8,28,0.82))] p-6 shadow-[0_18px_70px_rgba(0,0,0,0.18)] transition duration-500 hover:-translate-y-1 hover:border-fuchsia-200/30 hover:shadow-[0_28px_90px_rgba(117,71,223,0.18)] ${index === stages.length - 1 && stages.length % 2 === 1 ? "md:col-span-2 md:mx-auto md:w-[calc(50%-0.625rem)]" : ""}`}><span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(240,171,252,0.72),transparent)] opacity-0 transition group-hover:opacity-100" /><div className="flex items-start justify-between gap-5"><div className="grid h-14 w-14 place-items-center rounded-[1.15rem] border border-fuchsia-200/25 bg-[linear-gradient(145deg,rgba(117,71,223,0.38),rgba(46,108,235,0.2))] text-fuchsia-100 shadow-[0_0_30px_rgba(117,71,223,0.16)] transition duration-500 group-hover:rotate-6 group-hover:scale-110"><ServiceIcon index={index} /></div><div className="rounded-full border border-fuchsia-200/14 bg-fuchsia-300/[0.05] px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-100/62">{stage.eyebrow}</div></div><h3 className="mt-6 text-2xl font-semibold leading-tight tracking-normal text-white md:text-3xl">{stage.title}</h3><p className="mt-3 text-sm leading-7 text-white/60">{stage.description}</p><div className="mt-5 flex flex-wrap gap-2">{stage.points.map((point) => <span key={point} className="rounded-full border border-fuchsia-200/12 bg-fuchsia-300/[0.045] px-3 py-1.5 text-xs font-semibold text-white/62 transition group-hover:border-fuchsia-200/24 group-hover:text-white/82">{point}</span>)}</div><div className="mt-6 rounded-[1.1rem] border border-white/[0.08] bg-white/[0.04] p-4 transition group-hover:border-fuchsia-200/20 group-hover:bg-fuchsia-300/[0.06]"><div className="text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-200/48">Output</div><p className="mt-2 text-sm font-semibold leading-6 text-white/84">{stage.output}</p></div></motion.article>)}</div>
       </section>
 
-      <section className="section-shell pb-16 md:pb-24">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-120px" }}
-          variants={stagger}
-          className="rounded-[2.2rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.9)_0%,rgba(7,8,28,0.98)_52%,rgba(42,7,46,0.9)_100%)] p-6 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.22),0_30px_90px_rgba(0,0,0,0.24)] md:p-8"
-        >
-          <motion.div variants={fadeUp} className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-            <div>
-              <div className="text-[0.72rem] font-semibold uppercase tracking-[0.36em] text-indigo-200/58">
-                Delivery system
-              </div>
-              <h2 className="mt-3 text-4xl font-semibold tracking-normal text-white md:text-5xl">
-                What you get
-              </h2>
-            </div>
-            <p className="max-w-xl text-base leading-7 text-indigo-100/62">
-              Designed to move from intent to shipped capability with clear ownership, measurable output, and enterprise discipline.
-            </p>
-          </motion.div>
+      <section className="section-shell pb-20 md:pb-28"><div className="grid gap-8 rounded-[1.6rem] border border-fuchsia-200/16 bg-[linear-gradient(135deg,rgba(24,13,50,0.78),rgba(7,8,28,0.86))] p-6 shadow-[0_24px_90px_rgba(0,0,0,0.24)] md:grid-cols-[0.8fr_1.2fr] md:p-8 lg:p-10"><div><div className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-fuchsia-200/58">Expected outcomes</div><h2 className="mt-4 text-3xl font-semibold leading-tight tracking-normal text-white md:text-5xl">Built for clarity, adoption, and measurable progress.</h2></div><div className="grid gap-3 sm:grid-cols-2">{data.deliverables.map((item) => <div key={item} className="flex items-start gap-3 rounded-[1rem] border border-white/[0.07] bg-[#080b25]/64 p-4"><span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-fuchsia-300/[0.1] text-fuchsia-100"><CheckIcon /></span><p className="text-sm font-semibold leading-6 text-white/72">{item}</p></div>)}</div></div></section>
 
-          <div className="mt-8 grid gap-3 md:grid-cols-3">
-            {data.deliverables.map((item, index) => (
-              <motion.div
-                key={item}
-                variants={fadeUp}
-                whileHover={{ y: -6 }}
-                transition={{ type: "spring", stiffness: 260, damping: 22 }}
-                className="group relative overflow-hidden rounded-[1.45rem] bg-[#060a22]/78 p-5 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.16)]"
-              >
-                <span className="absolute inset-x-5 top-0 h-1 origin-left scale-x-0 rounded-full bg-[linear-gradient(90deg,#2e6ceb,#7547df,#c23bd9)] transition duration-500 group-hover:scale-x-100" />
-                <div className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-indigo-200/45">
-                  Output 0{index + 1}
-                </div>
-                <div className="mt-4 text-xl font-semibold leading-7 tracking-normal text-white">
-                  {item}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </section>
+      <section className="section-shell pb-28"><div className="relative overflow-hidden rounded-[1.6rem] bg-[linear-gradient(105deg,#3f207f,#7547df,#4d238a)] p-7 shadow-[0_24px_90px_rgba(117,71,223,0.22)] md:p-10"><div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(255,255,255,0.16),transparent_28%),radial-gradient(circle_at_82%_72%,rgba(46,108,235,0.24),transparent_34%)]" /><div className="relative max-w-4xl"><div className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-white/62">Continue the journey</div><h2 className="mt-4 text-3xl font-semibold leading-tight tracking-normal md:text-5xl">Move from capability design to confident execution.</h2><Link href={nextService.href} className="mt-7 inline-flex items-center gap-3 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#3f207f] transition hover:-translate-y-0.5">Explore {nextService.label} <ArrowIcon /></Link></div></div><Link href="/services" className="mt-7 inline-flex items-center text-sm font-semibold text-white/52 transition hover:text-fuchsia-100">Back to all services <span className="ml-2">-&gt;</span></Link></section>
 
-      <section className="section-shell pb-20 md:pb-28">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-120px" }}
-          variants={stagger}
-          className="grid gap-5 lg:grid-cols-[0.7fr_1fr]"
-        >
-          <motion.div variants={fadeUp} className="rounded-[2rem] bg-[#180d32]/78 p-6 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.18)] md:p-8">
-            <div className="text-[0.72rem] font-semibold uppercase tracking-[0.36em] text-indigo-200/52">
-              Next service
-            </div>
-            <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-normal text-white">
-              Continue through the AgyntiQ service stack.
-            </h2>
-          </motion.div>
-
-          <motion.div variants={fadeUp}>
-            <Link href={nextService.href} className="group relative block overflow-hidden rounded-[2rem] bg-[linear-gradient(135deg,rgba(46,108,235,0.18)_0%,rgba(117,71,223,0.14)_48%,rgba(194,59,217,0.2)_100%)] p-6 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.22),0_24px_76px_rgba(0,0,0,0.22)] transition duration-500 hover:-translate-y-1 md:p-8">
-              <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_86%_24%,rgba(117,71,223,0.22),transparent_36%)] opacity-60 transition duration-500 group-hover:opacity-100" />
-              <div className="relative flex items-start justify-between gap-6">
-                <div>
-                  <div className="text-[0.72rem] font-semibold uppercase tracking-[0.32em] text-indigo-200/58">
-                    {nextService.label}
-                  </div>
-                  <div className="mt-4 text-3xl font-semibold tracking-normal text-white">
-                    Open next service page
-                  </div>
-                </div>
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#180d32]/88 text-white shadow-[inset_0_0_0_1px_rgba(240,171,252,0.25)] transition duration-500 group-hover:translate-x-1">
-                  <ArrowRightIcon />
-                </span>
-              </div>
-            </Link>
-          </motion.div>
-        </motion.div>
-      </section>
-      <ServiceFooter />
-      <ScrollToTopButton />
+      <ServiceFooter /><ScrollToTopButton />
     </main>
   );
 }
