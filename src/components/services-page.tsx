@@ -330,7 +330,7 @@ function ArrowRightIcon() {
 
 function NeuralGraphic({ index }: { index: number }) {
   if (index >= 0) {
-    const imageSrc = services[index].id === "development" ? "/theme-ai.png" : "/main-ai.png";
+    const imageSrc = "/main-ai.png";
 
     return (
       <div className="relative min-h-[24rem] w-full overflow-hidden rounded-[1.35rem] md:min-h-[30rem]">
@@ -646,14 +646,12 @@ export default function ServicesPage() {
             whileInView="show"
             viewport={{ once: true, margin: "-120px" }}
             variants={stagger}
-            className={`grid gap-10 ${service.id === "development" ? "" : "lg:grid-cols-2 lg:items-start"}`}
+            className="grid gap-10 lg:grid-cols-2 lg:items-start"
           >
-            {service.id !== "development" && (
-              <motion.div variants={fadeUp} className="lg:order-2">
-                <NeuralGraphic index={index} />
-              </motion.div>
-            )}
-            <motion.div variants={fadeUp} className={service.id === "development" ? "" : "lg:order-1"}>
+            <motion.div variants={fadeUp} className="lg:order-2">
+              <NeuralGraphic index={index} />
+            </motion.div>
+            <motion.div variants={fadeUp} className="lg:order-1">
               <div className="text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-200/58">
                 {service.number} / {service.title}
               </div>
