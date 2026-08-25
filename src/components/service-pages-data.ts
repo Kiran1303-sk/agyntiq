@@ -197,7 +197,7 @@ export const servicePages: Record<string, ServicePageData> = {
   "ai-managed-services": {
     title: "AI Managed Services",
     eyebrow: "Operate",
-    intro: "Keep AI systems monitored, supported, and improving after launch.",
+    intro: "Long-term operation and optimization of AI systems.",
     summary:
       "This page will become the operations and managed-services story for long-term AI reliability and improvement.",
     focusPoints: [
@@ -214,37 +214,37 @@ export const servicePages: Record<string, ServicePageData> = {
       {
         title: "AI Model Monitoring",
         eyebrow: "Observe",
-        description: "Track model behavior, performance, usage, and drift so teams can see issues early and act with confidence.",
-        output: "Always-on AI observability",
-        points: ["Performance monitoring", "Model drift detection", "Usage and health reporting"]
+        description: "Track model health and performance continuously so teams can detect drift and maintain prediction quality over time.",
+        output: "Always-on AI performance visibility",
+        points: ["AI performance monitoring", "Model drift detection", "Prediction accuracy tracking"]
       },
       {
         title: "AI Optimization Services",
         eyebrow: "Improve",
-        description: "Continuously improve quality, efficiency, cost, and user outcomes as the AI system learns from real-world use.",
-        output: "Continuous AI optimization cadence",
-        points: ["Quality optimization", "Cost and latency tuning", "Use-case performance reviews"]
+        description: "Improve the efficiency, quality, and economics of AI systems through ongoing engineering and operational refinement.",
+        output: "Optimized AI system performance",
+        points: ["Prompt engineering optimization", "Model fine-tuning services", "AI cost optimization"]
       },
       {
         title: "AI Reliability & Support",
         eyebrow: "Support",
-        description: "Keep critical AI experiences dependable with responsive support, incident handling, and clear escalation paths.",
-        output: "Reliable AI support model",
-        points: ["Reliability operations", "Incident response", "Support and escalation plan"]
+        description: "Keep AI applications dependable with uptime monitoring, proactive maintenance, and responsive incident support.",
+        output: "Reliable AI operations and support",
+        points: ["AI system uptime monitoring", "AI application maintenance", "Incident response support"]
       },
       {
         title: "AI Governance & Compliance",
         eyebrow: "Protect",
-        description: "Maintain responsible AI controls and compliance practices as models, policies, and business requirements evolve.",
-        output: "Operational AI governance",
-        points: ["Governance monitoring", "Compliance reviews", "Policy and control updates"]
+        description: "Maintain responsible AI practices with continuous monitoring, regulatory traceability, and audit-ready controls.",
+        output: "Responsible AI governance operations",
+        points: ["Responsible AI monitoring", "Regulatory compliance tracking", "AI audit services"]
       },
       {
         title: "Continuous AI Improvement",
         eyebrow: "Evolve",
-        description: "Create a long-term improvement loop that keeps AI aligned with changing business needs, users, and technology.",
-        output: "Long-term AI value program",
-        points: ["Improvement roadmap", "Adoption feedback loops", "Ongoing service reviews"]
+        description: "Create a continuous improvement cycle that expands AI capability, keeps models current, and supports long-term value creation.",
+        output: "Continuous AI improvement program",
+        points: ["New AI feature deployment", "Model retraining cycles", "AI capability expansion programs"]
       }
     ]
   }
