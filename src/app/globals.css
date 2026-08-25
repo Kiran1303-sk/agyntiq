@@ -296,6 +296,12 @@ button {
   color: #f5f7ff;
 }
 
+/* Keep display text readable when legacy utility classes use compressed tracking. */
+[class*="tracking-[-"],
+[class~="tracking-tight"] {
+  letter-spacing: normal !important;
+}
+
 .section-copy {
   margin-top: 1.25rem;
   font-size: 1.08rem;
