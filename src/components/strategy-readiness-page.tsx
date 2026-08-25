@@ -86,12 +86,6 @@ const outcomes = [
   "A practical model for long term adoption"
 ] as const;
 
-const chapterLinks = [
-  ["01", "Signals", "#signals"],
-  ["02", "Strategy system", "#roadmap"],
-  ["03", "Business impact", "#impact"]
-] as const;
-
 function ArrowIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
@@ -149,12 +143,6 @@ export default function StrategyReadinessPage() {
 
       <section className="section-shell relative pt-36 pb-16 md:pt-44 md:pb-24">
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease }}
-          className="pointer-events-none absolute -left-20 top-32 h-56 w-56 rounded-full border border-fuchsia-200/10 shadow-[0_0_100px_rgba(117,71,223,0.16)]"
-        />
-        <motion.div
           initial="hidden"
           animate="show"
           variants={stagger}
@@ -180,33 +168,6 @@ export default function StrategyReadinessPage() {
                 Start readiness review
               </Link>
             </motion.div>
-
-            <motion.div variants={fadeUp} className="mt-12 grid max-w-3xl gap-px overflow-hidden rounded-[1.15rem] border border-white/10 bg-white/10 sm:grid-cols-3">
-              {[
-                ["01", "Value first", "Prioritize what matters"],
-                ["02", "Built to scale", "Design the operating model"],
-                ["03", "Ready to move", "Leave with a roadmap"]
-              ].map(([number, title, text]) => (
-                <div key={number} className="group bg-[#080b25]/90 p-4 transition hover:bg-fuchsia-300/[0.07] sm:p-5">
-                  <div className="flex items-center justify-between text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-fuchsia-200/48">
-                    <span>{number}</span>
-                    <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-200 shadow-[0_0_10px_rgba(240,171,252,0.9)] transition group-hover:scale-150" />
-                  </div>
-                  <div className="mt-5 text-sm font-semibold text-white">{title}</div>
-                  <div className="mt-1 text-xs leading-5 text-white/45">{text}</div>
-                </div>
-              ))}
-            </motion.div>
-
-            <motion.nav variants={fadeUp} aria-label="Page chapters" className="mt-7 flex flex-wrap gap-2">
-              {chapterLinks.map(([number, title, href]) => (
-                <Link key={title} href={href} className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] px-3.5 py-2 text-xs font-semibold text-white/55 transition hover:-translate-y-0.5 hover:border-fuchsia-200/35 hover:bg-fuchsia-300/[0.08] hover:text-white">
-                  <span className="text-[0.6rem] text-fuchsia-200/45 transition group-hover:text-fuchsia-100">{number}</span>
-                  <span>{title}</span>
-                  <ArrowIcon />
-                </Link>
-              ))}
-            </motion.nav>
           </div>
         </motion.div>
       </section>
