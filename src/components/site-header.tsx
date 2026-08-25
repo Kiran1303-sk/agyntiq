@@ -299,7 +299,7 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
           href={mode === "home" ? "#contact" : "/#contact"}
           className="magnetic hidden items-center justify-center gap-2 justify-self-end whitespace-nowrap rounded-full bg-[linear-gradient(180deg,rgba(72,62,214,0.95)_0%,rgba(101,55,214,0.96)_45%,rgba(149,53,215,0.96)_100%)] px-6 py-3.5 text-sm font-semibold leading-none text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_26px_rgba(127,63,255,0.25)] md:flex"
         >
-          Exclusive Today
+          Contact
           <IconArrow />
         </Link>
 
@@ -335,7 +335,15 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
                 return (
                   <div key={item.href}>
                     <div className="flex items-center rounded-[1rem] text-sm font-semibold text-white/74 transition hover:bg-white/[0.06] hover:text-white">
-                      <Link href="/services" onClick={() => setMobileOpen(false)} className="flex-1 px-4 py-3.5 text-left">
+                      <Link
+                        href="/services"
+                        prefetch
+                        onClick={() => {
+                          setMobileServicesOpen(false);
+                          setMobileOpen(false);
+                        }}
+                        className="flex min-w-0 flex-1 items-center px-4 py-3.5 text-left"
+                      >
                         Services
                       </Link>
                       <button type="button" onClick={() => setMobileServicesOpen((open) => !open)} aria-expanded={mobileServicesOpen} aria-label="Toggle services submenu" className="px-4 py-3.5 transition hover:text-white">
