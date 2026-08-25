@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import ScrollToTopButton from "@/components/scroll-to-top-button";
 import SiteHeader from "@/components/site-header";
 import ServiceFooter from "@/components/service-footer";
@@ -114,23 +114,10 @@ function CheckIcon() {
   );
 }
 
-function ScrollProgress() {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
-
-  return (
-    <motion.div
-      style={{ scaleX, transformOrigin: "0% 50%" }}
-      className="fixed inset-x-0 top-0 z-[60] h-0.5 bg-[linear-gradient(90deg,#2e6ceb,#c23bd9,#f0abfc)] shadow-[0_0_14px_rgba(194,59,217,0.8)]"
-    />
-  );
-}
-
 export default function StrategyReadinessPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#050719] text-white">
       <SiteHeader mode="services" />
-      <ScrollProgress />
 
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_10%_8%,rgba(202,74,255,0.15),transparent_28%),radial-gradient(circle_at_86%_18%,rgba(46,108,235,0.13),transparent_30%),linear-gradient(180deg,#050719,#0b0825_48%,#050719)]" />
       <div className="pointer-events-none fixed inset-0 -z-10 opacity-[0.16] [background-image:linear-gradient(rgba(240,171,252,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(240,171,252,0.08)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:linear-gradient(to_bottom,black,transparent_75%)]" />
