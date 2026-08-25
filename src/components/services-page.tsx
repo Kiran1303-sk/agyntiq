@@ -330,10 +330,12 @@ function ArrowRightIcon() {
 
 function NeuralGraphic({ index }: { index: number }) {
   if (index >= 0) {
+    const imageSrc = services[index].id === "development" ? "/main-ai-solution.png" : "/main-ai.png";
+
     return (
       <div className="relative min-h-[24rem] w-full overflow-hidden rounded-[1.35rem] md:min-h-[30rem]">
         <Image
-          src="/main-ai.png"
+          src={imageSrc}
           alt={`${services[index].title} service visual`}
           fill
           priority={index === 0}
