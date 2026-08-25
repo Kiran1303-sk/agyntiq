@@ -646,12 +646,14 @@ export default function ServicesPage() {
             whileInView="show"
             viewport={{ once: true, margin: "-120px" }}
             variants={stagger}
-            className="grid gap-10 lg:grid-cols-2 lg:items-start"
+            className={`grid gap-10 ${service.id === "development" ? "" : "lg:grid-cols-2 lg:items-start"}`}
           >
-            <motion.div variants={fadeUp} className="lg:order-2">
-              <NeuralGraphic index={index} />
-            </motion.div>
-            <motion.div variants={fadeUp} className="lg:order-1">
+            {service.id !== "development" && (
+              <motion.div variants={fadeUp} className="lg:order-2">
+                <NeuralGraphic index={index} />
+              </motion.div>
+            )}
+            <motion.div variants={fadeUp} className={service.id === "development" ? "" : "lg:order-1"}>
               <div className="text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-200/58">
                 {service.number} / {service.title}
               </div>
