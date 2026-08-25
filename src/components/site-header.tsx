@@ -18,27 +18,33 @@ const navItems = [
 
 const serviceMenuDisplay = [
   {
-    title: "AI Strategy",
+    title: "AI Strategy & Readiness",
     subtitle: "Roadmaps for AI success",
     href: "/services/ai-strategy-readiness",
     icon: "brain"
   },
   {
-    title: "AI Development",
+    title: "AI Solution Development",
     subtitle: "Custom AI solutions",
     href: "/services/ai-solution-development",
     icon: "cube"
   },
   {
-    title: "Data & Analytics",
-    subtitle: "Actionable insights",
+    title: "AI Integration Services",
+    subtitle: "Seamless system integration",
+    href: "/services/ai-integration-services",
+    icon: "link"
+  },
+  {
+    title: "AI Data Services",
+    subtitle: "Governed data foundations",
     href: "/services/ai-data-services",
     icon: "chart"
   },
   {
-    title: "AI Integration",
-    subtitle: "Seamless system integration",
-    href: "/services/ai-integration-services",
+    title: "AI Managed Services",
+    subtitle: "Continuous AI operations",
+    href: "/services/ai-managed-services",
     icon: "shield"
   }
 ] as const;
