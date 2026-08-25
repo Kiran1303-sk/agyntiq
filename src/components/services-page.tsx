@@ -504,7 +504,7 @@ export default function ServicesPage() {
           <motion.div variants={fadeUp} className="inline-flex rounded-full bg-[linear-gradient(90deg,rgba(46,108,235,0.28),rgba(117,71,223,0.28),rgba(194,59,217,0.28))] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-50 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.28),0_0_32px_rgba(126,87,255,0.22)]">
             Enterprise AI Solutions
           </motion.div>
-          <motion.h1 variants={fadeUp} className="mt-7 max-w-3xl text-5xl font-semibold leading-[0.98] tracking-[-0.055em] text-white drop-shadow-[0_0_34px_rgba(126,87,255,0.16)] md:text-7xl">
+          <motion.h1 variants={fadeUp} className="mt-7 max-w-3xl text-5xl font-semibold leading-[0.98] tracking-normal text-white drop-shadow-[0_0_34px_rgba(126,87,255,0.16)] md:text-7xl">
             <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#dbe7ff_42%,#f0abfc_100%)] bg-clip-text text-transparent">
               Transform Every
             </span>
@@ -753,7 +753,7 @@ export default function ServicesPage() {
               whileHover={{ y: -6, scale: 1.01 }}
               className="rounded-[1rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.84)_0%,rgba(7,8,28,0.92)_52%,rgba(42,7,46,0.78)_100%)] p-6 shadow-[inset_0_0_0_1px_rgba(125,92,255,0.16),0_18px_60px_rgba(0,0,0,0.18)] transition hover:shadow-[inset_0_0_0_1px_rgba(240,171,252,0.22),0_18px_60px_rgba(202,74,255,0.1)]"
             >
-              <div className="text-xl font-semibold tracking-[-0.03em] text-white">{study.industry}</div>
+              <div className="text-xl font-semibold tracking-normal text-white">{study.industry}</div>
               <p className="mt-5 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-200/44">Problem</p>
               <p className="mt-2 text-sm leading-6 text-white/56">{study.problem}</p>
               <p className="mt-5 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-blue-200/42">Solution</p>
@@ -827,7 +827,7 @@ export default function ServicesPage() {
                 <div className="inline-flex rounded-full bg-fuchsia-300/[0.07] px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-fuchsia-100/70 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.12)]">
                   Enterprise AI Partner
                 </div>
-                <div className="mt-5 bg-[linear-gradient(90deg,#ffffff,#c7d2fe,#f0abfc)] bg-clip-text text-3xl font-semibold tracking-[-0.05em] text-transparent">
+                <div className="mt-5 bg-[linear-gradient(90deg,#ffffff,#c7d2fe,#f0abfc)] bg-clip-text text-3xl font-semibold tracking-normal text-transparent">
                   AgyntiQ
                 </div>
                 <p className="mt-4 max-w-sm text-sm leading-7 text-white/58">
@@ -877,7 +877,7 @@ export default function ServicesPage() {
                 <div className="text-xs font-semibold uppercase tracking-[0.24em] text-blue-200/44">
                   Build With Us
                 </div>
-                <p className="mt-3 text-xl font-semibold leading-tight tracking-[-0.04em] text-white">
+                <p className="mt-3 text-xl font-semibold leading-tight tracking-normal text-white">
                   Turn your AI roadmap into a production system.
                 </p>
                 <Link href="/#contact" className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-[linear-gradient(90deg,#2E6CEB,#7547DF,#C23BD9)] px-5 py-3 text-sm font-semibold text-white shadow-[0_16px_46px_rgba(126,87,255,0.22)] transition hover:-translate-y-0.5">

@@ -693,7 +693,7 @@ export default function AuroraLanding() {
                   >
                     <Link
                       href={item.href}
-                      className={`inline-flex items-center gap-1.5 rounded-full px-5 py-3 text-[0.95rem] font-medium tracking-[-0.01em] transition-all ${
+                      className={`inline-flex items-center gap-1.5 rounded-full px-5 py-3 text-[0.95rem] font-medium tracking-normal transition-all ${
                         isActive
                           ? "bg-[linear-gradient(180deg,rgba(72,62,214,0.95)_0%,rgba(101,55,214,0.96)_45%,rgba(149,53,215,0.96)_100%)] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_26px_rgba(127,63,255,0.25)]"
                           : "text-white/72 hover:bg-white/[0.06] hover:text-white"
@@ -760,7 +760,7 @@ export default function AuroraLanding() {
                   <a
                     key={item.href}
                     href={item.href}
-                    className={`rounded-full px-5 py-3 text-[0.95rem] font-medium tracking-[-0.01em] transition-all ${
+                    className={`rounded-full px-5 py-3 text-[0.95rem] font-medium tracking-normal transition-all ${
                       isActive
                         ? "bg-[linear-gradient(180deg,rgba(72,62,214,0.95)_0%,rgba(101,55,214,0.96)_45%,rgba(149,53,215,0.96)_100%)] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_26px_rgba(127,63,255,0.25)]"
                         : "text-white/72 hover:bg-white/[0.06] hover:text-white"
@@ -857,7 +857,7 @@ export default function AuroraLanding() {
                   Flagship enterprise AI platform
                 </div>
 
-                <h1 className="max-w-4xl text-[2.7rem] font-semibold leading-[0.92] tracking-[-0.08em] text-white drop-shadow-[0_0_44px_rgba(202,74,255,0.18)] sm:text-5xl md:text-6xl xl:text-[5.6rem]">
+                <h1 className="max-w-4xl text-[2.7rem] font-semibold leading-[0.92] tracking-normal text-white drop-shadow-[0_0_44px_rgba(202,74,255,0.18)] sm:text-5xl md:text-6xl xl:text-[5.6rem]">
                   <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#f3e8ff_44%,#f0abfc_100%)] bg-clip-text text-transparent">
                     AI That Acts.
                   </span>
@@ -947,7 +947,7 @@ export default function AuroraLanding() {
                   className={`hover-sheen hover-glow magnetic rounded-[1.7rem] p-5 ${premiumSurface} ${premiumSurfaceHover}`}
                   data-reveal
                 >
-                  <div className="text-3xl font-semibold tracking-[-0.05em] text-white">
+                  <div className="text-3xl font-semibold tracking-normal text-white">
                     <AnimatedCounter
                       value={item.value}
                       suffix={item.suffix}
@@ -994,7 +994,7 @@ export default function AuroraLanding() {
                           <div className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-200/48">
                             {item.stat}
                           </div>
-                          <h3 className="mt-2 text-2xl font-semibold tracking-[-0.05em] text-white">
+                          <h3 className="mt-2 text-2xl font-semibold tracking-normal text-white">
                             {item.title}
                           </h3>
                           <p className="mt-3 max-w-2xl text-base leading-7 text-fuchsia-100/62">
@@ -1074,7 +1074,7 @@ export default function AuroraLanding() {
                       <div className="text-xs uppercase tracking-[0.3em] text-white/40">
                         0{index + 1}
                       </div>
-                      <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-white">
+                  <h3 className="mt-3 text-xl font-semibold tracking-normal text-white">
                         {item.title}
                       </h3>
                       <p className="mt-3 max-w-lg text-sm leading-7 text-aurora-muted">
@@ -1110,7 +1110,7 @@ export default function AuroraLanding() {
                     className={`hover-underline border-t ${premiumSoftBorder} py-4`}
                     data-reveal
                   >
-                    <div className="text-lg font-semibold tracking-[-0.03em] text-white">
+                    <div className="text-lg font-semibold tracking-normal text-white">
                       {item}
                     </div>
                     <div className="mt-2 text-sm leading-6 text-white/60">
@@ -1158,7 +1158,7 @@ export default function AuroraLanding() {
                       <div className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-200/52">
                         {item.category}
                       </div>
-                      <h3 className="mt-3 text-2xl font-semibold leading-tight tracking-[-0.05em] text-white">
+                      <h3 className="mt-3 text-2xl font-semibold leading-tight tracking-normal text-white">
                         {item.title}
                       </h3>
                       <p className="mt-4 text-sm leading-7 text-fuchsia-100/62">
@@ -1199,7 +1199,7 @@ export default function AuroraLanding() {
                     0{index + 1}
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold tracking-[-0.03em] text-white">
+                    <h3 className="text-xl font-semibold tracking-normal text-white">
                       {item.name}
                     </h3>
                     <p className="mt-3 max-w-2xl text-base leading-7 text-aurora-muted">
@@ -1230,7 +1230,7 @@ export default function AuroraLanding() {
               >
                 {team.map((item) => (
                   <div key={item.title} className="hover-underline py-5">
-                    <div className="text-lg font-semibold tracking-[-0.03em] text-white">
+                    <div className="text-lg font-semibold tracking-normal text-white">
                       {item.title}
                     </div>
                     <div className="mt-2 text-base leading-7 text-aurora-muted">{item.copy}</div>
@@ -1263,7 +1263,7 @@ export default function AuroraLanding() {
                   <div className="inline-flex rounded-full border border-[#ca4aff]/14 bg-[#180d32]/76 px-3 py-1 text-xs uppercase tracking-[0.28em] text-fuchsia-100/72">
                     {tier.name}
                   </div>
-                  <h3 className="mt-6 text-2xl font-semibold tracking-[-0.03em] text-white">
+                  <h3 className="mt-6 text-2xl font-semibold tracking-normal text-white">
                     {tier.price}
                   </h3>
                   <p className="mt-3 text-base leading-7 text-aurora-muted">{tier.description}</p>
@@ -1340,7 +1340,7 @@ export default function AuroraLanding() {
                     key={item.question}
                     className={`group hover-underline overflow-hidden rounded-[1.25rem] p-5 pb-6 ${premiumFlatCard} transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_90px_rgba(202,74,255,0.13)]`}
                   >
-                    <summary className="cursor-pointer list-none text-lg font-semibold tracking-[-0.03em] text-white">
+                    <summary className="cursor-pointer list-none text-lg font-semibold tracking-normal text-white">
                       {item.question}
                     </summary>
                     <p className="mt-3 text-base leading-7 text-aurora-muted">{item.answer}</p>
@@ -1598,7 +1598,7 @@ function ScrollShowcaseSection() {
                     <div className="text-xs uppercase tracking-[0.32em] text-fuchsia-200/52">
                       {slideShowcase[activeSlide].tag}
                     </div>
-                    <h3 className="max-w-sm text-2xl font-semibold tracking-[-0.05em] text-white drop-shadow-[0_0_24px_rgba(202,74,255,0.14)] sm:text-3xl">
+                    <h3 className="max-w-sm text-2xl font-semibold tracking-normal text-white drop-shadow-[0_0_24px_rgba(202,74,255,0.14)] sm:text-3xl">
                       {slideShowcase[activeSlide].title}
                     </h3>
                     <p className="max-w-md text-sm leading-6 text-fuchsia-100/64 sm:text-base sm:leading-7">

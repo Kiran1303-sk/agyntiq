@@ -727,7 +727,7 @@ export default function AgyntiQWebsite() {
               >
                 <div className="section-kicker mb-6">✨ Transform Your Business with AI</div>
 
-                <h1 className="max-w-4xl text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-white">
+                <h1 className="max-w-4xl text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-normal text-white">
                   Next-Generation
                   <span className="text-gradient-blue-purple"> AI Solutions</span>
                 </h1>

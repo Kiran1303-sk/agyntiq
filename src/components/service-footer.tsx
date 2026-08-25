@@ -10,7 +10,7 @@ export default function ServiceFooter() {
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr_0.8fr_0.8fr]">
           <div>
             <div className="text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-fuchsia-200/55">AgyntiQ services</div>
-            <h2 className="mt-4 max-w-lg text-3xl font-semibold leading-tight tracking-[-0.05em] text-white md:text-5xl">From the right AI idea to a system that creates value.</h2>
+            <h2 className="mt-4 max-w-lg text-3xl font-semibold leading-tight tracking-normal text-white md:text-5xl">From the right AI idea to a system that creates value.</h2>
             <Link href="/#contact" className="mt-7 inline-flex items-center rounded-full bg-[linear-gradient(100deg,#2e6ceb,#7547df,#c23bd9)] px-5 py-3 text-sm font-semibold text-white shadow-[0_16px_50px_rgba(126,87,255,0.22)] transition hover:-translate-y-0.5 hover:shadow-[0_20px_60px_rgba(194,59,217,0.3)]">Talk to our team <span className="ml-2">→</span></Link>
           </div>
           <div>

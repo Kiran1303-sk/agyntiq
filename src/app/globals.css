@@ -291,7 +291,7 @@ button {
   margin-top: 1rem;
   font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 0.96;
-  letter-spacing: -0.05em;
+  letter-spacing: normal;
   font-weight: 600;
   color: #f5f7ff;
 }

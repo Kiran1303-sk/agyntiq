@@ -145,7 +145,7 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
               {activeServiceNumber} / {data.eyebrow}
             </motion.div>
 
-            <motion.h1 variants={fadeUp} className="mt-7 max-w-[12ch] text-balance text-5xl font-semibold leading-[0.92] tracking-[-0.08em] text-white drop-shadow-[0_0_34px_rgba(202,74,255,0.18)] md:text-6xl xl:text-[5.2rem]">
+            <motion.h1 variants={fadeUp} className="mt-7 max-w-[12ch] text-balance text-5xl font-semibold leading-[0.92] tracking-normal text-white drop-shadow-[0_0_34px_rgba(202,74,255,0.18)] md:text-6xl xl:text-[5.2rem]">
               {data.title}
             </motion.h1>
 
@@ -184,7 +184,7 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
             <div className="text-[0.72rem] font-semibold uppercase tracking-[0.36em] text-indigo-200/58">
               Service brief
             </div>
-            <p className="mt-5 text-2xl font-semibold leading-tight tracking-[-0.05em] text-white md:text-3xl">
+            <p className="mt-5 text-2xl font-semibold leading-tight tracking-normal text-white md:text-3xl">
               {data.summary}
             </p>
             <div className="mt-8 grid gap-3 sm:grid-cols-3">
@@ -197,7 +197,7 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
                   <div className="text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-indigo-200/46">
                     {item.label}
                   </div>
-                  <div className="mt-2 text-2xl font-semibold tracking-[-0.06em] text-white">
+                  <div className="mt-2 text-2xl font-semibold tracking-normal text-white">
                     {item.value}
                   </div>
                 </div>
@@ -242,7 +242,7 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
               <div className="text-[0.72rem] font-semibold uppercase tracking-[0.36em] text-indigo-200/58">
                 Delivery system
               </div>
-              <h2 className="mt-3 text-4xl font-semibold tracking-[-0.07em] text-white md:text-5xl">
+              <h2 className="mt-3 text-4xl font-semibold tracking-normal text-white md:text-5xl">
                 What you get
               </h2>
             </div>
@@ -264,7 +264,7 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
                 <div className="text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-indigo-200/45">
                   Output 0{index + 1}
                 </div>
-                <div className="mt-4 text-xl font-semibold leading-7 tracking-[-0.04em] text-white">
+                <div className="mt-4 text-xl font-semibold leading-7 tracking-normal text-white">
                   {item}
                 </div>
               </motion.div>
@@ -285,7 +285,7 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
             <div className="text-[0.72rem] font-semibold uppercase tracking-[0.36em] text-indigo-200/52">
               Next service
             </div>
-            <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.06em] text-white">
+            <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-normal text-white">
               Continue through the AgyntiQ service stack.
             </h2>
           </motion.div>
@@ -298,7 +298,7 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
                   <div className="text-[0.72rem] font-semibold uppercase tracking-[0.32em] text-indigo-200/58">
                     {nextService.label}
                   </div>
-                  <div className="mt-4 text-3xl font-semibold tracking-[-0.06em] text-white">
+                  <div className="mt-4 text-3xl font-semibold tracking-normal text-white">
                     Open next service page
                   </div>
                 </div>
