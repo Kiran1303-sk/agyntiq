@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import ScrollToTopButton from "@/components/scroll-to-top-button";
@@ -133,7 +132,7 @@ export default function StrategyReadinessPage() {
           initial="hidden"
           animate="show"
           variants={stagger}
-          className="grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(24rem,0.85fr)] lg:items-center"
+          className="max-w-5xl"
         >
           <div>
             <motion.div variants={fadeUp} className="flex items-center gap-3 text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-fuchsia-100/78">
@@ -156,31 +155,6 @@ export default function StrategyReadinessPage() {
               </Link>
             </motion.div>
           </div>
-
-          <motion.div variants={fadeUp} className="relative">
-            <div className="absolute -inset-4 rounded-[2rem] bg-[linear-gradient(135deg,rgba(46,108,235,0.16),rgba(194,59,217,0.18))] blur-2xl" />
-            <div className="relative overflow-hidden rounded-[1.6rem] border border-fuchsia-200/18 bg-[#080b25]/82 p-3 shadow-[0_30px_100px_rgba(0,0,0,0.38)]">
-              <div className="relative aspect-[1.06] overflow-hidden rounded-[1.25rem] bg-[#050719]">
-                <Image
-                  src="/ai-strategy-main.png"
-                  alt="AI strategy readiness interface"
-                  fill
-                  priority
-                  sizes="(min-width: 1024px) 42vw, 100vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,25,0.05),rgba(5,7,25,0.42))]" />
-              </div>
-              <div className="grid gap-3 pt-3 sm:grid-cols-2">
-                {signals.map(([title, text]) => (
-                  <div key={title} className="rounded-[1rem] border border-white/[0.07] bg-white/[0.04] p-4">
-                    <div className="text-sm font-semibold text-white">{title}</div>
-                    <p className="mt-1 text-xs leading-5 text-white/50">{text}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
         </motion.div>
       </section>
 
