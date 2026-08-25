@@ -340,7 +340,7 @@ function NeuralGraphic({ index }: { index: number }) {
           fill
           priority={index === 0}
           sizes="(min-width: 1024px) 48vw, 100vw"
-          className="object-contain object-top"
+          className="rounded-[1.35rem] object-contain object-top"
         />
       </div>
     );
