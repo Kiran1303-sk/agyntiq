@@ -101,6 +101,43 @@ export const servicePages: Record<string, ServicePageData> = {
       "Integration architecture",
       "Workflow mapping",
       "Deployment guidance"
+    ],
+    serviceStages: [
+      {
+        title: "Enterprise System Integration",
+        eyebrow: "Connect",
+        description: "Embed AI into the enterprise systems teams already rely on, creating connected experiences across core business operations.",
+        output: "Connected enterprise AI foundation",
+        points: ["AI integration with CRM platforms", "AI integration with ERP systems", "AI integration with document management systems"]
+      },
+      {
+        title: "Workflow Automation Integration",
+        eyebrow: "Automate",
+        description: "Combine AI with automation to remove repetitive work, coordinate processes, and orchestrate business operations intelligently.",
+        output: "AI-enabled workflow automation",
+        points: ["AI-enabled workflow automation", "Robotic process automation + AI integration", "AI-driven business process orchestration"]
+      },
+      {
+        title: "Knowledge Integration",
+        eyebrow: "Understand",
+        description: "Make organizational knowledge easier to discover and use through connected knowledge bases, retrieval, and enterprise search.",
+        output: "Enterprise knowledge intelligence layer",
+        points: ["Enterprise knowledge base creation", "Retrieval-augmented generation (RAG) systems", "AI search across company documents"]
+      },
+      {
+        title: "Data & Application Connectivity",
+        eyebrow: "Extend",
+        description: "Connect AI services to applications and live data sources through reliable APIs, plugins, and enterprise connectors.",
+        output: "Real-time AI data connectivity",
+        points: ["API integration for AI services", "AI plug-ins for enterprise applications", "Real-time AI data connectors"]
+      },
+      {
+        title: "Digital Workplace AI",
+        eyebrow: "Enable",
+        description: "Bring AI into the everyday digital workplace so teams can collaborate, meet, and create with greater productivity.",
+        output: "AI-enabled digital workplace",
+        points: ["AI embedded in collaboration tools", "AI meeting assistants", "AI productivity copilots"]
+      }
     ]
   },
   "ai-data-services": {

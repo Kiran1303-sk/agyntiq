@@ -139,6 +139,7 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
   const activeServiceIndex = servicePageOrder.findIndex((service) => service.label === data.title);
   const activeServiceNumber = String(activeServiceIndex + 1).padStart(2, "0");
   const nextService = servicePageOrder[(activeServiceIndex + 1) % servicePageOrder.length];
+  const isIntegration = data.title === "AI Integration Services";
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#040817] pt-48 text-white md:pt-52">
@@ -196,14 +197,16 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
           <div className="mb-10 grid gap-4 md:grid-cols-[0.8fr_1fr] md:items-end">
             <div>
               <div className="text-[0.72rem] font-semibold uppercase tracking-[0.36em] text-indigo-200/58">
-                Solution development system
+                {isIntegration ? "Integration capability system" : "Solution development system"}
               </div>
               <h2 className="mt-3 max-w-3xl text-4xl font-semibold leading-tight tracking-normal text-white md:text-5xl">
-                Build intelligent products people are ready to use.
+                {isIntegration ? "Connect AI to the systems where work already happens." : "Build intelligent products people are ready to use."}
               </h2>
             </div>
             <p className="max-w-xl text-base leading-7 text-indigo-100/62 md:justify-self-end">
-              From assistants and generative applications to predictive systems and industry accelerators, each capability is designed for enterprise impact.
+              {isIntegration
+                ? "From enterprise platforms and automated workflows to knowledge systems and digital workplace tools, each connection is designed for reliable adoption."
+                : "From assistants and generative applications to predictive systems and industry accelerators, each capability is designed for enterprise impact."}
             </p>
           </div>
 
