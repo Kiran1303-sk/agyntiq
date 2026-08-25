@@ -32,22 +32,23 @@ export default function PointerAura() {
       frame = requestAnimationFrame(render);
     };
 
-    const handleMove = (event: MouseEvent) => {
+    const handleMove = (event: PointerEvent) => {
       targetX = event.clientX;
       targetY = event.clientY;
-      const interactive = (event.target as HTMLElement).closest("a, button, [role='button']");
+      const target = event.target instanceof Element ? event.target : null;
+      const interactive = target?.closest("a, button, [role='button']");
       document.documentElement.classList.toggle("pointer-aura-hover", Boolean(interactive));
     };
 
     const handleLeave = () => document.documentElement.classList.remove("pointer-aura-hover");
 
-    window.addEventListener("mousemove", handleMove, { passive: true });
+    window.addEventListener("pointermove", handleMove, { passive: true });
     document.documentElement.addEventListener("mouseleave", handleLeave);
     frame = requestAnimationFrame(render);
 
     return () => {
       cancelAnimationFrame(frame);
-      window.removeEventListener("mousemove", handleMove);
+      window.removeEventListener("pointermove", handleMove);
       document.documentElement.removeEventListener("mouseleave", handleLeave);
       document.documentElement.classList.remove("pointer-aura-hover");
     };

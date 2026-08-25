@@ -86,6 +86,12 @@ const outcomes = [
   "A practical model for long term adoption"
 ] as const;
 
+const chapterLinks = [
+  ["01", "Signals", "#signals"],
+  ["02", "Strategy system", "#roadmap"],
+  ["03", "Business impact", "#impact"]
+] as const;
+
 function ArrowIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
@@ -191,11 +197,21 @@ export default function StrategyReadinessPage() {
                 </div>
               ))}
             </motion.div>
+
+            <motion.nav variants={fadeUp} aria-label="Page chapters" className="mt-7 flex flex-wrap gap-2">
+              {chapterLinks.map(([number, title, href]) => (
+                <Link key={title} href={href} className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] px-3.5 py-2 text-xs font-semibold text-white/55 transition hover:-translate-y-0.5 hover:border-fuchsia-200/35 hover:bg-fuchsia-300/[0.08] hover:text-white">
+                  <span className="text-[0.6rem] text-fuchsia-200/45 transition group-hover:text-fuchsia-100">{number}</span>
+                  <span>{title}</span>
+                  <ArrowIcon />
+                </Link>
+              ))}
+            </motion.nav>
           </div>
         </motion.div>
       </section>
 
-      <section className="section-shell pb-20 md:pb-28">
+      <section id="signals" className="section-shell scroll-mt-28 pb-20 md:pb-28">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -267,7 +283,7 @@ export default function StrategyReadinessPage() {
         </div>
       </section>
 
-      <section className="section-shell pb-20 md:pb-28">
+      <section id="impact" className="section-shell scroll-mt-28 pb-20 md:pb-28">
         <div className="grid gap-8 rounded-[1.6rem] border border-fuchsia-200/16 bg-[linear-gradient(135deg,rgba(24,13,50,0.78),rgba(7,8,28,0.86))] p-6 shadow-[0_24px_90px_rgba(0,0,0,0.24)] md:grid-cols-[0.8fr_1.2fr] md:p-8 lg:p-10">
           <div>
             <div className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-fuchsia-200/58">Business impact</div>
