@@ -143,7 +143,7 @@ export const servicePages: Record<string, ServicePageData> = {
   "ai-data-services": {
     title: "AI Data Services",
     eyebrow: "Data",
-    intro: "Prepare, structure, and govern the data layer AI needs to stay reliable.",
+    intro: "Preparing and managing the data required for reliable AI systems.",
     summary:
       "This page will focus on the data foundation behind AI, including preparation, labeling, and governance.",
     focusPoints: [
@@ -160,37 +160,37 @@ export const servicePages: Record<string, ServicePageData> = {
       {
         title: "AI Data Engineering",
         eyebrow: "Engineer",
-        description: "Build reliable pipelines and data foundations that give AI systems consistent, usable enterprise inputs.",
-        output: "Scalable AI data foundation",
-        points: ["Data pipeline design", "Enterprise data integration", "Production-ready data flows"]
+        description: "Build reliable pipelines that make enterprise information available, structured, and ready for AI workloads.",
+        output: "Enterprise AI data pipelines",
+        points: ["Enterprise data pipelines for AI", "Structured and unstructured data processing", "Real-time data ingestion systems"]
       },
       {
         title: "AI Data Preparation",
         eyebrow: "Prepare",
-        description: "Transform raw enterprise information into clean, structured, and AI-ready datasets for dependable model performance.",
-        output: "AI-ready prepared datasets",
-        points: ["Data cleansing", "Data transformation", "Dataset readiness assessment"]
+        description: "Prepare raw information for dependable AI use through cleaning, normalization, training data preparation, and knowledge structuring.",
+        output: "Prepared AI training and knowledge data",
+        points: ["Data cleaning and normalization", "Training dataset preparation", "Knowledge base structuring"]
       },
       {
-        title: "Data Annotation & Labeling",
+        title: "Data Annotation & Labelling",
         eyebrow: "Enrich",
-        description: "Improve the quality and usefulness of training data with consistent annotation, labeling, and review processes.",
-        output: "High-quality labeled data",
-        points: ["Annotation strategy", "Labeling workflows", "Quality review framework"]
+        description: "Enrich training data with consistent labels and annotations that improve the accuracy and usefulness of AI models.",
+        output: "Enriched AI training datasets",
+        points: ["Document labeling for AI models", "Image and text annotation services", "AI training dataset enrichment"]
       },
       {
         title: "AI Knowledge Architecture",
         eyebrow: "Structure",
-        description: "Organize enterprise knowledge so AI applications can retrieve, understand, and use information in context.",
-        output: "Connected AI knowledge layer",
-        points: ["Knowledge architecture", "Retrieval-ready content", "Enterprise information mapping"]
+        description: "Organize enterprise knowledge into a connected architecture that supports retrieval, semantic search, and intelligent applications.",
+        output: "Enterprise AI knowledge architecture",
+        points: ["Enterprise knowledge graph development", "Vector database implementation", "Semantic search architecture"]
       },
       {
         title: "Data Quality & Governance",
         eyebrow: "Govern",
         description: "Create the standards, controls, and visibility required to keep AI data trustworthy, compliant, and useful over time.",
-        output: "Governed data operating model",
-        points: ["Data quality controls", "Governance standards", "Ongoing data stewardship"]
+        output: "Governed and measurable AI data layer",
+        points: ["Data quality monitoring frameworks", "AI data governance policies", "Enterprise metadata management"]
       }
     ]
   },
