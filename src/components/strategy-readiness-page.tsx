@@ -29,61 +29,61 @@ const stagger = {
 };
 
 const signals = [
-  ["Business value", "ROI cases ranked by impact"],
-  ["Operating model", "Ownership, cadence, and governance"],
-  ["Data readiness", "Process, risk, and quality view"],
-  ["Adoption path", "Phased rollout with quick wins"]
+  ["Opportunity mapping", "Find the highest-value AI opportunities across departments"],
+  ["ROI clarity", "Build a defensible business case for investment"],
+  ["Operating model", "Create the governance and delivery model to scale"],
+  ["Responsible adoption", "Prepare people, policies, and controls for change"]
 ] as const;
 
 const stages = [
   {
     number: "01",
-    title: "Opportunity Lens",
+    title: "Opportunity Identification",
     eyebrow: "Discover",
-    description: "Map the business moments where AI can create measurable lift, reduce friction, or unlock new capacity.",
-    output: "Prioritized opportunity portfolio",
-    points: ["Process discovery", "Use case scoring", "Value sizing"]
+    description: "Identify where AI can create measurable value across the organization and build a clear view of current maturity.",
+    output: "Prioritized AI opportunity portfolio",
+    points: ["Enterprise opportunity mapping", "AI use-case workshops", "AI maturity assessment"]
   },
   {
     number: "02",
-    title: "Investment Case",
-    eyebrow: "Validate",
-    description: "Convert shortlisted opportunities into clear business cases with cost, impact, dependency, and payback logic.",
-    output: "ROI backed decision pack",
-    points: ["Benefit model", "Cost view", "Executive narrative"]
+    title: "ROI & Business Case Design",
+    eyebrow: "Justify",
+    description: "Translate the strongest opportunities into investment cases that make value, cost, and prioritization easy for leaders to evaluate.",
+    output: "ROI-backed AI investment case",
+    points: ["AI ROI modeling", "Cost-benefit simulation", "Investment prioritization"]
   },
   {
     number: "03",
-    title: "AI Operating Model",
-    eyebrow: "Design",
-    description: "Define the people, governance, tooling, controls, and delivery rhythms required to move AI safely into work.",
-    output: "Target operating model",
-    points: ["Ownership model", "Governance design", "Delivery rituals"]
+    title: "Operating Model Design",
+    eyebrow: "Enable",
+    description: "Design the practical structure needed to govern, deliver, and scale AI initiatives across teams and business functions.",
+    output: "Enterprise AI operating model",
+    points: ["AI governance framework", "Center of Excellence setup", "Enterprise operating model"]
   },
   {
     number: "04",
-    title: "Risk Architecture",
-    eyebrow: "Control",
-    description: "Surface privacy, compliance, explainability, security, and adoption risks before projects become expensive.",
-    output: "Responsible AI risk register",
-    points: ["Risk map", "Control design", "Compliance checks"]
+    title: "Risk & Compliance Assessment",
+    eyebrow: "Protect",
+    description: "Prepare the organization for responsible AI with a clear assessment of ethics, regulation, bias, policy, and control requirements.",
+    output: "Responsible AI readiness framework",
+    points: ["Ethics and regulatory readiness", "Responsible AI policy design", "Risk and bias assessment"]
   },
   {
     number: "05",
-    title: "Transformation Roadmap",
+    title: "Transformation & Adoption Roadmap",
     eyebrow: "Scale",
-    description: "Turn strategy into a sequenced plan that connects pilots, platforms, teams, data foundations, and business value.",
-    output: "90 day and multi quarter roadmap",
-    points: ["Quick wins", "Capability plan", "Scale sequence"]
+    description: "Turn the strategy into a realistic three-to-five-year transformation path that connects capability building with workforce adoption.",
+    output: "3–5 year AI transformation roadmap",
+    points: ["AI capability building", "Workforce adoption strategy", "Phased transformation plan"]
   }
 ] as const;
 
 const outcomes = [
-  "Clearer AI investment decisions",
-  "A shared roadmap for leaders and teams",
-  "Lower risk before build begins",
-  "Faster movement from idea to funded initiative",
-  "A practical model for long term adoption"
+  "A ranked view of enterprise AI opportunities",
+  "Business cases leaders can confidently fund",
+  "An operating model for accountable AI delivery",
+  "Responsible AI policies and risk visibility",
+  "A practical three-to-five-year adoption roadmap"
 ] as const;
 
 function ArrowIcon() {
@@ -186,11 +186,11 @@ export default function StrategyReadinessPage() {
           <div>
             <div className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-fuchsia-200/55">Strategy command system</div>
             <h2 className="mt-3 max-w-3xl text-3xl font-semibold leading-tight tracking-normal text-white md:text-5xl">
-              A five layer interface for making AI investment decisions.
+              Five connected services for moving from AI ambition to adoption.
             </h2>
           </div>
           <p className="max-w-xl text-sm leading-7 text-white/52 md:justify-self-end">
-            The workflow is redesigned as a decision system, not a checklist. Each layer clarifies where to invest, how to operate, what to control, and how to scale.
+            A structured engagement for identifying the right opportunities, proving their value, building the operating foundation, managing risk, and preparing the organization to scale.
           </p>
         </div>
 
@@ -236,7 +236,7 @@ export default function StrategyReadinessPage() {
           <div>
             <div className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-fuchsia-200/58">Business impact</div>
             <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-normal text-white md:text-5xl">
-              The outcome is clarity your teams can act on.
+              The outcome is a roadmap your organization can act on.
             </h2>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
@@ -260,8 +260,8 @@ export default function StrategyReadinessPage() {
             <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-normal md:text-5xl">
               Start with the right opportunities. Build the right foundation. Move with confidence.
             </h2>
-            <p className="mt-5 max-w-3xl text-base leading-7 text-white/74">
-              AI Strategy &amp; Readiness gives leaders a practical operating model, a measurable business case, and a roadmap built for adoption.
+              <p className="mt-5 max-w-3xl text-base leading-7 text-white/74">
+              AI Strategy &amp; Readiness gives leaders the evidence, structure, safeguards, and long-term direction required to make AI adoption durable.
             </p>
             <Link href="/#contact" className="mt-7 inline-flex items-center gap-3 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#3f207f] transition hover:-translate-y-0.5">
               Talk through your readiness <ArrowIcon />
