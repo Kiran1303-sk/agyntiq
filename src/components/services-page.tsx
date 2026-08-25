@@ -329,6 +329,27 @@ function ArrowRightIcon() {
 }
 
 function NeuralGraphic({ index }: { index: number }) {
+  if (index >= 0) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 18 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-120px" }}
+        transition={{ duration: 0.65, ease }}
+        className="relative min-h-[24rem] w-full overflow-hidden md:min-h-[30rem]"
+      >
+        <Image
+          src="/main-ai.png"
+          alt={`${services[index].title} service visual`}
+          fill
+          priority={index === 0}
+          sizes="(min-width: 1024px) 48vw, 100vw"
+          className="object-contain"
+        />
+      </motion.div>
+    );
+  }
+
   const visual = serviceVisuals[index];
 
   return (
