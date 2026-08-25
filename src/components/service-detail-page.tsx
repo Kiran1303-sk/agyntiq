@@ -141,7 +141,8 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
           className="grid items-center gap-8 xl:grid-cols-[minmax(0,1.02fr)_minmax(22rem,0.82fr)]"
         >
           <div>
-            <motion.div variants={fadeUp} className="inline-flex rounded-full bg-[#180d32]/84 px-5 py-3 text-[0.72rem] font-semibold uppercase tracking-[0.32em] text-fuchsia-100 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.26),0_0_34px_rgba(202,74,255,0.12)]">
+            <motion.div variants={fadeUp} className="flex items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.32em] text-fuchsia-100/78">
+              <span className="h-0.5 w-12 rounded-full bg-fuchsia-200 shadow-[0_0_12px_rgba(240,171,252,0.9)]" />
               {activeServiceNumber} / {data.eyebrow}
             </motion.div>
 
