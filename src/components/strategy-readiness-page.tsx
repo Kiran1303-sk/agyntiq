@@ -37,7 +37,6 @@ const signals = [
 
 const stages = [
   {
-    number: "01",
     title: "Opportunity Identification",
     eyebrow: "Discover",
     description: "Identify where AI can create measurable value across the organization and build a clear view of current maturity.",
@@ -45,7 +44,6 @@ const stages = [
     points: ["Enterprise opportunity mapping", "AI use-case workshops", "AI maturity assessment"]
   },
   {
-    number: "02",
     title: "ROI & Business Case Design",
     eyebrow: "Justify",
     description: "Translate the strongest opportunities into investment cases that make value, cost, and prioritization easy for leaders to evaluate.",
@@ -53,7 +51,6 @@ const stages = [
     points: ["AI ROI modeling", "Cost-benefit simulation", "Investment prioritization"]
   },
   {
-    number: "03",
     title: "Operating Model Design",
     eyebrow: "Enable",
     description: "Design the practical structure needed to govern, deliver, and scale AI initiatives across teams and business functions.",
@@ -61,7 +58,6 @@ const stages = [
     points: ["AI governance framework", "Center of Excellence setup", "Enterprise operating model"]
   },
   {
-    number: "04",
     title: "Risk & Compliance Assessment",
     eyebrow: "Protect",
     description: "Prepare the organization for responsible AI with a clear assessment of ethics, regulation, bias, policy, and control requirements.",
@@ -69,7 +65,6 @@ const stages = [
     points: ["Ethics and regulatory readiness", "Responsible AI policy design", "Risk and bias assessment"]
   },
   {
-    number: "05",
     title: "Transformation & Adoption Roadmap",
     eyebrow: "Scale",
     description: "Turn the strategy into a realistic three-to-five-year transformation path that connects capability building with workforce adoption.",
@@ -110,6 +105,24 @@ function CheckIcon() {
         strokeLinejoin="round"
         strokeWidth="2"
       />
+    </svg>
+  );
+}
+
+function StageIcon({ index }: { index: number }) {
+  const paths = [
+    <path key="opportunity" d="M12 3.5a8.5 8.5 0 1 0 8.5 8.5M12 7v5l3.5 2M20.5 3.5v5h-5" />,
+    <path key="business" d="M4 19.5V9.5h16v10M8 9.5V6h8v3.5M2.5 19.5h19M8 13h.01M12 13h.01M16 13h.01M8 16h.01M12 16h.01M16 16h.01" />,
+    <path key="operating" d="M12 4v16M4 8h16M4 16h16M6.5 4h11A2.5 2.5 0 0 1 20 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5v-11A2.5 2.5 0 0 1 6.5 4Z" />,
+    <path key="risk" d="m12 3 8 4.5v6c0 4.2-3.2 6.8-8 7.5-4.8-.7-8-3.3-8-7.5v-6L12 3Zm0 4.5v5m0 3.5h.01" />,
+    <path key="roadmap" d="M4 18.5h16M5.5 15l4-4 3 2 6-7M15 6h3.5v3.5" />
+  ];
+
+  return (
+    <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" aria-hidden="true">
+      <g stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5">
+        {paths[index]}
+      </g>
     </svg>
   );
 }
@@ -202,13 +215,13 @@ export default function StrategyReadinessPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-90px" }}
               transition={{ duration: 0.65, delay: index * 0.08, ease }}
-              className="group grid gap-5 overflow-hidden rounded-[1.5rem] border border-white/10 bg-[linear-gradient(120deg,rgba(10,8,36,0.94),rgba(7,8,28,0.82))] p-5 shadow-[0_18px_70px_rgba(0,0,0,0.18)] transition duration-500 hover:-translate-y-1 hover:border-fuchsia-200/30 hover:shadow-[0_28px_90px_rgba(117,71,223,0.18)] md:grid-cols-[6rem_minmax(0,1fr)_18rem] md:items-center md:p-7"
+              className="group relative grid gap-6 overflow-hidden rounded-[1.5rem] border border-white/10 bg-[linear-gradient(120deg,rgba(10,8,36,0.94),rgba(7,8,28,0.82))] p-5 shadow-[0_18px_70px_rgba(0,0,0,0.18)] transition duration-500 hover:-translate-y-1 hover:border-fuchsia-200/30 hover:shadow-[0_28px_90px_rgba(117,71,223,0.18)] md:grid-cols-[5rem_minmax(0,1fr)_18rem] md:items-center md:p-7"
             >
+              <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(240,171,252,0.72),transparent)] opacity-0 transition duration-500 group-hover:opacity-100" />
               <div className="relative">
-                <div className="grid h-16 w-16 place-items-center rounded-[1.1rem] border border-fuchsia-200/20 bg-[linear-gradient(145deg,rgba(117,71,223,0.36),rgba(46,108,235,0.18))] text-xl font-semibold text-white shadow-[0_0_34px_rgba(117,71,223,0.16)]">
-                  {stage.number}
+                <div className="grid h-16 w-16 place-items-center rounded-[1.2rem] border border-fuchsia-200/25 bg-[linear-gradient(145deg,rgba(117,71,223,0.38),rgba(46,108,235,0.2))] text-fuchsia-100 shadow-[0_0_34px_rgba(117,71,223,0.16)] transition duration-500 group-hover:rotate-6 group-hover:scale-110 group-hover:border-fuchsia-100/50">
+                  <StageIcon index={index} />
                 </div>
-                {index < stages.length - 1 && <span className="absolute left-8 top-16 hidden h-12 w-px bg-fuchsia-300/18 md:block" />}
               </div>
               <div>
                 <div className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-200/55">{stage.eyebrow}</div>
@@ -222,7 +235,7 @@ export default function StrategyReadinessPage() {
                   ))}
                 </div>
               </div>
-              <div className="rounded-[1.1rem] border border-white/[0.08] bg-white/[0.04] p-5">
+              <div className="rounded-[1.1rem] border border-white/[0.08] bg-white/[0.04] p-5 transition duration-500 group-hover:border-fuchsia-200/20 group-hover:bg-fuchsia-300/[0.06] md:self-stretch md:flex md:flex-col md:justify-center">
                 <div className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-fuchsia-200/48">Output</div>
                 <p className="mt-3 text-sm font-semibold leading-6 text-white/84">{stage.output}</p>
               </div>
