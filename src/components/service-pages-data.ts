@@ -5,6 +5,13 @@ export type ServicePageData = {
   summary: string;
   focusPoints: string[];
   deliverables: string[];
+  serviceStages?: {
+    title: string;
+    eyebrow: string;
+    description: string;
+    output: string;
+    points: string[];
+  }[];
 };
 
 export const servicePages: Record<string, ServicePageData> = {
@@ -40,6 +47,43 @@ export const servicePages: Record<string, ServicePageData> = {
       "Working AI product or prototype",
       "Reusable component set",
       "Delivery backlog and roadmap"
+    ],
+    serviceStages: [
+      {
+        title: "Assistants & Agents",
+        eyebrow: "Empower",
+        description: "Build intelligent assistants and autonomous agents that help employees research, decide, and execute work faster.",
+        output: "Enterprise AI assistants and agents",
+        points: ["Enterprise AI assistants for employees", "AI research assistants", "AI operations agents"]
+      },
+      {
+        title: "GenAI Applications",
+        eyebrow: "Create",
+        description: "Design generative AI applications that turn documents, knowledge, and workflows into useful business experiences.",
+        output: "Production-ready GenAI applications",
+        points: ["Document summarization tools", "Automated report generation platforms", "AI content generation systems"]
+      },
+      {
+        title: "Predictive AI Solutions",
+        eyebrow: "Predict",
+        description: "Use predictive models to anticipate demand, identify risk, and detect anomalies before they become business problems.",
+        output: "Predictive intelligence solutions",
+        points: ["Demand forecasting models", "Risk prediction models", "Anomaly detection systems"]
+      },
+      {
+        title: "Decision Intelligence Platforms",
+        eyebrow: "Decide",
+        description: "Create decision systems that combine recommendations, scenario modeling, and AI-driven insights for better action.",
+        output: "Decision intelligence platform",
+        points: ["AI recommendation engines", "Scenario simulation tools", "AI-driven decision dashboards"]
+      },
+      {
+        title: "Industry-ready AI Accelerators",
+        eyebrow: "Accelerate",
+        description: "Start from reusable, industry-aware AI capabilities that shorten delivery time and create a stronger path to scale.",
+        output: "Reusable industry AI accelerator",
+        points: ["Prebuilt AI modules for HR, finance, and procurement", "Document intelligence engines", "AI knowledge search platforms"]
+      }
     ]
   },
   "ai-integration-services": {

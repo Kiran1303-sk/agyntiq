@@ -52,6 +52,24 @@ function SignalIcon() {
   );
 }
 
+function SolutionStageIcon({ index }: { index: number }) {
+  const icons = [
+    <path key="assistants" d="M7 11.5a5 5 0 1 1 8.8 3.2L18 17v2H8a4 4 0 0 1-4-4 4.5 4.5 0 0 1 3-4.25ZM15 5.5h4v4M17 7.5h-3" />,
+    <path key="genai" d="M5 5h14v14H5zM8 9h8M8 12h5M8 15h7" />,
+    <path key="predictive" d="M4 18.5 9 13l3 2 7-8M15 7h4v4M4 21h16" />,
+    <path key="decision" d="M12 4v16M4 8h16M4 16h16M6.5 4h11A2.5 2.5 0 0 1 20 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5v-11A2.5 2.5 0 0 1 6.5 4Z" />,
+    <path key="accelerator" d="m13 3-8 11h6l-1 7 8-11h-6l1-7Z" />
+  ];
+
+  return (
+    <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" aria-hidden="true">
+      <g stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5">
+        {icons[index]}
+      </g>
+    </svg>
+  );
+}
+
 function ServiceOrbital() {
   return (
     <div className="relative min-h-[25rem] overflow-hidden rounded-[2.2rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.94)_0%,rgba(7,8,28,0.98)_48%,rgba(42,7,46,0.86)_100%)] p-6 shadow-[0_30px_90px_rgba(0,0,0,0.3),inset_0_0_0_1px_rgba(77,42,173,0.46)] sm:p-8">
@@ -172,6 +190,60 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
           </motion.div>
         </motion.div>
       </section>
+
+      {data.serviceStages && (
+        <section id="solution-system" className="section-shell scroll-mt-28 pb-16 md:pb-24">
+          <div className="mb-10 grid gap-4 md:grid-cols-[0.8fr_1fr] md:items-end">
+            <div>
+              <div className="text-[0.72rem] font-semibold uppercase tracking-[0.36em] text-indigo-200/58">
+                Solution development system
+              </div>
+              <h2 className="mt-3 max-w-3xl text-4xl font-semibold leading-tight tracking-normal text-white md:text-5xl">
+                Build intelligent products people are ready to use.
+              </h2>
+            </div>
+            <p className="max-w-xl text-base leading-7 text-indigo-100/62 md:justify-self-end">
+              From assistants and generative applications to predictive systems and industry accelerators, each capability is designed for enterprise impact.
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2">
+            {data.serviceStages.map((stage, index) => (
+              <motion.article
+                key={stage.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-90px" }}
+                transition={{ duration: 0.6, delay: index * 0.07, ease }}
+                className={`group relative overflow-hidden rounded-[1.7rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.92),rgba(7,8,28,0.96)_56%,rgba(42,7,46,0.86))] p-6 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.18),0_22px_68px_rgba(0,0,0,0.2)] transition duration-500 hover:-translate-y-1 hover:shadow-[inset_0_0_0_1px_rgba(240,171,252,0.34),0_30px_86px_rgba(117,71,223,0.2)] ${index === 4 ? "md:col-span-2 md:mx-auto md:w-[calc(50%-0.625rem)]" : ""}`}
+              >
+                <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(240,171,252,0.75),transparent)] opacity-0 transition duration-500 group-hover:opacity-100" />
+                <div className="flex items-start justify-between gap-5">
+                  <div className="grid h-14 w-14 shrink-0 place-items-center rounded-[1.15rem] border border-fuchsia-200/24 bg-[linear-gradient(145deg,rgba(117,71,223,0.38),rgba(46,108,235,0.2))] text-fuchsia-100 shadow-[0_0_30px_rgba(117,71,223,0.16)] transition duration-500 group-hover:rotate-6 group-hover:scale-110 group-hover:border-fuchsia-100/50">
+                    <SolutionStageIcon index={index} />
+                  </div>
+                  <div className="rounded-full border border-fuchsia-200/14 bg-fuchsia-300/[0.05] px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-100/62">
+                    {stage.eyebrow}
+                  </div>
+                </div>
+                <h3 className="mt-6 text-2xl font-semibold leading-tight tracking-normal text-white md:text-3xl">{stage.title}</h3>
+                <p className="mt-3 max-w-2xl text-sm leading-7 text-indigo-100/62">{stage.description}</p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {stage.points.map((point) => (
+                    <span key={point} className="rounded-full border border-fuchsia-200/12 bg-fuchsia-300/[0.045] px-3 py-1.5 text-xs font-semibold text-white/62 transition group-hover:border-fuchsia-200/24 group-hover:text-white/82">
+                      {point}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-6 rounded-[1.1rem] border border-white/[0.08] bg-white/[0.04] p-4 transition group-hover:border-fuchsia-200/20 group-hover:bg-fuchsia-300/[0.06]">
+                  <div className="text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-indigo-200/48">Output</div>
+                  <p className="mt-2 text-sm font-semibold leading-6 text-white/84">{stage.output}</p>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section id="service-plan" className="section-shell pb-16 md:pb-24">
         <motion.div
