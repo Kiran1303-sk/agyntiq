@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import ScrollToTopButton from "@/components/scroll-to-top-button";
 import SiteHeader from "@/components/site-header";
 import ServiceFooter from "@/components/service-footer";
@@ -114,12 +114,26 @@ function CheckIcon() {
   );
 }
 
+function ScrollProgress() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
+
+  return (
+    <motion.div
+      style={{ scaleX, transformOrigin: "0% 50%" }}
+      className="fixed inset-x-0 top-0 z-[60] h-0.5 bg-[linear-gradient(90deg,#2e6ceb,#c23bd9,#f0abfc)] shadow-[0_0_14px_rgba(194,59,217,0.8)]"
+    />
+  );
+}
+
 export default function StrategyReadinessPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#050719] text-white">
       <SiteHeader mode="services" />
+      <ScrollProgress />
 
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_10%_8%,rgba(202,74,255,0.15),transparent_28%),radial-gradient(circle_at_86%_18%,rgba(46,108,235,0.13),transparent_30%),linear-gradient(180deg,#050719,#0b0825_48%,#050719)]" />
+      <div className="pointer-events-none fixed inset-0 -z-10 opacity-[0.16] [background-image:linear-gradient(rgba(240,171,252,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(240,171,252,0.08)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:linear-gradient(to_bottom,black,transparent_75%)]" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(240,171,252,0.42),transparent)]" />
       <motion.div
         animate={{ x: [0, 20, 0], y: [0, -16, 0], opacity: [0.25, 0.48, 0.25] }}
@@ -127,7 +141,13 @@ export default function StrategyReadinessPage() {
         className="pointer-events-none absolute right-[6%] top-[12rem] h-72 w-72 rounded-full bg-fuchsia-400/[0.08] blur-[100px]"
       />
 
-      <section className="section-shell pt-36 pb-16 md:pt-44 md:pb-24">
+      <section className="section-shell relative pt-36 pb-16 md:pt-44 md:pb-24">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, ease }}
+          className="pointer-events-none absolute -left-20 top-32 h-56 w-56 rounded-full border border-fuchsia-200/10 shadow-[0_0_100px_rgba(117,71,223,0.16)]"
+        />
         <motion.div
           initial="hidden"
           animate="show"
@@ -154,6 +174,23 @@ export default function StrategyReadinessPage() {
                 Start readiness review
               </Link>
             </motion.div>
+
+            <motion.div variants={fadeUp} className="mt-12 grid max-w-3xl gap-px overflow-hidden rounded-[1.15rem] border border-white/10 bg-white/10 sm:grid-cols-3">
+              {[
+                ["01", "Value first", "Prioritize what matters"],
+                ["02", "Built to scale", "Design the operating model"],
+                ["03", "Ready to move", "Leave with a roadmap"]
+              ].map(([number, title, text]) => (
+                <div key={number} className="group bg-[#080b25]/90 p-4 transition hover:bg-fuchsia-300/[0.07] sm:p-5">
+                  <div className="flex items-center justify-between text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-fuchsia-200/48">
+                    <span>{number}</span>
+                    <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-200 shadow-[0_0_10px_rgba(240,171,252,0.9)] transition group-hover:scale-150" />
+                  </div>
+                  <div className="mt-5 text-sm font-semibold text-white">{title}</div>
+                  <div className="mt-1 text-xs leading-5 text-white/45">{text}</div>
+                </div>
+              ))}
+            </motion.div>
           </div>
         </motion.div>
       </section>
@@ -167,7 +204,8 @@ export default function StrategyReadinessPage() {
           className="grid gap-4 md:grid-cols-4"
         >
           {signals.map(([title, text], index) => (
-            <motion.div key={title} variants={fadeUp} className="group relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-[linear-gradient(145deg,rgba(12,8,38,0.82),rgba(7,8,28,0.72))] p-5 transition duration-300 hover:-translate-y-1 hover:border-fuchsia-200/30 hover:bg-fuchsia-300/[0.06]">
+            <motion.div key={title} variants={fadeUp} whileHover={{ y: -7 }} transition={{ duration: 0.25, ease }} className="group relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-[linear-gradient(145deg,rgba(12,8,38,0.82),rgba(7,8,28,0.72))] p-5 transition duration-300 hover:border-fuchsia-200/30 hover:bg-fuchsia-300/[0.06]">
+              <span className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(240,171,252,0.7),transparent)] opacity-0 transition group-hover:opacity-100" />
               <span className="absolute right-4 top-4 text-xs font-semibold text-fuchsia-200/32">0{index + 1}</span>
               <div className="grid h-10 w-10 place-items-center rounded-[0.8rem] bg-fuchsia-300/[0.08] text-fuchsia-100 shadow-[0_0_24px_rgba(202,74,255,0.12)]">
                 <CheckIcon />
