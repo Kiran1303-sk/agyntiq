@@ -562,7 +562,7 @@ export default function ServicesPage() {
                 href={service.href}
                 className="group relative overflow-hidden rounded-[1rem] border border-white/[0.07] bg-white/[0.025] px-4 py-3 text-left transition duration-300 hover:-translate-y-0.5 hover:border-fuchsia-300/35 hover:bg-fuchsia-300/[0.09] hover:text-fuchsia-100 hover:shadow-[0_0_24px_rgba(202,74,255,0.16)]"
               >
-                <span className="absolute inset-y-2 left-0 w-0.5 rounded-full bg-gradient-to-b from-blue-300 to-fuchsia-300 opacity-50 transition group-hover:opacity-100" />
+                <span className="absolute inset-y-2 left-0 w-0.5 rounded-full bg-gradient-to-b from-blue-200 via-fuchsia-300 to-fuchsia-200 opacity-90 shadow-[0_0_12px_rgba(194,59,217,0.7)] transition group-hover:opacity-100 group-hover:shadow-[0_0_18px_rgba(194,59,217,0.95)]" />
                 <span className="block text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-fuchsia-200/50 transition group-hover:text-fuchsia-200/80">
                   {service.number}
                 </span>
