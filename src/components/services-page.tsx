@@ -329,8 +329,8 @@ function ArrowRightIcon() {
 }
 
 function NeuralGraphic({ index }: { index: number }) {
-  if (index >= 0) {
-    const imageSrc = "/main-ai.png";
+  if (index === 0) {
+    const imageSrc = "/ai-strategy.png";
 
     return (
       <div className="relative min-h-[24rem] w-full overflow-hidden rounded-[1.35rem] md:min-h-[30rem]">
