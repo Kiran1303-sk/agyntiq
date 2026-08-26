@@ -176,6 +176,39 @@ const serviceVisuals = [
   }
 ] as const;
 
+const strategyStages = [
+  {
+    number: "01",
+    title: "Opportunity Identification",
+    detail: "Map enterprise opportunities, run use-case workshops, and assess AI maturity.",
+    color: "#8b5cf6"
+  },
+  {
+    number: "02",
+    title: "ROI & Business Case",
+    detail: "Model value, simulate costs, and prioritize the right AI investments.",
+    color: "#a855f7"
+  },
+  {
+    number: "03",
+    title: "Operating Model Design",
+    detail: "Create governance, a center of excellence, and an enterprise AI model.",
+    color: "#6366f1"
+  },
+  {
+    number: "04",
+    title: "Risk & Compliance",
+    detail: "Make ethics, regulation, responsible AI, risk, and bias part of the plan.",
+    color: "#0ea5e9"
+  },
+  {
+    number: "05",
+    title: "Transformation Roadmap",
+    detail: "Align capability building and workforce adoption to a phased 3–5 year roadmap.",
+    color: "#2563eb"
+  }
+] as const;
+
 const journey = [
   "Curiosity",
   "Strategy",
@@ -330,18 +363,51 @@ function ArrowRightIcon() {
 
 function NeuralGraphic({ index }: { index: number }) {
   if (index === 0) {
-    const imageSrc = "/ai-strategy.png";
-
     return (
-      <div className="relative min-h-[24rem] w-full overflow-hidden rounded-[1.35rem] md:min-h-[30rem]">
-        <Image
-          src={imageSrc}
-          alt={`${services[index].title} service visual`}
-          fill
-          priority={index === 0}
-          sizes="(min-width: 1024px) 48vw, 100vw"
-          className="rounded-[1.35rem] object-contain object-top"
+      <div className="group relative min-h-[24rem] w-full overflow-hidden rounded-[1.35rem] border border-violet-300/15 bg-[#080827] p-5 shadow-[0_24px_90px_rgba(45,24,130,0.32)] md:min-h-[30rem] md:p-6">
+        <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-violet-500/20 blur-3xl transition duration-700 group-hover:bg-fuchsia-500/25" />
+        <div className="pointer-events-none absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-blue-500/15 blur-3xl" />
+
+        <div className="relative z-10 flex items-start justify-between gap-4">
+          <div>
+            <div className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-violet-200/60">AI adoption system</div>
+            <h3 className="mt-2 max-w-[19rem] text-2xl font-semibold leading-tight text-white">From ambition to an actionable roadmap</h3>
+          </div>
+          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-violet-200/20 bg-violet-300/10 text-lg text-violet-100 shadow-[0_0_28px_rgba(139,92,246,0.24)]">✦</div>
+        </div>
+
+        <div className="relative z-10 mt-6 space-y-2.5">
+          {strategyStages.map((stage, stageIndex) => (
+            <motion.div
+              key={stage.number}
+              initial={{ opacity: 0, x: -16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ delay: stageIndex * 0.1, duration: 0.45 }}
+              whileHover={{ x: 5 }}
+              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2.5 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]"
+            >
+              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[0.68rem] font-bold text-white" style={{ backgroundColor: stage.color }}>
+                {stage.number}
+              </span>
+              <div className="min-w-0 flex-1">
+                <div className="text-sm font-semibold text-white">{stage.title}</div>
+                <div className="mt-0.5 hidden text-[0.68rem] leading-4 text-white/50 sm:block">{stage.detail}</div>
+              </div>
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-white/60 shadow-[0_0_12px_rgba(255,255,255,0.7)]" />
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          animate={{ scaleX: [0.35, 1, 0.35], opacity: [0.35, 0.9, 0.35] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="relative z-10 mt-5 h-px origin-left bg-gradient-to-r from-violet-400/0 via-violet-300/70 to-blue-300/0"
         />
+        <div className="relative z-10 mt-4 rounded-xl border border-violet-200/15 bg-violet-300/[0.08] px-4 py-3">
+          <div className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-violet-200/60">Outcome</div>
+          <div className="mt-1 text-sm font-medium leading-5 text-white/85">A clear AI strategy that maximizes value, manages risk, and accelerates adoption.</div>
+        </div>
       </div>
     );
   }
