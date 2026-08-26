@@ -894,10 +894,10 @@ export default function ServicesPage() {
             variants={stagger}
             className="grid gap-10 lg:grid-cols-2 lg:items-start"
           >
-            <motion.div variants={fadeUp} className="lg:order-2">
+            <motion.div variants={fadeUp} className="order-2 lg:order-2">
               <NeuralGraphic index={index} />
             </motion.div>
-            <motion.div variants={fadeUp} className="lg:order-1">
+            <motion.div variants={fadeUp} className="order-1 lg:order-1">
               <div className="text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-200/58">
                 {service.number} / {service.title}
               </div>
