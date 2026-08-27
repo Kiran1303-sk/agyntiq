@@ -75,7 +75,13 @@ const premiumInput =
 function MenuIcon({ name }: { name: (typeof serviceMenuDisplay)[number]["icon"] }) {
   if (name === "brain") {
     return (
-      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.7">
+      <svg
+        viewBox="0 0 24 24"
+        className="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      >
         <path d="M8.5 5.5a3 3 0 0 1 5.3 1.9 3 3 0 0 1 1.5 5.5 3 3 0 0 1-1.4 5H9.4A3.4 3.4 0 0 1 6 14.5V9.8a3.4 3.4 0 0 1 2.5-4.3Z" />
         <path d="M9 9.5c1.4-.8 2.9-.8 4.2 0" />
         <path d="M10 14.5h4" />
@@ -85,7 +91,13 @@ function MenuIcon({ name }: { name: (typeof serviceMenuDisplay)[number]["icon"] 
 
   if (name === "cube") {
     return (
-      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.7">
+      <svg
+        viewBox="0 0 24 24"
+        className="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      >
         <path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z" />
         <path d="M12 12v9" />
         <path d="M4 7.5 12 12l8-4.5" />
@@ -95,7 +107,13 @@ function MenuIcon({ name }: { name: (typeof serviceMenuDisplay)[number]["icon"] 
 
   if (name === "chart") {
     return (
-      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.7">
+      <svg
+        viewBox="0 0 24 24"
+        className="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      >
         <path d="M4 19h16" />
         <path d="M7.5 16v-4" />
         <path d="M12 16V8" />
@@ -105,7 +123,13 @@ function MenuIcon({ name }: { name: (typeof serviceMenuDisplay)[number]["icon"] 
   }
 
   return (
-    <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.7">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-6 w-6"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+    >
       <path d="M12 3.5 19 6v5.5c0 4.2-2.8 7.1-7 8.9-4.2-1.8-7-4.7-7-8.9V6l7-2.5Z" />
       <path d="m9.4 12.1 1.7 1.7 3.8-3.9" />
     </svg>
@@ -683,98 +707,100 @@ export default function AuroraLanding() {
             {navItems.map((item) => {
               const isActive = isNavItemActive(item.href);
               const isRoute = item.href === "/services";
-              return (
-                isRoute ? (
-                  <div
-                    key={item.href}
-                    className="relative"
-                    onMouseEnter={openServices}
-                    onMouseLeave={closeServices}
-                    onFocusCapture={openServices}
-                    onBlurCapture={(event) => {
-                      if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-                        closeServices();
-                      }
-                    }}
-                  >
-                    <Link
-                      href={item.href}
-                      className={`inline-flex items-center gap-1.5 rounded-full px-5 py-3 text-[0.95rem] font-medium tracking-normal transition-all ${
-                        isActive
-                          ? "bg-[linear-gradient(180deg,rgba(72,62,214,0.95)_0%,rgba(101,55,214,0.96)_45%,rgba(149,53,215,0.96)_100%)] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_26px_rgba(127,63,255,0.25)]"
-                          : "text-white/72 hover:bg-white/[0.06] hover:text-white"
-                      }`}
-                      aria-haspopup="menu"
-                      aria-expanded={servicesOpen}
-                    >
-                      {item.label}
-                      <span className={`text-[0.75rem] transition ${servicesOpen ? "rotate-180" : ""}`}>
-                        ▾
-                      </span>
-                    </Link>
-                    <div
-                      className={`absolute left-1/2 top-full z-[90] mt-4 w-[27rem] -translate-x-1/2 transition-all duration-200 ${
-                        servicesOpen
-                          ? "pointer-events-auto visible translate-y-0 opacity-100"
-                          : "pointer-events-none invisible translate-y-2 opacity-0"
-                      }`}
-                      role="menu"
-                      aria-label="Services menu"
-                      onMouseEnter={openServices}
-                      onMouseLeave={closeServices}
-                    >
-                      <div className="absolute left-1/2 top-[-0.42rem] z-10 h-4 w-4 -translate-x-1/2 rotate-45 bg-[#080b25]" />
-                      <div className="relative overflow-hidden rounded-[1.25rem] border border-[#4d2aad]/70 bg-[linear-gradient(135deg,rgba(5,12,38,0.98)_0%,rgba(7,8,28,0.98)_48%,rgba(42,7,46,0.98)_100%)] p-4 shadow-[0_22px_70px_rgba(0,0,0,0.48),0_0_34px_rgba(119,57,255,0.14)] backdrop-blur-2xl">
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(202,74,255,0.12),transparent_28%),radial-gradient(circle_at_90%_90%,rgba(117,71,223,0.1),transparent_26%)]" />
-                        <div className="relative grid gap-1">
-                          {serviceMenuDisplay.map((service) => {
-                            const isServiceActive = pathname === service.href;
-
-                            return (
-                              <Link
-                                key={service.href}
-                                href={service.href}
-                                className={`group grid grid-cols-[3.25rem_minmax(0,1fr)] items-center gap-3 rounded-[1rem] px-2 py-3 transition ${
-                                  isServiceActive
-                                    ? "bg-fuchsia-300/[0.08] text-white"
-                                    : "text-white/78 hover:bg-[#ca4aff]/[0.055] hover:text-white"
-                                }`}
-                              >
-                                <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-[0.95rem] bg-[#151239]/72 text-fuchsia-200 transition duration-300 ${
-                                  isServiceActive
-                                    ? "shadow-[0_0_0_1px_rgba(240,171,252,0.08),0_0_24px_rgba(202,74,255,0.25)]"
-                                    : "shadow-[0_0_0_1px_rgba(255,255,255,0.04)] group-hover:bg-[#1c1944] group-hover:text-white group-hover:shadow-[0_0_0_1px_rgba(240,171,252,0.08),0_0_24px_rgba(202,74,255,0.22)]"
-                                }`}>
-                                  <MenuIcon name={service.icon} />
-                                </span>
-                                <span>
-                                  <span className="services-dropdown-title block text-[1rem] font-semibold leading-6 text-white">
-                                    {service.title}
-                                  </span>
-                                  <span className="mt-0.5 block text-sm leading-5 text-white/56">
-                                    {service.subtitle}
-                                  </span>
-                                </span>
-                              </Link>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <a
-                    key={item.href}
+              return isRoute ? (
+                <div
+                  key={item.href}
+                  className="relative"
+                  onMouseEnter={openServices}
+                  onMouseLeave={closeServices}
+                  onFocusCapture={openServices}
+                  onBlurCapture={(event) => {
+                    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                      closeServices();
+                    }
+                  }}
+                >
+                  <Link
                     href={item.href}
-                    className={`rounded-full px-5 py-3 text-[0.95rem] font-medium tracking-normal transition-all ${
+                    className={`inline-flex items-center gap-1.5 rounded-full px-5 py-3 text-[0.95rem] font-medium tracking-normal transition-all ${
                       isActive
                         ? "bg-[linear-gradient(180deg,rgba(72,62,214,0.95)_0%,rgba(101,55,214,0.96)_45%,rgba(149,53,215,0.96)_100%)] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_26px_rgba(127,63,255,0.25)]"
                         : "text-white/72 hover:bg-white/[0.06] hover:text-white"
                     }`}
+                    aria-haspopup="menu"
+                    aria-expanded={servicesOpen}
                   >
                     {item.label}
-                  </a>
-                )
+                    <span
+                      className={`text-[0.75rem] transition ${servicesOpen ? "rotate-180" : ""}`}
+                    >
+                      ▾
+                    </span>
+                  </Link>
+                  <div
+                    className={`absolute left-1/2 top-full z-[90] mt-4 w-[27rem] -translate-x-1/2 transition-all duration-200 ${
+                      servicesOpen
+                        ? "pointer-events-auto visible translate-y-0 opacity-100"
+                        : "pointer-events-none invisible translate-y-2 opacity-0"
+                    }`}
+                    role="menu"
+                    aria-label="Services menu"
+                    onMouseEnter={openServices}
+                    onMouseLeave={closeServices}
+                  >
+                    <div className="absolute left-1/2 top-[-0.42rem] z-10 h-4 w-4 -translate-x-1/2 rotate-45 bg-[#080b25]" />
+                    <div className="relative overflow-hidden rounded-[1.25rem] border border-[#4d2aad]/70 bg-[linear-gradient(135deg,rgba(5,12,38,0.98)_0%,rgba(7,8,28,0.98)_48%,rgba(42,7,46,0.98)_100%)] p-4 shadow-[0_22px_70px_rgba(0,0,0,0.48),0_0_34px_rgba(119,57,255,0.14)] backdrop-blur-2xl">
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(202,74,255,0.12),transparent_28%),radial-gradient(circle_at_90%_90%,rgba(117,71,223,0.1),transparent_26%)]" />
+                      <div className="relative grid gap-1">
+                        {serviceMenuDisplay.map((service) => {
+                          const isServiceActive = pathname === service.href;
+
+                          return (
+                            <Link
+                              key={service.href}
+                              href={service.href}
+                              className={`group grid grid-cols-[3.25rem_minmax(0,1fr)] items-center gap-3 rounded-[1rem] px-2 py-3 transition ${
+                                isServiceActive
+                                  ? "bg-fuchsia-300/[0.08] text-white"
+                                  : "text-white/78 hover:bg-[#ca4aff]/[0.055] hover:text-white"
+                              }`}
+                            >
+                              <span
+                                className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-[0.95rem] bg-[#151239]/72 text-fuchsia-200 transition duration-300 ${
+                                  isServiceActive
+                                    ? "shadow-[0_0_0_1px_rgba(240,171,252,0.08),0_0_24px_rgba(202,74,255,0.25)]"
+                                    : "shadow-[0_0_0_1px_rgba(255,255,255,0.04)] group-hover:bg-[#1c1944] group-hover:text-white group-hover:shadow-[0_0_0_1px_rgba(240,171,252,0.08),0_0_24px_rgba(202,74,255,0.22)]"
+                                }`}
+                              >
+                                <MenuIcon name={service.icon} />
+                              </span>
+                              <span>
+                                <span className="services-dropdown-title block text-[1rem] font-semibold leading-6 text-white">
+                                  {service.title}
+                                </span>
+                                <span className="mt-0.5 block text-sm leading-5 text-white/56">
+                                  {service.subtitle}
+                                </span>
+                              </span>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className={`rounded-full px-5 py-3 text-[0.95rem] font-medium tracking-normal transition-all ${
+                    isActive
+                      ? "bg-[linear-gradient(180deg,rgba(72,62,214,0.95)_0%,rgba(101,55,214,0.96)_45%,rgba(149,53,215,0.96)_100%)] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_26px_rgba(127,63,255,0.25)]"
+                      : "text-white/72 hover:bg-white/[0.06] hover:text-white"
+                  }`}
+                >
+                  {item.label}
+                </a>
               );
             })}
           </nav>
@@ -827,23 +853,63 @@ export default function AuroraLanding() {
                         >
                           Services
                         </Link>
-                        <button type="button" onClick={() => setMobileServicesOpen((open) => !open)} aria-expanded={mobileServicesOpen} aria-label="Toggle services submenu" className="px-4 py-3.5 transition hover:text-white">
-                          <span className={`block transition ${mobileServicesOpen ? "rotate-180" : ""}`}>⌄</span>
+                        <button
+                          type="button"
+                          onClick={() => setMobileServicesOpen((open) => !open)}
+                          aria-expanded={mobileServicesOpen}
+                          aria-label="Toggle services submenu"
+                          className="px-4 py-3.5 transition hover:text-white"
+                        >
+                          <span
+                            className={`block transition ${mobileServicesOpen ? "rotate-180" : ""}`}
+                          >
+                            ⌄
+                          </span>
                         </button>
                       </div>
-                      <div className={`grid overflow-hidden transition-all duration-300 ${mobileServicesOpen ? "mt-2 max-h-[28rem] gap-2 opacity-100" : "max-h-0 gap-0 opacity-0"}`}>
-                        {serviceMenuDisplay.map((service) => <Link key={service.href} href={service.href} onClick={() => setMobileOpen(false)} className="group flex items-center gap-3 rounded-[1rem] border border-[#315cff]/12 bg-[#080b25]/62 p-3 text-white/82 transition hover:border-[#8b7cff]/32 hover:bg-[#315cff]/[0.07] hover:text-white"><span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[0.75rem] bg-[#10183a]/72 text-fuchsia-200 shadow-[0_0_24px_rgba(91,92,255,0.12)] transition group-hover:bg-[#1c1944] group-hover:text-white"><MenuIcon name={service.icon} /></span><span><span className="services-dropdown-title block text-sm font-semibold leading-5">{service.title}</span><span className="mt-0.5 block text-xs leading-5 text-white/52">{service.subtitle}</span></span></Link>)}
+                      <div
+                        className={`grid overflow-hidden transition-all duration-300 ${mobileServicesOpen ? "mt-2 max-h-[28rem] gap-2 opacity-100" : "max-h-0 gap-0 opacity-0"}`}
+                      >
+                        {serviceMenuDisplay.map((service) => (
+                          <Link
+                            key={service.href}
+                            href={service.href}
+                            onClick={() => setMobileOpen(false)}
+                            className="group flex items-center gap-3 rounded-[1rem] border border-[#315cff]/12 bg-[#080b25]/62 p-3 text-white/82 transition hover:border-[#8b7cff]/32 hover:bg-[#315cff]/[0.07] hover:text-white"
+                          >
+                            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[0.75rem] bg-[#10183a]/72 text-fuchsia-200 shadow-[0_0_24px_rgba(91,92,255,0.12)] transition group-hover:bg-[#1c1944] group-hover:text-white">
+                              <MenuIcon name={service.icon} />
+                            </span>
+                            <span>
+                              <span className="services-dropdown-title block text-sm font-semibold leading-5">
+                                {service.title}
+                              </span>
+                              <span className="mt-0.5 block text-xs leading-5 text-white/52">
+                                {service.subtitle}
+                              </span>
+                            </span>
+                          </Link>
+                        ))}
                       </div>
                     </div>
                   );
                 }
 
-                const commonClassName = "rounded-[1rem] px-4 py-3.5 text-sm font-semibold text-white/74 transition hover:bg-white/[0.06] hover:text-white";
+                const commonClassName =
+                  "rounded-[1rem] px-4 py-3.5 text-sm font-semibold text-white/74 transition hover:bg-white/[0.06] hover:text-white";
 
-                return <a key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={commonClassName}>{item.label}</a>;
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={commonClassName}
+                  >
+                    {item.label}
+                  </a>
+                );
               })}
             </div>
-
           </div>
         </div>
       </header>
@@ -992,8 +1058,8 @@ export default function AuroraLanding() {
                   <div className="section-kicker">About</div>
                   <h2 className="section-title">Built for enterprise AI adoption.</h2>
                   <p className="section-copy">
-                    We design AI systems around business context, execution, and measurable outcomes,
-                    so the experience feels premium and operationally useful.
+                    We design AI systems around business context, execution, and measurable
+                    outcomes, so the experience feels premium and operationally useful.
                   </p>
                 </div>
 
@@ -1043,10 +1109,7 @@ export default function AuroraLanding() {
               </p>
             </div>
 
-            <div
-              className="mt-10 grid gap-3 md:grid-cols-3"
-              data-parallax="12"
-            >
+            <div className="mt-10 grid gap-3 md:grid-cols-3" data-parallax="12">
               {workflowSteps.map((step, index) => (
                 <div
                   key={step}
@@ -1093,7 +1156,7 @@ export default function AuroraLanding() {
                       <div className="text-xs uppercase tracking-[0.3em] text-white/40">
                         0{index + 1}
                       </div>
-                  <h3 className="mt-3 text-xl font-semibold tracking-normal text-white">
+                      <h3 className="mt-3 text-xl font-semibold tracking-normal text-white">
                         {item.title}
                       </h3>
                       <p className="mt-3 max-w-lg text-sm leading-7 text-aurora-muted">
@@ -1129,9 +1192,7 @@ export default function AuroraLanding() {
                     className={`hover-underline border-t ${premiumSoftBorder} py-4`}
                     data-reveal
                   >
-                    <div className="text-lg font-semibold tracking-normal text-white">
-                      {item}
-                    </div>
+                    <div className="text-lg font-semibold tracking-normal text-white">{item}</div>
                     <div className="mt-2 text-sm leading-6 text-white/60">
                       Enterprise-grade delivery with a premium interface and measurable business
                       value.
@@ -1180,9 +1241,7 @@ export default function AuroraLanding() {
                       <h3 className="mt-3 text-2xl font-semibold leading-tight tracking-normal text-white">
                         {item.title}
                       </h3>
-                      <p className="mt-4 text-sm leading-7 text-fuchsia-100/62">
-                        {item.copy}
-                      </p>
+                      <p className="mt-4 text-sm leading-7 text-fuchsia-100/62">{item.copy}</p>
                     </div>
 
                     <div className="mt-auto pt-6">
@@ -1242,11 +1301,7 @@ export default function AuroraLanding() {
                 </p>
               </div>
 
-              <div
-                className={`${premiumDivider} hover-sheen`}
-                data-reveal
-                data-parallax="8"
-              >
+              <div className={`${premiumDivider} hover-sheen`} data-reveal data-parallax="8">
                 {team.map((item) => (
                   <div key={item.title} className="hover-underline py-5">
                     <div className="text-lg font-semibold tracking-normal text-white">
@@ -1260,7 +1315,10 @@ export default function AuroraLanding() {
           </div>
         </section>
 
-        <section id="pricing" className="relative scroll-mt-28 overflow-hidden py-12 md:scroll-mt-32 md:py-16">
+        <section
+          id="pricing"
+          className="relative scroll-mt-28 overflow-hidden py-12 md:scroll-mt-32 md:py-16"
+        >
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(202,74,255,0.12),transparent_28%),radial-gradient(circle_at_82%_64%,rgba(117,71,223,0.11),transparent_30%)]" />
           <div className="section-shell relative z-10">
             <div className="section-heading mb-10" data-reveal>
@@ -1384,14 +1442,16 @@ export default function AuroraLanding() {
         <span className="text-lg leading-none">↑</span>
       </button>
 
-      <footer
+      <section
         id="contact"
         className="relative overflow-hidden bg-[linear-gradient(135deg,#050719_0%,#100826_52%,#220625_100%)] py-12 md:py-16"
       >
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(202,74,255,0.18),transparent_24%),radial-gradient(circle_at_82%_16%,rgba(117,71,223,0.13),transparent_26%),linear-gradient(180deg,rgba(24,8,46,0),rgba(5,8,22,0.62))]" />
         <div className="pointer-events-none absolute bottom-[-10rem] left-1/2 h-80 w-[80%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(202,74,255,0.16),rgba(117,71,223,0.1)_36%,transparent_70%)] blur-3xl" />
         <div className="section-shell relative z-10">
-          <div className={`hover-sheen overflow-hidden rounded-[2rem] p-7 md:p-10 ${premiumSurface}`}>
+          <div
+            className={`hover-sheen overflow-hidden rounded-[2rem] p-7 md:p-10 ${premiumSurface}`}
+          >
             <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
               <div className="grid gap-5">
                 <div className="section-kicker">Contact</div>
@@ -1402,7 +1462,9 @@ export default function AuroraLanding() {
                   Whether you need AI strategy, workflow automation, or a custom product, we&apos;ll
                   help define the highest-value next step.
                 </p>
-                <div className={`grid gap-4 border-t ${premiumSoftBorder} pt-4 text-sm text-white/72 sm:grid-cols-2`}>
+                <div
+                  className={`grid gap-4 border-t ${premiumSoftBorder} pt-4 text-sm text-white/72 sm:grid-cols-2`}
+                >
                   <div>hello@agyntiq.ai</div>
                   <div>New Delhi, India</div>
                   <div>Global remote delivery</div>
@@ -1417,32 +1479,14 @@ export default function AuroraLanding() {
                   </div>
                   <form className="mt-4 grid gap-4">
                     <div className="grid gap-4 md:grid-cols-2">
-                      <input
-                        className={premiumInput}
-                        placeholder="Full Name"
-                      />
-                      <input
-                        className={premiumInput}
-                        placeholder="Company Name"
-                      />
-                      <input
-                        className={premiumInput}
-                        placeholder="Email"
-                      />
-                      <input
-                        className={premiumInput}
-                        placeholder="Phone"
-                      />
+                      <input className={premiumInput} placeholder="Full Name" />
+                      <input className={premiumInput} placeholder="Company Name" />
+                      <input className={premiumInput} placeholder="Email" />
+                      <input className={premiumInput} placeholder="Phone" />
                     </div>
                     <div className="grid gap-4 md:grid-cols-2">
-                      <input
-                        className={premiumInput}
-                        placeholder="Business Type"
-                      />
-                      <input
-                        className={premiumInput}
-                        placeholder="Industry"
-                      />
+                      <input className={premiumInput} placeholder="Business Type" />
+                      <input className={premiumInput} placeholder="Industry" />
                     </div>
                     <textarea
                       rows={5}
@@ -1473,52 +1517,62 @@ export default function AuroraLanding() {
                     </div>
                   </form>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                <div className="grid gap-4 md:grid-cols-2">
-                  <div className={`border-t ${premiumSoftBorder} pt-4`}>
-                    <div className="text-sm uppercase tracking-[0.28em] text-fuchsia-100/50">
-                      Navigation
-                    </div>
-                    <div className="mt-4 space-y-3 text-sm text-white/70">
-                      {navItems.map((item) =>
-                        item.href === "/services" ? (
-                          <Link
-                            key={item.href}
-                            href={item.href}
-                            className="block transition hover:text-white"
-                          >
-                            {item.label}
-                          </Link>
-                        ) : (
-                          <a
-                            key={item.href}
-                            href={item.href}
-                            className="block transition hover:text-white"
-                          >
-                            {item.label}
-                          </a>
-                        )
-                      )}
-                    </div>
-                  </div>
-                  <div className={`border-t ${premiumSoftBorder} pt-4`}>
-                    <div className="text-sm uppercase tracking-[0.28em] text-fuchsia-100/50">Social</div>
-                    <div className="mt-4 space-y-3 text-sm text-white/70">
-                      <div>LinkedIn</div>
-                      <div>GitHub</div>
-                      <div>Twitter</div>
-                      <div>Newsletter</div>
-                    </div>
-                  </div>
+      <footer className="relative overflow-hidden border-t border-white/10 bg-[#050719] py-10 md:py-14">
+        <div className="section-shell relative z-10">
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className={`border-t ${premiumSoftBorder} pt-4`}>
+                <div className="text-sm uppercase tracking-[0.28em] text-fuchsia-100/50">
+                  Navigation
+                </div>
+                <div className="mt-4 space-y-3 text-sm text-white/70">
+                  {navItems.map((item) =>
+                    item.href === "/services" ? (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="block transition hover:text-white"
+                      >
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        className="block transition hover:text-white"
+                      >
+                        {item.label}
+                      </a>
+                    )
+                  )}
+                </div>
+              </div>
+              <div className={`border-t ${premiumSoftBorder} pt-4`}>
+                <div className="text-sm uppercase tracking-[0.28em] text-fuchsia-100/50">
+                  Social
+                </div>
+                <div className="mt-4 space-y-3 text-sm text-white/70">
+                  <div>LinkedIn</div>
+                  <div>GitHub</div>
+                  <div>Twitter</div>
+                  <div>Newsletter</div>
                 </div>
               </div>
             </div>
-
-            <div className={`mt-8 flex flex-col gap-3 border-t ${premiumSoftBorder} pt-6 text-sm text-white/45 md:flex-row md:items-center md:justify-between`}>
-              <span>© 2026 Agyntiq.ai. All rights reserved.</span>
-              <span>Premium AI solutions for enterprise transformation.</span>
-            </div>
           </div>
+        </div>
+
+        <div
+          className={`mt-8 flex flex-col gap-3 border-t ${premiumSoftBorder} pt-6 text-sm text-white/45 md:flex-row md:items-center md:justify-between`}
+        >
+          <span>© 2026 Agyntiq.ai. All rights reserved.</span>
+          <span>Premium AI solutions for enterprise transformation.</span>
         </div>
       </footer>
     </div>
@@ -1628,7 +1682,9 @@ function ScrollShowcaseSection() {
                   <div className="grid gap-3 pt-5 text-sm text-fuchsia-100/62 shadow-[inset_0_1px_0_rgba(202,74,255,0.12)]">
                     <div className="flex items-center justify-between gap-4">
                       <span>Next frame updates automatically</span>
-                      <span className="text-fuchsia-100/35">{String(activeSlide + 1).padStart(2, "0")}</span>
+                      <span className="text-fuchsia-100/35">
+                        {String(activeSlide + 1).padStart(2, "0")}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -1656,5 +1712,3 @@ function ScrollShowcaseSection() {
     </section>
   );
 }
-
-
