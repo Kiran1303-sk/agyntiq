@@ -857,7 +857,7 @@ export default function ServicesPage() {
                 >
                   <span className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_20%_0%,rgba(14,103,255,0.16),transparent_42%),radial-gradient(circle_at_90%_90%,rgba(216,62,255,0.18),transparent_38%)]" />
                   <div className="relative flex items-start justify-between gap-6">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-[0.9rem] border border-white/12 bg-[#151239]/72 text-fuchsia-200 shadow-[0_0_30px_rgba(202,74,255,0.14)] transition group-hover:scale-110 group-hover:text-white">
+                    <div className="relative isolate flex h-12 w-12 items-center justify-center overflow-hidden rounded-[0.9rem] bg-[radial-gradient(circle_at_30%_20%,rgba(240,171,252,0.3),transparent_34%),linear-gradient(145deg,rgba(117,71,223,0.42),rgba(16,24,58,0.86))] text-fuchsia-100 shadow-[0_0_24px_rgba(202,74,255,0.2),inset_0_1px_0_rgba(255,255,255,0.16)] transition duration-500 before:absolute before:inset-[-55%] before:z-0 before:animate-[spin_8s_linear_infinite] before:bg-[conic-gradient(from_180deg,transparent_0deg,rgba(240,171,252,0.2)_80deg,transparent_150deg,rgba(46,108,235,0.2)_240deg,transparent_320deg)] [&>svg]:relative [&>svg]:z-10 group-hover:scale-110 group-hover:text-white group-hover:shadow-[0_0_38px_rgba(202,74,255,0.38),inset_0_1px_0_rgba(255,255,255,0.22)]">
                       <Icon name={service.icon} />
                     </div>
                     <div className="text-sm font-semibold text-fuchsia-100/30">{service.number}</div>
