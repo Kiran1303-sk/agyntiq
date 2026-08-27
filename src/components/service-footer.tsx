@@ -4,10 +4,10 @@ import { servicePageOrder } from "@/components/service-pages-data";
 
 export default function ServiceFooter() {
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 bg-[#040615] px-4 py-10 md:px-6 md:py-12">
+    <footer className="relative overflow-hidden border-t border-white/10 bg-[#040615] py-10 md:py-12">
       <div className="pointer-events-none absolute left-[-10rem] top-[-12rem] h-[30rem] w-[30rem] rounded-full bg-fuchsia-400/[0.08] blur-[120px]" />
       <div className="pointer-events-none absolute right-[-8rem] bottom-[-14rem] h-[28rem] w-[28rem] rounded-full bg-blue-500/[0.08] blur-[120px]" />
-      <div className="relative mx-auto max-w-[1120px]">
+      <div className="section-shell relative">
         <div className="mb-8 flex flex-col gap-5 border-b border-white/10 pb-6 md:flex-row md:items-end md:justify-between">
           <div className="flex items-center gap-4">
             <Image
