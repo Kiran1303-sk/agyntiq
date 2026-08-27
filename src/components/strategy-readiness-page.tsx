@@ -353,7 +353,7 @@ export default function StrategyReadinessPage() {
           href="/services"
           className="mt-7 inline-flex items-center text-sm font-semibold text-white/52 transition hover:text-fuchsia-100"
         >
-          Back to all services <span className="ml-2">-&gt;</span>
+          Back to services <span className="ml-2">-&gt;</span>
         </Link>
       </section>
 
