@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import SiteHeader from "@/components/site-header";
 import ScrollToTopButton from "@/components/scroll-to-top-button";
+import ServiceFooter from "@/components/service-footer";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -118,13 +119,7 @@ const services = [
       "Operate AI after launch with monitoring, optimization, reliability, governance, and continuous improvement services.",
     href: "/services/ai-managed-services",
     icon: "shield",
-    solutions: [
-      "Monitoring",
-      "Optimization",
-      "Reliability",
-      "Governance",
-      "Continuous Improvement"
-    ]
+    solutions: ["Monitoring", "Optimization", "Reliability", "Governance", "Continuous Improvement"]
   }
 ] as const;
 
@@ -210,35 +205,139 @@ const strategyStages = [
 ] as const;
 
 const solutionStages = [
-  { number: "01", title: "Assistants & Agents", detail: "Build intelligent assistants and autonomous agents for employees, research, and operations.", color: "#8b5cf6" },
-  { number: "02", title: "GenAI Applications", detail: "Develop generative AI solutions for document processing, reporting, and content creation.", color: "#a855f7" },
-  { number: "03", title: "Predictive AI Solutions", detail: "Use predictive models to forecast demand, identify risks, and detect anomalies.", color: "#6366f1" },
-  { number: "04", title: "Decision Intelligence", detail: "Enable smarter decisions through recommendations, simulations, and intelligent dashboards.", color: "#0ea5e9" },
-  { number: "05", title: "Industry-ready Accelerators", detail: "Accelerate adoption with prebuilt modules, document intelligence, and knowledge search.", color: "#2563eb" }
+  {
+    number: "01",
+    title: "Assistants & Agents",
+    detail:
+      "Build intelligent assistants and autonomous agents for employees, research, and operations.",
+    color: "#8b5cf6"
+  },
+  {
+    number: "02",
+    title: "GenAI Applications",
+    detail:
+      "Develop generative AI solutions for document processing, reporting, and content creation.",
+    color: "#a855f7"
+  },
+  {
+    number: "03",
+    title: "Predictive AI Solutions",
+    detail: "Use predictive models to forecast demand, identify risks, and detect anomalies.",
+    color: "#6366f1"
+  },
+  {
+    number: "04",
+    title: "Decision Intelligence",
+    detail:
+      "Enable smarter decisions through recommendations, simulations, and intelligent dashboards.",
+    color: "#0ea5e9"
+  },
+  {
+    number: "05",
+    title: "Industry-ready Accelerators",
+    detail:
+      "Accelerate adoption with prebuilt modules, document intelligence, and knowledge search.",
+    color: "#2563eb"
+  }
 ] as const;
 
 const integrationStages = [
-  { number: "01", title: "Enterprise System Integration", detail: "Connect AI with CRM, ERP, and document management systems.", color: "#8b5cf6" },
-  { number: "02", title: "Workflow Automation", detail: "Orchestrate AI-enabled workflows and robotic process automation.", color: "#a855f7" },
-  { number: "03", title: "Knowledge Integration", detail: "Build enterprise knowledge bases, RAG systems, and document search.", color: "#6366f1" },
-  { number: "04", title: "Data & App Connectivity", detail: "Connect AI services, enterprise applications, and real-time data.", color: "#0ea5e9" },
-  { number: "05", title: "Digital Workplace AI", detail: "Embed AI into collaboration tools, meeting assistants, and copilots.", color: "#2563eb" }
+  {
+    number: "01",
+    title: "Enterprise System Integration",
+    detail: "Connect AI with CRM, ERP, and document management systems.",
+    color: "#8b5cf6"
+  },
+  {
+    number: "02",
+    title: "Workflow Automation",
+    detail: "Orchestrate AI-enabled workflows and robotic process automation.",
+    color: "#a855f7"
+  },
+  {
+    number: "03",
+    title: "Knowledge Integration",
+    detail: "Build enterprise knowledge bases, RAG systems, and document search.",
+    color: "#6366f1"
+  },
+  {
+    number: "04",
+    title: "Data & App Connectivity",
+    detail: "Connect AI services, enterprise applications, and real-time data.",
+    color: "#0ea5e9"
+  },
+  {
+    number: "05",
+    title: "Digital Workplace AI",
+    detail: "Embed AI into collaboration tools, meeting assistants, and copilots.",
+    color: "#2563eb"
+  }
 ] as const;
 
 const dataStages = [
-  { number: "01", title: "AI Data Engineering", detail: "Build enterprise pipelines, structured processing, and real-time data ingestion.", color: "#8b5cf6" },
-  { number: "02", title: "AI Data Preparation", detail: "Clean and normalize data, prepare training datasets, and structure knowledge bases.", color: "#a855f7" },
-  { number: "03", title: "Data Annotation & Labelling", detail: "Label documents, annotate images and text, and enrich AI training datasets.", color: "#6366f1" },
-  { number: "04", title: "AI Knowledge Architecture", detail: "Develop knowledge graphs, vector databases, and semantic search architecture.", color: "#0ea5e9" },
-  { number: "05", title: "Data Quality & Governance", detail: "Monitor quality, define governance policies, and manage enterprise metadata.", color: "#2563eb" }
+  {
+    number: "01",
+    title: "AI Data Engineering",
+    detail: "Build enterprise pipelines, structured processing, and real-time data ingestion.",
+    color: "#8b5cf6"
+  },
+  {
+    number: "02",
+    title: "AI Data Preparation",
+    detail: "Clean and normalize data, prepare training datasets, and structure knowledge bases.",
+    color: "#a855f7"
+  },
+  {
+    number: "03",
+    title: "Data Annotation & Labelling",
+    detail: "Label documents, annotate images and text, and enrich AI training datasets.",
+    color: "#6366f1"
+  },
+  {
+    number: "04",
+    title: "AI Knowledge Architecture",
+    detail: "Develop knowledge graphs, vector databases, and semantic search architecture.",
+    color: "#0ea5e9"
+  },
+  {
+    number: "05",
+    title: "Data Quality & Governance",
+    detail: "Monitor quality, define governance policies, and manage enterprise metadata.",
+    color: "#2563eb"
+  }
 ] as const;
 
 const managedStages = [
-  { number: "01", title: "AI Model Monitoring", detail: "Track AI performance, model drift, and prediction accuracy in production.", color: "#8b5cf6" },
-  { number: "02", title: "AI Optimization Services", detail: "Improve prompts, fine-tune models, and optimize ongoing AI costs.", color: "#a855f7" },
-  { number: "03", title: "AI Reliability & Support", detail: "Keep systems available with application maintenance and incident response.", color: "#6366f1" },
-  { number: "04", title: "AI Governance & Compliance", detail: "Monitor responsible AI, regulatory compliance, and audit readiness.", color: "#0ea5e9" },
-  { number: "05", title: "Continuous AI Improvement", detail: "Deploy new capabilities, retrain models, and expand AI programs over time.", color: "#2563eb" }
+  {
+    number: "01",
+    title: "AI Model Monitoring",
+    detail: "Track AI performance, model drift, and prediction accuracy in production.",
+    color: "#8b5cf6"
+  },
+  {
+    number: "02",
+    title: "AI Optimization Services",
+    detail: "Improve prompts, fine-tune models, and optimize ongoing AI costs.",
+    color: "#a855f7"
+  },
+  {
+    number: "03",
+    title: "AI Reliability & Support",
+    detail: "Keep systems available with application maintenance and incident response.",
+    color: "#6366f1"
+  },
+  {
+    number: "04",
+    title: "AI Governance & Compliance",
+    detail: "Monitor responsible AI, regulatory compliance, and audit readiness.",
+    color: "#0ea5e9"
+  },
+  {
+    number: "05",
+    title: "Continuous AI Improvement",
+    detail: "Deploy new capabilities, retrain models, and expand AI programs over time.",
+    color: "#2563eb"
+  }
 ] as const;
 
 const journey = [
@@ -337,7 +436,13 @@ const faqs = [
 function Icon({ name }: { name: string }) {
   if (name === "brain") {
     return (
-      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.7">
+      <svg
+        viewBox="0 0 24 24"
+        className="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      >
         <path d="M8.5 5.5a3 3 0 0 1 5.3 1.9 3 3 0 0 1 1.5 5.5 3 3 0 0 1-1.4 5H9.4A3.4 3.4 0 0 1 6 14.5V9.8a3.4 3.4 0 0 1 2.5-4.3Z" />
         <path d="M9 9.5c1.4-.8 2.9-.8 4.2 0" />
         <path d="M10 14.5h4" />
@@ -347,7 +452,13 @@ function Icon({ name }: { name: string }) {
 
   if (name === "cube") {
     return (
-      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.7">
+      <svg
+        viewBox="0 0 24 24"
+        className="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      >
         <path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z" />
         <path d="M12 12v9" />
         <path d="M4 7.5 12 12l8-4.5" />
@@ -357,7 +468,13 @@ function Icon({ name }: { name: string }) {
 
   if (name === "chart") {
     return (
-      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.7">
+      <svg
+        viewBox="0 0 24 24"
+        className="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      >
         <path d="M4 19h16" />
         <path d="M7.5 16v-4" />
         <path d="M12 16V8" />
@@ -368,7 +485,13 @@ function Icon({ name }: { name: string }) {
 
   if (name === "link") {
     return (
-      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.7">
+      <svg
+        viewBox="0 0 24 24"
+        className="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      >
         <path d="M9.5 14.5 14.5 9.5" />
         <path d="M8.8 9.7 7.4 11.1a4 4 0 0 0 5.6 5.7l1.3-1.4" />
         <path d="m15.2 14.3 1.4-1.4a4 4 0 0 0-5.6-5.7L9.7 8.6" />
@@ -377,7 +500,13 @@ function Icon({ name }: { name: string }) {
   }
 
   return (
-    <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.7">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-6 w-6"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+    >
       <path d="M12 3.5 19 6v5.5c0 4.2-2.8 7.1-7 8.9-4.2-1.8-7-4.7-7-8.9V6l7-2.5Z" />
       <path d="m9.4 12.1 1.7 1.7 3.8-3.9" />
     </svg>
@@ -402,10 +531,16 @@ function NeuralGraphic({ index }: { index: number }) {
 
         <div className="relative z-10 flex items-start justify-between gap-4">
           <div>
-            <div className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-violet-200/60">AI adoption system</div>
-            <h3 className="mt-2 max-w-[22rem] text-2xl font-semibold leading-tight text-white">From ambition to an actionable roadmap</h3>
+            <div className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-violet-200/60">
+              AI adoption system
+            </div>
+            <h3 className="mt-2 max-w-[22rem] text-2xl font-semibold leading-tight text-white">
+              From ambition to an actionable roadmap
+            </h3>
           </div>
-          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-violet-200/20 bg-violet-300/10 text-lg text-violet-100 shadow-[0_0_28px_rgba(139,92,246,0.24)]">✦</div>
+          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-violet-200/20 bg-violet-300/10 text-lg text-violet-100 shadow-[0_0_28px_rgba(139,92,246,0.24)]">
+            ✦
+          </div>
         </div>
 
         <div className="relative z-10 mt-6 space-y-2.5">
@@ -419,12 +554,17 @@ function NeuralGraphic({ index }: { index: number }) {
               whileHover={{ x: 5 }}
               className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2.5 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]"
             >
-              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[0.68rem] font-bold text-white" style={{ backgroundColor: stage.color }}>
+              <span
+                className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[0.68rem] font-bold text-white"
+                style={{ backgroundColor: stage.color }}
+              >
                 {stage.number}
               </span>
               <div className="min-w-0 flex-1">
                 <div className="text-sm font-semibold text-white">{stage.title}</div>
-                <div className="mt-0.5 hidden text-[0.68rem] leading-4 text-white/50 sm:block">{stage.detail}</div>
+                <div className="mt-0.5 hidden text-[0.68rem] leading-4 text-white/50 sm:block">
+                  {stage.detail}
+                </div>
               </div>
               <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-white/60 shadow-[0_0_12px_rgba(255,255,255,0.7)]" />
             </motion.div>
@@ -437,8 +577,12 @@ function NeuralGraphic({ index }: { index: number }) {
           className="relative z-10 mt-5 h-px origin-left bg-gradient-to-r from-violet-400/0 via-violet-300/70 to-blue-300/0"
         />
         <div className="relative z-10 mt-4 rounded-xl border border-violet-200/15 bg-violet-300/[0.08] px-4 py-3">
-          <div className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-violet-200/60">Outcome</div>
-          <div className="mt-1 text-sm font-medium leading-5 text-white/85">A clear AI strategy that maximizes value, manages risk, and accelerates adoption.</div>
+          <div className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-violet-200/60">
+            Outcome
+          </div>
+          <div className="mt-1 text-sm font-medium leading-5 text-white/85">
+            A clear AI strategy that maximizes value, manages risk, and accelerates adoption.
+          </div>
         </div>
       </div>
     );
@@ -451,10 +595,16 @@ function NeuralGraphic({ index }: { index: number }) {
         <div className="pointer-events-none absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-blue-500/15 blur-3xl" />
         <div className="relative z-10 flex items-start justify-between gap-4">
           <div>
-            <div className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-violet-200/60">AI product studio</div>
-            <h3 className="mt-2 max-w-[22rem] text-2xl font-semibold leading-tight text-white">Build intelligent products people actually use</h3>
+            <div className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-violet-200/60">
+              AI product studio
+            </div>
+            <h3 className="mt-2 max-w-[22rem] text-2xl font-semibold leading-tight text-white">
+              Build intelligent products people actually use
+            </h3>
           </div>
-          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-violet-200/20 bg-violet-300/10 text-lg text-violet-100 shadow-[0_0_28px_rgba(139,92,246,0.24)]">✦</div>
+          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-violet-200/20 bg-violet-300/10 text-lg text-violet-100 shadow-[0_0_28px_rgba(139,92,246,0.24)]">
+            ✦
+          </div>
         </div>
         <div className="relative z-10 mt-6 space-y-2.5">
           {solutionStages.map((stage, stageIndex) => (
@@ -467,19 +617,34 @@ function NeuralGraphic({ index }: { index: number }) {
               whileHover={{ x: 5 }}
               className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2.5 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]"
             >
-              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[0.68rem] font-bold text-white" style={{ backgroundColor: stage.color }}>{stage.number}</span>
+              <span
+                className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[0.68rem] font-bold text-white"
+                style={{ backgroundColor: stage.color }}
+              >
+                {stage.number}
+              </span>
               <div className="min-w-0 flex-1">
                 <div className="text-sm font-semibold text-white">{stage.title}</div>
-                <div className="mt-0.5 hidden text-[0.68rem] leading-4 text-white/50 sm:block">{stage.detail}</div>
+                <div className="mt-0.5 hidden text-[0.68rem] leading-4 text-white/50 sm:block">
+                  {stage.detail}
+                </div>
               </div>
               <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-white/60 shadow-[0_0_12px_rgba(255,255,255,0.7)]" />
             </motion.div>
           ))}
         </div>
-        <motion.div animate={{ scaleX: [0.35, 1, 0.35], opacity: [0.35, 0.9, 0.35] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} className="relative z-10 mt-5 h-px origin-left bg-gradient-to-r from-violet-400/0 via-violet-300/70 to-blue-300/0" />
+        <motion.div
+          animate={{ scaleX: [0.35, 1, 0.35], opacity: [0.35, 0.9, 0.35] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="relative z-10 mt-5 h-px origin-left bg-gradient-to-r from-violet-400/0 via-violet-300/70 to-blue-300/0"
+        />
         <div className="relative z-10 mt-4 rounded-xl border border-violet-200/15 bg-violet-300/[0.08] px-4 py-3">
-          <div className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-violet-200/60">Outcome</div>
-          <div className="mt-1 text-sm font-medium leading-5 text-white/85">Scalable, secure AI applications that reduce risk and create sustainable business value.</div>
+          <div className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-violet-200/60">
+            Outcome
+          </div>
+          <div className="mt-1 text-sm font-medium leading-5 text-white/85">
+            Scalable, secure AI applications that reduce risk and create sustainable business value.
+          </div>
         </div>
       </div>
     );
@@ -492,10 +657,16 @@ function NeuralGraphic({ index }: { index: number }) {
         <div className="pointer-events-none absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-blue-500/15 blur-3xl" />
         <div className="relative z-10 flex items-start justify-between gap-4">
           <div>
-            <div className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-violet-200/60">Connected intelligence</div>
-            <h3 className="mt-2 max-w-[22rem] text-2xl font-semibold leading-tight text-white">Embed AI where your teams already work</h3>
+            <div className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-violet-200/60">
+              Connected intelligence
+            </div>
+            <h3 className="mt-2 max-w-[22rem] text-2xl font-semibold leading-tight text-white">
+              Embed AI where your teams already work
+            </h3>
           </div>
-          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-violet-200/20 bg-violet-300/10 text-lg text-violet-100 shadow-[0_0_28px_rgba(139,92,246,0.24)]">✦</div>
+          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-violet-200/20 bg-violet-300/10 text-lg text-violet-100 shadow-[0_0_28px_rgba(139,92,246,0.24)]">
+            ✦
+          </div>
         </div>
         <div className="relative z-10 mt-6 space-y-2.5">
           {integrationStages.map((stage, stageIndex) => (
@@ -508,19 +679,35 @@ function NeuralGraphic({ index }: { index: number }) {
               whileHover={{ x: 5 }}
               className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2.5 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]"
             >
-              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[0.68rem] font-bold text-white" style={{ backgroundColor: stage.color }}>{stage.number}</span>
+              <span
+                className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[0.68rem] font-bold text-white"
+                style={{ backgroundColor: stage.color }}
+              >
+                {stage.number}
+              </span>
               <div className="min-w-0 flex-1">
                 <div className="text-sm font-semibold text-white">{stage.title}</div>
-                <div className="mt-0.5 hidden text-[0.68rem] leading-4 text-white/50 sm:block">{stage.detail}</div>
+                <div className="mt-0.5 hidden text-[0.68rem] leading-4 text-white/50 sm:block">
+                  {stage.detail}
+                </div>
               </div>
               <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-white/60 shadow-[0_0_12px_rgba(255,255,255,0.7)]" />
             </motion.div>
           ))}
         </div>
-        <motion.div animate={{ scaleX: [0.35, 1, 0.35], opacity: [0.35, 0.9, 0.35] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} className="relative z-10 mt-5 h-px origin-left bg-gradient-to-r from-violet-400/0 via-violet-300/70 to-blue-300/0" />
+        <motion.div
+          animate={{ scaleX: [0.35, 1, 0.35], opacity: [0.35, 0.9, 0.35] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="relative z-10 mt-5 h-px origin-left bg-gradient-to-r from-violet-400/0 via-violet-300/70 to-blue-300/0"
+        />
         <div className="relative z-10 mt-4 rounded-xl border border-violet-200/15 bg-violet-300/[0.08] px-4 py-3">
-          <div className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-violet-200/60">Outcome</div>
-          <div className="mt-1 text-sm font-medium leading-5 text-white/85">Seamless AI integration across systems and functions for better efficiency and business outcomes.</div>
+          <div className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-violet-200/60">
+            Outcome
+          </div>
+          <div className="mt-1 text-sm font-medium leading-5 text-white/85">
+            Seamless AI integration across systems and functions for better efficiency and business
+            outcomes.
+          </div>
         </div>
       </div>
     );
@@ -533,27 +720,56 @@ function NeuralGraphic({ index }: { index: number }) {
         <div className="pointer-events-none absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-blue-500/15 blur-3xl" />
         <div className="relative z-10 flex items-start justify-between gap-4">
           <div>
-            <div className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-violet-200/60">Trusted data foundation</div>
-            <h3 className="mt-2 max-w-[22rem] text-2xl font-semibold leading-tight text-white">Prepare the data layer AI depends on</h3>
+            <div className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-violet-200/60">
+              Trusted data foundation
+            </div>
+            <h3 className="mt-2 max-w-[22rem] text-2xl font-semibold leading-tight text-white">
+              Prepare the data layer AI depends on
+            </h3>
           </div>
-          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-violet-200/20 bg-violet-300/10 text-lg text-violet-100 shadow-[0_0_28px_rgba(139,92,246,0.24)]">✦</div>
+          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-violet-200/20 bg-violet-300/10 text-lg text-violet-100 shadow-[0_0_28px_rgba(139,92,246,0.24)]">
+            ✦
+          </div>
         </div>
         <div className="relative z-10 mt-6 space-y-2.5">
           {dataStages.map((stage, stageIndex) => (
-            <motion.div key={stage.number} initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ delay: stageIndex * 0.1, duration: 0.45 }} whileHover={{ x: 5 }} className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2.5 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]">
-              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[0.68rem] font-bold text-white" style={{ backgroundColor: stage.color }}>{stage.number}</span>
+            <motion.div
+              key={stage.number}
+              initial={{ opacity: 0, x: -16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ delay: stageIndex * 0.1, duration: 0.45 }}
+              whileHover={{ x: 5 }}
+              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2.5 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]"
+            >
+              <span
+                className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[0.68rem] font-bold text-white"
+                style={{ backgroundColor: stage.color }}
+              >
+                {stage.number}
+              </span>
               <div className="min-w-0 flex-1">
                 <div className="text-sm font-semibold text-white">{stage.title}</div>
-                <div className="mt-0.5 hidden text-[0.68rem] leading-4 text-white/50 sm:block">{stage.detail}</div>
+                <div className="mt-0.5 hidden text-[0.68rem] leading-4 text-white/50 sm:block">
+                  {stage.detail}
+                </div>
               </div>
               <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-white/60 shadow-[0_0_12px_rgba(255,255,255,0.7)]" />
             </motion.div>
           ))}
         </div>
-        <motion.div animate={{ scaleX: [0.35, 1, 0.35], opacity: [0.35, 0.9, 0.35] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} className="relative z-10 mt-5 h-px origin-left bg-gradient-to-r from-violet-400/0 via-violet-300/70 to-blue-300/0" />
+        <motion.div
+          animate={{ scaleX: [0.35, 1, 0.35], opacity: [0.35, 0.9, 0.35] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="relative z-10 mt-5 h-px origin-left bg-gradient-to-r from-violet-400/0 via-violet-300/70 to-blue-300/0"
+        />
         <div className="relative z-10 mt-4 rounded-xl border border-violet-200/15 bg-violet-300/[0.08] px-4 py-3">
-          <div className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-violet-200/60">Outcome</div>
-          <div className="mt-1 text-sm font-medium leading-5 text-white/85">Trusted, well-prepared data that improves AI accuracy, compliance, and business value.</div>
+          <div className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-violet-200/60">
+            Outcome
+          </div>
+          <div className="mt-1 text-sm font-medium leading-5 text-white/85">
+            Trusted, well-prepared data that improves AI accuracy, compliance, and business value.
+          </div>
         </div>
       </div>
     );
@@ -566,27 +782,56 @@ function NeuralGraphic({ index }: { index: number }) {
         <div className="pointer-events-none absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-blue-500/15 blur-3xl" />
         <div className="relative z-10 flex items-start justify-between gap-4">
           <div>
-            <div className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-violet-200/60">Always-on AI operations</div>
-            <h3 className="mt-2 max-w-[22rem] text-2xl font-semibold leading-tight text-white">Keep AI reliable, optimized, and improving</h3>
+            <div className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-violet-200/60">
+              Always-on AI operations
+            </div>
+            <h3 className="mt-2 max-w-[22rem] text-2xl font-semibold leading-tight text-white">
+              Keep AI reliable, optimized, and improving
+            </h3>
           </div>
-          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-violet-200/20 bg-violet-300/10 text-lg text-violet-100 shadow-[0_0_28px_rgba(139,92,246,0.24)]">✦</div>
+          <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-violet-200/20 bg-violet-300/10 text-lg text-violet-100 shadow-[0_0_28px_rgba(139,92,246,0.24)]">
+            ✦
+          </div>
         </div>
         <div className="relative z-10 mt-6 space-y-2.5">
           {managedStages.map((stage, stageIndex) => (
-            <motion.div key={stage.number} initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ delay: stageIndex * 0.1, duration: 0.45 }} whileHover={{ x: 5 }} className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2.5 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]">
-              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[0.68rem] font-bold text-white" style={{ backgroundColor: stage.color }}>{stage.number}</span>
+            <motion.div
+              key={stage.number}
+              initial={{ opacity: 0, x: -16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ delay: stageIndex * 0.1, duration: 0.45 }}
+              whileHover={{ x: 5 }}
+              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2.5 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]"
+            >
+              <span
+                className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[0.68rem] font-bold text-white"
+                style={{ backgroundColor: stage.color }}
+              >
+                {stage.number}
+              </span>
               <div className="min-w-0 flex-1">
                 <div className="text-sm font-semibold text-white">{stage.title}</div>
-                <div className="mt-0.5 hidden text-[0.68rem] leading-4 text-white/50 sm:block">{stage.detail}</div>
+                <div className="mt-0.5 hidden text-[0.68rem] leading-4 text-white/50 sm:block">
+                  {stage.detail}
+                </div>
               </div>
               <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-white/60 shadow-[0_0_12px_rgba(255,255,255,0.7)]" />
             </motion.div>
           ))}
         </div>
-        <motion.div animate={{ scaleX: [0.35, 1, 0.35], opacity: [0.35, 0.9, 0.35] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} className="relative z-10 mt-5 h-px origin-left bg-gradient-to-r from-violet-400/0 via-violet-300/70 to-blue-300/0" />
+        <motion.div
+          animate={{ scaleX: [0.35, 1, 0.35], opacity: [0.35, 0.9, 0.35] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="relative z-10 mt-5 h-px origin-left bg-gradient-to-r from-violet-400/0 via-violet-300/70 to-blue-300/0"
+        />
         <div className="relative z-10 mt-4 rounded-xl border border-violet-200/15 bg-violet-300/[0.08] px-4 py-3">
-          <div className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-violet-200/60">Outcome</div>
-          <div className="mt-1 text-sm font-medium leading-5 text-white/85">Reliable, optimized, and compliant AI systems that continuously deliver business value.</div>
+          <div className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-violet-200/60">
+            Outcome
+          </div>
+          <div className="mt-1 text-sm font-medium leading-5 text-white/85">
+            Reliable, optimized, and compliant AI systems that continuously deliver business value.
+          </div>
         </div>
       </div>
     );
@@ -650,7 +895,9 @@ function NeuralGraphic({ index }: { index: number }) {
               </div>
               <span className="h-2 w-2 rounded-full bg-fuchsia-300 shadow-[0_0_18px_rgba(202,74,255,0.68)]" />
             </div>
-            <div className="mt-2 text-base font-semibold leading-6 text-white">{visual.useCase}</div>
+            <div className="mt-2 text-base font-semibold leading-6 text-white">
+              {visual.useCase}
+            </div>
             <div className="mt-4 flex flex-wrap gap-2">
               {visual.inputs.map((input) => (
                 <span
@@ -693,7 +940,12 @@ function NeuralGraphic({ index }: { index: number }) {
                 <motion.span
                   key={bar}
                   animate={{ height: ["0.45rem", "1.25rem", "0.45rem"] }}
-                  transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: bar * 0.18 }}
+                  transition={{
+                    duration: 1.8,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: bar * 0.18
+                  }}
                   className="block w-1.5 rounded-full bg-[linear-gradient(180deg,#f0abfc,#60a5fa)]"
                 />
               ))}
@@ -728,7 +980,10 @@ function NeuralGraphic({ index }: { index: number }) {
 
         <div className="mt-3 grid grid-cols-3 gap-2 text-center">
           {["Input", "AI Layer", "Business Value"].map((label) => (
-            <div key={label} className="text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-white/32">
+            <div
+              key={label}
+              className="text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-white/32"
+            >
               {label}
             </div>
           ))}
@@ -764,10 +1019,16 @@ export default function ServicesPage() {
 
       <section className="relative mx-auto grid min-h-screen w-full max-w-[1220px] items-center gap-10 px-4 pb-20 pt-36 md:px-6 lg:grid-cols-[1fr_0.92fr]">
         <motion.div initial="hidden" animate="show" variants={stagger}>
-          <motion.div variants={fadeUp} className="inline-flex rounded-full bg-[linear-gradient(90deg,rgba(46,108,235,0.28),rgba(117,71,223,0.28),rgba(194,59,217,0.28))] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-50 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.28),0_0_32px_rgba(126,87,255,0.22)]">
+          <motion.div
+            variants={fadeUp}
+            className="inline-flex rounded-full bg-[linear-gradient(90deg,rgba(46,108,235,0.28),rgba(117,71,223,0.28),rgba(194,59,217,0.28))] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-50 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.28),0_0_32px_rgba(126,87,255,0.22)]"
+          >
             Enterprise AI Solutions
           </motion.div>
-          <motion.h1 variants={fadeUp} className="mt-7 max-w-3xl text-5xl font-semibold leading-[0.98] tracking-normal text-white drop-shadow-[0_0_34px_rgba(126,87,255,0.16)] md:text-7xl">
+          <motion.h1
+            variants={fadeUp}
+            className="mt-7 max-w-3xl text-5xl font-semibold leading-[0.98] tracking-normal text-white drop-shadow-[0_0_34px_rgba(126,87,255,0.16)] md:text-7xl"
+          >
             <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#dbe7ff_42%,#f0abfc_100%)] bg-clip-text text-transparent">
               Transform Every
             </span>
@@ -778,7 +1039,10 @@ export default function ServicesPage() {
               Journey
             </span>
           </motion.h1>
-          <motion.p variants={fadeUp} className="mt-6 max-w-2xl text-lg leading-8 text-white/72 [text-shadow:0_0_24px_rgba(126,87,255,0.12)] md:text-xl">
+          <motion.p
+            variants={fadeUp}
+            className="mt-6 max-w-2xl text-lg leading-8 text-white/72 [text-shadow:0_0_24px_rgba(126,87,255,0.12)] md:text-xl"
+          >
             From AI Strategy to Enterprise Deployment and Managed AI Operations, we help
             organizations build, integrate and scale intelligent systems.
           </motion.p>
@@ -793,7 +1057,12 @@ export default function ServicesPage() {
           </motion.div>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, scale: 0.94 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, ease }} className="relative min-h-[30rem]">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.94 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease }}
+          className="relative min-h-[30rem]"
+        >
           <div className="absolute inset-6 rounded-[2rem] bg-[radial-gradient(circle_at_50%_50%,rgba(126,87,255,0.18),transparent_55%)] blur-2xl" />
           <motion.div
             animate={{ y: [0, -10, 0], scale: [1, 1.015, 1] }}
@@ -819,26 +1088,31 @@ export default function ServicesPage() {
 
       <nav className="sticky top-24 z-30 mx-auto w-full max-w-[1120px] px-4 md:px-6">
         <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
-            {services.map((service) => (
-              <Link
-                key={service.id}
-                href={service.href}
-                className="group relative overflow-hidden rounded-[1rem] border border-white/[0.07] bg-white/[0.025] px-4 py-3 text-left transition duration-300 hover:-translate-y-0.5 hover:border-fuchsia-300/35 hover:bg-fuchsia-300/[0.09] hover:text-fuchsia-100 hover:shadow-[0_0_24px_rgba(202,74,255,0.16)]"
-              >
-                <span className="absolute inset-y-2 left-0 w-0.5 rounded-full bg-gradient-to-b from-blue-200 via-fuchsia-300 to-fuchsia-200 opacity-90 shadow-[0_0_12px_rgba(194,59,217,0.7)] transition group-hover:opacity-100 group-hover:shadow-[0_0_18px_rgba(194,59,217,0.95)]" />
-                <span className="block text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-fuchsia-200/50 transition group-hover:text-fuchsia-200/80">
-                  {service.number}
-                </span>
-                <span className="mt-1 block text-sm font-semibold text-white/75 transition group-hover:text-white">
-                  {service.nav}
-                </span>
-              </Link>
-            ))}
+          {services.map((service) => (
+            <Link
+              key={service.id}
+              href={service.href}
+              className="group relative overflow-hidden rounded-[1rem] border border-white/[0.07] bg-white/[0.025] px-4 py-3 text-left transition duration-300 hover:-translate-y-0.5 hover:border-fuchsia-300/35 hover:bg-fuchsia-300/[0.09] hover:text-fuchsia-100 hover:shadow-[0_0_24px_rgba(202,74,255,0.16)]"
+            >
+              <span className="absolute inset-y-2 left-0 w-0.5 rounded-full bg-gradient-to-b from-blue-200 via-fuchsia-300 to-fuchsia-200 opacity-90 shadow-[0_0_12px_rgba(194,59,217,0.7)] transition group-hover:opacity-100 group-hover:shadow-[0_0_18px_rgba(194,59,217,0.95)]" />
+              <span className="block text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-fuchsia-200/50 transition group-hover:text-fuchsia-200/80">
+                {service.number}
+              </span>
+              <span className="mt-1 block text-sm font-semibold text-white/75 transition group-hover:text-white">
+                {service.nav}
+              </span>
+            </Link>
+          ))}
         </div>
       </nav>
 
       <section id="overview" className="mx-auto w-full max-w-[1120px] px-4 py-20 md:px-6">
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: "-120px" }} variants={stagger}>
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-120px" }}
+          variants={stagger}
+        >
           <motion.div variants={fadeUp} className="text-center">
             <div className="text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-200/60">
               Services Overview
@@ -850,7 +1124,11 @@ export default function ServicesPage() {
 
           <div className="mt-10 grid gap-5 md:grid-cols-6">
             {services.map((service, index) => (
-              <motion.div key={service.id} variants={fadeUp} className={index < 3 ? "md:col-span-2" : "md:col-span-3"}>
+              <motion.div
+                key={service.id}
+                variants={fadeUp}
+                className={index < 3 ? "md:col-span-2" : "md:col-span-3"}
+              >
                 <Link
                   href={`#${service.id}`}
                   className="group relative flex h-full min-h-[21rem] flex-col overflow-hidden rounded-[1.25rem] border border-[#4d2aad]/50 bg-[linear-gradient(135deg,rgba(5,12,38,0.9)_0%,rgba(7,8,28,0.94)_52%,rgba(42,7,46,0.88)_100%)] p-6 shadow-[0_18px_70px_rgba(0,0,0,0.28)] backdrop-blur-xl transition duration-500 hover:-translate-y-1.5 hover:border-fuchsia-300/42 hover:shadow-[0_24px_90px_rgba(126,87,255,0.16)]"
@@ -860,10 +1138,16 @@ export default function ServicesPage() {
                     <div className="flex h-12 w-12 items-center justify-center rounded-[0.9rem] bg-[linear-gradient(145deg,rgba(117,71,223,0.34),rgba(16,24,58,0.9))] text-fuchsia-100 shadow-[0_8px_24px_rgba(202,74,255,0.12),inset_0_1px_0_rgba(255,255,255,0.12)] transition duration-300 group-hover:scale-105 group-hover:bg-[linear-gradient(145deg,rgba(117,71,223,0.5),rgba(16,24,58,0.94))] group-hover:text-white group-hover:shadow-[0_10px_30px_rgba(202,74,255,0.2),inset_0_1px_0_rgba(255,255,255,0.18)]">
                       <Icon name={service.icon} />
                     </div>
-                    <div className="text-sm font-semibold text-fuchsia-100/30">{service.number}</div>
+                    <div className="text-sm font-semibold text-fuchsia-100/30">
+                      {service.number}
+                    </div>
                   </div>
-                  <h3 className="relative mt-8 text-2xl font-semibold text-white">{service.title}</h3>
-                  <p className="relative mt-3 text-sm leading-6 text-white/62">{service.description}</p>
+                  <h3 className="relative mt-8 text-2xl font-semibold text-white">
+                    {service.title}
+                  </h3>
+                  <p className="relative mt-3 text-sm leading-6 text-white/62">
+                    {service.description}
+                  </p>
                   <div className="relative mt-auto flex items-center justify-between pt-6 text-sm font-semibold text-fuchsia-200">
                     <span>{service.solutions.length} solutions</span>
                     <span className="grid h-9 w-9 place-items-center rounded-full border border-fuchsia-300/16 bg-fuchsia-300/[0.06] transition group-hover:translate-x-1 group-hover:border-fuchsia-200/34 group-hover:bg-fuchsia-300/[0.12]">
@@ -886,7 +1170,11 @@ export default function ServicesPage() {
       </section>
 
       {services.map((service, index) => (
-        <section key={service.id} id={service.id} className="mx-auto w-full max-w-[1120px] scroll-mt-40 px-4 py-16 md:px-6">
+        <section
+          key={service.id}
+          id={service.id}
+          className="mx-auto w-full max-w-[1120px] scroll-mt-40 px-4 py-16 md:px-6"
+        >
           <motion.div
             initial="hidden"
             whileInView="show"
@@ -939,13 +1227,21 @@ export default function ServicesPage() {
       ))}
 
       <section className="mx-auto w-full max-w-[1120px] px-4 py-16 md:px-6">
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="relative overflow-hidden rounded-[1.35rem] border border-[#4d2aad]/50 bg-[linear-gradient(135deg,rgba(5,12,38,0.9)_0%,rgba(7,8,28,0.94)_50%,rgba(42,7,46,0.88)_100%)] p-6 shadow-[0_24px_90px_rgba(0,0,0,0.28),0_0_34px_rgba(119,57,255,0.1)] md:p-8">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={stagger}
+          className="relative overflow-hidden rounded-[1.35rem] border border-[#4d2aad]/50 bg-[linear-gradient(135deg,rgba(5,12,38,0.9)_0%,rgba(7,8,28,0.94)_50%,rgba(42,7,46,0.88)_100%)] p-6 shadow-[0_24px_90px_rgba(0,0,0,0.28),0_0_34px_rgba(119,57,255,0.1)] md:p-8"
+        >
           <div className="absolute inset-x-10 top-1/2 h-px bg-[linear-gradient(90deg,transparent,rgba(14,103,255,0.45),rgba(216,62,255,0.38),transparent)]" />
           <motion.div variants={fadeUp} className="relative text-center">
             <div className="text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-200/58">
               Customer Value
             </div>
-            <h2 className="mt-4 text-4xl font-semibold text-white">From Curiosity to Business Growth</h2>
+            <h2 className="mt-4 text-4xl font-semibold text-white">
+              From Curiosity to Business Growth
+            </h2>
           </motion.div>
           <div className="relative mt-10 grid gap-3 md:grid-cols-7">
             {journey.map((stage, index) => (
@@ -964,8 +1260,16 @@ export default function ServicesPage() {
       </section>
 
       <section className="mx-auto grid w-full max-w-[1120px] gap-6 px-4 py-16 md:px-6 lg:grid-cols-[1fr_0.9fr]">
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
-          <motion.div variants={fadeUp} className="text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-200/58">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={stagger}
+        >
+          <motion.div
+            variants={fadeUp}
+            className="text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-200/58"
+          >
             Tech Stack
           </motion.div>
           <motion.h2 variants={fadeUp} className="mt-4 text-4xl font-semibold text-white">
@@ -973,16 +1277,32 @@ export default function ServicesPage() {
           </motion.h2>
           <motion.div variants={stagger} className="mt-8 flex flex-wrap gap-3">
             {techStack.map((tool) => (
-              <motion.div key={tool} variants={fadeUp} whileHover={{ y: -3 }} className="rounded-full border border-[#4d2aad]/42 bg-fuchsia-300/[0.045] px-4 py-2 text-sm font-semibold text-white/68 transition hover:border-fuchsia-200/36 hover:text-fuchsia-50">
+              <motion.div
+                key={tool}
+                variants={fadeUp}
+                whileHover={{ y: -3 }}
+                className="rounded-full border border-[#4d2aad]/42 bg-fuchsia-300/[0.045] px-4 py-2 text-sm font-semibold text-white/68 transition hover:border-fuchsia-200/36 hover:text-fuchsia-50"
+              >
                 {tool}
               </motion.div>
             ))}
           </motion.div>
         </motion.div>
 
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger} className="grid gap-3 sm:grid-cols-2">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={stagger}
+          className="grid gap-3 sm:grid-cols-2"
+        >
           {valueCards.map((value) => (
-            <motion.div key={value} variants={fadeUp} whileHover={{ y: -4, scale: 1.01 }} className="rounded-[1rem] border border-[#4d2aad]/42 bg-[linear-gradient(135deg,rgba(5,12,38,0.78)_0%,rgba(42,7,46,0.7)_100%)] p-5 transition hover:border-fuchsia-300/36">
+            <motion.div
+              key={value}
+              variants={fadeUp}
+              whileHover={{ y: -4, scale: 1.01 }}
+              className="rounded-[1rem] border border-[#4d2aad]/42 bg-[linear-gradient(135deg,rgba(5,12,38,0.78)_0%,rgba(42,7,46,0.7)_100%)] p-5 transition hover:border-fuchsia-300/36"
+            >
               <div className="text-lg font-semibold text-white">{value}</div>
             </motion.div>
           ))}
@@ -992,7 +1312,11 @@ export default function ServicesPage() {
       <section className="mx-auto w-full max-w-[1120px] px-4 py-16 md:px-6">
         <div className="grid gap-4 rounded-[1.25rem] border border-[#4d2aad]/50 bg-[linear-gradient(135deg,rgba(5,12,38,0.9)_0%,rgba(7,8,28,0.94)_50%,rgba(42,7,46,0.88)_100%)] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_0_34px_rgba(119,57,255,0.1)] md:grid-cols-4 md:p-8">
           {metrics.map((metric) => (
-            <motion.div key={metric.label} whileHover={{ y: -4 }} className="rounded-[1rem] border border-white/8 bg-[#080b25]/55 p-4 text-center transition hover:border-fuchsia-300/30">
+            <motion.div
+              key={metric.label}
+              whileHover={{ y: -4 }}
+              className="rounded-[1rem] border border-white/8 bg-[#080b25]/55 p-4 text-center transition hover:border-fuchsia-300/30"
+            >
               <div className="text-4xl font-semibold text-fuchsia-50">{metric.value}</div>
               <div className="mt-2 text-sm text-white/56">{metric.label}</div>
             </motion.div>
@@ -1006,7 +1330,9 @@ export default function ServicesPage() {
             <div className="text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-200/58">
               Case Studies
             </div>
-            <h2 className="mt-4 text-4xl font-semibold text-white">AI Outcomes Across Industries</h2>
+            <h2 className="mt-4 text-4xl font-semibold text-white">
+              AI Outcomes Across Industries
+            </h2>
           </div>
         </div>
         <div className="grid gap-4 md:grid-cols-5">
@@ -1016,13 +1342,23 @@ export default function ServicesPage() {
               whileHover={{ y: -6, scale: 1.01 }}
               className="rounded-[1rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.84)_0%,rgba(7,8,28,0.92)_52%,rgba(42,7,46,0.78)_100%)] p-6 shadow-[inset_0_0_0_1px_rgba(125,92,255,0.16),0_18px_60px_rgba(0,0,0,0.18)] transition hover:shadow-[inset_0_0_0_1px_rgba(240,171,252,0.22),0_18px_60px_rgba(202,74,255,0.1)]"
             >
-              <div className="text-xl font-semibold tracking-normal text-white">{study.industry}</div>
-              <p className="mt-5 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-200/44">Problem</p>
+              <div className="text-xl font-semibold tracking-normal text-white">
+                {study.industry}
+              </div>
+              <p className="mt-5 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-200/44">
+                Problem
+              </p>
               <p className="mt-2 text-sm leading-6 text-white/56">{study.problem}</p>
-              <p className="mt-5 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-blue-200/42">Solution</p>
+              <p className="mt-5 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-blue-200/42">
+                Solution
+              </p>
               <p className="mt-2 text-sm leading-6 text-white/64">{study.solution}</p>
-              <p className="mt-5 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-200/48">Impact</p>
-              <p className="mt-2 text-[0.95rem] font-semibold leading-6 text-fuchsia-100/78">{study.impact}</p>
+              <p className="mt-5 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-200/48">
+                Impact
+              </p>
+              <p className="mt-2 text-[0.95rem] font-semibold leading-6 text-fuchsia-100/78">
+                {study.impact}
+              </p>
             </motion.article>
           ))}
         </div>
@@ -1048,7 +1384,11 @@ export default function ServicesPage() {
                 <span className="text-fuchsia-200">{openFaq === index ? "-" : "+"}</span>
               </div>
               {openFaq === index && (
-                <motion.p initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} className="mt-4 text-sm leading-6 text-white/62">
+                <motion.p
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  className="mt-4 text-sm leading-6 text-white/62"
+                >
                   {faq.answer}
                 </motion.p>
               )}
@@ -1061,9 +1401,12 @@ export default function ServicesPage() {
         <div className="relative overflow-hidden rounded-[1.35rem] border border-[#4d2aad]/55 bg-[linear-gradient(135deg,rgba(5,12,38,0.96)_0%,rgba(7,8,28,0.98)_48%,rgba(42,7,46,0.96)_100%)] p-8 text-center shadow-[0_26px_100px_rgba(0,0,0,0.44),0_0_34px_rgba(119,57,255,0.14)] md:p-12">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(14,103,255,0.16),transparent_34%),radial-gradient(circle_at_80%_72%,rgba(216,62,255,0.16),transparent_36%)]" />
           <div className="relative">
-            <h2 className="text-4xl font-semibold text-white md:text-6xl">Ready to Build Enterprise AI?</h2>
+            <h2 className="text-4xl font-semibold text-white md:text-6xl">
+              Ready to Build Enterprise AI?
+            </h2>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-white/62">
-              Start with a consultation and turn your AI roadmap into production-grade intelligent systems.
+              Start with a consultation and turn your AI roadmap into production-grade intelligent
+              systems.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link href="/#contact" className={primaryButton}>
@@ -1078,95 +1421,112 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <footer className="relative overflow-hidden border-t border-[#4d2aad]/26 bg-[#050816] px-4 py-10 md:px-6">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_8%,rgba(14,103,255,0.14),transparent_30%),radial-gradient(circle_at_86%_22%,rgba(216,62,255,0.16),transparent_34%)]" />
-        <div className="pointer-events-none absolute left-[-8rem] top-8 h-72 w-72 rotate-45 border border-[#1d8fff]/10" />
-        <div className="pointer-events-none absolute right-[-6rem] bottom-[-6rem] h-80 w-80 rounded-full bg-fuchsia-400/10 blur-[110px]" />
+      {false && (
+        <footer className="relative overflow-hidden border-t border-[#4d2aad]/26 bg-[#050816] px-4 py-10 md:px-6">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_8%,rgba(14,103,255,0.14),transparent_30%),radial-gradient(circle_at_86%_22%,rgba(216,62,255,0.16),transparent_34%)]" />
+          <div className="pointer-events-none absolute left-[-8rem] top-8 h-72 w-72 rotate-45 border border-[#1d8fff]/10" />
+          <div className="pointer-events-none absolute right-[-6rem] bottom-[-6rem] h-80 w-80 rounded-full bg-fuchsia-400/10 blur-[110px]" />
 
-        <div className="relative mx-auto max-w-[1120px]">
-          <div className="overflow-hidden rounded-[1.5rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.92)_0%,rgba(7,8,28,0.96)_50%,rgba(42,7,46,0.88)_100%)] p-6 shadow-[inset_0_0_0_1px_rgba(125,92,255,0.18),0_24px_90px_rgba(0,0,0,0.28)] md:p-8">
-            <div className="grid gap-8 lg:grid-cols-[1.25fr_0.85fr_0.85fr_1fr]">
-              <div>
-                <div className="inline-flex rounded-full bg-fuchsia-300/[0.07] px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-fuchsia-100/70 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.12)]">
-                  Enterprise AI Partner
+          <div className="relative mx-auto max-w-[1120px]">
+            <div className="overflow-hidden rounded-[1.5rem] bg-[linear-gradient(135deg,rgba(5,12,38,0.92)_0%,rgba(7,8,28,0.96)_50%,rgba(42,7,46,0.88)_100%)] p-6 shadow-[inset_0_0_0_1px_rgba(125,92,255,0.18),0_24px_90px_rgba(0,0,0,0.28)] md:p-8">
+              <div className="grid gap-8 lg:grid-cols-[1.25fr_0.85fr_0.85fr_1fr]">
+                <div>
+                  <div className="inline-flex rounded-full bg-fuchsia-300/[0.07] px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-fuchsia-100/70 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.12)]">
+                    Enterprise AI Partner
+                  </div>
+                  <div className="mt-5 bg-[linear-gradient(90deg,#ffffff,#c7d2fe,#f0abfc)] bg-clip-text text-3xl font-semibold tracking-normal text-transparent">
+                    AgyntiQ
+                  </div>
+                  <p className="mt-4 max-w-sm text-sm leading-7 text-white/58">
+                    Strategy, development, integration, data, and managed AI operations for teams
+                    ready to move from pilots to production.
+                  </p>
+                  <div className="mt-6 grid max-w-sm grid-cols-3 gap-2">
+                    {["Secure", "Scalable", "Managed"].map((item) => (
+                      <div
+                        key={item}
+                        className="rounded-[0.8rem] bg-white/[0.035] px-3 py-2 text-center text-xs font-semibold text-white/62 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]"
+                      >
+                        {item}
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <div className="mt-5 bg-[linear-gradient(90deg,#ffffff,#c7d2fe,#f0abfc)] bg-clip-text text-3xl font-semibold tracking-normal text-transparent">
-                  AgyntiQ
+
+                <div>
+                  <div className="text-xs font-semibold uppercase tracking-[0.24em] text-fuchsia-200/48">
+                    Services
+                  </div>
+                  <div className="mt-4 grid gap-3">
+                    {services.map((service) => (
+                      <Link
+                        key={service.href}
+                        href={service.href}
+                        className="group flex items-center justify-between gap-3 text-sm font-semibold text-white/58 transition hover:text-fuchsia-100"
+                      >
+                        <span>{service.nav}</span>
+                        <span className="h-px w-5 bg-fuchsia-300/18 transition group-hover:w-8 group-hover:bg-fuchsia-200/48" />
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-                <p className="mt-4 max-w-sm text-sm leading-7 text-white/58">
-                  Strategy, development, integration, data, and managed AI operations for teams ready to move from pilots to production.
-                </p>
-                <div className="mt-6 grid max-w-sm grid-cols-3 gap-2">
-                  {["Secure", "Scalable", "Managed"].map((item) => (
-                    <div key={item} className="rounded-[0.8rem] bg-white/[0.035] px-3 py-2 text-center text-xs font-semibold text-white/62 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]">
-                      {item}
-                    </div>
-                  ))}
+
+                <div>
+                  <div className="text-xs font-semibold uppercase tracking-[0.24em] text-fuchsia-200/48">
+                    Explore
+                  </div>
+                  <div className="mt-4 grid gap-3 text-sm font-semibold text-white/58">
+                    {["Solutions", "Industries", "Case Studies", "FAQ", "Contact"].map((item) => (
+                      <a
+                        key={item}
+                        href={item === "Contact" ? "/#contact" : "#overview"}
+                        className="transition hover:text-fuchsia-100"
+                      >
+                        {item}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-[1.15rem] bg-[#080b25]/70 p-5 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.1)]">
+                  <div className="text-xs font-semibold uppercase tracking-[0.24em] text-blue-200/44">
+                    Build With Us
+                  </div>
+                  <p className="mt-3 text-xl font-semibold leading-tight tracking-normal text-white">
+                    Turn your AI roadmap into a production system.
+                  </p>
+                  <Link
+                    href="/#contact"
+                    className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-[linear-gradient(90deg,#2E6CEB,#7547DF,#C23BD9)] px-5 py-3 text-sm font-semibold text-white shadow-[0_16px_46px_rgba(126,87,255,0.22)] transition hover:-translate-y-0.5"
+                  >
+                    Talk to AgyntiQ
+                  </Link>
+                  <div className="mt-5 grid grid-cols-2 gap-2">
+                    {["24/7 support", "Enterprise ready"].map((item) => (
+                      <div
+                        key={item}
+                        className="rounded-[0.75rem] bg-white/[0.035] px-3 py-2 text-xs font-semibold text-white/56"
+                      >
+                        {item}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              <div>
-                <div className="text-xs font-semibold uppercase tracking-[0.24em] text-fuchsia-200/48">
-                  Services
+              <div className="mt-8 flex flex-col gap-4 border-t border-white/[0.07] pt-5 text-xs text-white/42 md:flex-row md:items-center md:justify-between">
+                <div>© 2026 AgyntiQ. Enterprise AI services for real-world operations.</div>
+                <div className="flex flex-wrap gap-4">
+                  <span>Privacy</span>
+                  <span>Security</span>
+                  <span>Terms</span>
                 </div>
-                <div className="mt-4 grid gap-3">
-                  {services.map((service) => (
-                    <Link
-                      key={service.href}
-                      href={service.href}
-                      className="group flex items-center justify-between gap-3 text-sm font-semibold text-white/58 transition hover:text-fuchsia-100"
-                    >
-                      <span>{service.nav}</span>
-                      <span className="h-px w-5 bg-fuchsia-300/18 transition group-hover:w-8 group-hover:bg-fuchsia-200/48" />
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <div className="text-xs font-semibold uppercase tracking-[0.24em] text-fuchsia-200/48">
-                  Explore
-                </div>
-                <div className="mt-4 grid gap-3 text-sm font-semibold text-white/58">
-                  {["Solutions", "Industries", "Case Studies", "FAQ", "Contact"].map((item) => (
-                    <a key={item} href={item === "Contact" ? "/#contact" : "#overview"} className="transition hover:text-fuchsia-100">
-                      {item}
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              <div className="rounded-[1.15rem] bg-[#080b25]/70 p-5 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.1)]">
-                <div className="text-xs font-semibold uppercase tracking-[0.24em] text-blue-200/44">
-                  Build With Us
-                </div>
-                <p className="mt-3 text-xl font-semibold leading-tight tracking-normal text-white">
-                  Turn your AI roadmap into a production system.
-                </p>
-                <Link href="/#contact" className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-[linear-gradient(90deg,#2E6CEB,#7547DF,#C23BD9)] px-5 py-3 text-sm font-semibold text-white shadow-[0_16px_46px_rgba(126,87,255,0.22)] transition hover:-translate-y-0.5">
-                  Talk to AgyntiQ
-                </Link>
-                <div className="mt-5 grid grid-cols-2 gap-2">
-                  {["24/7 support", "Enterprise ready"].map((item) => (
-                    <div key={item} className="rounded-[0.75rem] bg-white/[0.035] px-3 py-2 text-xs font-semibold text-white/56">
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 flex flex-col gap-4 border-t border-white/[0.07] pt-5 text-xs text-white/42 md:flex-row md:items-center md:justify-between">
-              <div>© 2026 AgyntiQ. Enterprise AI services for real-world operations.</div>
-              <div className="flex flex-wrap gap-4">
-                <span>Privacy</span>
-                <span>Security</span>
-                <span>Terms</span>
               </div>
             </div>
           </div>
-        </div>
-      </footer>
+        </footer>
+      )}
+      <ServiceFooter />
       <ScrollToTopButton />
     </main>
   );

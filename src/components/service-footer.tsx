@@ -4,11 +4,11 @@ import { servicePageOrder } from "@/components/service-pages-data";
 
 export default function ServiceFooter() {
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 bg-[#040615] px-4 py-14 md:px-6 md:py-20">
+    <footer className="relative overflow-hidden border-t border-white/10 bg-[#040615] px-4 py-10 md:px-6 md:py-12">
       <div className="pointer-events-none absolute left-[-10rem] top-[-12rem] h-[30rem] w-[30rem] rounded-full bg-fuchsia-400/[0.08] blur-[120px]" />
       <div className="pointer-events-none absolute right-[-8rem] bottom-[-14rem] h-[28rem] w-[28rem] rounded-full bg-blue-500/[0.08] blur-[120px]" />
       <div className="relative mx-auto max-w-[1120px]">
-        <div className="mb-12 flex flex-col gap-8 border-b border-white/10 pb-10 md:flex-row md:items-end md:justify-between">
+        <div className="mb-8 flex flex-col gap-5 border-b border-white/10 pb-6 md:flex-row md:items-end md:justify-between">
           <div className="flex items-center gap-4">
             <Image
               src="/agyntiq-footer-logo.png"
@@ -26,7 +26,7 @@ export default function ServiceFooter() {
             Strategy · Build · Integrate · Operate
           </div>
         </div>
-        <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr_0.8fr_0.8fr]">
+        <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr_0.8fr_0.8fr]">
           <div>
             <div className="text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-fuchsia-200/55">
               Build what matters
@@ -99,7 +99,7 @@ export default function ServiceFooter() {
             </div>
           </div>
         </div>
-        <div className="mt-14 grid gap-5 border-t border-white/10 pt-5 text-xs text-white/35 md:grid-cols-[1fr_auto] md:items-end">
+        <div className="mt-8 grid gap-4 border-t border-white/10 pt-4 text-xs text-white/35 md:grid-cols-[1fr_auto] md:items-end">
           <div>© 2026 Agyntiq.ai. All rights reserved.</div>
           <div className="flex flex-wrap gap-4 md:justify-self-end">
             <Link href="#" className="transition hover:text-fuchsia-100">
