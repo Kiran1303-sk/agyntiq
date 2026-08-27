@@ -36,7 +36,9 @@ export default function PointerAura() {
       targetX = event.clientX;
       targetY = event.clientY;
       const target = event.target instanceof Element ? event.target : null;
-      const interactive = target?.closest("a, button, [role='button']");
+      // Keep large surface links such as cards at the normal ring size.
+      // Only controls that behave like buttons should trigger the expanded aura.
+      const interactive = target?.closest("button, [role='button']");
       document.documentElement.classList.toggle("pointer-aura-hover", Boolean(interactive));
     };
 
