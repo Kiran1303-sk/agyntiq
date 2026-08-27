@@ -7,6 +7,7 @@
 }
 
 html {
+  overflow-x: hidden;
   background:
     radial-gradient(circle at 10% 0%, rgba(202, 74, 255, 0.18), transparent 26%),
     radial-gradient(circle at 90% 10%, rgba(217, 70, 239, 0.16), transparent 24%),
@@ -32,6 +33,7 @@ p {
 
 body {
   min-height: 100vh;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at top left, rgba(202, 74, 255, 0.18), transparent 30%),
     radial-gradient(circle at 80% 18%, rgba(217, 70, 239, 0.16), transparent 26%),
