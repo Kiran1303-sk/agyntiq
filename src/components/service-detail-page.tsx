@@ -178,12 +178,13 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
                   ))}
                 </div>
               </div>
-              <div className="relative border-l border-fuchsia-300/35 pl-5 md:self-stretch md:flex md:flex-col md:justify-center">
-                <span className="absolute -left-px top-0 h-10 w-px bg-gradient-to-b from-fuchsia-200 via-violet-400 to-transparent transition duration-500 group-hover:h-full" />
-                <div className="text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-200/55">
+              <div className="relative md:self-stretch md:flex md:flex-col md:justify-center md:pl-5">
+                <div className="flex items-center gap-2 text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-200/55">
+                  <span className="grid h-7 w-7 place-items-center rounded-full bg-fuchsia-300/[0.12] text-fuchsia-100 shadow-[0_0_18px_rgba(202,74,255,0.18)]">✓</span>
                   Output
                 </div>
                 <p className="mt-3 text-sm font-semibold leading-6 text-white/84">{stage.output}</p>
+                <span className="mt-4 block h-px w-16 bg-gradient-to-r from-fuchsia-300/80 to-transparent transition-all duration-500 group-hover:w-28" />
               </div>
             </motion.article>
           ))}
