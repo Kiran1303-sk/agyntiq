@@ -393,7 +393,7 @@ button {
 .section-shell {
   position: relative;
   margin-inline: auto;
-  width: min(100%, 1200px);
+  width: min(100%, 1600px);
   padding-inline: 1.25rem;
 }
 
