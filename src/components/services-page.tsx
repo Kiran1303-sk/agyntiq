@@ -783,7 +783,7 @@ export default function ServicesPage() {
             organizations build, integrate and scale intelligent systems.
           </motion.p>
           <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
-            <Link href="#overview" className={primaryButton}>
+            <Link href="/services/ai-strategy-readiness" className={primaryButton}>
               <span className="absolute inset-0 translate-x-[-120%] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.32),transparent)] transition duration-700 group-hover:translate-x-[120%]" />
               <span className="relative">Explore Services</span>
             </Link>
