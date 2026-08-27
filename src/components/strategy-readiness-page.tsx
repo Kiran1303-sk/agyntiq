@@ -259,12 +259,12 @@ export default function StrategyReadinessPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-90px" }}
               transition={{ duration: 0.65, delay: index * 0.08, ease }}
-              className="group relative grid gap-6 overflow-hidden rounded-[1.5rem] bg-[linear-gradient(120deg,rgba(10,8,36,0.94),rgba(7,8,28,0.82))] p-5 shadow-[inset_2px_0_0_rgba(167,139,250,0.32),0_18px_70px_rgba(0,0,0,0.18)] transition duration-500 hover:-translate-y-1 hover:shadow-[inset_2px_0_0_rgba(240,171,252,0.85),0_28px_90px_rgba(117,71,223,0.18)] md:grid-cols-[5rem_minmax(0,1fr)_18rem] md:items-center md:p-7"
+              className="group relative grid gap-6 overflow-hidden rounded-[1.5rem] bg-[linear-gradient(120deg,rgba(10,8,36,0.94),rgba(7,8,28,0.82))] p-5 shadow-[0_18px_70px_rgba(0,0,0,0.18)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_28px_90px_rgba(117,71,223,0.18)] md:grid-cols-[5rem_minmax(0,1fr)_18rem] md:items-center md:p-7"
             >
-              <span className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-fuchsia-300/70 to-transparent transition duration-500 group-hover:via-white/90" />
-              <span className="pointer-events-none absolute bottom-0 left-0 top-0 w-[2px] bg-gradient-to-b from-fuchsia-300/0 via-fuchsia-300/90 to-blue-400/0" />
-              <span className="pointer-events-none absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-violet-400/70 to-transparent transition duration-500 group-hover:via-white/90" />
-              <span className="pointer-events-none absolute bottom-0 right-0 top-0 w-px bg-gradient-to-b from-fuchsia-300/0 via-violet-300/55 to-blue-400/0" />
+              <span className="pointer-events-none absolute left-0 top-0 h-px w-32 bg-gradient-to-r from-fuchsia-300/80 to-transparent transition duration-500 group-hover:from-white" />
+              <span className="pointer-events-none absolute left-0 top-0 h-32 w-px bg-gradient-to-b from-fuchsia-300/80 to-transparent transition duration-500 group-hover:from-white" />
+              <span className="pointer-events-none absolute bottom-0 right-0 h-px w-32 bg-gradient-to-l from-blue-300/80 to-transparent transition duration-500 group-hover:from-white" />
+              <span className="pointer-events-none absolute bottom-0 right-0 h-32 w-px bg-gradient-to-t from-blue-300/80 to-transparent transition duration-500 group-hover:from-white" />
               <div className="relative">
                 <div className="grid h-16 w-16 place-items-center rounded-[1.2rem] border border-fuchsia-200/25 bg-[linear-gradient(145deg,rgba(117,71,223,0.38),rgba(46,108,235,0.2))] text-fuchsia-100 shadow-[0_0_34px_rgba(117,71,223,0.16)] transition duration-500 group-hover:rotate-6 group-hover:scale-110 group-hover:border-fuchsia-100/50">
                   <StageIcon index={index} />
