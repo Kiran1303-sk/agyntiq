@@ -215,9 +215,10 @@ export default function StrategyReadinessPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-90px" }}
               transition={{ duration: 0.65, delay: index * 0.08, ease }}
-              className="group relative grid gap-6 overflow-hidden rounded-[1.5rem] border border-white/10 bg-[linear-gradient(120deg,rgba(10,8,36,0.94),rgba(7,8,28,0.82))] p-5 shadow-[0_18px_70px_rgba(0,0,0,0.18)] transition duration-500 hover:-translate-y-1 hover:border-fuchsia-200/30 hover:shadow-[0_28px_90px_rgba(117,71,223,0.18)] md:grid-cols-[5rem_minmax(0,1fr)_18rem] md:items-center md:p-7"
+              className="group relative grid gap-6 overflow-hidden rounded-[1.5rem] border border-white/10 border-l-fuchsia-300/55 border-b-violet-400/45 bg-[linear-gradient(120deg,rgba(10,8,36,0.94),rgba(7,8,28,0.82))] p-5 shadow-[0_18px_70px_rgba(0,0,0,0.18)] transition duration-500 hover:-translate-y-1 hover:border-fuchsia-200/30 hover:border-l-fuchsia-200 hover:border-b-fuchsia-200/70 hover:shadow-[0_28px_90px_rgba(117,71,223,0.18)] md:grid-cols-[5rem_minmax(0,1fr)_18rem] md:items-center md:p-7"
             >
-              <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(240,171,252,0.72),transparent)] opacity-0 transition duration-500 group-hover:opacity-100" />
+              <span className="pointer-events-none absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-fuchsia-300/70 to-transparent transition duration-500 group-hover:via-white/90" />
+              <span className="pointer-events-none absolute bottom-6 left-0 top-6 w-px bg-gradient-to-b from-fuchsia-300/0 via-fuchsia-300/80 to-blue-400/0" />
               <div className="relative">
                 <div className="grid h-16 w-16 place-items-center rounded-[1.2rem] border border-fuchsia-200/25 bg-[linear-gradient(145deg,rgba(117,71,223,0.38),rgba(46,108,235,0.2))] text-fuchsia-100 shadow-[0_0_34px_rgba(117,71,223,0.16)] transition duration-500 group-hover:rotate-6 group-hover:scale-110 group-hover:border-fuchsia-100/50">
                   <StageIcon index={index} />
@@ -229,7 +230,7 @@ export default function StrategyReadinessPage() {
                 <p className="mt-3 max-w-2xl text-sm leading-7 text-white/60">{stage.description}</p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {stage.points.map((point) => (
-                    <span key={point} className="rounded-full border border-fuchsia-200/12 bg-fuchsia-300/[0.045] px-3 py-1.5 text-xs font-semibold text-white/62 transition group-hover:border-fuchsia-200/24 group-hover:text-white/82">
+                    <span key={point} className="rounded-full border border-fuchsia-200/25 bg-fuchsia-300/[0.06] px-3 py-1.5 text-xs font-semibold text-white/78 shadow-[0_0_18px_rgba(202,74,255,0.06)] transition group-hover:border-fuchsia-200/45 group-hover:bg-fuchsia-300/[0.1] group-hover:text-white">
                       {point}
                     </span>
                   ))}
