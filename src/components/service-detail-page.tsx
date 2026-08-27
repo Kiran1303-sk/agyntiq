@@ -150,10 +150,10 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
               transition={{ duration: 0.65, delay: index * 0.08, ease }}
               className="group relative grid gap-6 overflow-hidden rounded-[1.5rem] bg-[linear-gradient(120deg,rgba(10,8,36,0.94),rgba(7,8,28,0.82))] p-6 shadow-[0_18px_70px_rgba(0,0,0,0.18)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_28px_90px_rgba(117,71,223,0.18)] md:grid-cols-[5rem_minmax(0,1fr)_18rem] md:items-center md:p-7"
             >
-              <span className="pointer-events-none absolute left-0 top-0 h-px w-32 bg-gradient-to-r from-fuchsia-300/80 to-transparent transition duration-500 group-hover:from-white" />
-              <span className="pointer-events-none absolute left-0 top-0 h-32 w-px bg-gradient-to-b from-fuchsia-300/80 to-transparent transition duration-500 group-hover:from-white" />
-              <span className="pointer-events-none absolute bottom-0 right-0 h-px w-32 bg-gradient-to-l from-blue-300/80 to-transparent transition duration-500 group-hover:from-white" />
-              <span className="pointer-events-none absolute bottom-0 right-0 h-32 w-px bg-gradient-to-t from-blue-300/80 to-transparent transition duration-500 group-hover:from-white" />
+              <span className="pointer-events-none absolute left-0 top-0 h-[2px] w-48 bg-gradient-to-r from-fuchsia-300/80 to-transparent transition duration-500 group-hover:from-white" />
+              <span className="pointer-events-none absolute left-0 top-0 h-48 w-[2px] bg-gradient-to-b from-fuchsia-300/80 to-transparent transition duration-500 group-hover:from-white" />
+              <span className="pointer-events-none absolute bottom-0 right-0 h-[2px] w-48 bg-gradient-to-l from-blue-300/80 to-transparent transition duration-500 group-hover:from-white" />
+              <span className="pointer-events-none absolute bottom-0 right-0 h-48 w-[2px] bg-gradient-to-t from-blue-300/80 to-transparent transition duration-500 group-hover:from-white" />
               <div className="flex items-start justify-between gap-5 md:block">
                 <div className="grid h-14 w-14 place-items-center rounded-[1.15rem] border border-fuchsia-200/25 bg-[linear-gradient(145deg,rgba(117,71,223,0.38),rgba(46,108,235,0.2))] text-fuchsia-100 shadow-[0_0_30px_rgba(117,71,223,0.16)] transition duration-500 group-hover:rotate-6 group-hover:scale-110">
                   <ServiceIcon index={index} />
