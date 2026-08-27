@@ -30,27 +30,33 @@ const navItems = [
 
 const serviceMenuDisplay = [
   {
-    title: "AI Strategy",
+    title: "AI Strategy & Readiness",
     subtitle: "Roadmaps for AI success",
     href: "/services/ai-strategy-readiness",
     icon: "brain"
   },
   {
-    title: "AI Development",
+    title: "AI Solution Development",
     subtitle: "Custom AI solutions",
     href: "/services/ai-solution-development",
     icon: "cube"
   },
   {
-    title: "Data & Analytics",
-    subtitle: "Actionable insights",
+    title: "AI Integration Services",
+    subtitle: "Seamless system integration",
+    href: "/services/ai-integration-services",
+    icon: "link"
+  },
+  {
+    title: "AI Data Services",
+    subtitle: "Governed data foundations",
     href: "/services/ai-data-services",
     icon: "chart"
   },
   {
-    title: "AI Integration",
-    subtitle: "Seamless system integration",
-    href: "/services/ai-integration-services",
+    title: "AI Managed Services",
+    subtitle: "Continuous AI operations",
+    href: "/services/ai-managed-services",
     icon: "shield"
   }
 ] as const;
@@ -834,7 +840,7 @@ export default function AuroraLanding() {
 
                 const commonClassName = "rounded-[1rem] px-4 py-3.5 text-sm font-semibold text-white/74 transition hover:bg-white/[0.06] hover:text-white";
 
-                return <a key={item.href} href={item.href} className={commonClassName}>{item.label}</a>;
+                return <a key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className={commonClassName}>{item.label}</a>;
               })}
             </div>
 
