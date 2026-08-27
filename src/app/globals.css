@@ -397,6 +397,25 @@ button {
   padding-inline: 1.25rem;
 }
 
+.service-card-corner-border {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+  border-radius: inherit;
+  background:
+    linear-gradient(90deg, rgba(240, 171, 252, 0.95), rgba(240, 171, 252, 0)) left top / 14rem 3px no-repeat,
+    linear-gradient(180deg, rgba(240, 171, 252, 0.95), rgba(240, 171, 252, 0)) left top / 3px 14rem no-repeat,
+    linear-gradient(270deg, rgba(147, 197, 253, 0.95), rgba(147, 197, 253, 0)) right bottom / 14rem 3px no-repeat,
+    linear-gradient(0deg, rgba(147, 197, 253, 0.95), rgba(147, 197, 253, 0)) right bottom / 3px 14rem no-repeat;
+  filter: drop-shadow(0 0 8px rgba(202, 74, 255, 0.42));
+  transition: filter 500ms ease;
+}
+
+.group:hover > .service-card-corner-border {
+  filter: drop-shadow(0 0 14px rgba(240, 171, 252, 0.7));
+}
+
 @media (min-width: 768px) {
   .section-shell {
     padding-inline: 2rem;
