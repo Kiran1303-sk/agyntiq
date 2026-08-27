@@ -8,6 +8,7 @@ import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
+import ServiceFooter from "@/components/service-footer";
 
 type NavItem =
   | {
@@ -1442,139 +1443,144 @@ export default function AuroraLanding() {
         <span className="text-lg leading-none">↑</span>
       </button>
 
-      <section
-        id="contact"
-        className="relative overflow-hidden bg-[linear-gradient(135deg,#050719_0%,#100826_52%,#220625_100%)] py-12 md:py-16"
-      >
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(202,74,255,0.18),transparent_24%),radial-gradient(circle_at_82%_16%,rgba(117,71,223,0.13),transparent_26%),linear-gradient(180deg,rgba(24,8,46,0),rgba(5,8,22,0.62))]" />
-        <div className="pointer-events-none absolute bottom-[-10rem] left-1/2 h-80 w-[80%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(202,74,255,0.16),rgba(117,71,223,0.1)_36%,transparent_70%)] blur-3xl" />
-        <div className="section-shell relative z-10">
-          <div
-            className={`hover-sheen overflow-hidden rounded-[2rem] p-7 md:p-10 ${premiumSurface}`}
+      {false && (
+        <>
+          <section
+            id="contact"
+            className="relative overflow-hidden bg-[linear-gradient(135deg,#050719_0%,#100826_52%,#220625_100%)] py-12 md:py-16"
           >
-            <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-              <div className="grid gap-5">
-                <div className="section-kicker">Contact</div>
-                <h2 className="section-title max-w-3xl bg-[linear-gradient(90deg,#ffffff_0%,#f3e8ff_44%,#f0abfc_100%)] bg-clip-text text-transparent drop-shadow-[0_0_34px_rgba(202,74,255,0.16)]">
-                  Let&apos;s build the right AI engagement.
-                </h2>
-                <p className="section-copy max-w-2xl">
-                  Whether you need AI strategy, workflow automation, or a custom product, we&apos;ll
-                  help define the highest-value next step.
-                </p>
-                <div
-                  className={`grid gap-4 border-t ${premiumSoftBorder} pt-4 text-sm text-white/72 sm:grid-cols-2`}
-                >
-                  <div>hello@agyntiq.ai</div>
-                  <div>New Delhi, India</div>
-                  <div>Global remote delivery</div>
-                  <div>AI implementation</div>
-                </div>
-              </div>
-
-              <div className="grid gap-4">
-                <div className="hover-glow rounded-[1.5rem] border border-[#ca4aff]/16 bg-[#180d32]/76 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-                  <div className="text-xs uppercase tracking-[0.28em] text-fuchsia-100/55">
-                    Contact Form
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(202,74,255,0.18),transparent_24%),radial-gradient(circle_at_82%_16%,rgba(117,71,223,0.13),transparent_26%),linear-gradient(180deg,rgba(24,8,46,0),rgba(5,8,22,0.62))]" />
+            <div className="pointer-events-none absolute bottom-[-10rem] left-1/2 h-80 w-[80%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(202,74,255,0.16),rgba(117,71,223,0.1)_36%,transparent_70%)] blur-3xl" />
+            <div className="section-shell relative z-10">
+              <div
+                className={`hover-sheen overflow-hidden rounded-[2rem] p-7 md:p-10 ${premiumSurface}`}
+              >
+                <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+                  <div className="grid gap-5">
+                    <div className="section-kicker">Contact</div>
+                    <h2 className="section-title max-w-3xl bg-[linear-gradient(90deg,#ffffff_0%,#f3e8ff_44%,#f0abfc_100%)] bg-clip-text text-transparent drop-shadow-[0_0_34px_rgba(202,74,255,0.16)]">
+                      Let&apos;s build the right AI engagement.
+                    </h2>
+                    <p className="section-copy max-w-2xl">
+                      Whether you need AI strategy, workflow automation, or a custom product,
+                      we&apos;ll help define the highest-value next step.
+                    </p>
+                    <div
+                      className={`grid gap-4 border-t ${premiumSoftBorder} pt-4 text-sm text-white/72 sm:grid-cols-2`}
+                    >
+                      <div>hello@agyntiq.ai</div>
+                      <div>New Delhi, India</div>
+                      <div>Global remote delivery</div>
+                      <div>AI implementation</div>
+                    </div>
                   </div>
-                  <form className="mt-4 grid gap-4">
-                    <div className="grid gap-4 md:grid-cols-2">
-                      <input className={premiumInput} placeholder="Full Name" />
-                      <input className={premiumInput} placeholder="Company Name" />
-                      <input className={premiumInput} placeholder="Email" />
-                      <input className={premiumInput} placeholder="Phone" />
+
+                  <div className="grid gap-4">
+                    <div className="hover-glow rounded-[1.5rem] border border-[#ca4aff]/16 bg-[#180d32]/76 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+                      <div className="text-xs uppercase tracking-[0.28em] text-fuchsia-100/55">
+                        Contact Form
+                      </div>
+                      <form className="mt-4 grid gap-4">
+                        <div className="grid gap-4 md:grid-cols-2">
+                          <input className={premiumInput} placeholder="Full Name" />
+                          <input className={premiumInput} placeholder="Company Name" />
+                          <input className={premiumInput} placeholder="Email" />
+                          <input className={premiumInput} placeholder="Phone" />
+                        </div>
+                        <div className="grid gap-4 md:grid-cols-2">
+                          <input className={premiumInput} placeholder="Business Type" />
+                          <input className={premiumInput} placeholder="Industry" />
+                        </div>
+                        <textarea
+                          rows={5}
+                          className={premiumInput}
+                          placeholder="Tell us about your AI requirement, budget, timeline, and country."
+                        />
+                        <label className="flex items-center gap-3 text-sm text-white/65">
+                          <input
+                            type="checkbox"
+                            className="h-4 w-4 rounded border-white/20 bg-white/10"
+                          />
+                          I agree to Terms
+                        </label>
+                        <div className="flex flex-col gap-3 sm:flex-row">
+                          <button
+                            type="button"
+                            className="aurora-button magnetic inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-semibold text-white"
+                          >
+                            Submit
+                            <IconArrow />
+                          </button>
+                          <a
+                            href="mailto:hello@agyntiq.ai"
+                            className="magnetic inline-flex items-center justify-center gap-2 rounded-full border border-[#ca4aff]/18 bg-[#180d32]/76 px-7 py-4 text-sm font-semibold text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-xl transition hover:border-fuchsia-300/38 hover:bg-[#260c35]/82"
+                          >
+                            Schedule Meeting
+                          </a>
+                        </div>
+                      </form>
                     </div>
-                    <div className="grid gap-4 md:grid-cols-2">
-                      <input className={premiumInput} placeholder="Business Type" />
-                      <input className={premiumInput} placeholder="Industry" />
-                    </div>
-                    <textarea
-                      rows={5}
-                      className={premiumInput}
-                      placeholder="Tell us about your AI requirement, budget, timeline, and country."
-                    />
-                    <label className="flex items-center gap-3 text-sm text-white/65">
-                      <input
-                        type="checkbox"
-                        className="h-4 w-4 rounded border-white/20 bg-white/10"
-                      />
-                      I agree to Terms
-                    </label>
-                    <div className="flex flex-col gap-3 sm:flex-row">
-                      <button
-                        type="button"
-                        className="aurora-button magnetic inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-semibold text-white"
-                      >
-                        Submit
-                        <IconArrow />
-                      </button>
-                      <a
-                        href="mailto:hello@agyntiq.ai"
-                        className="magnetic inline-flex items-center justify-center gap-2 rounded-full border border-[#ca4aff]/18 bg-[#180d32]/76 px-7 py-4 text-sm font-semibold text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-xl transition hover:border-fuchsia-300/38 hover:bg-[#260c35]/82"
-                      >
-                        Schedule Meeting
-                      </a>
-                    </div>
-                  </form>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      <footer className="relative overflow-hidden border-t border-white/10 bg-[#050719] py-10 md:py-14">
-        <div className="section-shell relative z-10">
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="grid gap-4 md:grid-cols-2">
-              <div className={`border-t ${premiumSoftBorder} pt-4`}>
-                <div className="text-sm uppercase tracking-[0.28em] text-fuchsia-100/50">
-                  Navigation
-                </div>
-                <div className="mt-4 space-y-3 text-sm text-white/70">
-                  {navItems.map((item) =>
-                    item.href === "/services" ? (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="block transition hover:text-white"
-                      >
-                        {item.label}
-                      </Link>
-                    ) : (
-                      <a
-                        key={item.href}
-                        href={item.href}
-                        className="block transition hover:text-white"
-                      >
-                        {item.label}
-                      </a>
-                    )
-                  )}
-                </div>
-              </div>
-              <div className={`border-t ${premiumSoftBorder} pt-4`}>
-                <div className="text-sm uppercase tracking-[0.28em] text-fuchsia-100/50">
-                  Social
-                </div>
-                <div className="mt-4 space-y-3 text-sm text-white/70">
-                  <div>LinkedIn</div>
-                  <div>GitHub</div>
-                  <div>Twitter</div>
-                  <div>Newsletter</div>
+          <footer className="relative overflow-hidden border-t border-white/10 bg-[#050719] py-10 md:py-14">
+            <div className="section-shell relative z-10">
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div className={`border-t ${premiumSoftBorder} pt-4`}>
+                    <div className="text-sm uppercase tracking-[0.28em] text-fuchsia-100/50">
+                      Navigation
+                    </div>
+                    <div className="mt-4 space-y-3 text-sm text-white/70">
+                      {navItems.map((item) =>
+                        item.href === "/services" ? (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className="block transition hover:text-white"
+                          >
+                            {item.label}
+                          </Link>
+                        ) : (
+                          <a
+                            key={item.href}
+                            href={item.href}
+                            className="block transition hover:text-white"
+                          >
+                            {item.label}
+                          </a>
+                        )
+                      )}
+                    </div>
+                  </div>
+                  <div className={`border-t ${premiumSoftBorder} pt-4`}>
+                    <div className="text-sm uppercase tracking-[0.28em] text-fuchsia-100/50">
+                      Social
+                    </div>
+                    <div className="mt-4 space-y-3 text-sm text-white/70">
+                      <div>LinkedIn</div>
+                      <div>GitHub</div>
+                      <div>Twitter</div>
+                      <div>Newsletter</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div
-          className={`mt-8 flex flex-col gap-3 border-t ${premiumSoftBorder} pt-6 text-sm text-white/45 md:flex-row md:items-center md:justify-between`}
-        >
-          <span>© 2026 Agyntiq.ai. All rights reserved.</span>
-          <span>Premium AI solutions for enterprise transformation.</span>
-        </div>
-      </footer>
+            <div
+              className={`mt-8 flex flex-col gap-3 border-t ${premiumSoftBorder} pt-6 text-sm text-white/45 md:flex-row md:items-center md:justify-between`}
+            >
+              <span>© 2026 Agyntiq.ai. All rights reserved.</span>
+              <span>Premium AI solutions for enterprise transformation.</span>
+            </div>
+          </footer>
+        </>
+      )}
+      <ServiceFooter />
     </div>
   );
 }
