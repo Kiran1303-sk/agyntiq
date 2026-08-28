@@ -1453,7 +1453,7 @@ export default function AuroraLanding() {
             <div className="pointer-events-none absolute bottom-[-10rem] left-1/2 h-80 w-[80%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(202,74,255,0.16),rgba(117,71,223,0.1)_36%,transparent_70%)] blur-3xl" />
             <div className="section-shell relative z-10">
               <div
-                className="hover-sheen relative overflow-hidden rounded-[2rem] bg-[linear-gradient(135deg,rgba(15,9,42,0.96)_0%,rgba(7,8,28,0.98)_52%,rgba(35,7,48,0.94)_100%)] p-7 shadow-[0_28px_100px_rgba(0,0,0,0.34),0_0_55px_rgba(117,71,223,0.12),inset_0_1px_0_rgba(202,74,255,0.1)] md:p-10"
+                className="relative p-1 md:p-3"
               >
                 <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
                   <div className="grid gap-5">
@@ -1476,7 +1476,7 @@ export default function AuroraLanding() {
                   </div>
 
                   <div className="grid gap-4">
-                    <div className="hover-glow rounded-[1.5rem] border border-[#ca4aff]/16 bg-[#180d32]/76 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+                    <div className="relative p-0 md:pl-8">
                       <div className="text-xs uppercase tracking-[0.28em] text-fuchsia-100/55">
                         Contact Form
                       </div>
