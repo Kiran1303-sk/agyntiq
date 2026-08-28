@@ -13,9 +13,9 @@ export default function ServiceFooter() {
             <Image
               src="/agyntiq-footer-logo.png"
               alt="Agyntiq.ai"
-              width={220}
-              height={72}
-              className="h-auto w-[170px] object-contain object-left md:w-[220px]"
+              width={180}
+              height={60}
+              className="h-auto w-[140px] object-contain object-left md:w-[180px]"
             />
             <span className="hidden h-10 w-px bg-gradient-to-b from-fuchsia-300/0 via-fuchsia-300/60 to-blue-300/0 sm:block" />
             <span className="hidden max-w-[12rem] text-xs leading-5 text-white/42 sm:block">
