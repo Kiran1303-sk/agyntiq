@@ -99,9 +99,9 @@ export default function ServiceFooter() {
             </div>
           </div>
         </div>
-        <div className="mt-8 grid gap-4 border-t border-white/10 pt-4 text-xs text-white/35 md:grid-cols-[1fr_auto] md:items-end">
+        <div className="mt-8 grid justify-items-center gap-4 border-t border-white/10 pt-4 text-center text-xs text-white/35 md:grid-cols-[1fr_auto] md:items-end md:justify-items-stretch md:text-left">
           <div>© 2026 Agyntiq.ai. All rights reserved.</div>
-          <div className="flex flex-wrap gap-4 md:justify-self-end">
+          <div className="flex flex-wrap justify-center gap-4 md:justify-self-end">
             <Link href="#" className="transition hover:text-fuchsia-100">
               Privacy
             </Link>
