@@ -1513,12 +1513,6 @@ export default function AuroraLanding() {
                             Submit
                             <IconArrow />
                           </button>
-                          <a
-                            href="mailto:hello@agyntiq.ai"
-                            className="magnetic inline-flex items-center justify-center gap-2 rounded-full border-0 bg-[#180d32]/76 px-7 py-4 text-sm font-semibold text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-xl transition hover:bg-[#260c35]/82"
-                          >
-                            Schedule Meeting
-                          </a>
                         </div>
                       </form>
                     </div>
