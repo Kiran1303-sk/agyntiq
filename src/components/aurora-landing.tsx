@@ -1482,24 +1482,24 @@ export default function AuroraLanding() {
                       </div>
                       <form className="mt-4 grid gap-4">
                         <div className="grid gap-4 md:grid-cols-2">
-                          <input className={`${premiumInput} !border-[#7547df]/30`} placeholder="Full Name" />
-                          <input className={`${premiumInput} !border-[#7547df]/30`} placeholder="Company Name" />
-                          <input className={`${premiumInput} !border-[#7547df]/30`} placeholder="Email" />
-                          <input className={`${premiumInput} !border-[#7547df]/30`} placeholder="Phone" />
+                          <input className={`${premiumInput} !border-0`} placeholder="Full Name" />
+                          <input className={`${premiumInput} !border-0`} placeholder="Company Name" />
+                          <input className={`${premiumInput} !border-0`} placeholder="Email" />
+                          <input className={`${premiumInput} !border-0`} placeholder="Phone" />
                         </div>
                         <div className="grid gap-4 md:grid-cols-2">
-                          <input className={`${premiumInput} !border-[#7547df]/30`} placeholder="Business Type" />
-                          <input className={`${premiumInput} !border-[#7547df]/30`} placeholder="Industry" />
+                          <input className={`${premiumInput} !border-0`} placeholder="Business Type" />
+                          <input className={`${premiumInput} !border-0`} placeholder="Industry" />
                         </div>
                         <textarea
                           rows={5}
-                          className={`${premiumInput} !border-[#7547df]/30`}
+                          className={`${premiumInput} !border-0`}
                           placeholder="Tell us about your AI requirement, budget, timeline, and country."
                         />
                         <label className="flex items-center gap-3 text-sm text-white/65">
                           <input
                             type="checkbox"
-                            className="h-4 w-4 rounded border-white/20 bg-white/10"
+                            className="h-4 w-4 rounded border-0 bg-white/10"
                           />
                           I agree to Terms
                         </label>
@@ -1513,7 +1513,7 @@ export default function AuroraLanding() {
                           </button>
                           <a
                             href="mailto:hello@agyntiq.ai"
-                            className="magnetic inline-flex items-center justify-center gap-2 rounded-full border border-[#ca4aff]/18 bg-[#180d32]/76 px-7 py-4 text-sm font-semibold text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-xl transition hover:border-fuchsia-300/38 hover:bg-[#260c35]/82"
+                            className="magnetic inline-flex items-center justify-center gap-2 rounded-full border-0 bg-[#180d32]/76 px-7 py-4 text-sm font-semibold text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-xl transition hover:bg-[#260c35]/82"
                           >
                             Schedule Meeting
                           </a>
