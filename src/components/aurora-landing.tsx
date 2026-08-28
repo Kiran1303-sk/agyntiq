@@ -1457,7 +1457,7 @@ export default function AuroraLanding() {
               >
                 <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
                   <div className="grid gap-5">
-                    <div className="section-kicker">Contact</div>
+                    <div className="section-kicker border-0">Contact</div>
                     <h2 className="section-title max-w-3xl bg-[linear-gradient(90deg,#ffffff_0%,#f3e8ff_44%,#f0abfc_100%)] bg-clip-text text-transparent drop-shadow-[0_0_34px_rgba(202,74,255,0.16)]">
                       Let&apos;s build the right AI engagement.
                     </h2>
