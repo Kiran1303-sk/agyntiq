@@ -144,10 +144,10 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
           {stages.map((stage, index) => (
             <motion.article
               key={stage.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-90px" }}
-              transition={{ duration: 0.65, delay: index * 0.08, ease }}
+              initial={{ opacity: 0, y: 42, scale: 0.97, filter: "blur(8px)" }}
+              whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+              viewport={{ once: true, amount: 0.2, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: index * 0.1, ease }}
               className="group relative grid gap-6 overflow-hidden rounded-[1.5rem] bg-[linear-gradient(120deg,rgba(10,8,36,0.94),rgba(7,8,28,0.82))] p-6 shadow-[0_18px_70px_rgba(0,0,0,0.18)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_28px_90px_rgba(117,71,223,0.18)] md:grid-cols-[5rem_minmax(0,1fr)_18rem] md:items-center md:p-7"
             >
               <span className="service-card-corner-border" aria-hidden="true" />
