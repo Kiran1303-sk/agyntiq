@@ -1466,7 +1466,7 @@ export default function AuroraLanding() {
                       we&apos;ll help define the highest-value next step.
                     </p>
                     <div
-                      className={`grid gap-4 border-t ${premiumSoftBorder} pt-4 text-sm text-white/72 sm:grid-cols-2`}
+                      className="grid gap-4 pt-2 text-sm text-white/72 sm:grid-cols-2"
                     >
                       <div>hello@agyntiq.ai</div>
                       <div>New Delhi, India</div>
