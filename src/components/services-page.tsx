@@ -525,7 +525,7 @@ function ArrowRightIcon() {
 function NeuralGraphic({ index }: { index: number }) {
   if (index === 0) {
     return (
-      <div className="group relative min-h-[24rem] w-full overflow-hidden rounded-[1.35rem] border border-violet-300/15 bg-[#080827] px-4 py-5 shadow-[0_24px_90px_rgba(45,24,130,0.32)] md:min-h-[30rem] md:px-5 md:py-6">
+      <div className="group relative min-h-[24rem] w-full overflow-hidden rounded-[1.35rem] border border-violet-300/15 bg-[#080827] px-4 py-5 shadow-[0_24px_90px_rgba(45,24,130,0.32)] md:min-h-[28rem] md:px-5 md:py-6">
         <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-violet-500/20 blur-3xl transition duration-700 group-hover:bg-fuchsia-500/25" />
         <div className="pointer-events-none absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-blue-500/15 blur-3xl" />
 
@@ -590,7 +590,7 @@ function NeuralGraphic({ index }: { index: number }) {
 
   if (index === 1) {
     return (
-      <div className="group relative min-h-[24rem] w-full overflow-hidden rounded-[1.35rem] border border-violet-300/15 bg-[#080827] px-4 py-5 shadow-[0_24px_90px_rgba(45,24,130,0.32)] md:min-h-[30rem] md:px-5 md:py-6">
+      <div className="group relative min-h-[24rem] w-full overflow-hidden rounded-[1.35rem] border border-violet-300/15 bg-[#080827] px-4 py-5 shadow-[0_24px_90px_rgba(45,24,130,0.32)] md:min-h-[28rem] md:px-5 md:py-6">
         <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-fuchsia-500/20 blur-3xl transition duration-700 group-hover:bg-violet-500/25" />
         <div className="pointer-events-none absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-blue-500/15 blur-3xl" />
         <div className="relative z-10 flex items-start justify-between gap-4">
@@ -652,7 +652,7 @@ function NeuralGraphic({ index }: { index: number }) {
 
   if (index === 2) {
     return (
-      <div className="group relative min-h-[24rem] w-full overflow-hidden rounded-[1.35rem] border border-violet-300/15 bg-[#080827] px-4 py-5 shadow-[0_24px_90px_rgba(45,24,130,0.32)] md:min-h-[30rem] md:px-5 md:py-6">
+      <div className="group relative min-h-[24rem] w-full overflow-hidden rounded-[1.35rem] border border-violet-300/15 bg-[#080827] px-4 py-5 shadow-[0_24px_90px_rgba(45,24,130,0.32)] md:min-h-[28rem] md:px-5 md:py-6">
         <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-fuchsia-500/20 blur-3xl transition duration-700 group-hover:bg-violet-500/25" />
         <div className="pointer-events-none absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-blue-500/15 blur-3xl" />
         <div className="relative z-10 flex items-start justify-between gap-4">
@@ -715,7 +715,7 @@ function NeuralGraphic({ index }: { index: number }) {
 
   if (index === 3) {
     return (
-      <div className="group relative min-h-[24rem] w-full overflow-hidden rounded-[1.35rem] border border-violet-300/15 bg-[#080827] px-4 py-5 shadow-[0_24px_90px_rgba(45,24,130,0.32)] md:min-h-[30rem] md:px-5 md:py-6">
+      <div className="group relative min-h-[24rem] w-full overflow-hidden rounded-[1.35rem] border border-violet-300/15 bg-[#080827] px-4 py-5 shadow-[0_24px_90px_rgba(45,24,130,0.32)] md:min-h-[28rem] md:px-5 md:py-6">
         <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-fuchsia-500/20 blur-3xl transition duration-700 group-hover:bg-violet-500/25" />
         <div className="pointer-events-none absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-blue-500/15 blur-3xl" />
         <div className="relative z-10 flex items-start justify-between gap-4">
@@ -777,7 +777,7 @@ function NeuralGraphic({ index }: { index: number }) {
 
   if (index === 4) {
     return (
-      <div className="group relative min-h-[24rem] w-full overflow-hidden rounded-[1.35rem] border border-violet-300/15 bg-[#080827] px-4 py-5 shadow-[0_24px_90px_rgba(45,24,130,0.32)] md:min-h-[30rem] md:px-5 md:py-6">
+      <div className="group relative min-h-[24rem] w-full overflow-hidden rounded-[1.35rem] border border-violet-300/15 bg-[#080827] px-4 py-5 shadow-[0_24px_90px_rgba(45,24,130,0.32)] md:min-h-[28rem] md:px-5 md:py-6">
         <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-fuchsia-500/20 blur-3xl transition duration-700 group-hover:bg-violet-500/25" />
         <div className="pointer-events-none absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-blue-500/15 blur-3xl" />
         <div className="relative z-10 flex items-start justify-between gap-4">
