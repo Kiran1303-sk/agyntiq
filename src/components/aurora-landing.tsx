@@ -808,6 +808,10 @@ export default function AuroraLanding() {
 
           <Link
             href="#contact"
+            onClick={(event) => {
+              event.preventDefault();
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+            }}
             className="magnetic hidden items-center justify-center gap-2 justify-self-end whitespace-nowrap rounded-full bg-[linear-gradient(180deg,rgba(72,62,214,0.95)_0%,rgba(101,55,214,0.96)_45%,rgba(149,53,215,0.96)_100%)] px-6 py-3.5 text-sm font-semibold leading-none text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_26px_rgba(127,63,255,0.25)] md:flex"
           >
             Contact
@@ -967,6 +971,10 @@ export default function AuroraLanding() {
                   </Link>
                   <Link
                     href="#contact"
+                    onClick={(event) => {
+                      event.preventDefault();
+                      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                    }}
                     className="hover-glow magnetic inline-flex items-center justify-center gap-2 rounded-full border border-[#ca4aff]/18 bg-[#180d32]/62 px-6 py-3.5 text-sm font-semibold text-white/90 backdrop-blur-xl transition hover:border-fuchsia-300/36 hover:bg-[#ca4aff]/[0.08]"
                   >
                     Book Demo
@@ -1447,7 +1455,7 @@ export default function AuroraLanding() {
         <>
           <section
             id="contact"
-            className="relative overflow-hidden bg-[linear-gradient(135deg,#050719_0%,#100826_52%,#220625_100%)] py-12 md:py-16"
+            className="relative scroll-mt-28 overflow-hidden bg-[linear-gradient(135deg,#050719_0%,#100826_52%,#220625_100%)] py-12 md:py-16"
           >
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(202,74,255,0.18),transparent_24%),radial-gradient(circle_at_82%_16%,rgba(117,71,223,0.13),transparent_26%),linear-gradient(180deg,rgba(24,8,46,0),rgba(5,8,22,0.62))]" />
             <div className="pointer-events-none absolute bottom-[-10rem] left-1/2 h-80 w-[80%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(202,74,255,0.16),rgba(117,71,223,0.1)_36%,transparent_70%)] blur-3xl" />
