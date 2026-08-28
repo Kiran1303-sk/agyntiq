@@ -543,7 +543,7 @@ function NeuralGraphic({ index }: { index: number }) {
           </div>
         </div>
 
-        <div className="relative z-10 mt-6 space-y-2.5">
+        <div className="relative z-10 mt-5 space-y-2">
           {strategyStages.map((stage, stageIndex) => (
             <motion.div
               key={stage.number}
@@ -552,7 +552,7 @@ function NeuralGraphic({ index }: { index: number }) {
               viewport={{ once: true, amount: 0.4 }}
               transition={{ delay: stageIndex * 0.1, duration: 0.45 }}
               whileHover={{ x: 5 }}
-              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2.5 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]"
+              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]"
             >
               <span
                 className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[0.68rem] font-bold text-white"
@@ -606,7 +606,7 @@ function NeuralGraphic({ index }: { index: number }) {
             ✦
           </div>
         </div>
-        <div className="relative z-10 mt-6 space-y-2.5">
+        <div className="relative z-10 mt-5 space-y-2">
           {solutionStages.map((stage, stageIndex) => (
             <motion.div
               key={stage.number}
@@ -615,7 +615,7 @@ function NeuralGraphic({ index }: { index: number }) {
               viewport={{ once: true, amount: 0.4 }}
               transition={{ delay: stageIndex * 0.1, duration: 0.45 }}
               whileHover={{ x: 5 }}
-              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2.5 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]"
+              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]"
             >
               <span
                 className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[0.68rem] font-bold text-white"
@@ -668,7 +668,7 @@ function NeuralGraphic({ index }: { index: number }) {
             ✦
           </div>
         </div>
-        <div className="relative z-10 mt-6 space-y-2.5">
+        <div className="relative z-10 mt-5 space-y-2">
           {integrationStages.map((stage, stageIndex) => (
             <motion.div
               key={stage.number}
@@ -677,7 +677,7 @@ function NeuralGraphic({ index }: { index: number }) {
               viewport={{ once: true, amount: 0.4 }}
               transition={{ delay: stageIndex * 0.1, duration: 0.45 }}
               whileHover={{ x: 5 }}
-              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2.5 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]"
+              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]"
             >
               <span
                 className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[0.68rem] font-bold text-white"
@@ -731,7 +731,7 @@ function NeuralGraphic({ index }: { index: number }) {
             ✦
           </div>
         </div>
-        <div className="relative z-10 mt-6 space-y-2.5">
+        <div className="relative z-10 mt-5 space-y-2">
           {dataStages.map((stage, stageIndex) => (
             <motion.div
               key={stage.number}
@@ -740,7 +740,7 @@ function NeuralGraphic({ index }: { index: number }) {
               viewport={{ once: true, amount: 0.4 }}
               transition={{ delay: stageIndex * 0.1, duration: 0.45 }}
               whileHover={{ x: 5 }}
-              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2.5 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]"
+              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]"
             >
               <span
                 className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[0.68rem] font-bold text-white"
@@ -793,7 +793,7 @@ function NeuralGraphic({ index }: { index: number }) {
             ✦
           </div>
         </div>
-        <div className="relative z-10 mt-6 space-y-2.5">
+        <div className="relative z-10 mt-5 space-y-2">
           {managedStages.map((stage, stageIndex) => (
             <motion.div
               key={stage.number}
@@ -802,7 +802,7 @@ function NeuralGraphic({ index }: { index: number }) {
               viewport={{ once: true, amount: 0.4 }}
               transition={{ delay: stageIndex * 0.1, duration: 0.45 }}
               whileHover={{ x: 5 }}
-              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2.5 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]"
+              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]"
             >
               <span
                 className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[0.68rem] font-bold text-white"
@@ -1061,7 +1061,7 @@ export default function ServicesPage() {
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease }}
-          className="relative min-h-[30rem]"
+          className="relative min-h-[28rem]"
         >
           <div className="absolute inset-6 rounded-[2rem] bg-[radial-gradient(circle_at_50%_50%,rgba(126,87,255,0.18),transparent_55%)] blur-2xl" />
           <motion.div
