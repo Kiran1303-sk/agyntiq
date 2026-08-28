@@ -699,7 +699,7 @@ export default function AuroraLanding() {
                 fill
                 priority
                 sizes="(min-width: 768px) 324px, 176px"
-                className="object-contain object-left scale-[1.12] md:scale-[1.28]"
+                className="object-contain object-left"
               />
             </span>
           </Link>

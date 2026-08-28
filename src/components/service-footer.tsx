@@ -15,7 +15,7 @@ export default function ServiceFooter() {
               alt="Agyntiq.ai"
               width={160}
               height={54}
-              className="-translate-x-6 h-auto w-[130px] object-contain object-left md:-translate-x-10 md:w-[160px]"
+              className="h-auto w-[130px] object-contain object-left md:w-[160px]"
             />
             <span className="hidden h-10 w-px bg-gradient-to-b from-fuchsia-300/0 via-fuchsia-300/60 to-blue-300/0 sm:block" />
             <span className="hidden max-w-[12rem] text-xs leading-5 text-white/42 sm:block">
