@@ -692,7 +692,7 @@ export default function AuroraLanding() {
       >
         <div className="section-shell flex h-20 items-center justify-between gap-4 md:grid md:h-24 md:grid-cols-[1fr_auto_1fr] md:gap-10 md:gap-12">
           <Link href="/" className="group flex w-fit items-center justify-self-start pl-0">
-            <span className="relative block h-[64px] w-[130px] shrink-0 md:h-[80px] md:w-[160px]">
+            <span className="relative block h-[65px] w-[130px] shrink-0 md:h-[80px] md:w-[160px]">
               <Image
                 src="/main-logo.png"
                 alt="Agyntiq.ai logo"
