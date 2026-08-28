@@ -1453,7 +1453,7 @@ export default function AuroraLanding() {
             <div className="pointer-events-none absolute bottom-[-10rem] left-1/2 h-80 w-[80%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(202,74,255,0.16),rgba(117,71,223,0.1)_36%,transparent_70%)] blur-3xl" />
             <div className="section-shell relative z-10">
               <div
-                className={`hover-sheen overflow-hidden rounded-[2rem] p-7 md:p-10 ${premiumSurface}`}
+                className="hover-sheen relative overflow-hidden rounded-[2rem] bg-[linear-gradient(135deg,rgba(15,9,42,0.96)_0%,rgba(7,8,28,0.98)_52%,rgba(35,7,48,0.94)_100%)] p-7 shadow-[0_28px_100px_rgba(0,0,0,0.34),0_0_55px_rgba(117,71,223,0.12),inset_0_1px_0_rgba(202,74,255,0.1)] md:p-10"
               >
                 <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
                   <div className="grid gap-5">
@@ -1482,18 +1482,18 @@ export default function AuroraLanding() {
                       </div>
                       <form className="mt-4 grid gap-4">
                         <div className="grid gap-4 md:grid-cols-2">
-                          <input className={premiumInput} placeholder="Full Name" />
-                          <input className={premiumInput} placeholder="Company Name" />
-                          <input className={premiumInput} placeholder="Email" />
-                          <input className={premiumInput} placeholder="Phone" />
+                          <input className={`${premiumInput} !border-[#7547df]/30`} placeholder="Full Name" />
+                          <input className={`${premiumInput} !border-[#7547df]/30`} placeholder="Company Name" />
+                          <input className={`${premiumInput} !border-[#7547df]/30`} placeholder="Email" />
+                          <input className={`${premiumInput} !border-[#7547df]/30`} placeholder="Phone" />
                         </div>
                         <div className="grid gap-4 md:grid-cols-2">
-                          <input className={premiumInput} placeholder="Business Type" />
-                          <input className={premiumInput} placeholder="Industry" />
+                          <input className={`${premiumInput} !border-[#7547df]/30`} placeholder="Business Type" />
+                          <input className={`${premiumInput} !border-[#7547df]/30`} placeholder="Industry" />
                         </div>
                         <textarea
                           rows={5}
-                          className={premiumInput}
+                          className={`${premiumInput} !border-[#7547df]/30`}
                           placeholder="Tell us about your AI requirement, budget, timeline, and country."
                         />
                         <label className="flex items-center gap-3 text-sm text-white/65">
