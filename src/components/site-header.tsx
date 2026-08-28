@@ -192,7 +192,7 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
         <nav className="hidden items-center gap-1 justify-self-center rounded-full border border-[#31215f] bg-[#0d1029]/96 p-2 shadow-[0_14px_60px_rgba(0,0,0,0.35)] backdrop-blur-2xl md:flex">
           {navItems.map((item) => {
             const active = isActive(item.href);
-            const className = `rounded-full px-5 py-3 text-[0.95rem] font-medium tracking-[-0.01em] transition-all ${
+            const className = `rounded-full px-5 py-3 text-[1rem] font-semibold tracking-[-0.01em] transition-all ${
               active
                 ? "bg-[linear-gradient(180deg,rgba(72,62,214,0.95)_0%,rgba(101,55,214,0.96)_45%,rgba(149,53,215,0.96)_100%)] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_26px_rgba(127,63,255,0.25)]"
                 : "text-white/72 hover:bg-white/[0.06] hover:text-white"

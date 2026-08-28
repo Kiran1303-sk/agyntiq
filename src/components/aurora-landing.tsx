@@ -723,7 +723,7 @@ export default function AuroraLanding() {
                 >
                   <Link
                     href={item.href}
-                    className={`inline-flex items-center gap-1.5 rounded-full px-5 py-3 text-[0.95rem] font-medium tracking-normal transition-all ${
+                    className={`inline-flex items-center gap-1.5 rounded-full px-5 py-3 text-[1rem] font-semibold tracking-normal transition-all ${
                       isActive
                         ? "bg-[linear-gradient(180deg,rgba(72,62,214,0.95)_0%,rgba(101,55,214,0.96)_45%,rgba(149,53,215,0.96)_100%)] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_26px_rgba(127,63,255,0.25)]"
                         : "text-white/72 hover:bg-white/[0.06] hover:text-white"
@@ -794,7 +794,7 @@ export default function AuroraLanding() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className={`rounded-full px-5 py-3 text-[0.95rem] font-medium tracking-normal transition-all ${
+                  className={`rounded-full px-5 py-3 text-[1rem] font-semibold tracking-normal transition-all ${
                     isActive
                       ? "bg-[linear-gradient(180deg,rgba(72,62,214,0.95)_0%,rgba(101,55,214,0.96)_45%,rgba(149,53,215,0.96)_100%)] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_26px_rgba(127,63,255,0.25)]"
                       : "text-white/72 hover:bg-white/[0.06] hover:text-white"
