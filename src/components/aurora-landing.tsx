@@ -1149,7 +1149,7 @@ export default function AuroraLanding() {
               {solutions.map((item, index) => (
                 <article
                   key={item.title}
-                  className={`hover-sheen hover-glow group relative overflow-hidden rounded-[1.4rem] px-5 py-5 ${premiumSurface} ${premiumSurfaceHover}`}
+                  className={`hover-sheen hover-glow group relative overflow-hidden rounded-[1.4rem] !border-0 px-5 py-5 ${premiumSurface} ${premiumSurfaceHover}`}
                   data-reveal
                 >
                   <div className="flex items-start justify-between gap-6">
