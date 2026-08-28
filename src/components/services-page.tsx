@@ -552,7 +552,7 @@ function NeuralGraphic({ index }: { index: number }) {
               viewport={{ once: true, amount: 0.4 }}
               transition={{ delay: stageIndex * 0.1, duration: 0.45 }}
               whileHover={{ x: 5 }}
-              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]"
+              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09] md:h-[4.5rem] md:overflow-hidden"
             >
               <span
                 className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[0.68rem] font-bold text-white"
@@ -615,7 +615,7 @@ function NeuralGraphic({ index }: { index: number }) {
               viewport={{ once: true, amount: 0.4 }}
               transition={{ delay: stageIndex * 0.1, duration: 0.45 }}
               whileHover={{ x: 5 }}
-              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]"
+              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09] md:h-[4.5rem] md:overflow-hidden"
             >
               <span
                 className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[0.68rem] font-bold text-white"
@@ -677,7 +677,7 @@ function NeuralGraphic({ index }: { index: number }) {
               viewport={{ once: true, amount: 0.4 }}
               transition={{ delay: stageIndex * 0.1, duration: 0.45 }}
               whileHover={{ x: 5 }}
-              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]"
+              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09] md:h-[4.5rem] md:overflow-hidden"
             >
               <span
                 className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[0.68rem] font-bold text-white"
@@ -740,7 +740,7 @@ function NeuralGraphic({ index }: { index: number }) {
               viewport={{ once: true, amount: 0.4 }}
               transition={{ delay: stageIndex * 0.1, duration: 0.45 }}
               whileHover={{ x: 5 }}
-              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]"
+              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09] md:h-[4.5rem] md:overflow-hidden"
             >
               <span
                 className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[0.68rem] font-bold text-white"
@@ -802,7 +802,7 @@ function NeuralGraphic({ index }: { index: number }) {
               viewport={{ once: true, amount: 0.4 }}
               transition={{ delay: stageIndex * 0.1, duration: 0.45 }}
               whileHover={{ x: 5 }}
-              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09]"
+              className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09] md:h-[4.5rem] md:overflow-hidden"
             >
               <span
                 className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-[0.68rem] font-bold text-white"
