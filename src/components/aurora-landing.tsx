@@ -1443,7 +1443,7 @@ export default function AuroraLanding() {
         <span className="text-lg leading-none">↑</span>
       </button>
 
-      {false && (
+      {true && (
         <>
           <section
             id="contact"
@@ -1526,7 +1526,7 @@ export default function AuroraLanding() {
             </div>
           </section>
 
-          <footer className="relative overflow-hidden border-t border-white/10 bg-[#050719] py-10 md:py-14">
+          {false && (<footer className="relative overflow-hidden border-t border-white/10 bg-[#050719] py-10 md:py-14">
             <div className="section-shell relative z-10">
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="grid gap-4 md:grid-cols-2">
@@ -1577,7 +1577,7 @@ export default function AuroraLanding() {
               <span>© 2026 Agyntiq.ai. All rights reserved.</span>
               <span>Premium AI solutions for enterprise transformation.</span>
             </div>
-          </footer>
+          </footer>)}
         </>
       )}
       <ServiceFooter />
