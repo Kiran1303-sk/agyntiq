@@ -699,7 +699,7 @@ export default function AuroraLanding() {
                 fill
                 priority
                 sizes="(min-width: 768px) 160px, 130px"
-                className="object-contain object-left"
+                className="object-contain object-left brightness-[1.8] contrast-[1.2] saturate-[1.15]"
               />
             </span>
           </Link>
