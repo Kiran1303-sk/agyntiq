@@ -4,7 +4,6 @@ import { useEffect, useState, useRef } from "react";
 import { motion, useScroll, useSpring, useInView } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "lenis";
 
 // ============ Types ============
 type NavItem = {
@@ -475,28 +474,6 @@ export default function AgyntiQWebsite() {
     damping: 24,
     mass: 0.2
   });
-
-  // Smooth scrolling with Lenis
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.15,
-      lerp: 0.08,
-      smoothWheel: true,
-      syncTouch: true
-    });
-
-    let frame = 0;
-    const raf = (time: number) => {
-      lenis.raf(time);
-      frame = requestAnimationFrame(raf);
-    };
-
-    frame = requestAnimationFrame(raf);
-    return () => {
-      cancelAnimationFrame(frame);
-      lenis.destroy();
-    };
-  }, []);
 
   // Scroll effects
   useEffect(() => {

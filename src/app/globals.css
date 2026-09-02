@@ -8,6 +8,7 @@
 
 html {
   overflow-x: hidden;
+  scroll-behavior: auto;
   background:
     radial-gradient(circle at 10% 0%, rgba(202, 74, 255, 0.18), transparent 26%),
     radial-gradient(circle at 90% 10%, rgba(217, 70, 239, 0.16), transparent 24%),
@@ -39,8 +40,13 @@ body {
     radial-gradient(circle at 80% 18%, rgba(217, 70, 239, 0.16), transparent 26%),
     radial-gradient(circle at 50% 100%, rgba(117, 71, 223, 0.09), transparent 32%),
     linear-gradient(180deg, #050719 0%, #100826 44%, #050719 100%);
-  background-attachment: fixed;
   color: #f5f7ff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 * {

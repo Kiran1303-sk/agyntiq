@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, Roboto_Condensed } from "next/font/google";
 import PointerAura from "@/components/pointer-aura";
 import ScrollProgress from "@/components/scroll-progress";
+import SmoothScroll from "@/components/smooth-scroll";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -62,7 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -73,6 +74,7 @@ export default function RootLayout({
         className={`${manrope.className} ${manrope.variable} ${robotoCondensed.variable} bg-agyntiq-deep-black text-agyntiq-text-primary antialiased`}
       >
         <PointerAura />
+        <SmoothScroll />
         <ScrollProgress />
         {children}
       </body>

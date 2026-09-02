@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "lenis";
 import ServiceFooter from "@/components/service-footer";
 
 type NavItem =
@@ -540,27 +539,6 @@ export default function AuroraLanding() {
       setServicesOpen(false);
     }, 140);
   };
-
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.15,
-      lerp: 0.08,
-      smoothWheel: true,
-      syncTouch: true
-    });
-
-    let frame = 0;
-    const raf = (time: number) => {
-      lenis.raf(time);
-      frame = requestAnimationFrame(raf);
-    };
-
-    frame = requestAnimationFrame(raf);
-    return () => {
-      cancelAnimationFrame(frame);
-      lenis.destroy();
-    };
-  }, []);
 
   const isNavItemActive = (href: string) =>
     href.startsWith("/") ? pathname === href : active === href.slice(1);
