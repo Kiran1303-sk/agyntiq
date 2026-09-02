@@ -337,28 +337,22 @@ const faqItems = [
 
 const slideShowcase = [
   {
-    src: "/slide.jpeg",
-    title: "Workspace focus",
-    copy: "The first image captures the calm, attentive start of the workday.",
+    src: "/visual-story.png",
+    title: "See the signal",
+    copy: "Bring scattered business context into one clear view so the next decision is easier to see.",
     tag: "01"
   },
   {
-    src: "/slide1.jpeg",
-    title: "Team alignment",
-    copy: "The second image shows people gathering around shared context and ideas.",
+    src: "/visual-story1.png",
+    title: "Shape the system",
+    copy: "Turn insight into an intelligent workflow that connects people, data, and the tools they already use.",
     tag: "02"
   },
   {
-    src: "/slide2.jpeg",
-    title: "Digital execution",
-    copy: "The third image reflects systems, tools, and the work moving ahead.",
+    src: "/visual-story2.png",
+    title: "Move with confidence",
+    copy: "Deploy AI that keeps the organization moving with measurable momentum and room to scale.",
     tag: "03"
-  },
-  {
-    src: "/slide3.jpeg",
-    title: "Finished momentum",
-    copy: "The final image suggests a polished result and a wider sense of scale.",
-    tag: "04"
   }
 ] as const;
 
@@ -1607,28 +1601,28 @@ function ScrollShowcaseSection() {
           <div className="section-heading mx-auto max-w-2xl text-center" data-reveal>
             <div className="section-kicker">Visual Story</div>
             <h2 className="section-title mx-auto max-w-[12ch] sm:max-w-none text-balance">
-              Four scenes, one polished image story.
+              Three scenes. One intelligent journey.
             </h2>
             <p className="section-copy mx-auto max-w-xl">
-              Tap the dots to switch between scenes and let the image motion feel like a premium
-              feature card.
+              Explore how clarity, connected systems, and confident execution come together in an
+              AI transformation built for the real world.
             </p>
           </div>
 
-          <div className="mt-10 w-full max-w-5xl overflow-hidden rounded-[2.25rem] bg-[linear-gradient(135deg,rgba(12,8,38,0.82)_0%,rgba(7,8,28,0.96)_52%,rgba(42,7,46,0.82)_100%)] p-4 shadow-[0_30px_100px_rgba(0,0,0,0.3),inset_0_0_0_1px_rgba(202,74,255,0.16)] sm:p-5">
+          <div className="mt-10 w-full max-w-6xl overflow-hidden rounded-[2rem] border border-white/[0.1] bg-[#07091d] p-3 shadow-[0_30px_110px_rgba(0,0,0,0.38),0_0_70px_rgba(117,71,223,0.1)] sm:p-5">
             <div className="mb-4 flex items-center justify-between gap-4 px-1 text-xs uppercase tracking-[0.32em] text-fuchsia-100/52">
-              <span>Visual story</span>
-              <span>{String(activeSlide + 1).padStart(2, "0")} / 04</span>
+              <span>AgyntiQ / Visual story</span>
+              <span>{String(activeSlide + 1).padStart(2, "0")} / {String(slideShowcase.length).padStart(2, "0")}</span>
             </div>
             <div
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
               onTouchStart={() => setIsPaused(true)}
               onTouchEnd={() => setIsPaused(false)}
-              className="overflow-hidden rounded-[1.6rem] bg-[#050816] shadow-[0_24px_90px_rgba(0,0,0,0.35),inset_0_0_0_1px_rgba(202,74,255,0.12)]"
+              className="overflow-hidden rounded-[1.5rem] bg-[#050816] shadow-[0_24px_90px_rgba(0,0,0,0.35),inset_0_0_0_1px_rgba(202,74,255,0.12)]"
             >
               <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
-                <div className="relative min-h-[18rem] overflow-hidden shadow-[inset_0_-1px_0_rgba(202,74,255,0.12)] lg:min-h-[28rem] lg:shadow-[inset_-1px_0_0_rgba(202,74,255,0.12)]">
+                <div className="relative min-h-[22rem] overflow-hidden shadow-[inset_0_-1px_0_rgba(202,74,255,0.12)] lg:min-h-[34rem] lg:shadow-[inset_-1px_0_0_rgba(202,74,255,0.12)]">
                   <AnimatePresence mode="wait" custom={direction}>
                     <motion.div
                       key={activeSlide}
@@ -1636,7 +1630,7 @@ function ScrollShowcaseSection() {
                       initial={{ opacity: 0, x: direction > 0 ? 80 : -80, scale: 0.98 }}
                       animate={{ opacity: 1, x: 0, scale: 1 }}
                       exit={{ opacity: 0, x: direction > 0 ? -80 : 80, scale: 0.98 }}
-                      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
                       className="absolute inset-0"
                     >
                       <Image
@@ -1644,20 +1638,21 @@ function ScrollShowcaseSection() {
                         alt={slideShowcase[activeSlide].title}
                         fill
                         sizes="(min-width: 1024px) 50vw, 100vw"
-                        className="object-cover"
+                        className="object-cover transition-transform duration-[2800ms] ease-out"
                       />
-                      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.08)_0%,rgba(5,8,22,0.24)_42%,rgba(5,8,22,0.82)_100%)]" />
-                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(202,74,255,0.18),transparent_34%)]" />
+                      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.04)_0%,rgba(5,8,22,0.08)_35%,rgba(5,8,22,0.94)_100%)]" />
+                      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,8,22,0.34),transparent_55%,rgba(117,71,223,0.16))]" />
                     </motion.div>
                   </AnimatePresence>
                 </div>
 
-                <div className="flex min-h-[18rem] flex-col justify-between bg-[linear-gradient(135deg,rgba(12,8,38,0.86),rgba(7,8,28,0.92)_52%,rgba(42,7,46,0.78))] p-5 sm:p-6 lg:min-h-[28rem] lg:p-8">
+                <div className="flex min-h-[20rem] flex-col justify-between bg-[linear-gradient(145deg,#0c0a2b_0%,#08091f_52%,#210b32_100%)] p-5 sm:p-7 lg:min-h-[34rem] lg:p-8">
                   <div className="space-y-3">
-                    <div className="text-xs uppercase tracking-[0.32em] text-fuchsia-200/52">
+                    <div className="flex items-center gap-3 text-xs uppercase tracking-[0.32em] text-fuchsia-200/62">
+                      <span className="h-px w-10 bg-fuchsia-300/75" />
                       {slideShowcase[activeSlide].tag}
                     </div>
-                    <h3 className="max-w-sm text-2xl font-semibold tracking-normal text-white drop-shadow-[0_0_24px_rgba(202,74,255,0.14)] sm:text-3xl">
+                    <h3 className="max-w-sm text-3xl font-semibold leading-tight tracking-[-0.03em] text-white drop-shadow-[0_0_24px_rgba(202,74,255,0.14)] sm:text-4xl">
                       {slideShowcase[activeSlide].title}
                     </h3>
                     <p className="max-w-md text-sm leading-6 text-fuchsia-100/64 sm:text-base sm:leading-7">
@@ -1665,29 +1660,48 @@ function ScrollShowcaseSection() {
                     </p>
                   </div>
 
-                  <div className="grid gap-3 pt-5 text-sm text-fuchsia-100/62 shadow-[inset_0_1px_0_rgba(202,74,255,0.12)]">
-                    <div className="flex items-center justify-between gap-4">
-                      <span>Next frame updates automatically</span>
-                      <span className="text-fuchsia-100/35">
-                        {String(activeSlide + 1).padStart(2, "0")}
-                      </span>
+                  <div className="grid gap-3 border-t border-white/[0.08] pt-5 text-sm text-fuchsia-100/62">
+                    <div className="flex items-center justify-between gap-4 text-xs text-white/40">
+                      <span>{isPaused ? "Paused" : "Auto-playing"}</span>
+                      <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-300 shadow-[0_0_14px_rgba(240,171,252,0.9)]" />
+                    </div>
+                    <div className="grid gap-2">
+                      {slideShowcase.map((item, index) => (
+                        <button
+                          key={item.src}
+                          type="button"
+                          aria-label={`Show ${item.title}`}
+                          aria-pressed={activeSlide === index}
+                          onClick={() => goToSlide(index)}
+                          className={`group flex items-center gap-3 rounded-xl border p-2 text-left transition duration-300 ${
+                            activeSlide === index
+                              ? "border-fuchsia-200/40 bg-white/[0.1] text-white"
+                              : "border-white/[0.08] bg-white/[0.025] text-white/55 hover:border-fuchsia-200/25 hover:bg-white/[0.06]"
+                          }`}
+                        >
+                          <span className="relative h-10 w-14 shrink-0 overflow-hidden rounded-lg">
+                            <Image src={item.src} alt="" fill sizes="56px" className="object-cover transition duration-500 group-hover:scale-105" />
+                          </span>
+                          <span className="min-w-0 truncate text-xs font-semibold">{item.tag} / {item.title}</span>
+                        </button>
+                      ))}
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="mt-4 flex items-center justify-center gap-3">
+            <div className="mt-4 flex items-center justify-center gap-2">
               {slideShowcase.map((item, index) => (
                 <button
                   key={item.src}
                   type="button"
                   aria-label={`Go to slide ${index + 1}`}
                   onClick={() => goToSlide(index)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
                     activeSlide === index
-                      ? "w-10 bg-gradient-to-r from-[#7547df] via-[#ca4aff] to-[#d946ef] shadow-[0_0_0_4px_rgba(202,74,255,0.12)]"
-                      : "w-2.5 bg-fuchsia-100/22 hover:bg-[#ca4aff]/55"
+                      ? "w-8 bg-gradient-to-r from-[#7547df] via-[#ca4aff] to-[#d946ef] shadow-[0_0_0_3px_rgba(202,74,255,0.12)]"
+                      : "w-5 bg-fuchsia-100/22 hover:bg-[#ca4aff]/55"
                   }`}
                 />
               ))}
