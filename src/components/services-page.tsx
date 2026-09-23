@@ -1216,7 +1216,7 @@ export default function ServicesPage() {
               </div>
               <Link
                 href={service.href}
-                className="group mt-8 ml-auto flex w-fit items-center gap-3 rounded-full bg-[linear-gradient(135deg,#2e6ceb_0%,#5b5cff_48%,#7547df_100%)] px-5 py-3 text-sm font-semibold text-white shadow-[0_16px_42px_rgba(91,92,255,0.24)] transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_22px_58px_rgba(91,92,255,0.34)]"
+                className="group mt-8 inline-flex items-center gap-3 rounded-full bg-[linear-gradient(135deg,#2e6ceb_0%,#5b5cff_48%,#7547df_100%)] px-5 py-3 text-sm font-semibold text-white shadow-[0_16px_42px_rgba(91,92,255,0.24)] transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_22px_58px_rgba(91,92,255,0.34)]"
               >
                 <span>View detailed service</span>
                 <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/12 transition duration-500 group-hover:translate-x-1 group-hover:bg-white/18">
