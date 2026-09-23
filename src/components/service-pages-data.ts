@@ -50,7 +50,7 @@ export const servicePages: Record<string, ServicePageData> = {
     ],
     serviceStages: [
       {
-        title: "Assistants & Agents",
+        title: "AI Agents & Assistants",
         eyebrow: "Empower",
         description: "Build intelligent assistants and autonomous agents that help employees research, decide, and execute work faster.",
         output: "Enterprise AI assistants and agents",
