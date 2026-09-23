@@ -11,12 +11,13 @@ import ServiceFooter from "@/components/service-footer";
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 22, filter: "blur(10px)" },
+  hidden: { opacity: 0, y: 28, scale: 0.985, filter: "blur(8px)" },
   show: {
     opacity: 1,
     y: 0,
+    scale: 1,
     filter: "blur(0px)",
-    transition: { duration: 0.65, ease }
+    transition: { duration: 0.85, ease }
   }
 };
 
@@ -549,10 +550,10 @@ function NeuralGraphic({ index }: { index: number }) {
           {strategyStages.map((stage, stageIndex) => (
             <motion.div
               key={stage.number}
-              initial={{ opacity: 0, x: -16 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ delay: stageIndex * 0.1, duration: 0.45 }}
+              initial={{ opacity: 0, x: -14, scale: 0.98, filter: "blur(5px)" }}
+              whileInView={{ opacity: 1, x: 0, scale: 1, filter: "blur(0px)" }}
+              viewport={{ once: true, amount: 0.25, margin: "0px 0px -10% 0px" }}
+              transition={{ delay: stageIndex * 0.09, duration: 0.65, ease }}
               whileHover={{ x: 5 }}
               className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09] md:h-[4.5rem] md:overflow-hidden"
             >
@@ -612,10 +613,10 @@ function NeuralGraphic({ index }: { index: number }) {
           {solutionStages.map((stage, stageIndex) => (
             <motion.div
               key={stage.number}
-              initial={{ opacity: 0, x: -16 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ delay: stageIndex * 0.1, duration: 0.45 }}
+              initial={{ opacity: 0, x: -14, scale: 0.98, filter: "blur(5px)" }}
+              whileInView={{ opacity: 1, x: 0, scale: 1, filter: "blur(0px)" }}
+              viewport={{ once: true, amount: 0.25, margin: "0px 0px -10% 0px" }}
+              transition={{ delay: stageIndex * 0.09, duration: 0.65, ease }}
               whileHover={{ x: 5 }}
               className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09] md:h-[4.5rem] md:overflow-hidden"
             >
@@ -674,10 +675,10 @@ function NeuralGraphic({ index }: { index: number }) {
           {integrationStages.map((stage, stageIndex) => (
             <motion.div
               key={stage.number}
-              initial={{ opacity: 0, x: -16 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ delay: stageIndex * 0.1, duration: 0.45 }}
+              initial={{ opacity: 0, x: -14, scale: 0.98, filter: "blur(5px)" }}
+              whileInView={{ opacity: 1, x: 0, scale: 1, filter: "blur(0px)" }}
+              viewport={{ once: true, amount: 0.25, margin: "0px 0px -10% 0px" }}
+              transition={{ delay: stageIndex * 0.09, duration: 0.65, ease }}
               whileHover={{ x: 5 }}
               className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09] md:h-[4.5rem] md:overflow-hidden"
             >
@@ -737,10 +738,10 @@ function NeuralGraphic({ index }: { index: number }) {
           {dataStages.map((stage, stageIndex) => (
             <motion.div
               key={stage.number}
-              initial={{ opacity: 0, x: -16 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ delay: stageIndex * 0.1, duration: 0.45 }}
+              initial={{ opacity: 0, x: -14, scale: 0.98, filter: "blur(5px)" }}
+              whileInView={{ opacity: 1, x: 0, scale: 1, filter: "blur(0px)" }}
+              viewport={{ once: true, amount: 0.25, margin: "0px 0px -10% 0px" }}
+              transition={{ delay: stageIndex * 0.09, duration: 0.65, ease }}
               whileHover={{ x: 5 }}
               className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09] md:h-[4.5rem] md:overflow-hidden"
             >
@@ -799,10 +800,10 @@ function NeuralGraphic({ index }: { index: number }) {
           {managedStages.map((stage, stageIndex) => (
             <motion.div
               key={stage.number}
-              initial={{ opacity: 0, x: -16 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ delay: stageIndex * 0.1, duration: 0.45 }}
+              initial={{ opacity: 0, x: -14, scale: 0.98, filter: "blur(5px)" }}
+              whileInView={{ opacity: 1, x: 0, scale: 1, filter: "blur(0px)" }}
+              viewport={{ once: true, amount: 0.25, margin: "0px 0px -10% 0px" }}
+              transition={{ delay: stageIndex * 0.09, duration: 0.65, ease }}
               whileHover={{ x: 5 }}
               className="relative flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.055] px-3 py-2 backdrop-blur-md transition-colors duration-300 hover:border-violet-200/30 hover:bg-white/[0.09] md:h-[4.5rem] md:overflow-hidden"
             >
