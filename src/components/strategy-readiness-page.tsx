@@ -56,7 +56,7 @@ const stages = [
     title: "Operating Model & Governance",
     eyebrow: "Enable",
     description:
-      "Design the practical structure needed to govern, deliver, and scale AI initiatives across teams and business functions.",
+      "Define ownership, governance, workflows, and the operating model needed to scale AI responsibly—from lean teams to enterprise AI centers of excellence.",
     output: "Enterprise AI operating model",
     points: ["AI governance framework", "Center of Excellence setup", "Enterprise operating model"]
   },

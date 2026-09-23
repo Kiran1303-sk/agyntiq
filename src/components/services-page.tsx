@@ -187,7 +187,8 @@ const strategyStages = [
   {
     number: "03",
     title: "Operating Model & Governance",
-    detail: "Create governance, a center of excellence, and an enterprise AI model.",
+    detail:
+      "Define ownership, governance, workflows, and the operating model needed to scale AI responsibly—from lean teams to enterprise AI centers of excellence.",
     color: "#6366f1"
   },
   {
