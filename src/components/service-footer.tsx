@@ -87,9 +87,6 @@ export default function ServiceFooter() {
               <Link href="/services" className="transition hover:text-fuchsia-100">
                 All services
               </Link>
-              <Link href="/#solutions" className="transition hover:text-fuchsia-100">
-                Solutions
-              </Link>
               <Link href="/#industries" className="transition hover:text-fuchsia-100">
                 Industries
               </Link>
