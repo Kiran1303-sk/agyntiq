@@ -1152,7 +1152,7 @@ export default function ServicesPage() {
                     {service.description}
                   </p>
                   <div className="relative mt-auto flex items-center justify-between pt-6 text-sm font-semibold text-fuchsia-200">
-                    <span className="grid h-9 w-9 place-items-center rounded-full border border-fuchsia-300/16 bg-fuchsia-300/[0.06] transition group-hover:translate-x-1 group-hover:border-fuchsia-200/34 group-hover:bg-fuchsia-300/[0.12]">
+                    <span className="ml-auto grid h-9 w-9 place-items-center rounded-full border border-fuchsia-300/16 bg-fuchsia-300/[0.06] transition group-hover:translate-x-1 group-hover:border-fuchsia-200/34 group-hover:bg-fuchsia-300/[0.12]">
                       <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden="true">
                         <path
                           d="M5 12h13m-5-5 5 5-5 5"
