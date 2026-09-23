@@ -53,7 +53,7 @@ const stages = [
     points: ["AI ROI modeling", "Cost-benefit simulation", "Investment prioritization"]
   },
   {
-    title: "Operating Model Design",
+    title: "Operating Model & Governance",
     eyebrow: "Enable",
     description:
       "Design the practical structure needed to govern, deliver, and scale AI initiatives across teams and business functions.",

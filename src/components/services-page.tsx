@@ -50,7 +50,7 @@ const services = [
     solutions: [
       "Opportunity Identification",
       "ROI & Business Case Design",
-      "Operating Model Design",
+      "Operating Model & Governance",
       "Risk & Compliance Assessment",
       "Transformation Roadmap"
     ]
@@ -186,7 +186,7 @@ const strategyStages = [
   },
   {
     number: "03",
-    title: "Operating Model Design",
+    title: "Operating Model & Governance",
     detail: "Create governance, a center of excellence, and an enterprise AI model.",
     color: "#6366f1"
   },
