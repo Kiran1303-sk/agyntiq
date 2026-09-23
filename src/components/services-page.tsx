@@ -1045,8 +1045,9 @@ export default function ServicesPage() {
             variants={fadeUp}
             className="mt-6 max-w-2xl text-lg leading-8 text-white/72 [text-shadow:0_0_24px_rgba(126,87,255,0.12)] md:text-xl"
           >
-            From AI Strategy to Enterprise Deployment and Managed AI Operations, we help
-            organizations build, integrate and scale intelligent systems.
+            From strategy and AI agent development to integration, data, and managed operations,
+            AgyntiQ helps growing businesses and enterprises turn AI opportunities into
+            production-ready systems.
           </motion.p>
           <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
             <Link href="/services/ai-strategy-readiness" className={primaryButton}>
