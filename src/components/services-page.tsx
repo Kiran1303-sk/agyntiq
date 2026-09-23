@@ -200,7 +200,8 @@ const strategyStages = [
   {
     number: "05",
     title: "Transformation Roadmap",
-    detail: "Align capability building and workforce adoption to a phased 3–5 year roadmap.",
+    detail:
+      "Build a phased roadmap from high-value pilots and near-term wins to broader AI adoption and long-term scale.",
     color: "#2563eb"
   }
 ] as const;

@@ -76,7 +76,7 @@ const stages = [
     title: "Transformation & Adoption Roadmap",
     eyebrow: "Scale",
     description:
-      "Turn the strategy into a realistic three-to-five-year transformation path that connects capability building with workforce adoption.",
+      "Build a phased roadmap from high-value pilots and near-term wins to broader AI adoption and long-term scale.",
     output: "3–5 year AI transformation roadmap",
     points: ["AI capability building", "Workforce adoption strategy", "Phased transformation plan"]
   }
