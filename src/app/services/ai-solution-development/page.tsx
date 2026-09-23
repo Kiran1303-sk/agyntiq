@@ -3,7 +3,7 @@ import ServiceDetailPage from "@/components/service-detail-page";
 import { servicePages } from "@/components/service-pages-data";
 
 export const metadata: Metadata = {
-  title: "AI Solution Development | AgyntiQ",
+  title: "AI Solutions Development | AgyntiQ",
   description: servicePages["ai-solution-development"].summary
 };
 

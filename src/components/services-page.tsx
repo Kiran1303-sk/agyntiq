@@ -58,8 +58,8 @@ const services = [
   {
     id: "development",
     number: "02",
-    nav: "AI Development",
-    title: "AI Solution Development",
+    nav: "AI Solutions Development",
+    title: "AI Solutions Development",
     headline: "Engineer Intelligent Products That Teams Actually Use",
     description:
       "Design and build AI applications, assistants, agents, and decision systems that move from prototype into enterprise workflows.",
@@ -1052,7 +1052,7 @@ export default function ServicesPage() {
               <span className="relative">Explore Services</span>
             </Link>
             <Link href="/#contact" className={secondaryButton}>
-              <span>Exclusive Today</span>
+              <span>Talk to an AI Expert</span>
             </Link>
           </motion.div>
         </motion.div>
@@ -1149,7 +1149,6 @@ export default function ServicesPage() {
                     {service.description}
                   </p>
                   <div className="relative mt-auto flex items-center justify-between pt-6 text-sm font-semibold text-fuchsia-200">
-                    <span>{service.solutions.length} solutions</span>
                     <span className="grid h-9 w-9 place-items-center rounded-full border border-fuchsia-300/16 bg-fuchsia-300/[0.06] transition group-hover:translate-x-1 group-hover:border-fuchsia-200/34 group-hover:bg-fuchsia-300/[0.12]">
                       <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden="true">
                         <path

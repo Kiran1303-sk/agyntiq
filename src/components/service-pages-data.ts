@@ -33,7 +33,7 @@ export const servicePages: Record<string, ServicePageData> = {
     ]
   },
   "ai-solution-development": {
-    title: "AI Solution Development",
+    title: "AI Solutions Development",
     eyebrow: "Build",
     intro: "Turn AI strategy into products, copilots, and workflow experiences that people use.",
     summary:
@@ -252,7 +252,7 @@ export const servicePages: Record<string, ServicePageData> = {
 
 export const servicePageOrder = [
   { label: "AI Strategy & Readiness Services", href: "/services/ai-strategy-readiness" },
-  { label: "AI Solution Development", href: "/services/ai-solution-development" },
+  { label: "AI Solutions Development", href: "/services/ai-solution-development" },
   { label: "AI Integration Services", href: "/services/ai-integration-services" },
   { label: "AI Data Services", href: "/services/ai-data-services" },
   { label: "AI Managed Services", href: "/services/ai-managed-services" }

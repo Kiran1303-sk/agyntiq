@@ -58,7 +58,7 @@ export const serviceSlides: ServiceSlide[] = [
   {
     number: "05",
     eyebrow: "Core Revenue Generator",
-    title: "AI Solution Development",
+    title: "AI Solutions Development",
     subtitle: "Building AI-powered applications and tools.",
     summary:
       "This track turns strategy into usable products, accelerators, and enterprise-ready AI experiences.",

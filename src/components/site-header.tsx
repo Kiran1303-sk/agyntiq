@@ -24,7 +24,7 @@ const serviceMenuDisplay = [
     icon: "brain"
   },
   {
-    title: "AI Solution Development",
+    title: "AI Solutions Development",
     subtitle: "Custom AI solutions",
     href: "/services/ai-solution-development",
     icon: "cube"
