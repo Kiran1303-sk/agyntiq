@@ -23,7 +23,6 @@ const navItems = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
   { label: "Services", href: "/services" },
-  { label: "Solutions", href: "#solutions" },
   { label: "Industries", href: "#industries" },
   { label: "Blog", href: "#blog" }
 ] satisfies NavItem[];
@@ -154,21 +153,6 @@ const problems = [
     description:
       "Many AI experiments never become operational systems because the underlying process stays unchanged.",
     stat: "No measurable P&L impact"
-  }
-];
-
-const solutions = [
-  {
-    title: "Trusted context",
-    copy: "Connect the data, documents, conversations, and rules your business already depends on."
-  },
-  {
-    title: "Usable outputs",
-    copy: "Generate summaries, recommendations, drafts, reports, and decisions your team can actually use."
-  },
-  {
-    title: "Reliable actions",
-    copy: "Route, update, draft, escalate, and execute inside the systems where work already happens."
   }
 ];
 
@@ -1109,46 +1093,6 @@ export default function AuroraLanding() {
                     {step}
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="solutions" className="scroll-mt-28 py-12 md:scroll-mt-32 md:py-16">
-          <div className="section-shell">
-            <div className="section-heading mb-10" data-reveal>
-              <div className="section-kicker">Solutions</div>
-              <h2 className="section-title">AI solutions that feel like a product, not a pitch.</h2>
-              <p className="section-copy">
-                From copilots to analytics, the system should feel polished, fast, and
-                enterprise-grade.
-              </p>
-            </div>
-
-            <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3" data-parallax="10">
-              {solutions.map((item, index) => (
-                <article
-                  key={item.title}
-                  className={`hover-sheen hover-glow group relative overflow-hidden rounded-[1.4rem] px-5 py-5 ${premiumSurface} ${premiumSurfaceHover}`}
-                  data-reveal
-                >
-                  <div className="flex items-start justify-between gap-6">
-                    <div>
-                      <div className="text-xs uppercase tracking-[0.3em] text-white/40">
-                        0{index + 1}
-                      </div>
-                      <h3 className="mt-3 text-xl font-semibold tracking-normal text-white">
-                        {item.title}
-                      </h3>
-                      <p className="mt-3 max-w-lg text-sm leading-7 text-aurora-muted">
-                        {item.copy}
-                      </p>
-                    </div>
-                    <div className="mt-1 text-white/30 transition group-hover:text-white/70">
-                      <IconArrow />
-                    </div>
-                  </div>
-                </article>
               ))}
             </div>
           </div>

@@ -66,7 +66,7 @@ const services = [
     href: "/services/ai-solution-development",
     icon: "cube",
     solutions: [
-      "Assistants & Agents",
+      "AI Agents & Assistants",
       "GenAI Applications",
       "Predictive AI",
       "Decision Intelligence",
@@ -209,7 +209,7 @@ const strategyStages = [
 const solutionStages = [
   {
     number: "01",
-    title: "Assistants & Agents",
+    title: "AI Agents & Assistants",
     detail:
       "Build intelligent assistants and autonomous agents for employees, research, and operations.",
     color: "#8b5cf6"
@@ -1252,8 +1252,10 @@ export default function ServicesPage() {
                 whileHover={{ y: -4 }}
                 className="rounded-[0.9rem] border border-[#4d2aad]/42 bg-[#080b25]/86 p-4 text-center text-sm font-semibold text-white/80 transition hover:border-fuchsia-300/36 hover:text-fuchsia-50"
               >
-                <span className="mx-auto mb-2 block h-2 w-2 rounded-full bg-fuchsia-300 shadow-[0_0_18px_rgba(202,74,255,0.6)]" />
-                {index + 1}. {stage}
+                <span className="mx-auto mb-2 block text-lg font-bold text-fuchsia-300">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                {stage}
               </motion.div>
             ))}
           </div>
@@ -1477,7 +1479,7 @@ export default function ServicesPage() {
                     Explore
                   </div>
                   <div className="mt-4 grid gap-3 text-sm font-semibold text-white/58">
-                    {["Solutions", "Industries", "Case Studies", "FAQ", "Contact"].map((item) => (
+                    {["Industries", "Case Studies", "FAQ", "Contact"].map((item) => (
                       <a
                         key={item}
                         href={item === "Contact" ? "/#contact" : "#overview"}
