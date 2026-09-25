@@ -96,7 +96,7 @@ export default function ServiceDetailPage({ data }: ServiceDetailPageProps) {
           </motion.div>
           <motion.h1
             variants={fadeUp}
-            className="mt-6 max-w-4xl text-balance text-5xl font-semibold leading-[0.94] tracking-normal text-white md:text-7xl"
+            className="mt-6 max-w-4xl bg-[linear-gradient(90deg,#ffffff_0%,#c7d2fe_38%,#f0abfc_72%,#d946ef_100%)] bg-clip-text text-balance text-5xl font-semibold leading-[0.94] tracking-normal text-transparent drop-shadow-[0_0_34px_rgba(194,59,217,0.16)] md:text-7xl"
           >
             {data.title}
           </motion.h1>
