@@ -85,19 +85,33 @@ function NodeField() {
       .map(({ candidateIndex }) => [index, candidateIndex]);
   });
   const [phase, setPhase] = useState(0);
+  const [pointer, setPointer] = useState({ x: 0.72, y: 0.42 });
 
   useEffect(() => {
     const timer = window.setInterval(() => setPhase((value) => value + 1), 70);
     return () => window.clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    const handlePointerMove = (event: PointerEvent) => {
+      setPointer({
+        x: event.clientX / window.innerWidth,
+        y: event.clientY / window.innerHeight
+      });
+    };
+
+    window.addEventListener("pointermove", handlePointerMove, { passive: true });
+    return () => window.removeEventListener("pointermove", handlePointerMove);
+  }, []);
+
   const movingNodes = nodes.map(([x, y], index) => [
-    x + Math.sin(phase * 0.012 + index * 1.7) * (index % 3 === 0 ? 1.25 : 0.75),
-    y + Math.cos(phase * 0.009 + index * 1.3) * (index % 2 === 0 ? 1.05 : 0.65)
+    x + Math.sin(phase * 0.012 + index * 1.7) * (index % 3 === 0 ? 1.25 : 0.75) + (pointer.x - 0.5) * (index % 2 === 0 ? 2.4 : 1.4),
+    y + Math.cos(phase * 0.009 + index * 1.3) * (index % 2 === 0 ? 1.05 : 0.65) + (pointer.y - 0.5) * (index % 3 === 0 ? 1.8 : 1)
   ]);
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_34%,rgba(91,92,255,0.26),transparent_25%),radial-gradient(circle_at_54%_68%,rgba(202,74,255,0.16),transparent_32%),linear-gradient(115deg,#050719_8%,#090b2b_52%,#18092f_100%)]" />
+      <div className="absolute h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-fuchsia-300/[0.07] blur-[90px] transition-[left,top] duration-700 ease-out" style={{ left: `${pointer.x * 100}%`, top: `${pointer.y * 100}%` }} />
       <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(145,182,255,0.055)_1px,transparent_1px),linear-gradient(90deg,rgba(145,182,255,0.045)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:radial-gradient(ellipse_at_72%_45%,black,transparent_62%)]" />
       <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full opacity-90 mix-blend-screen">
         <defs>
@@ -160,7 +174,6 @@ export default function AboutPage() {
             </div>
           </Reveal>
         </div>
-        <div className="section-shell absolute inset-x-0 bottom-8 z-10"><div className="h-px bg-gradient-to-r from-transparent via-fuchsia-300/50 to-transparent" /></div>
       </section>
 
       <section id="story" className="relative py-24 md:py-32">
