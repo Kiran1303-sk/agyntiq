@@ -145,7 +145,7 @@ export default function AboutPage() {
       <section id="about" className="relative isolate min-h-[760px] overflow-hidden pt-32 md:min-h-[850px] md:pt-44">
         <NodeField />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,#050719_0%,rgba(5,7,25,0.93)_32%,rgba(5,7,25,0.42)_68%,rgba(5,7,25,0.8)_100%)]" />
-        <div className="section-shell relative z-10 grid min-h-[620px] items-center lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="section-shell relative z-10 flex min-h-[620px] items-center">
           <Reveal>
             <div className="section-kicker">About AgyntiQ</div>
             <h1 className="mt-6 max-w-3xl bg-[linear-gradient(90deg,#ffffff_0%,#c7d2fe_38%,#f0abfc_70%,#d946ef_100%)] bg-clip-text text-5xl font-semibold leading-[0.94] tracking-normal text-transparent drop-shadow-[0_0_34px_rgba(202,74,255,0.18)] md:text-7xl">
@@ -158,16 +158,6 @@ export default function AboutPage() {
               <Link href="#story" className="rounded-full bg-[linear-gradient(100deg,#2e6ceb,#7547df,#c23bd9)] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_18px_60px_rgba(126,87,255,0.28)] transition hover:-translate-y-0.5">Our story <span className="ml-2">→</span></Link>
               <Link href="#contact" className="rounded-full border border-fuchsia-200/22 bg-[#180d32]/65 px-6 py-3.5 text-sm font-semibold text-white/82 transition hover:border-fuchsia-200/45 hover:bg-fuchsia-300/[0.08] hover:text-white">Start a conversation</Link>
             </div>
-          </Reveal>
-          <Reveal delay={0.14} className="relative hidden h-[520px] lg:block">
-            <div className="absolute inset-x-10 top-16 h-[25rem] rounded-full bg-[radial-gradient(circle,rgba(117,71,223,0.14),transparent_62%)]" />
-            <div className="absolute right-8 top-24 w-80 rounded-[1.5rem] border border-white/10 bg-[#0b0d2a]/70 p-5 backdrop-blur-xl">
-              <div className="flex items-center justify-between text-xs uppercase tracking-[0.24em] text-fuchsia-100/55"><span>Our perspective</span><span className="text-fuchsia-200">01</span></div>
-              <div className="mt-8 text-2xl font-semibold leading-tight">Connect the signal. Create the next advantage.</div>
-              <div className="mt-8 h-px bg-gradient-to-r from-fuchsia-300/60 to-transparent" />
-              <div className="mt-4 text-sm leading-6 text-white/48">Strategy, data, technology, and people moving in one direction.</div>
-            </div>
-            <div className="absolute bottom-24 left-8 rounded-2xl border border-blue-300/15 bg-[#0a102e]/72 px-5 py-4 backdrop-blur-xl"><div className="text-3xl font-semibold text-white">AI × People</div><div className="mt-1 text-xs uppercase tracking-[0.22em] text-blue-100/48">Designed for adoption</div></div>
           </Reveal>
         </div>
         <div className="section-shell absolute inset-x-0 bottom-8 z-10"><div className="h-px bg-gradient-to-r from-transparent via-fuchsia-300/50 to-transparent" /></div>
