@@ -664,6 +664,23 @@ export default function AuroraLanding() {
             {navItems.map((item) => {
               const isActive = isNavItemActive(item.href);
               const isRoute = item.href === "/services";
+
+              if (item.href === "/about") {
+                return (
+                  <Link
+                    key={item.href}
+                    href="/about"
+                    className={`rounded-full px-5 py-3 text-[1rem] font-semibold tracking-normal transition-all ${
+                      isActive
+                        ? "bg-[linear-gradient(180deg,rgba(72,62,214,0.95)_0%,rgba(101,55,214,0.96)_45%,rgba(149,53,215,0.96)_100%)] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_26px_rgba(127,63,255,0.25)]"
+                        : "text-white/72 hover:bg-white/[0.06] hover:text-white"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              }
+
               return isRoute ? (
                 <div
                   key={item.href}
@@ -799,6 +816,19 @@ export default function AuroraLanding() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(14,103,255,0.12),transparent_32%),radial-gradient(circle_at_92%_80%,rgba(117,71,223,0.12),transparent_36%)]" />
             <div className="relative grid gap-2">
               {navItems.map((item) => {
+                if (item.href === "/about") {
+                  return (
+                    <Link
+                      key={item.href}
+                      href="/about"
+                      onClick={() => setMobileOpen(false)}
+                      className="rounded-[1rem] px-4 py-3.5 text-sm font-semibold text-white/74 transition hover:bg-[#315cff]/[0.07] hover:text-white"
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                }
+
                 if (item.href === "/services") {
                   return (
                     <div key={item.href}>
