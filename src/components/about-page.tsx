@@ -84,19 +84,20 @@ function NodeField() {
   const links = [[0, 1], [1, 2], [1, 3], [2, 4], [3, 4], [3, 5], [4, 6], [0, 7], [2, 8], [2, 9], [4, 10], [5, 11], [6, 12], [7, 8], [8, 9], [9, 10], [10, 11], [11, 12], [7, 13], [8, 14], [9, 15], [10, 16], [11, 17], [12, 18], [13, 14], [14, 15], [15, 16], [16, 17], [17, 18], [18, 19]];
 
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-60" aria-hidden="true">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_42%,rgba(91,92,255,0.14),transparent_24%),radial-gradient(circle_at_35%_80%,rgba(202,74,255,0.08),transparent_28%)]" />
-      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full">
+    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_74%_40%,rgba(91,92,255,0.22),transparent_23%),radial-gradient(circle_at_56%_70%,rgba(202,74,255,0.11),transparent_30%),linear-gradient(115deg,#050719_8%,#0a0b28_52%,#150a2c_100%)]" />
+      <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(145,182,255,0.055)_1px,transparent_1px),linear-gradient(90deg,rgba(145,182,255,0.045)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:radial-gradient(ellipse_at_72%_45%,black,transparent_62%)]" />
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full opacity-70">
         <defs>
           <linearGradient id="node-line" x1="0" x2="1">
             <stop offset="0" stopColor="#5b5cff" stopOpacity="0" />
-            <stop offset="0.5" stopColor="#ca4aff" stopOpacity="0.72" />
-            <stop offset="1" stopColor="#91b8ff" stopOpacity="0.12" />
+            <stop offset="0.48" stopColor="#ca4aff" stopOpacity="0.58" />
+            <stop offset="1" stopColor="#91b8ff" stopOpacity="0.08" />
           </linearGradient>
           <filter id="node-glow"><feGaussianBlur stdDeviation="0.7" /></filter>
         </defs>
         {links.map(([from, to]) => (
-          <line key={`${from}-${to}`} x1={nodes[from][0]} y1={nodes[from][1]} x2={nodes[to][0]} y2={nodes[to][1]} stroke="url(#node-line)" strokeWidth="0.16" />
+          <line key={`${from}-${to}`} x1={nodes[from][0]} y1={nodes[from][1]} x2={nodes[to][0]} y2={nodes[to][1]} stroke="url(#node-line)" strokeWidth="0.11" strokeDasharray="0.4 0.8" />
         ))}
         {nodes.map(([cx, cy], index) => (
           <g key={`${cx}-${cy}`}>
@@ -105,8 +106,11 @@ function NodeField() {
           </g>
         ))}
       </svg>
-      <div className="absolute right-[14%] top-[22%] h-3 w-3 rounded-full bg-fuchsia-200/60 shadow-[0_0_22px_rgba(240,171,252,0.7)] animate-pulse" />
-      <div className="absolute right-[27%] top-[62%] h-2 w-2 rounded-full bg-blue-200/60 shadow-[0_0_18px_rgba(147,197,253,0.7)] animate-pulse" />
+      <motion.div animate={{ y: [0, -18, 0], rotate: [0, 8, 0] }} transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }} className="absolute right-[13%] top-[15%] h-36 w-36 rotate-12 border border-fuchsia-200/25 bg-[linear-gradient(135deg,rgba(240,171,252,0.18),rgba(91,92,255,0.06))] shadow-[inset_0_0_35px_rgba(240,171,252,0.1),0_0_60px_rgba(202,74,255,0.12)] [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)]" />
+      <motion.div animate={{ y: [0, 22, 0], rotate: [0, -10, 0] }} transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 1 }} className="absolute right-[28%] top-[58%] h-24 w-24 -rotate-12 border border-blue-200/25 bg-[linear-gradient(135deg,rgba(147,197,253,0.16),rgba(91,92,255,0.04))] shadow-[inset_0_0_30px_rgba(147,197,253,0.1),0_0_48px_rgba(46,108,235,0.12)] [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)]" />
+      <motion.div animate={{ y: [0, -12, 0], x: [0, 10, 0], rotate: [0, 14, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }} className="absolute right-[6%] top-[66%] h-16 w-16 border border-fuchsia-200/20 bg-fuchsia-300/[0.07] shadow-[0_0_35px_rgba(202,74,255,0.14)] [clip-path:polygon(50%_0%,100%_50%,50%_100%,0%_50%)]" />
+      <div className="absolute right-[21%] top-[37%] h-2 w-2 rounded-full bg-fuchsia-100 shadow-[0_0_22px_6px_rgba(240,171,252,0.48)]" />
+      <div className="absolute right-[38%] top-[24%] h-1.5 w-1.5 rounded-full bg-blue-100 shadow-[0_0_18px_5px_rgba(147,197,253,0.42)]" />
     </div>
   );
 }
