@@ -108,7 +108,7 @@ function NodeField() {
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_34%,rgba(91,92,255,0.26),transparent_25%),radial-gradient(circle_at_54%_68%,rgba(202,74,255,0.16),transparent_32%),linear-gradient(115deg,#050719_8%,#090b2b_52%,#18092f_100%)]" />
       <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(145,182,255,0.055)_1px,transparent_1px),linear-gradient(90deg,rgba(145,182,255,0.045)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:radial-gradient(ellipse_at_72%_45%,black,transparent_62%)]" />
-      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full opacity-70">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full opacity-90 mix-blend-screen">
         <defs>
           <linearGradient id="node-line" x1="0" x2="1">
             <stop offset="0" stopColor="#5b5cff" stopOpacity="0" />
@@ -118,7 +118,7 @@ function NodeField() {
           <filter id="node-glow"><feGaussianBlur stdDeviation="0.7" /></filter>
         </defs>
         {links.map(([from, to]) => (
-          <line key={`${from}-${to}`} x1={movingNodes[from][0]} y1={movingNodes[from][1]} x2={movingNodes[to][0]} y2={movingNodes[to][1]} stroke="url(#node-line)" strokeWidth="0.14" opacity="0.8" />
+          <line key={`${from}-${to}`} x1={movingNodes[from][0]} y1={movingNodes[from][1]} x2={movingNodes[to][0]} y2={movingNodes[to][1]} stroke="url(#node-line)" strokeWidth="0.18" opacity="0.92" />
         ))}
         {movingNodes.map(([cx, cy], index) => (
           <g key={index}>
@@ -149,10 +149,10 @@ export default function AboutPage() {
     <main className="overflow-hidden bg-[#050719] text-white">
       <SiteHeader mode="home" />
 
-      <section id="about" className="relative isolate min-h-[760px] overflow-hidden pt-32 md:min-h-[850px] md:pt-44">
+      <section id="about" className="relative isolate min-h-[680px] overflow-hidden pt-28 md:min-h-[720px] md:pt-32">
         <NodeField />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,#050719_0%,rgba(5,7,25,0.93)_32%,rgba(5,7,25,0.42)_68%,rgba(5,7,25,0.8)_100%)]" />
-        <div className="section-shell relative z-10 flex min-h-[620px] items-center">
+        <div className="section-shell relative z-10 flex min-h-[520px] items-center">
           <Reveal>
             <div className="section-kicker">About AgyntiQ</div>
             <h1 className="mt-6 max-w-3xl bg-[linear-gradient(90deg,#ffffff_0%,#c7d2fe_38%,#f0abfc_70%,#d946ef_100%)] bg-clip-text text-5xl font-semibold leading-[0.94] tracking-normal text-transparent drop-shadow-[0_0_34px_rgba(202,74,255,0.18)] md:text-7xl">
