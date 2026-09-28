@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import SiteHeader from "@/components/site-header";
 import ServiceFooter from "@/components/service-footer";
 
@@ -82,6 +84,17 @@ function NodeField() {
       .slice(0, 3)
       .map(({ candidateIndex }) => [index, candidateIndex]);
   });
+  const [phase, setPhase] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setPhase((value) => value + 1), 70);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const movingNodes = nodes.map(([x, y], index) => [
+    x + Math.sin(phase * 0.012 + index * 1.7) * (index % 3 === 0 ? 1.25 : 0.75),
+    y + Math.cos(phase * 0.009 + index * 1.3) * (index % 2 === 0 ? 1.05 : 0.65)
+  ]);
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_34%,rgba(91,92,255,0.26),transparent_25%),radial-gradient(circle_at_54%_68%,rgba(202,74,255,0.16),transparent_32%),linear-gradient(115deg,#050719_8%,#090b2b_52%,#18092f_100%)]" />
@@ -96,18 +109,20 @@ function NodeField() {
           <filter id="node-glow"><feGaussianBlur stdDeviation="0.7" /></filter>
         </defs>
         {links.map(([from, to]) => (
-          <line key={`${from}-${to}`} x1={nodes[from][0]} y1={nodes[from][1]} x2={nodes[to][0]} y2={nodes[to][1]} stroke="url(#node-line)" strokeWidth="0.16" opacity="0.86" />
+          <line key={`${from}-${to}`} x1={movingNodes[from][0]} y1={movingNodes[from][1]} x2={movingNodes[to][0]} y2={movingNodes[to][1]} stroke="url(#node-line)" strokeWidth="0.16" opacity="0.86" />
         ))}
-        {nodes.map(([cx, cy], index) => (
+        {movingNodes.map(([cx, cy], index) => (
           <g key={index}>
-            <circle cx={cx} cy={cy} r="1.1" fill="#ca4aff" opacity="0.2" filter="url(#node-glow)" />
-            <circle cx={cx} cy={cy} r={index % 5 === 0 ? "0.48" : "0.27"} fill={index % 3 === 0 ? "#b8cfff" : "#f0abfc"} />
+            <motion.circle cx={cx} cy={cy} r="0.95" fill="#ca4aff" opacity="0.2" filter="url(#node-glow)" animate={{ opacity: [0.12, 0.5, 0.12], r: [0.7, 1.25, 0.7] }} transition={{ duration: 2.6 + (index % 4) * 0.35, repeat: Infinity, ease: "easeInOut", delay: index * 0.06 }} />
+            <motion.circle cx={cx} cy={cy} r={index % 5 === 0 ? "0.42" : "0.24"} fill={index % 3 === 0 ? "#b8cfff" : "#f0abfc"} animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 2.2 + (index % 3) * 0.45, repeat: Infinity, ease: "easeInOut", delay: index * 0.08 }} />
           </g>
         ))}
       </svg>
       {["right-[14%] top-[20%]", "right-[27%] top-[62%]", "right-[7%] top-[72%]", "right-[40%] top-[30%]", "right-[52%] top-[78%]"].map((position, index) => (
-        <span key={position} className={`absolute ${position} ${index % 3 === 0 ? "h-2 w-2" : "h-1.5 w-1.5"} rounded-full ${index % 2 === 0 ? "bg-fuchsia-100 shadow-[0_0_22px_6px_rgba(240,171,252,0.48)]" : "bg-blue-100 shadow-[0_0_18px_5px_rgba(147,197,253,0.42)]"}`} />
+        <motion.span key={position} animate={{ y: [0, index % 2 === 0 ? -12 : 10, 0], x: [0, index % 2 === 0 ? 5 : -5, 0], opacity: [0.2, 0.85, 0.2] }} transition={{ duration: 4.5 + index * 0.8, repeat: Infinity, ease: "easeInOut", delay: index * 0.45 }} className={`absolute ${position} ${index % 3 === 0 ? "h-2 w-2" : "h-1.5 w-1.5"} rounded-full ${index % 2 === 0 ? "bg-fuchsia-100 shadow-[0_0_22px_6px_rgba(240,171,252,0.48)]" : "bg-blue-100 shadow-[0_0_18px_5px_rgba(147,197,253,0.42)]"}`} />
       ))}
+      <motion.div animate={{ y: [0, -14, 0], rotate: [0, 8, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="absolute right-[17%] top-[20%] h-8 w-8 border border-fuchsia-200/25 bg-fuchsia-300/[0.06] shadow-[0_0_24px_rgba(202,74,255,0.16)] [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)]" />
+      <motion.div animate={{ y: [0, 11, 0], x: [0, -7, 0], rotate: [0, -10, 0] }} transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1.2 }} className="absolute right-[32%] top-[68%] h-5 w-5 border border-blue-200/25 bg-blue-300/[0.06] shadow-[0_0_20px_rgba(91,92,255,0.16)] [clip-path:polygon(50%_0%,100%_50%,50%_100%,0%_50%)]" />
     </div>
   );
 }
