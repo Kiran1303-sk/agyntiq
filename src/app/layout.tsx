@@ -1,18 +1,7 @@
 import type { Metadata } from "next";
-import { Manrope, Roboto_Condensed } from "next/font/google";
 import ScrollProgress from "@/components/scroll-progress";
 import SmoothScroll from "@/components/smooth-scroll";
 import "./globals.css";
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope"
-});
-
-const robotoCondensed = Roboto_Condensed({
-  subsets: ["latin"],
-  variable: "--font-roboto-condensed"
-});
 
 export const metadata: Metadata = {
   title: "AgyntiQ | Flagship Enterprise AI Platform",
@@ -69,9 +58,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#050816" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body
-        className={`${manrope.className} ${manrope.variable} ${robotoCondensed.variable} bg-agyntiq-deep-black text-agyntiq-text-primary antialiased`}
-      >
+      <body className="bg-agyntiq-deep-black text-agyntiq-text-primary antialiased">
         <SmoothScroll />
         <ScrollProgress />
         {children}

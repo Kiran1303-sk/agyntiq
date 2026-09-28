@@ -4,6 +4,8 @@
 
 :root {
   color-scheme: dark;
+  --font-manrope: "Segoe UI", Arial, sans-serif;
+  --font-roboto-condensed: "Arial Narrow", "Segoe UI", Arial, sans-serif;
 }
 
 html {
