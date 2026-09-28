@@ -46,7 +46,7 @@ export default function ServiceFooter() {
               Company
             </div>
             <div className="mt-5 grid gap-3 text-sm font-semibold text-white/58">
-              <Link href="/#about" className="transition hover:text-fuchsia-100">
+              <Link href="/about" className="transition hover:text-fuchsia-100">
                 About AgyntiQ
               </Link>
               <Link href="/#blog" className="transition hover:text-fuchsia-100">
