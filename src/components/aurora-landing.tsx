@@ -16,6 +16,10 @@ type NavItem =
     }
   | {
       label: string;
+      href: "/about";
+    }
+  | {
+      label: string;
       href: "/services";
     };
 
