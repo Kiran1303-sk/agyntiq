@@ -9,7 +9,7 @@ type HeaderMode = "home" | "services";
 
 const navItems = [
   { label: "Home", href: "#hero" },
-  { label: "About", href: "#about" },
+  { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Industries", href: "#industries" },
   { label: "Blog", href: "#blog" }
@@ -159,6 +159,10 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
   };
 
   const isActive = (href: string) => {
+    if (href === "/about") {
+      return pathname === "/about";
+    }
+
     if (href === "/services") {
       return pathname.startsWith("/services");
     }
@@ -170,7 +174,13 @@ export default function SiteHeader({ mode }: SiteHeaderProps) {
     return false;
   };
 
-  const sectionHref = (href: string) => (mode === "home" ? href : `/${href}`);
+  const sectionHref = (href: string) => {
+    if (href.startsWith("/")) {
+      return href;
+    }
+
+    return mode === "home" ? href : `/${href}`;
+  };
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 transition-all duration-500 border-b border-white/10 bg-[#050816]/72 backdrop-blur-2xl">
