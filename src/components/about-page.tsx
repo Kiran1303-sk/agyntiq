@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import SiteHeader from "@/components/site-header";
 import ServiceFooter from "@/components/service-footer";
 
@@ -82,6 +83,17 @@ function NodeField() {
     [7, 83], [23, 72], [39, 88], [54, 73], [68, 86], [84, 70], [96, 84]
   ];
   const links = [[0, 1], [1, 2], [1, 3], [2, 4], [3, 4], [3, 5], [4, 6], [0, 7], [2, 8], [2, 9], [4, 10], [5, 11], [6, 12], [7, 8], [8, 9], [9, 10], [10, 11], [11, 12], [7, 13], [8, 14], [9, 15], [10, 16], [11, 17], [12, 18], [13, 14], [14, 15], [15, 16], [16, 17], [17, 18], [18, 19]];
+  const [phase, setPhase] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setPhase((value) => value + 1), 70);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const movingNodes = nodes.map(([x, y], index) => [
+    x + Math.sin(phase * 0.012 + index * 1.7) * (index % 3 === 0 ? 1.8 : 1.1),
+    y + Math.cos(phase * 0.009 + index * 1.3) * (index % 2 === 0 ? 1.5 : 0.9)
+  ]);
 
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
@@ -97,11 +109,11 @@ function NodeField() {
           <filter id="node-glow"><feGaussianBlur stdDeviation="0.7" /></filter>
         </defs>
         {links.map(([from, to]) => (
-          <line key={`${from}-${to}`} x1={nodes[from][0]} y1={nodes[from][1]} x2={nodes[to][0]} y2={nodes[to][1]} stroke="url(#node-line)" strokeWidth="0.11" strokeDasharray="0.4 0.8" />
+          <line key={`${from}-${to}`} x1={movingNodes[from][0]} y1={movingNodes[from][1]} x2={movingNodes[to][0]} y2={movingNodes[to][1]} stroke="url(#node-line)" strokeWidth="0.11" strokeDasharray="0.4 0.8" />
         ))}
-        {nodes.map(([cx, cy], index) => (
-          <g key={`${cx}-${cy}`}>
-            <motion.circle cx={cx} cy={cy} r="0.8" fill="#ca4aff" opacity="0.2" filter="url(#node-glow)" animate={{ cy: [cy, cy - (index % 3 + 1) * 0.7, cy] }} transition={{ duration: 4 + (index % 4), repeat: Infinity, ease: "easeInOut", delay: index * 0.12 }} />
+        {movingNodes.map(([cx, cy], index) => (
+          <g key={index}>
+            <motion.circle cx={cx} cy={cy} r="0.8" fill="#ca4aff" opacity="0.2" filter="url(#node-glow)" />
             <motion.circle cx={cx} cy={cy} r={index % 4 === 0 ? "0.38" : "0.22"} fill={index % 3 === 0 ? "#b8cfff" : "#eaa7ff"} animate={{ opacity: [0.28, 0.9, 0.28] }} transition={{ duration: 3 + (index % 3), repeat: Infinity, ease: "easeInOut", delay: index * 0.1 }} />
           </g>
         ))}
