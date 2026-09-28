@@ -78,11 +78,20 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
 
 function NodeField() {
   const nodes = [
-    [8, 22], [21, 12], [34, 28], [49, 11], [62, 24], [78, 13], [92, 29],
-    [14, 52], [29, 43], [45, 58], [59, 45], [73, 55], [87, 46],
-    [7, 83], [23, 72], [39, 88], [54, 73], [68, 86], [84, 70], [96, 84]
+    [4, 18], [12, 30], [20, 12], [29, 24], [38, 8], [48, 19], [58, 10], [69, 24], [80, 12], [91, 27], [98, 16],
+    [2, 48], [12, 59], [24, 42], [34, 55], [45, 39], [55, 57], [65, 43], [75, 60], [86, 41], [97, 54],
+    [5, 84], [16, 73], [27, 91], [37, 75], [48, 88], [59, 72], [69, 94], [79, 78], [89, 90], [98, 73]
   ];
-  const links = [[0, 1], [1, 2], [1, 3], [2, 4], [3, 4], [3, 5], [4, 6], [0, 7], [2, 8], [2, 9], [4, 10], [5, 11], [6, 12], [7, 8], [8, 9], [9, 10], [10, 11], [11, 12], [7, 13], [8, 14], [9, 15], [10, 16], [11, 17], [12, 18], [13, 14], [14, 15], [15, 16], [16, 17], [17, 18], [18, 19]];
+  const links = nodes.flatMap((node, index) => {
+    return nodes
+      .map((candidate, candidateIndex) => ({ candidate, candidateIndex }))
+      .filter(({ candidateIndex }) => candidateIndex > index)
+      .map(({ candidate, candidateIndex }) => ({ candidate, candidateIndex, distance: Math.hypot(candidate[0] - node[0], candidate[1] - node[1]) }))
+      .filter(({ distance }) => distance < 22)
+      .sort((a, b) => a.distance - b.distance)
+      .slice(0, 3)
+      .map(({ candidateIndex }) => [index, candidateIndex]);
+  });
   const [phase, setPhase] = useState(0);
 
   useEffect(() => {
@@ -97,32 +106,30 @@ function NodeField() {
 
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_74%_40%,rgba(91,92,255,0.22),transparent_23%),radial-gradient(circle_at_56%_70%,rgba(202,74,255,0.11),transparent_30%),linear-gradient(115deg,#050719_8%,#0a0b28_52%,#150a2c_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_34%,rgba(91,92,255,0.26),transparent_25%),radial-gradient(circle_at_54%_68%,rgba(202,74,255,0.16),transparent_32%),linear-gradient(115deg,#050719_8%,#090b2b_52%,#18092f_100%)]" />
       <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(145,182,255,0.055)_1px,transparent_1px),linear-gradient(90deg,rgba(145,182,255,0.045)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:radial-gradient(ellipse_at_72%_45%,black,transparent_62%)]" />
       <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full opacity-70">
         <defs>
           <linearGradient id="node-line" x1="0" x2="1">
             <stop offset="0" stopColor="#5b5cff" stopOpacity="0" />
-            <stop offset="0.48" stopColor="#ca4aff" stopOpacity="0.58" />
-            <stop offset="1" stopColor="#91b8ff" stopOpacity="0.08" />
+            <stop offset="0.48" stopColor="#e0a6ff" stopOpacity="0.62" />
+            <stop offset="1" stopColor="#91b8ff" stopOpacity="0.12" />
           </linearGradient>
           <filter id="node-glow"><feGaussianBlur stdDeviation="0.7" /></filter>
         </defs>
         {links.map(([from, to]) => (
-          <line key={`${from}-${to}`} x1={movingNodes[from][0]} y1={movingNodes[from][1]} x2={movingNodes[to][0]} y2={movingNodes[to][1]} stroke="url(#node-line)" strokeWidth="0.11" strokeDasharray="0.4 0.8" />
+          <line key={`${from}-${to}`} x1={movingNodes[from][0]} y1={movingNodes[from][1]} x2={movingNodes[to][0]} y2={movingNodes[to][1]} stroke="url(#node-line)" strokeWidth="0.14" opacity="0.8" />
         ))}
         {movingNodes.map(([cx, cy], index) => (
           <g key={index}>
-            <motion.circle cx={cx} cy={cy} r="0.8" fill="#ca4aff" opacity="0.2" filter="url(#node-glow)" />
-            <motion.circle cx={cx} cy={cy} r={index % 4 === 0 ? "0.38" : "0.22"} fill={index % 3 === 0 ? "#b8cfff" : "#eaa7ff"} animate={{ opacity: [0.28, 0.9, 0.28] }} transition={{ duration: 3 + (index % 3), repeat: Infinity, ease: "easeInOut", delay: index * 0.1 }} />
+            <motion.circle cx={cx} cy={cy} r="1.1" fill="#ca4aff" opacity="0.2" filter="url(#node-glow)" />
+            <motion.circle cx={cx} cy={cy} r={index % 5 === 0 ? "0.48" : "0.27"} fill={index % 3 === 0 ? "#b8cfff" : "#f0abfc"} animate={{ opacity: [0.22, 0.95, 0.22] }} transition={{ duration: 3 + (index % 4), repeat: Infinity, ease: "easeInOut", delay: index * 0.08 }} />
           </g>
         ))}
       </svg>
-      <motion.div animate={{ y: [0, -18, 0], rotate: [0, 8, 0] }} transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }} className="absolute right-[13%] top-[15%] h-36 w-36 rotate-12 border border-fuchsia-200/25 bg-[linear-gradient(135deg,rgba(240,171,252,0.18),rgba(91,92,255,0.06))] shadow-[inset_0_0_35px_rgba(240,171,252,0.1),0_0_60px_rgba(202,74,255,0.12)] [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)]" />
-      <motion.div animate={{ y: [0, 22, 0], rotate: [0, -10, 0] }} transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 1 }} className="absolute right-[28%] top-[58%] h-24 w-24 -rotate-12 border border-blue-200/25 bg-[linear-gradient(135deg,rgba(147,197,253,0.16),rgba(91,92,255,0.04))] shadow-[inset_0_0_30px_rgba(147,197,253,0.1),0_0_48px_rgba(46,108,235,0.12)] [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)]" />
-      <motion.div animate={{ y: [0, -12, 0], x: [0, 10, 0], rotate: [0, 14, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }} className="absolute right-[6%] top-[66%] h-16 w-16 border border-fuchsia-200/20 bg-fuchsia-300/[0.07] shadow-[0_0_35px_rgba(202,74,255,0.14)] [clip-path:polygon(50%_0%,100%_50%,50%_100%,0%_50%)]" />
-      <div className="absolute right-[21%] top-[37%] h-2 w-2 rounded-full bg-fuchsia-100 shadow-[0_0_22px_6px_rgba(240,171,252,0.48)]" />
-      <div className="absolute right-[38%] top-[24%] h-1.5 w-1.5 rounded-full bg-blue-100 shadow-[0_0_18px_5px_rgba(147,197,253,0.42)]" />
+      {["right-[14%] top-[20%]", "right-[27%] top-[62%]", "right-[7%] top-[72%]", "right-[40%] top-[30%]", "right-[52%] top-[78%]"].map((position, index) => (
+        <motion.span key={position} animate={{ y: [0, index % 2 === 0 ? -16 : 14, 0], x: [0, index % 2 === 0 ? 8 : -7, 0], opacity: [0.18, 0.62, 0.18] }} transition={{ duration: 6 + index, repeat: Infinity, ease: "easeInOut", delay: index * 0.7 }} className={`absolute ${position} ${index % 3 === 0 ? "h-2 w-2" : "h-1.5 w-1.5"} rounded-full ${index % 2 === 0 ? "bg-fuchsia-100 shadow-[0_0_22px_6px_rgba(240,171,252,0.48)]" : "bg-blue-100 shadow-[0_0_18px_5px_rgba(147,197,253,0.42)]"}`} />
+      ))}
     </div>
   );
 }
