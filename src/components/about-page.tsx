@@ -245,7 +245,7 @@ function SectionHeading({ eyebrow, title, copy }: { eyebrow: string; title: stri
 export default function AboutPage() {
   return (
     <main className="overflow-hidden bg-[#050719] text-white">
-      <SiteHeader mode="home" />
+      <SiteHeader mode="services" />
 
       <section id="about" className="relative isolate min-h-[680px] overflow-hidden pt-28 md:min-h-[720px] md:pt-32">
         <WaveField />
