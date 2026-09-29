@@ -373,12 +373,28 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="story" className="relative py-24 md:py-32">
-        <div className="section-shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-          <Reveal><SectionHeading eyebrow="Our AI story" title="From curiosity to compounding value." copy="AI is changing how businesses think, decide, and operate. Our role is to make that change practical: grounded in context, measurable in outcome, and built for the people who carry it forward." /></Reveal>
-          <Reveal delay={0.1} className="grid gap-3 sm:grid-cols-3">
-            {["See the opportunity", "Build what matters", "Scale with confidence"].map((item, index) => <motion.div key={item} whileHover={{ y: -8, scale: 1.02 }} transition={{ type: "spring", stiffness: 240, damping: 18 }} className="group relative min-h-52 overflow-hidden rounded-[1.35rem] border border-[#4d2aad]/45 bg-[linear-gradient(145deg,rgba(12,8,38,0.9),rgba(42,7,46,0.64))] p-5 shadow-[0_20px_70px_rgba(0,0,0,0.22)]"><div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-fuchsia-400/[0.12] blur-2xl transition duration-500 group-hover:bg-fuchsia-400/[0.26]" /><div className="text-sm text-fuchsia-200/55">0{index + 1}</div><div className="absolute left-5 top-20 h-px w-20 origin-left bg-gradient-to-r from-fuchsia-300/70 to-transparent transition duration-500 group-hover:scale-x-[1.8]" /><div className="absolute bottom-5 text-lg font-semibold text-white transition group-hover:text-fuchsia-100">{item}</div></motion.div>)}
+      <section id="story" className="relative overflow-hidden py-24 md:py-32">
+        <div className="absolute right-[-12rem] top-1/2 h-[32rem] w-[32rem] -translate-y-1/2 rounded-full bg-indigo-500/[0.08] blur-[120px]" />
+        <div className="section-shell relative grid gap-14 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
+          <Reveal>
+            <div className="max-w-xl">
+              <div className="section-kicker">Our AI story</div>
+              <h2 className="mt-6 text-5xl font-semibold leading-[0.94] tracking-tight text-white md:text-7xl">From curiosity to <span className="bg-[linear-gradient(100deg,#c7d2fe,#f0abfc,#d946ef)] bg-clip-text text-transparent">compounding value.</span></h2>
+              <p className="mt-8 max-w-lg text-lg leading-8 text-white/58">AI is changing how businesses think, decide, and operate. Our role is to make that change practical: grounded in context, measurable in outcome, and built for the people who carry it forward.</p>
+              <div className="mt-10 flex items-center gap-4 text-xs uppercase tracking-[0.28em] text-fuchsia-200/48"><span className="h-px w-12 bg-gradient-to-r from-fuchsia-300 to-transparent" />A practical path to AI value</div>
+            </div>
           </Reveal>
+          <div className="relative">
+            <div className="absolute left-7 top-8 bottom-8 w-px bg-gradient-to-b from-blue-300/10 via-fuchsia-300/60 to-blue-300/10" />
+            {["See the opportunity", "Build what matters", "Scale with confidence"].map((item, index) => (
+              <Reveal key={item} delay={index * 0.12}>
+                <motion.div whileHover={{ x: 8 }} transition={{ type: "spring", stiffness: 220, damping: 20 }} className="group relative grid grid-cols-[4rem_1fr] gap-6 py-5">
+                  <div className="relative z-10 grid h-14 w-14 place-items-center rounded-full border border-fuchsia-200/25 bg-[#08091f] text-sm font-semibold text-fuchsia-100 shadow-[0_0_28px_rgba(202,74,255,0.16)] transition duration-500 group-hover:border-fuchsia-200/70 group-hover:bg-[#19113c] group-hover:shadow-[0_0_34px_rgba(202,74,255,0.35)]">0{index + 1}</div>
+                  <div className="border-b border-white/10 pb-6 transition duration-500 group-hover:border-fuchsia-200/35"><div className="text-2xl font-semibold text-white transition group-hover:text-fuchsia-100">{item}</div><p className="mt-2 max-w-md text-sm leading-7 text-white/42">A focused step that turns ambition into a clearer decision, a useful system, and measurable momentum.</p><div className="mt-4 h-px w-20 bg-gradient-to-r from-fuchsia-300/70 to-transparent transition duration-500 group-hover:w-40" /></div>
+                </motion.div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
