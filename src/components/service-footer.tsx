@@ -3,6 +3,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { servicePageOrder } from "@/components/service-pages-data";
 
+// Retained as an alternate flowing treatment for future page sections.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function FooterWaves() {
   const paths = Array.from({ length: 22 }, (_, index) => {
     const offset = index * 1.5;
@@ -44,14 +46,53 @@ function FooterWaves() {
   );
 }
 
+function CornerWave({ corner }: { corner: "top-right" | "bottom-left" }) {
+  const isTopRight = corner === "top-right";
+  const arcs = Array.from({ length: 12 }, (_, index) => {
+    const inset = index * 4.2;
+    return isTopRight
+      ? `M ${104 - inset} ${-4 + inset * 0.35} Q ${65 - inset * 0.3} ${-4 + inset * 0.35} ${65 - inset * 0.3} ${38 + inset * 0.7}`
+      : `M ${-4 + inset} ${104 - inset * 0.35} Q ${39 + inset * 0.3} ${104 - inset * 0.35} ${39 + inset * 0.3} ${62 - inset * 0.7}`;
+  });
+
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-45" aria-hidden="true">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full">
+        <defs>
+          <linearGradient id={`corner-wave-${corner}`} x1="0" y1="0" x2="1" y2="1">
+            <stop stopColor="#8b72ff" stopOpacity="0.12" />
+            <stop offset="0.58" stopColor="#e45bff" stopOpacity="0.8" />
+            <stop offset="1" stopColor="#ff2aae" stopOpacity="0.28" />
+          </linearGradient>
+          <filter id={`corner-glow-${corner}`}><feGaussianBlur stdDeviation="1.2" /></filter>
+        </defs>
+        {arcs.map((path, index) => (
+          <motion.path
+            key={index}
+            d={path}
+            fill="none"
+            stroke={`url(#corner-wave-${corner})`}
+            strokeWidth={index % 4 === 0 ? "0.42" : "0.22"}
+            strokeOpacity={0.28 + (index % 5) * 0.06}
+            strokeDasharray="1.2 1.8"
+            filter={index % 4 === 0 ? `url(#corner-glow-${corner})` : undefined}
+            animate={{ strokeOpacity: [0.18, 0.58, 0.18], strokeDashoffset: [0, -5, 0] }}
+            transition={{ duration: 5 + (index % 4) * 0.7, repeat: Infinity, ease: "easeInOut", delay: index * 0.14 }}
+          />
+        ))}
+      </svg>
+    </div>
+  );
+}
+
 export default function ServiceFooter() {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-[#040615] py-10 md:py-12">
-      <div className="absolute bottom-[-18%] left-[-12%] h-[82%] w-[72%] rotate-[-7deg]">
-        <FooterWaves />
+      <div className="absolute right-0 top-0 h-[78%] w-[58%]">
+        <CornerWave corner="top-right" />
       </div>
-      <div className="absolute right-[-14%] top-[-24%] h-[78%] w-[68%] rotate-[9deg] opacity-80">
-        <FooterWaves />
+      <div className="absolute bottom-0 left-0 h-[78%] w-[58%]">
+        <CornerWave corner="bottom-left" />
       </div>
       <div className="pointer-events-none absolute left-[-10rem] top-[-12rem] h-[30rem] w-[30rem] rounded-full bg-fuchsia-400/[0.08] blur-[120px]" />
       <div className="pointer-events-none absolute right-[-8rem] bottom-[-14rem] h-[28rem] w-[28rem] rounded-full bg-blue-500/[0.08] blur-[120px]" />
