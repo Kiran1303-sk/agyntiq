@@ -260,12 +260,11 @@ export default function AboutPage() {
 
       <section id="about" className="relative isolate min-h-[680px] overflow-hidden pt-28 md:min-h-[720px] md:pt-32">
         <WaveField />
-        <div className="pointer-events-none absolute inset-0 bg-[#050719]/40 md:hidden" aria-hidden="true" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,#050719_0%,rgba(5,7,25,0.93)_32%,rgba(5,7,25,0.42)_68%,rgba(5,7,25,0.8)_100%)]" />
         <div className="section-shell relative z-10 flex min-h-[520px] items-center">
           <Reveal>
             <div className="section-kicker">About AgyntiQ</div>
-            <h1 className="mt-6 max-w-3xl bg-[linear-gradient(90deg,#ffffff_0%,#c7d2fe_38%,#f0abfc_70%,#d946ef_100%)] bg-clip-text text-5xl font-semibold leading-[0.94] tracking-normal text-transparent drop-shadow-[0_0_34px_rgba(202,74,255,0.18)] md:text-7xl">
+            <h1 className="mt-6 max-w-3xl bg-[linear-gradient(90deg,#ffffff_0%,#c7d2fe_70%,#e8eaff_100%)] bg-clip-text text-5xl font-semibold leading-[0.94] tracking-normal text-transparent drop-shadow-[0_0_24px_rgba(91,92,255,0.14)] md:bg-[linear-gradient(90deg,#ffffff_0%,#c7d2fe_38%,#f0abfc_70%,#d946ef_100%)] md:drop-shadow-[0_0_34px_rgba(202,74,255,0.18)] md:text-7xl">
               Intelligence that moves business forward.
             </h1>
             <p className="mt-7 max-w-xl text-lg leading-8 text-white/68 md:text-xl">
