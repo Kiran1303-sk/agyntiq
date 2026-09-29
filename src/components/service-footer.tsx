@@ -1,10 +1,53 @@
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { servicePageOrder } from "@/components/service-pages-data";
+
+function FooterWaves() {
+  const paths = Array.from({ length: 22 }, (_, index) => {
+    const offset = index * 1.5;
+    return `M -8 ${56 + offset} C 10 ${45 + offset * 0.4}, 20 ${67 + offset * 0.7}, 37 ${56 + offset * 0.58} S 61 ${75 + offset * 0.5}, 74 ${58 + offset * 0.48} S 91 ${43 + offset * 0.45}, 108 ${55 + offset * 0.68}`;
+  });
+
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-25" aria-hidden="true">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full">
+        <defs>
+          <linearGradient id="footer-wave-line" x1="0" y1="0" x2="1" y2="0">
+            <stop stopColor="#704dff" stopOpacity="0.18" />
+            <stop offset="0.52" stopColor="#d84dff" stopOpacity="0.7" />
+            <stop offset="0.82" stopColor="#ff159e" stopOpacity="0.82" />
+            <stop offset="1" stopColor="#ff55cb" stopOpacity="0.2" />
+          </linearGradient>
+          <filter id="footer-wave-glow"><feGaussianBlur stdDeviation="1.8" /></filter>
+        </defs>
+        <motion.g
+          animate={{ x: [0, -1.5, 0], y: [0, -1, 0] }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+        >
+          {paths.map((path, index) => (
+            <motion.path
+              key={index}
+              d={path}
+              fill="none"
+              stroke="url(#footer-wave-line)"
+              strokeWidth={index % 5 === 0 ? "0.34" : "0.2"}
+              strokeOpacity={0.3 + (index % 5) * 0.06}
+              animate={{ strokeOpacity: [0.2, 0.48, 0.2] }}
+              transition={{ duration: 5 + (index % 4) * 0.6, repeat: Infinity, ease: "easeInOut", delay: index * 0.1 }}
+            />
+          ))}
+          <path d={paths[10]} fill="none" stroke="#ed3dff" strokeWidth="0.9" strokeOpacity="0.5" filter="url(#footer-wave-glow)" />
+        </motion.g>
+      </svg>
+    </div>
+  );
+}
 
 export default function ServiceFooter() {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-[#040615] py-10 md:py-12">
+      <FooterWaves />
       <div className="pointer-events-none absolute left-[-10rem] top-[-12rem] h-[30rem] w-[30rem] rounded-full bg-fuchsia-400/[0.08] blur-[120px]" />
       <div className="pointer-events-none absolute right-[-8rem] bottom-[-14rem] h-[28rem] w-[28rem] rounded-full bg-blue-500/[0.08] blur-[120px]" />
       <div className="section-shell relative">
