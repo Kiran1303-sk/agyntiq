@@ -3,8 +3,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { servicePageOrder } from "@/components/service-pages-data";
 
-// Retained as an alternate flowing treatment for future page sections.
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function FooterWaves() {
   const paths = Array.from({ length: 22 }, (_, index) => {
     const offset = index * 1.5;
@@ -87,6 +85,8 @@ function CornerWave({ corner }: { corner: "top-right" | "bottom-left" }) {
   );
 }
 
+// Retained as an alternate footer backdrop for future page sections.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function FooterLocationBackdrop() {
   const points = [[8, 48], [24, 37], [41, 50], [57, 35], [72, 53], [86, 42], [99, 58]];
 
@@ -124,7 +124,7 @@ function FooterLocationBackdrop() {
 export default function ServiceFooter() {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-[#040615] py-10 md:py-12">
-      <FooterLocationBackdrop />
+      <FooterWaves />
       <div className="pointer-events-none absolute left-[-10rem] top-[-12rem] h-[30rem] w-[30rem] rounded-full bg-fuchsia-400/[0.08] blur-[120px]" />
       <div className="pointer-events-none absolute right-[-8rem] bottom-[-14rem] h-[28rem] w-[28rem] rounded-full bg-blue-500/[0.08] blur-[120px]" />
       <div className="section-shell relative">
