@@ -11,7 +11,7 @@ function FooterWaves() {
 
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-20" aria-hidden="true">
-      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-[-8%] h-[116%] w-[116%] rotate-6">
         <defs>
           <linearGradient id="footer-wave-line" x1="0" y1="0" x2="1" y2="0">
             <stop stopColor="#8a6bff" stopOpacity="0.34" />
