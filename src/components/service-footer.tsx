@@ -87,9 +87,44 @@ function CornerWave({ corner }: { corner: "top-right" | "bottom-left" }) {
   );
 }
 
+function FooterLocationBackdrop() {
+  const points = [[8, 48], [24, 37], [41, 50], [57, 35], [72, 53], [86, 42], [99, 58]];
+
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-35" aria-hidden="true">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_65%_45%,rgba(46,108,235,0.16),transparent_48%),radial-gradient(ellipse_at_35%_70%,rgba(202,74,255,0.1),transparent_44%)]" />
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full">
+        <defs>
+          <linearGradient id="footer-location-line" x1="0" x2="1">
+            <stop stopColor="#5b5cff" stopOpacity="0.18" />
+            <stop offset="0.5" stopColor="#ca4aff" stopOpacity="0.62" />
+            <stop offset="1" stopColor="#8ab6ff" stopOpacity="0.2" />
+          </linearGradient>
+        </defs>
+        <motion.path
+          d="M 8 48 C 24 28 29 57 41 50 S 57 26 72 53 88 62 99 58"
+          fill="none"
+          stroke="url(#footer-location-line)"
+          strokeWidth="0.38"
+          strokeDasharray="1.1 1.8"
+          animate={{ strokeDashoffset: [0, -8, 0], opacity: [0.35, 0.8, 0.35] }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        />
+        {points.map(([cx, cy], index) => (
+          <g key={index}>
+            <motion.circle cx={cx} cy={cy} r="3.2" fill="#ca4aff" opacity="0.12" animate={{ opacity: [0.06, 0.22, 0.06], r: [2.2, 4, 2.2] }} transition={{ duration: 3.2 + index * 0.2, repeat: Infinity, ease: "easeInOut", delay: index * 0.18 }} />
+            <motion.circle cx={cx} cy={cy} r="0.55" fill={index % 2 === 0 ? "#f0abfc" : "#9bc1ff"} animate={{ opacity: [0.35, 1, 0.35] }} transition={{ duration: 2.8 + index * 0.16, repeat: Infinity, ease: "easeInOut", delay: index * 0.12 }} />
+          </g>
+        ))}
+      </svg>
+    </div>
+  );
+}
+
 export default function ServiceFooter() {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-[#040615] py-10 md:py-12">
+      <FooterLocationBackdrop />
       <div className="pointer-events-none absolute left-[-10rem] top-[-12rem] h-[30rem] w-[30rem] rounded-full bg-fuchsia-400/[0.08] blur-[120px]" />
       <div className="pointer-events-none absolute right-[-8rem] bottom-[-14rem] h-[28rem] w-[28rem] rounded-full bg-blue-500/[0.08] blur-[120px]" />
       <div className="section-shell relative">
