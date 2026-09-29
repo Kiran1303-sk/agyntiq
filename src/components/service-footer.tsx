@@ -3,6 +3,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { servicePageOrder } from "@/components/service-pages-data";
 
+// Retained as an alternate flowing treatment for future page sections.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function FooterWaves() {
   const paths = Array.from({ length: 22 }, (_, index) => {
     const offset = index * 1.5;
@@ -85,6 +87,45 @@ function CornerWave({ corner }: { corner: "top-right" | "bottom-left" }) {
   );
 }
 
+function CircularCornerWave({ corner }: { corner: "top-left" | "bottom-right" }) {
+  const isTopLeft = corner === "top-left";
+  const arcs = Array.from({ length: 12 }, (_, index) => {
+    const radius = 22 + index * 5.2;
+    return isTopLeft
+      ? `M 0 ${radius} A ${radius} ${radius} 0 0 1 ${radius} 0`
+      : `M ${100 - radius} 100 A ${radius} ${radius} 0 0 1 100 ${100 - radius}`;
+  });
+
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-45" aria-hidden="true">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full">
+        <defs>
+          <linearGradient id={`circular-wave-${corner}`} x1="0" y1="0" x2="1" y2="1">
+            <stop stopColor="#7c63ff" stopOpacity="0.2" />
+            <stop offset="0.58" stopColor="#db5aff" stopOpacity="0.78" />
+            <stop offset="1" stopColor="#ff27b0" stopOpacity="0.3" />
+          </linearGradient>
+          <filter id={`circular-glow-${corner}`}><feGaussianBlur stdDeviation="1.1" /></filter>
+        </defs>
+        {arcs.map((path, index) => (
+          <motion.path
+            key={index}
+            d={path}
+            fill="none"
+            stroke={`url(#circular-wave-${corner})`}
+            strokeWidth={index % 4 === 0 ? "0.42" : "0.22"}
+            strokeOpacity={0.28 + (index % 5) * 0.06}
+            strokeDasharray="1.1 1.7"
+            filter={index % 4 === 0 ? `url(#circular-glow-${corner})` : undefined}
+            animate={{ strokeOpacity: [0.18, 0.58, 0.18], strokeDashoffset: [0, -5, 0] }}
+            transition={{ duration: 5 + (index % 4) * 0.7, repeat: Infinity, ease: "easeInOut", delay: index * 0.14 }}
+          />
+        ))}
+      </svg>
+    </div>
+  );
+}
+
 // Retained as an alternate footer backdrop for future page sections.
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function FooterLocationBackdrop() {
@@ -124,11 +165,11 @@ function FooterLocationBackdrop() {
 export default function ServiceFooter() {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-[#040615] py-10 md:py-12">
-      <div className="pointer-events-none absolute bottom-[-18%] left-0 h-[82%] w-[58%] overflow-hidden" aria-hidden="true">
-        <FooterWaves />
+      <div className="absolute left-0 top-0 h-[72%] w-[52%]">
+        <CircularCornerWave corner="top-left" />
       </div>
-      <div className="pointer-events-none absolute bottom-[-18%] right-0 h-[82%] w-[58%] overflow-hidden scale-x-[-1]" aria-hidden="true">
-        <FooterWaves />
+      <div className="absolute bottom-0 right-0 h-[72%] w-[52%]">
+        <CircularCornerWave corner="bottom-right" />
       </div>
       <div className="pointer-events-none absolute left-[-10rem] top-[-12rem] h-[30rem] w-[30rem] rounded-full bg-fuchsia-400/[0.08] blur-[120px]" />
       <div className="pointer-events-none absolute right-[-8rem] bottom-[-14rem] h-[28rem] w-[28rem] rounded-full bg-blue-500/[0.08] blur-[120px]" />
