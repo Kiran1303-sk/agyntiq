@@ -68,6 +68,8 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
   );
 }
 
+// Kept as a reusable alternate background treatment for future sections.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function NodeField() {
   const networks = [
     {
@@ -166,6 +168,70 @@ function NodeField() {
   );
 }
 
+function WaveField() {
+  const wavePaths = Array.from({ length: 25 }, (_, index) => {
+    const offset = index * 1.45;
+    return `M -8 ${61 + offset} C 8 ${49 + offset * 0.4}, 18 ${67 + offset * 0.75}, 34 ${57 + offset * 0.6} S 57 ${76 + offset * 0.55}, 70 ${59 + offset * 0.5} S 88 ${43 + offset * 0.45}, 108 ${57 + offset * 0.7}`;
+  });
+
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_18%_12%,rgba(71,47,187,0.52),transparent_42%),radial-gradient(ellipse_at_78%_64%,rgba(255,0,145,0.2),transparent_32%),linear-gradient(145deg,#15104c_0%,#0b0a25_48%,#070817_100%)]" />
+      <div className="absolute -bottom-24 left-[24%] h-80 w-[65%] rounded-[50%] bg-fuchsia-500/[0.12] blur-[110px]" />
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full">
+        <defs>
+          <linearGradient id="wave-line" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stopColor="#734eff" stopOpacity="0.62" />
+            <stop offset="0.48" stopColor="#d84dff" stopOpacity="0.92" />
+            <stop offset="0.78" stopColor="#ff159e" stopOpacity="0.98" />
+            <stop offset="1" stopColor="#ff55cb" stopOpacity="0.46" />
+          </linearGradient>
+          <filter id="wave-blur"><feGaussianBlur stdDeviation="1.4" /></filter>
+          <filter id="wave-soft-blur"><feGaussianBlur stdDeviation="4" /></filter>
+          <linearGradient id="wave-fade" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#0b0a25" stopOpacity="0" />
+            <stop offset="0.34" stopColor="#0b0a25" stopOpacity="0.08" />
+            <stop offset="1" stopColor="#070817" stopOpacity="0.72" />
+          </linearGradient>
+        </defs>
+        <path d="M -5 67 C 16 50, 27 72, 44 60 S 70 78, 104 52 L 104 106 L -5 106 Z" fill="url(#wave-fade)" />
+        <g opacity="0.55" filter="url(#wave-soft-blur)">
+          <path d={wavePaths[5]} fill="none" stroke="#633dff" strokeWidth="2.8" />
+          <path d={wavePaths[12]} fill="none" stroke="#ff159e" strokeWidth="3.4" />
+          <path d={wavePaths[19]} fill="none" stroke="#ff36c0" strokeWidth="2.8" />
+        </g>
+        <motion.g
+          animate={{ x: [0, -1.8, 0], y: [0, -1.2, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        >
+          {wavePaths.map((path, index) => (
+            <motion.path
+              key={index}
+              d={path}
+              fill="none"
+              stroke="url(#wave-line)"
+              strokeWidth={index % 5 === 0 ? "0.34" : "0.2"}
+              strokeOpacity={0.34 + (index % 6) * 0.07}
+              animate={{ strokeOpacity: [0.28 + (index % 4) * 0.05, 0.58 + (index % 3) * 0.08, 0.28 + (index % 4) * 0.05] }}
+              transition={{ duration: 4.5 + (index % 5) * 0.6, repeat: Infinity, ease: "easeInOut", delay: index * 0.09 }}
+            />
+          ))}
+        </motion.g>
+        <motion.path
+          d={wavePaths[11]}
+          fill="none"
+          stroke="url(#wave-line)"
+          strokeWidth="0.75"
+          strokeOpacity="0.9"
+          filter="url(#wave-blur)"
+          animate={{ x: [0, 2, 0], y: [0, -1, 0] }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </svg>
+    </div>
+  );
+}
+
 function SectionHeading({ eyebrow, title, copy }: { eyebrow: string; title: string; copy: string }) {
   return (
     <div className="max-w-3xl">
@@ -182,7 +248,7 @@ export default function AboutPage() {
       <SiteHeader mode="home" />
 
       <section id="about" className="relative isolate min-h-[680px] overflow-hidden pt-28 md:min-h-[720px] md:pt-32">
-        <NodeField />
+        <WaveField />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,#050719_0%,rgba(5,7,25,0.93)_32%,rgba(5,7,25,0.42)_68%,rgba(5,7,25,0.8)_100%)]" />
         <div className="section-shell relative z-10 flex min-h-[520px] items-center">
           <Reveal>
