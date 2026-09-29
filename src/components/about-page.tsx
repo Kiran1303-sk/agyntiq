@@ -174,7 +174,7 @@ function DenseNeuralField() {
     const column = index % 9;
     const row = Math.floor(index / 9);
     return [
-      35 + column * 7.8 + Math.sin(index * 2.7) * 3.8 + (row % 2) * 1.8,
+      8 + column * 10.6 + Math.sin(index * 2.7) * 4.2 + (row % 2) * 1.8,
       7 + row * 12.4 + Math.cos(index * 1.9) * 4.8 + Math.sin(column * 1.4) * 2.2
     ];
   });
@@ -187,7 +187,7 @@ function DenseNeuralField() {
       .slice(0, 4)
       .map(({ candidateIndex }) => [index, candidateIndex] as [number, number])
   );
-  const particles = Array.from({ length: 18 }, (_, index) => [40 + ((index * 17) % 58), 10 + ((index * 23) % 82)]);
+  const particles = Array.from({ length: 24 }, (_, index) => [8 + ((index * 17) % 88), 8 + ((index * 23) % 84)]);
   const [pointer, setPointer] = useState({ x: 0.72, y: 0.4 });
 
   useEffect(() => {
