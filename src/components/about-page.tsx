@@ -84,6 +84,12 @@ function NodeField() {
       .slice(0, 3)
       .map(({ candidateIndex }) => [index, candidateIndex]);
   });
+  const facets = [
+    [0, 1, 2], [1, 2, 3], [2, 3, 4], [3, 4, 5], [4, 5, 6], [5, 6, 7],
+    [8, 9, 10], [9, 10, 11], [10, 11, 12], [11, 12, 13], [12, 13, 14],
+    [16, 17, 18], [17, 18, 19], [18, 19, 20], [19, 20, 21], [20, 21, 22],
+    [22, 23, 24], [23, 24, 25], [24, 25, 26], [25, 26, 27], [27, 28, 29]
+  ];
   const [phase, setPhase] = useState(0);
   const [pointer, setPointer] = useState({ x: 0.72, y: 0.42 });
 
@@ -110,10 +116,10 @@ function NodeField() {
   ]);
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_34%,rgba(91,92,255,0.26),transparent_25%),radial-gradient(circle_at_54%_68%,rgba(202,74,255,0.16),transparent_32%),linear-gradient(115deg,#050719_8%,#090b2b_52%,#18092f_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_32%,rgba(91,92,255,0.3),transparent_26%),radial-gradient(circle_at_62%_66%,rgba(202,74,255,0.2),transparent_34%),linear-gradient(115deg,#050719_8%,#090b2b_52%,#18092f_100%)]" />
       <div className="absolute h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-fuchsia-300/[0.07] blur-[90px] transition-[left,top] duration-700 ease-out" style={{ left: `${pointer.x * 100}%`, top: `${pointer.y * 100}%` }} />
       <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(145,182,255,0.055)_1px,transparent_1px),linear-gradient(90deg,rgba(145,182,255,0.045)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:radial-gradient(ellipse_at_72%_45%,black,transparent_62%)]" />
-      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full opacity-90 mix-blend-screen">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full opacity-95 mix-blend-screen">
         <defs>
           <linearGradient id="node-line" x1="0" x2="1">
             <stop offset="0" stopColor="#5b5cff" stopOpacity="0" />
@@ -122,8 +128,19 @@ function NodeField() {
           </linearGradient>
           <filter id="node-glow"><feGaussianBlur stdDeviation="0.7" /></filter>
         </defs>
+        {facets.map(([first, second, third], index) => (
+          <polygon
+            key={`facet-${index}`}
+            points={`${movingNodes[first][0]},${movingNodes[first][1]} ${movingNodes[second][0]},${movingNodes[second][1]} ${movingNodes[third][0]},${movingNodes[third][1]}`}
+            fill={index % 2 === 0 ? "#5b5cff" : "#ca4aff"}
+            fillOpacity="0.035"
+            stroke="url(#node-line)"
+            strokeWidth="0.08"
+            strokeOpacity="0.24"
+          />
+        ))}
         {links.map(([from, to]) => (
-          <line key={`${from}-${to}`} x1={movingNodes[from][0]} y1={movingNodes[from][1]} x2={movingNodes[to][0]} y2={movingNodes[to][1]} stroke="url(#node-line)" strokeWidth="0.16" opacity="0.86" />
+          <line key={`${from}-${to}`} x1={movingNodes[from][0]} y1={movingNodes[from][1]} x2={movingNodes[to][0]} y2={movingNodes[to][1]} stroke="url(#node-line)" strokeWidth="0.18" opacity="0.86" />
         ))}
         {movingNodes.map(([cx, cy], index) => (
           <g key={index}>
