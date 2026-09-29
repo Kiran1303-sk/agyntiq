@@ -244,8 +244,19 @@ function SectionHeading({ eyebrow, title, copy }: { eyebrow: string; title: stri
 
 export default function AboutPage() {
   return (
-    <main className="overflow-hidden bg-[#050719] text-white">
+    <main className="relative overflow-hidden bg-[#050719] text-white">
       <SiteHeader mode="services" />
+      <div className="pointer-events-none absolute inset-x-0 top-[680px] bottom-[420px] z-0 opacity-[0.13]" aria-hidden="true">
+        <div className="absolute inset-x-0 top-0 h-[28%]">
+          <WaveField showBackdrop={false} />
+        </div>
+        <div className="absolute inset-x-0 top-[34%] h-[28%] rotate-180 scale-x-110 opacity-75">
+          <WaveField showBackdrop={false} />
+        </div>
+        <div className="absolute inset-x-0 bottom-0 h-[30%] scale-110 opacity-70">
+          <WaveField showBackdrop={false} />
+        </div>
+      </div>
 
       <section id="about" className="relative isolate min-h-[680px] overflow-hidden pt-28 md:min-h-[720px] md:pt-32">
         <WaveField />
