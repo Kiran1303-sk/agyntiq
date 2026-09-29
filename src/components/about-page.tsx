@@ -174,6 +174,8 @@ function WaveField({ showBackdrop = true }: { showBackdrop?: boolean }) {
     return `M -8 ${61 + offset} C 8 ${49 + offset * 0.4}, 18 ${67 + offset * 0.75}, 34 ${57 + offset * 0.6} S 57 ${76 + offset * 0.55}, 70 ${59 + offset * 0.5} S 88 ${43 + offset * 0.45}, 108 ${57 + offset * 0.7}`;
   });
 
+  if (!showBackdrop) return null;
+
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
       {showBackdrop && <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_18%_12%,rgba(71,47,187,0.52),transparent_42%),radial-gradient(ellipse_at_78%_64%,rgba(255,0,145,0.2),transparent_32%),linear-gradient(145deg,#15104c_0%,#0b0a25_48%,#070817_100%)]" />}
@@ -268,7 +270,7 @@ export default function AboutPage() {
       </div>
 
       <section id="about" className="relative isolate min-h-[680px] overflow-hidden pt-28 md:min-h-[720px] md:pt-32">
-        <WaveField />
+        <WaveField showBackdrop={false} />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,#050719_0%,rgba(5,7,25,0.93)_32%,rgba(5,7,25,0.42)_68%,rgba(5,7,25,0.8)_100%)]" />
         <div className="section-shell relative z-10 flex min-h-[520px] items-center">
           <Reveal>
@@ -319,7 +321,7 @@ export default function AboutPage() {
           <span aria-hidden="true">↑</span>
         </Link>
       )}
-      <ServiceFooter />
+      <ServiceFooter showWaves={false} />
     </main>
   );
 }
