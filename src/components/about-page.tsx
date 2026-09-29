@@ -71,25 +71,25 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
 function NodeField() {
   const networks = [
     {
-      nodes: [[70, 25], [77, 18], [84, 23], [91, 15], [88, 32], [98, 28], [78, 36]],
-      links: [[0, 1], [1, 2], [1, 3], [2, 4], [2, 5], [4, 5], [0, 6], [4, 6]],
-      triangles: [[0, 1, 2], [1, 2, 4], [1, 3, 2], [2, 4, 5], [0, 2, 6]],
-      color: "#94b9ff",
-      accent: "#d9c2ff"
+      nodes: [[42, 15], [55, 9], [66, 19], [78, 12], [88, 25], [96, 8], [72, 33], [54, 30], [39, 39], [91, 43]],
+      links: [[0, 1], [0, 2], [1, 2], [1, 3], [2, 3], [2, 7], [3, 4], [3, 6], [3, 5], [4, 5], [4, 9], [6, 7], [6, 9], [7, 8], [8, 9]],
+      triangles: [[0, 1, 2], [1, 2, 3], [2, 3, 6], [2, 6, 7], [3, 4, 6], [3, 4, 5], [4, 5, 9], [4, 6, 9], [6, 7, 8], [6, 8, 9]],
+      color: "#769bff",
+      accent: "#c7b2ff"
     },
     {
-      nodes: [[54, 51], [62, 45], [70, 52], [78, 47], [85, 55], [68, 62], [76, 66]],
-      links: [[0, 1], [0, 5], [1, 2], [1, 3], [2, 3], [2, 5], [3, 4], [4, 6], [5, 6]],
-      triangles: [[0, 1, 2], [0, 2, 5], [1, 2, 3], [2, 3, 5], [2, 5, 6], [3, 4, 6]],
-      color: "#d79cff",
-      accent: "#8fc2ff"
+      nodes: [[35, 55], [45, 48], [56, 58], [66, 51], [76, 63], [88, 56], [97, 74], [83, 82], [68, 76], [52, 87], [41, 78], [29, 92]],
+      links: [[0, 1], [0, 10], [0, 11], [1, 2], [1, 3], [2, 3], [2, 8], [2, 9], [3, 4], [3, 8], [4, 5], [4, 7], [4, 8], [5, 6], [5, 7], [6, 7], [7, 8], [8, 9], [9, 10], [10, 11]],
+      triangles: [[0, 1, 2], [1, 2, 3], [2, 3, 8], [2, 8, 9], [3, 4, 8], [4, 5, 7], [4, 7, 8], [5, 6, 7], [7, 8, 9], [8, 9, 10], [9, 10, 11], [0, 10, 11]],
+      color: "#8e8dff",
+      accent: "#e2a8ff"
     },
     {
-      nodes: [[76, 79], [84, 73], [92, 77], [98, 70], [89, 87], [80, 91], [96, 92]],
-      links: [[0, 1], [0, 5], [1, 2], [1, 4], [2, 3], [2, 6], [4, 5], [4, 6]],
-      triangles: [[0, 1, 4], [0, 4, 5], [1, 2, 4], [2, 3, 6], [2, 4, 6], [4, 5, 6]],
-      color: "#b7a5ff",
-      accent: "#ffb8e7"
+      nodes: [[48, 69], [58, 62], [67, 70], [75, 65], [84, 73], [93, 68], [73, 86], [62, 81]],
+      links: [[0, 1], [0, 7], [1, 2], [1, 3], [2, 3], [2, 7], [2, 6], [3, 4], [3, 6], [4, 5], [4, 6], [6, 7]],
+      triangles: [[0, 1, 2], [0, 1, 7], [1, 2, 7], [1, 2, 3], [2, 3, 6], [2, 6, 7], [3, 4, 6], [4, 5, 6]],
+      color: "#6caaff",
+      accent: "#f0b1ff"
     }
   ];
   const [pointer, setPointer] = useState({ x: 0.72, y: 0.42 });
@@ -110,27 +110,32 @@ function NodeField() {
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_32%,rgba(91,92,255,0.22),transparent_24%),radial-gradient(circle_at_72%_72%,rgba(202,74,255,0.14),transparent_28%),linear-gradient(115deg,#050719_10%,#080a25_55%,#150c2c_100%)]" />
       <div className="absolute h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-fuchsia-300/[0.07] blur-[90px] transition-[left,top] duration-700 ease-out" style={{ left: `${pointer.x * 100}%`, top: `${pointer.y * 100}%` }} />
-      <div className="absolute inset-0 opacity-25 [background-image:radial-gradient(rgba(181,194,255,0.45)_0.7px,transparent_0.7px)] [background-size:22px_22px] [mask-image:radial-gradient(ellipse_at_80%_50%,black,transparent_62%)]" />
+      <div className="absolute inset-0 opacity-25 [background-image:linear-gradient(rgba(145,182,255,0.11)_1px,transparent_1px),linear-gradient(90deg,rgba(145,182,255,0.09)_1px,transparent_1px)] [background-size:58px_58px] [mask-image:radial-gradient(ellipse_at_78%_50%,black,transparent_68%)]" />
       <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full opacity-90 mix-blend-screen">
         <defs>
           <filter id="network-glow"><feGaussianBlur stdDeviation="1.1" /></filter>
           <radialGradient id="network-halo"><stop stopColor="#d5b8ff" stopOpacity="0.18" /><stop offset="1" stopColor="#d5b8ff" stopOpacity="0" /></radialGradient>
         </defs>
         {networks.map((network, networkIndex) => (
-          <g key={networkIndex} transform={`translate(${(pointer.x - 0.5) * (networkIndex + 1) * 0.8} ${(pointer.y - 0.5) * (networkIndex + 1) * 0.5}`}>
+          <motion.g
+            key={networkIndex}
+            transform={`translate(${(pointer.x - 0.5) * (networkIndex + 1) * 0.8} ${(pointer.y - 0.5) * (networkIndex + 1) * 0.5})`}
+            animate={{ x: [0, networkIndex % 2 === 0 ? 0.8 : -0.6, 0], y: [0, networkIndex === 1 ? -0.7 : 0.5, 0] }}
+            transition={{ duration: 12 + networkIndex * 2, repeat: Infinity, ease: "easeInOut", delay: networkIndex * 0.7 }}
+          >
             <circle cx={network.nodes[2][0]} cy={network.nodes[2][1]} r="13" fill="url(#network-halo)" />
             {network.triangles.map(([first, second, third], triangleIndex) => (
               <motion.polygon
                 key={`triangle-${triangleIndex}`}
                 points={`${network.nodes[first][0]},${network.nodes[first][1]} ${network.nodes[second][0]},${network.nodes[second][1]} ${network.nodes[third][0]},${network.nodes[third][1]}`}
                 fill={triangleIndex % 2 === 0 ? network.color : network.accent}
-                fillOpacity="0.035"
+                fillOpacity="0.022"
                 stroke={network.accent}
                 strokeWidth="0.12"
-                strokeOpacity="0.28"
+                strokeOpacity="0.2"
                 strokeDasharray="0.7 1.6"
-                animate={{ fillOpacity: [0.018, 0.075, 0.018], strokeOpacity: [0.16, 0.42, 0.16], strokeDashoffset: [0, -3, 0] }}
-                transition={{ duration: 5.5 + networkIndex * 0.8, repeat: Infinity, ease: "easeInOut", delay: triangleIndex * 0.24 }}
+                animate={{ fillOpacity: [0.012, 0.055, 0.012], strokeOpacity: [0.1, 0.3, 0.1], strokeDashoffset: [0, -3, 0] }}
+                transition={{ duration: 7 + networkIndex * 0.9, repeat: Infinity, ease: "easeInOut", delay: triangleIndex * 0.24 }}
               />
             ))}
             {network.links.map(([from, to], linkIndex) => (
@@ -154,7 +159,7 @@ function NodeField() {
                 <motion.circle cx={cx} cy={cy} r={nodeIndex === 2 ? "0.48" : "0.3"} fill={nodeIndex === 2 ? network.accent : network.color} animate={{ opacity: [0.38, 1, 0.38] }} transition={{ duration: 2.8 + nodeIndex * 0.2, repeat: Infinity, ease: "easeInOut", delay: nodeIndex * 0.17 }} />
               </g>
             ))}
-          </g>
+          </motion.g>
         ))}
       </svg>
     </div>
