@@ -69,6 +69,8 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
 }
 
 // Kept as a reusable alternate background treatment for future sections.
+// Retained as an alternate neural field treatment for future sections.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function NodeField() {
   const networks = [
     {
@@ -162,6 +164,70 @@ function NodeField() {
             ))}
           </motion.g>
         ))}
+      </svg>
+    </div>
+  );
+}
+
+function DenseNeuralField() {
+  const nodes: [number, number][] = Array.from({ length: 72 }, (_, index) => {
+    const column = index % 9;
+    const row = Math.floor(index / 9);
+    return [
+      35 + column * 7.8 + Math.sin(index * 2.7) * 3.8 + (row % 2) * 1.8,
+      7 + row * 12.4 + Math.cos(index * 1.9) * 4.8 + Math.sin(column * 1.4) * 2.2
+    ];
+  });
+  const links: [number, number][] = nodes.flatMap((node, index) =>
+    nodes
+      .slice(index + 1)
+      .map((candidate, offset) => ({ candidate, candidateIndex: index + offset + 1, distance: Math.hypot(candidate[0] - node[0], candidate[1] - node[1]) }))
+      .filter(({ distance }) => distance < 15.5)
+      .sort((a, b) => a.distance - b.distance)
+      .slice(0, 4)
+      .map(({ candidateIndex }) => [index, candidateIndex] as [number, number])
+  );
+  const particles = Array.from({ length: 18 }, (_, index) => [40 + ((index * 17) % 58), 10 + ((index * 23) % 82)]);
+  const [pointer, setPointer] = useState({ x: 0.72, y: 0.4 });
+
+  useEffect(() => {
+    const handlePointerMove = (event: PointerEvent) => setPointer({ x: event.clientX / window.innerWidth, y: event.clientY / window.innerHeight });
+    window.addEventListener("pointermove", handlePointerMove, { passive: true });
+    return () => window.removeEventListener("pointermove", handlePointerMove);
+  }, []);
+
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_24%,rgba(61,83,255,0.24),transparent_34%),radial-gradient(ellipse_at_75%_72%,rgba(196,44,255,0.16),transparent_42%),linear-gradient(115deg,#050719_8%,#080a25_56%,#150a2e_100%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-48 bg-[linear-gradient(0deg,rgba(4,5,18,0.88),transparent)]" />
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full opacity-90 mix-blend-screen">
+        <defs>
+          <linearGradient id="dense-neural-line" x1="0" y1="0" x2="1" y2="1">
+            <stop stopColor="#5b77ff" stopOpacity="0.08" />
+            <stop offset="0.48" stopColor="#8b7cff" stopOpacity="0.58" />
+            <stop offset="0.78" stopColor="#dc4dff" stopOpacity="0.72" />
+            <stop offset="1" stopColor="#ff35b8" stopOpacity="0.18" />
+          </linearGradient>
+          <filter id="dense-node-glow"><feGaussianBlur stdDeviation="0.9" /></filter>
+          <filter id="dense-particle-glow"><feGaussianBlur stdDeviation="1.4" /></filter>
+        </defs>
+        {particles.map(([cx, cy], index) => (
+          <motion.circle key={`particle-${index}`} cx={cx} cy={cy} r={index % 4 === 0 ? "0.32" : "0.16"} fill={index % 3 === 0 ? "#a9c9ff" : "#e78dff"} filter="url(#dense-particle-glow)" animate={{ opacity: [0.08, 0.7, 0.08], cy: [cy, cy - 2.5, cy] }} transition={{ duration: 6 + (index % 5), repeat: Infinity, ease: "easeInOut", delay: index * 0.24 }} />
+        ))}
+        <motion.g animate={{ x: [(pointer.x - 0.5) * 1.2, (pointer.x - 0.5) * 2.2, (pointer.x - 0.5) * 1.2], y: [(pointer.y - 0.5) * 0.7, (pointer.y - 0.5) * 1.1, (pointer.y - 0.5) * 0.7] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}>
+          {links.map(([from, to], index) => (
+            <line key={`${from}-${to}`} x1={nodes[from][0]} y1={nodes[from][1]} x2={nodes[to][0]} y2={nodes[to][1]} stroke="url(#dense-neural-line)" strokeWidth={index % 9 === 0 ? "0.2" : "0.12"} strokeOpacity={0.28 + (index % 5) * 0.055} />
+          ))}
+          {links.filter((_, index) => index % 13 === 0).map(([from, to], index) => (
+            <motion.circle key={`pulse-${from}-${to}`} r="0.38" fill={index % 2 === 0 ? "#8fc7ff" : "#f08dff"} animate={{ cx: [nodes[from][0], nodes[to][0], nodes[from][0]], cy: [nodes[from][1], nodes[to][1], nodes[from][1]], opacity: [0, 0.95, 0] }} transition={{ duration: 5.5 + (index % 3), repeat: Infinity, ease: "easeInOut", delay: index * 0.75 }} />
+          ))}
+          {nodes.map(([cx, cy], index) => (
+            <g key={`node-${index}`}>
+              <motion.circle cx={cx} cy={cy} r={index % 6 === 0 ? "1.7" : "1.1"} fill={index % 3 === 0 ? "#8ab8ff" : "#d866ff"} opacity="0.2" filter="url(#dense-node-glow)" animate={{ opacity: [0.08, 0.34, 0.08], r: [0.8, index % 6 === 0 ? 2.2 : 1.5, 0.8] }} transition={{ duration: 3.8 + (index % 5) * 0.42, repeat: Infinity, ease: "easeInOut", delay: index * 0.06 }} />
+              <motion.circle cx={cx} cy={cy} r={index % 6 === 0 ? "0.46" : "0.27"} fill={index % 4 === 0 ? "#a9d2ff" : index % 3 === 0 ? "#b6a2ff" : "#f08bdf"} animate={{ opacity: [0.32, 1, 0.32] }} transition={{ duration: 3 + (index % 4) * 0.45, repeat: Infinity, ease: "easeInOut", delay: index * 0.08 }} />
+            </g>
+          ))}
+        </motion.g>
       </svg>
     </div>
   );
@@ -269,7 +335,7 @@ export default function AboutPage() {
       </div>
 
       <section id="about" className="relative isolate min-h-[680px] overflow-hidden pt-28 md:min-h-[720px] md:pt-32">
-        <NodeField />
+        <DenseNeuralField />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,#050719_0%,rgba(5,7,25,0.93)_32%,rgba(5,7,25,0.42)_68%,rgba(5,7,25,0.8)_100%)]" />
         <div className="section-shell relative z-10 flex min-h-[520px] items-center">
           <Reveal>
