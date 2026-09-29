@@ -71,24 +71,24 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
 function NodeField() {
   const networks = [
     {
-      nodes: [[42, 15], [55, 9], [66, 19], [78, 12], [88, 25], [96, 8], [72, 33], [54, 30], [39, 39], [91, 43]],
-      links: [[0, 1], [0, 2], [1, 2], [1, 3], [2, 3], [2, 7], [3, 4], [3, 6], [3, 5], [4, 5], [4, 9], [6, 7], [6, 9], [7, 8], [8, 9]],
-      triangles: [[0, 1, 2], [1, 2, 3], [2, 3, 6], [2, 6, 7], [3, 4, 6], [3, 4, 5], [4, 5, 9], [4, 6, 9], [6, 7, 8], [6, 8, 9]],
-      color: "#769bff",
-      accent: "#c7b2ff"
+      nodes: [[74, 22], [82, 17], [91, 22], [84, 29], [94, 34], [76, 33]],
+      links: [[0, 1], [1, 2], [0, 3], [1, 3], [2, 3], [2, 4], [3, 4], [0, 5], [3, 5]],
+      triangles: [[0, 1, 3], [1, 2, 3], [2, 3, 4], [0, 3, 5]],
+      color: "#7fa7ff",
+      accent: "#d0b5ff"
     },
     {
-      nodes: [[35, 55], [45, 48], [56, 58], [66, 51], [76, 63], [88, 56], [97, 74], [83, 82], [68, 76], [52, 87], [41, 78], [29, 92]],
-      links: [[0, 1], [0, 10], [0, 11], [1, 2], [1, 3], [2, 3], [2, 8], [2, 9], [3, 4], [3, 8], [4, 5], [4, 7], [4, 8], [5, 6], [5, 7], [6, 7], [7, 8], [8, 9], [9, 10], [10, 11]],
-      triangles: [[0, 1, 2], [1, 2, 3], [2, 3, 8], [2, 8, 9], [3, 4, 8], [4, 5, 7], [4, 7, 8], [5, 6, 7], [7, 8, 9], [8, 9, 10], [9, 10, 11], [0, 10, 11]],
-      color: "#8e8dff",
+      nodes: [[57, 51], [66, 45], [76, 51], [71, 59], [82, 61], [62, 63]],
+      links: [[0, 1], [1, 2], [0, 3], [1, 3], [2, 3], [2, 4], [3, 4], [0, 5], [3, 5]],
+      triangles: [[0, 1, 3], [1, 2, 3], [2, 3, 4], [0, 3, 5]],
+      color: "#9a92ff",
       accent: "#e2a8ff"
     },
     {
-      nodes: [[48, 69], [58, 62], [67, 70], [75, 65], [84, 73], [93, 68], [73, 86], [62, 81]],
-      links: [[0, 1], [0, 7], [1, 2], [1, 3], [2, 3], [2, 7], [2, 6], [3, 4], [3, 6], [4, 5], [4, 6], [6, 7]],
-      triangles: [[0, 1, 2], [0, 1, 7], [1, 2, 7], [1, 2, 3], [2, 3, 6], [2, 6, 7], [3, 4, 6], [4, 5, 6]],
-      color: "#6caaff",
+      nodes: [[74, 78], [83, 72], [93, 77], [87, 85], [96, 90], [78, 91]],
+      links: [[0, 1], [1, 2], [0, 3], [1, 3], [2, 3], [2, 4], [3, 4], [0, 5], [3, 5]],
+      triangles: [[0, 1, 3], [1, 2, 3], [2, 3, 4], [0, 3, 5]],
+      color: "#75aaff",
       accent: "#f0b1ff"
     }
   ];
@@ -110,8 +110,8 @@ function NodeField() {
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_32%,rgba(91,92,255,0.22),transparent_24%),radial-gradient(circle_at_72%_72%,rgba(202,74,255,0.14),transparent_28%),linear-gradient(115deg,#050719_10%,#080a25_55%,#150c2c_100%)]" />
       <div className="absolute h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-fuchsia-300/[0.07] blur-[90px] transition-[left,top] duration-700 ease-out" style={{ left: `${pointer.x * 100}%`, top: `${pointer.y * 100}%` }} />
-      <div className="absolute inset-0 opacity-25 [background-image:linear-gradient(rgba(145,182,255,0.11)_1px,transparent_1px),linear-gradient(90deg,rgba(145,182,255,0.09)_1px,transparent_1px)] [background-size:58px_58px] [mask-image:radial-gradient(ellipse_at_78%_50%,black,transparent_68%)]" />
-      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full opacity-90 mix-blend-screen">
+      <div className="absolute inset-0 opacity-15 [background-image:linear-gradient(rgba(145,182,255,0.11)_1px,transparent_1px),linear-gradient(90deg,rgba(145,182,255,0.09)_1px,transparent_1px)] [background-size:58px_58px] [mask-image:radial-gradient(ellipse_at_78%_50%,black,transparent_68%)]" />
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full opacity-75 mix-blend-screen">
         <defs>
           <filter id="network-glow"><feGaussianBlur stdDeviation="1.1" /></filter>
           <radialGradient id="network-halo"><stop stopColor="#d5b8ff" stopOpacity="0.18" /><stop offset="1" stopColor="#d5b8ff" stopOpacity="0" /></radialGradient>
@@ -123,7 +123,7 @@ function NodeField() {
             animate={{ x: [0, networkIndex % 2 === 0 ? 0.8 : -0.6, 0], y: [0, networkIndex === 1 ? -0.7 : 0.5, 0] }}
             transition={{ duration: 12 + networkIndex * 2, repeat: Infinity, ease: "easeInOut", delay: networkIndex * 0.7 }}
           >
-            <circle cx={network.nodes[2][0]} cy={network.nodes[2][1]} r="13" fill="url(#network-halo)" />
+            <circle cx={network.nodes[2][0]} cy={network.nodes[2][1]} r="8" fill="url(#network-halo)" />
             {network.triangles.map(([first, second, third], triangleIndex) => (
               <motion.polygon
                 key={`triangle-${triangleIndex}`}
@@ -131,7 +131,7 @@ function NodeField() {
                 fill={triangleIndex % 2 === 0 ? network.color : network.accent}
                 fillOpacity="0.022"
                 stroke={network.accent}
-                strokeWidth="0.12"
+                strokeWidth="0.1"
                 strokeOpacity="0.2"
                 strokeDasharray="0.7 1.6"
                 animate={{ fillOpacity: [0.012, 0.055, 0.012], strokeOpacity: [0.1, 0.3, 0.1], strokeDashoffset: [0, -3, 0] }}
@@ -146,9 +146,9 @@ function NodeField() {
                 x2={network.nodes[to][0]}
                 y2={network.nodes[to][1]}
                 stroke={network.color}
-                strokeWidth="0.16"
+                strokeWidth="0.13"
                 strokeOpacity="0.48"
-                strokeDasharray="0.7 1.4"
+                strokeDasharray="0.6 1.8"
                 animate={{ strokeOpacity: [0.22, 0.62, 0.22], strokeDashoffset: [0, -4, 0] }}
                 transition={{ duration: 4.4 + networkIndex * 0.8, repeat: Infinity, ease: "easeInOut", delay: linkIndex * 0.16 }}
               />
