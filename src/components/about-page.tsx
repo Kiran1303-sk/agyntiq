@@ -69,7 +69,6 @@ function Reveal({ children, className = "", delay = 0 }: { children: React.React
 }
 
 // Kept as a reusable alternate background treatment for future sections.
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function NodeField() {
   const networks = [
     {
@@ -270,7 +269,7 @@ export default function AboutPage() {
       </div>
 
       <section id="about" className="relative isolate min-h-[680px] overflow-hidden pt-28 md:min-h-[720px] md:pt-32">
-        <WaveField showBackdrop={false} />
+        <NodeField />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,#050719_0%,rgba(5,7,25,0.93)_32%,rgba(5,7,25,0.42)_68%,rgba(5,7,25,0.8)_100%)]" />
         <div className="section-shell relative z-10 flex min-h-[520px] items-center">
           <Reveal>
