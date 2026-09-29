@@ -73,18 +73,21 @@ function NodeField() {
     {
       nodes: [[70, 25], [77, 18], [84, 23], [91, 15], [88, 32], [98, 28], [78, 36]],
       links: [[0, 1], [1, 2], [1, 3], [2, 4], [2, 5], [4, 5], [0, 6], [4, 6]],
+      triangles: [[0, 1, 2], [1, 2, 4], [1, 3, 2], [2, 4, 5], [0, 2, 6]],
       color: "#94b9ff",
       accent: "#d9c2ff"
     },
     {
       nodes: [[54, 51], [62, 45], [70, 52], [78, 47], [85, 55], [68, 62], [76, 66]],
       links: [[0, 1], [0, 5], [1, 2], [1, 3], [2, 3], [2, 5], [3, 4], [4, 6], [5, 6]],
+      triangles: [[0, 1, 2], [0, 2, 5], [1, 2, 3], [2, 3, 5], [2, 5, 6], [3, 4, 6]],
       color: "#d79cff",
       accent: "#8fc2ff"
     },
     {
       nodes: [[76, 79], [84, 73], [92, 77], [98, 70], [89, 87], [80, 91], [96, 92]],
       links: [[0, 1], [0, 5], [1, 2], [1, 4], [2, 3], [2, 6], [4, 5], [4, 6]],
+      triangles: [[0, 1, 4], [0, 4, 5], [1, 2, 4], [2, 3, 6], [2, 4, 6], [4, 5, 6]],
       color: "#b7a5ff",
       accent: "#ffb8e7"
     }
@@ -116,6 +119,20 @@ function NodeField() {
         {networks.map((network, networkIndex) => (
           <g key={networkIndex} transform={`translate(${(pointer.x - 0.5) * (networkIndex + 1) * 0.8} ${(pointer.y - 0.5) * (networkIndex + 1) * 0.5}`}>
             <circle cx={network.nodes[2][0]} cy={network.nodes[2][1]} r="13" fill="url(#network-halo)" />
+            {network.triangles.map(([first, second, third], triangleIndex) => (
+              <motion.polygon
+                key={`triangle-${triangleIndex}`}
+                points={`${network.nodes[first][0]},${network.nodes[first][1]} ${network.nodes[second][0]},${network.nodes[second][1]} ${network.nodes[third][0]},${network.nodes[third][1]}`}
+                fill={triangleIndex % 2 === 0 ? network.color : network.accent}
+                fillOpacity="0.035"
+                stroke={network.accent}
+                strokeWidth="0.12"
+                strokeOpacity="0.28"
+                strokeDasharray="0.7 1.6"
+                animate={{ fillOpacity: [0.018, 0.075, 0.018], strokeOpacity: [0.16, 0.42, 0.16], strokeDashoffset: [0, -3, 0] }}
+                transition={{ duration: 5.5 + networkIndex * 0.8, repeat: Infinity, ease: "easeInOut", delay: triangleIndex * 0.24 }}
+              />
+            ))}
             {network.links.map(([from, to], linkIndex) => (
               <motion.line
                 key={`${from}-${to}`}
