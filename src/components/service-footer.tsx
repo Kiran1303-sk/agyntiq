@@ -51,8 +51,8 @@ function CornerWave({ corner }: { corner: "top-right" | "bottom-left" }) {
   const arcs = Array.from({ length: 12 }, (_, index) => {
     const inset = index * 4.2;
     return isTopRight
-      ? `M ${104 - inset} ${-4 + inset * 0.35} Q ${65 - inset * 0.3} ${-4 + inset * 0.35} ${65 - inset * 0.3} ${38 + inset * 0.7}`
-      : `M ${-4 + inset} ${104 - inset * 0.35} Q ${39 + inset * 0.3} ${104 - inset * 0.35} ${39 + inset * 0.3} ${62 - inset * 0.7}`;
+      ? `M ${106 - inset} ${-8 + inset * 0.32} C ${82 - inset * 0.15} ${-8 + inset * 0.32}, ${57 - inset * 0.18} ${1 + inset * 0.55}, ${57 - inset * 0.18} ${25 + inset * 0.85} S ${78 - inset * 0.12} ${52 + inset * 0.9}, ${61 - inset * 0.18} ${63 + inset}`
+      : `M ${-6 + inset} ${106 - inset * 0.32} C ${18 + inset * 0.15} ${106 - inset * 0.32}, ${43 + inset * 0.18} ${97 - inset * 0.55}, ${43 + inset * 0.18} ${73 - inset * 0.85} S ${22 + inset * 0.12} ${48 - inset * 0.9}, ${39 + inset * 0.18} ${37 - inset}`;
   });
 
   return (
