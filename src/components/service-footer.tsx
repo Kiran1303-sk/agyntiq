@@ -3,8 +3,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { servicePageOrder } from "@/components/service-pages-data";
 
-// Retained as an alternate footer treatment; About page waves are placed in its content areas.
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function FooterWaves() {
   const paths = Array.from({ length: 22 }, (_, index) => {
     const offset = index * 1.5;
@@ -12,7 +10,7 @@ function FooterWaves() {
   });
 
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-40" aria-hidden="true">
+    <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-20" aria-hidden="true">
       <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full">
         <defs>
           <linearGradient id="footer-wave-line" x1="0" y1="0" x2="1" y2="0">
@@ -49,6 +47,7 @@ function FooterWaves() {
 export default function ServiceFooter() {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-[#040615] py-10 md:py-12">
+      <FooterWaves />
       <div className="pointer-events-none absolute left-[-10rem] top-[-12rem] h-[30rem] w-[30rem] rounded-full bg-fuchsia-400/[0.08] blur-[120px]" />
       <div className="pointer-events-none absolute right-[-8rem] bottom-[-14rem] h-[28rem] w-[28rem] rounded-full bg-blue-500/[0.08] blur-[120px]" />
       <div className="section-shell relative">
