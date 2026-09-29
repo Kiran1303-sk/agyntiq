@@ -243,6 +243,15 @@ function SectionHeading({ eyebrow, title, copy }: { eyebrow: string; title: stri
 }
 
 export default function AboutPage() {
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setShowBackToTop(window.scrollY > window.innerHeight * 0.65);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <main className="relative overflow-hidden bg-[#050719] text-white">
       <SiteHeader mode="services" />
@@ -301,13 +310,15 @@ export default function AboutPage() {
 
       <section id="contact" className="relative isolate overflow-hidden bg-[linear-gradient(120deg,#100b2b_0%,#08071c_48%,#16082d_100%)] py-24 md:py-32"><div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 origin-center -rotate-3 scale-110 opacity-[0.16] md:opacity-[0.12]" aria-hidden="true"><WaveField showBackdrop={false} /></div><div className="section-shell relative grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start"><Reveal><div className="grid gap-6"><div className="section-kicker w-fit rounded-full border border-fuchsia-300/20 bg-fuchsia-300/[0.05] px-5 py-2">Contact</div><h2 className="max-w-xl text-5xl font-semibold leading-[0.98] tracking-tight text-white md:text-7xl">Let&apos;s build what comes next.</h2><p className="max-w-xl text-lg leading-8 text-fuchsia-100/60">Tell us what you are trying to make possible. We&apos;ll bring the right people, questions, and next steps.</p></div></Reveal><Reveal delay={0.1}><div className="relative lg:pl-8"><div className="text-xs uppercase tracking-[0.3em] text-fuchsia-100/55">Contact form</div><form className="mt-5 grid gap-4" onSubmit={(event) => event.preventDefault()}><div className="grid gap-4 md:grid-cols-2"><input aria-label="Name" placeholder="Your name" className="rounded-2xl border border-white/10 bg-white/[0.12] px-5 py-4 text-sm text-white outline-none placeholder:text-white/40 focus:border-fuchsia-300/45" /><input aria-label="Work email" type="email" placeholder="Work email" className="rounded-2xl border border-white/10 bg-white/[0.12] px-5 py-4 text-sm text-white outline-none placeholder:text-white/40 focus:border-fuchsia-300/45" /></div><textarea aria-label="Project details" placeholder="What would you like to explore?" rows={5} className="resize-none rounded-2xl border border-white/10 bg-white/[0.12] px-5 py-4 text-sm text-white outline-none placeholder:text-white/40 focus:border-fuchsia-300/45" /><button type="submit" className="mt-1 w-fit rounded-full bg-[linear-gradient(100deg,#7547df,#c23bd9)] px-7 py-4 text-sm font-semibold text-white shadow-[0_18px_60px_rgba(126,87,255,0.28)] transition hover:-translate-y-0.5">Send an enquiry <span className="ml-2">↗</span></button></form></div></Reveal></div></section>
 
-      <Link
-        href="#about"
-        aria-label="Back to top"
-        className="fixed bottom-5 right-5 z-30 inline-flex h-12 w-12 items-center justify-center rounded-full border border-fuchsia-200/25 bg-[#17103a]/95 text-xl font-semibold text-white shadow-[0_14px_42px_rgba(0,0,0,0.35),0_0_28px_rgba(202,74,255,0.2)] backdrop-blur-xl transition hover:-translate-y-1 hover:border-fuchsia-200/50 hover:bg-[#24134d] md:bottom-7 md:right-7"
-      >
-        <span aria-hidden="true">↑</span>
-      </Link>
+      {showBackToTop && (
+        <Link
+          href="#about"
+          aria-label="Back to top"
+          className="fixed bottom-5 right-5 z-30 inline-flex h-12 w-12 items-center justify-center rounded-full border border-fuchsia-200/25 bg-[#17103a]/95 text-xl font-semibold text-white shadow-[0_14px_42px_rgba(0,0,0,0.35),0_0_28px_rgba(202,74,255,0.2)] backdrop-blur-xl transition hover:-translate-y-1 hover:border-fuchsia-200/50 hover:bg-[#24134d] md:bottom-7 md:right-7"
+        >
+          <span aria-hidden="true">↑</span>
+        </Link>
+      )}
       <ServiceFooter />
     </main>
   );
