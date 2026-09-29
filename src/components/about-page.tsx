@@ -53,10 +53,16 @@ const values = [
   ["Always improving", "We learn from real-world use and keep raising the bar."]
 ];
 
-const recognitionHoverStyles = [
-  "text-amber-200 border-amber-200/45 bg-amber-300/[0.1] group-hover:border-amber-200/70 group-hover:bg-amber-300/[0.16] group-hover:shadow-[0_0_30px_rgba(251,191,36,0.2)]",
-  "text-emerald-200 border-emerald-200/45 bg-emerald-300/[0.1] group-hover:border-emerald-200/70 group-hover:bg-emerald-300/[0.16] group-hover:shadow-[0_0_30px_rgba(52,211,153,0.2)]",
-  "text-pink-200 border-pink-200/45 bg-pink-300/[0.1] group-hover:border-pink-200/70 group-hover:bg-pink-300/[0.16] group-hover:shadow-[0_0_30px_rgba(244,114,182,0.2)]"
+const recognitionIconStyles = [
+  "text-amber-200 border-amber-200/45 bg-amber-300/[0.1]",
+  "text-emerald-200 border-emerald-200/45 bg-emerald-300/[0.1]",
+  "text-pink-200 border-pink-200/45 bg-pink-300/[0.1]"
+];
+
+const recognitionCardHoverStyles = [
+  "group-hover:border-amber-200/65 group-hover:bg-[linear-gradient(145deg,rgba(40,29,8,0.78),rgba(23,16,40,0.72))] group-hover:shadow-[0_24px_70px_rgba(251,191,36,0.14)]",
+  "group-hover:border-emerald-200/65 group-hover:bg-[linear-gradient(145deg,rgba(8,38,31,0.72),rgba(15,20,43,0.76))] group-hover:shadow-[0_24px_70px_rgba(52,211,153,0.14)]",
+  "group-hover:border-pink-200/65 group-hover:bg-[linear-gradient(145deg,rgba(45,12,39,0.76),rgba(25,13,45,0.74))] group-hover:shadow-[0_24px_70px_rgba(244,114,182,0.14)]"
 ];
 
 // Retained as an alternate service-card palette for future UI variants.
@@ -427,7 +433,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="relative py-20 md:py-28"><div className="section-shell"><Reveal><SectionHeading eyebrow="Awards & recognition" title="Progress is measured by the trust we earn." copy="Our standard is bigger than a trophy: useful systems, responsible decisions, and outcomes that stand up in the real world." /></Reveal><div className="mt-12 grid items-stretch gap-4 md:grid-cols-3">{["Responsible AI", "Enterprise readiness", "Outcome-led innovation"].map((item, index) => <Reveal key={item} delay={index * 0.08} className="h-full"><div className={`group flex h-full flex-col rounded-[1.4rem] border border-fuchsia-200/12 bg-[#0b0d2a]/65 p-6 transition duration-500 hover:-translate-y-1 ${recognitionHoverStyles[index]}`}><div className={`flex h-14 w-14 items-center justify-center rounded-full border bg-fuchsia-300/[0.07] transition duration-500 group-hover:scale-110 ${recognitionHoverStyles[index]}`}><RecognitionIcon index={index} /></div><div className="mt-8 text-xl font-semibold">{item}</div><p className="mt-3 flex-1 text-sm leading-7 text-white/52">A principle we bring into every engagement, from the first workshop to production operations.</p><div className="mt-8 text-xs uppercase tracking-[0.24em] text-fuchsia-200/42">Our benchmark · 0{index + 1}</div></div></Reveal>)}</div></div></section>
+      <section className="relative py-20 md:py-28"><div className="section-shell"><Reveal><SectionHeading eyebrow="Awards & recognition" title="Progress is measured by the trust we earn." copy="Our standard is bigger than a trophy: useful systems, responsible decisions, and outcomes that stand up in the real world." /></Reveal><div className="mt-12 grid items-stretch gap-4 md:grid-cols-3">{["Responsible AI", "Enterprise readiness", "Outcome-led innovation"].map((item, index) => <Reveal key={item} delay={index * 0.08} className="h-full"><div className={`group flex h-full flex-col rounded-[1.4rem] border border-fuchsia-200/12 bg-[#0b0d2a]/65 p-6 transition duration-500 hover:-translate-y-1 ${recognitionCardHoverStyles[index]}`}><div className={`flex h-14 w-14 items-center justify-center rounded-full border transition duration-500 group-hover:scale-110 group-hover:shadow-[0_0_28px_currentColor] ${recognitionIconStyles[index]}`}><RecognitionIcon index={index} /></div><div className="mt-8 text-xl font-semibold">{item}</div><p className="mt-3 flex-1 text-sm leading-7 text-white/52">A principle we bring into every engagement, from the first workshop to production operations.</p><div className="mt-8 text-xs uppercase tracking-[0.24em] text-fuchsia-200/42">Our benchmark · 0{index + 1}</div></div></Reveal>)}</div></div></section>
 
       <section id="industries" className="relative py-20 md:py-28"><div className="section-shell"><Reveal><SectionHeading eyebrow="Industry expertise & solutions" title="Built around the realities of your industry." copy="We combine deep business context with modern AI capabilities to create systems that fit the work, language, and constraints of each organization." /></Reveal><div className="mt-12 grid items-stretch gap-3 md:grid-cols-2 lg:grid-cols-3">{industries.map((item, index) => <Reveal key={item.name} delay={index * 0.04} className="h-full"><article className="group relative flex h-full min-h-[15rem] flex-col overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#0a0d28]/70 p-5 transition duration-500 hover:-translate-y-1 hover:border-fuchsia-200/26"><div className="absolute right-0 top-0 h-28 w-28 rounded-full bg-fuchsia-400/[0.08] blur-3xl transition group-hover:bg-fuchsia-400/[0.16]" /><div className="relative flex h-full flex-col"><div className="text-xs uppercase tracking-[0.25em] text-blue-200/50">0{index + 1}</div><h3 className="mt-9 text-xl font-semibold">{item.name}</h3><p className="mt-3 flex-1 text-sm leading-7 text-white/52">{item.detail}</p><div className="mt-7 text-sm font-semibold text-fuchsia-100/70">Explore capability <span className="ml-2 transition group-hover:ml-3">→</span></div></div></article></Reveal>)}</div></div></section>
 
