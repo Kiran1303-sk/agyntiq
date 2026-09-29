@@ -10,14 +10,14 @@ function FooterWaves() {
   });
 
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-25" aria-hidden="true">
+    <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-40" aria-hidden="true">
       <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full">
         <defs>
           <linearGradient id="footer-wave-line" x1="0" y1="0" x2="1" y2="0">
-            <stop stopColor="#704dff" stopOpacity="0.18" />
-            <stop offset="0.52" stopColor="#d84dff" stopOpacity="0.7" />
-            <stop offset="0.82" stopColor="#ff159e" stopOpacity="0.82" />
-            <stop offset="1" stopColor="#ff55cb" stopOpacity="0.2" />
+            <stop stopColor="#8a6bff" stopOpacity="0.34" />
+            <stop offset="0.52" stopColor="#e45bff" stopOpacity="0.9" />
+            <stop offset="0.82" stopColor="#ff20aa" stopOpacity="1" />
+            <stop offset="1" stopColor="#ff72d4" stopOpacity="0.38" />
           </linearGradient>
           <filter id="footer-wave-glow"><feGaussianBlur stdDeviation="1.8" /></filter>
         </defs>
@@ -32,12 +32,12 @@ function FooterWaves() {
               fill="none"
               stroke="url(#footer-wave-line)"
               strokeWidth={index % 5 === 0 ? "0.34" : "0.2"}
-              strokeOpacity={0.3 + (index % 5) * 0.06}
-              animate={{ strokeOpacity: [0.2, 0.48, 0.2] }}
+              strokeOpacity={0.4 + (index % 5) * 0.07}
+              animate={{ strokeOpacity: [0.3, 0.68, 0.3] }}
               transition={{ duration: 5 + (index % 4) * 0.6, repeat: Infinity, ease: "easeInOut", delay: index * 0.1 }}
             />
           ))}
-          <path d={paths[10]} fill="none" stroke="#ed3dff" strokeWidth="0.9" strokeOpacity="0.5" filter="url(#footer-wave-glow)" />
+          <path d={paths[10]} fill="none" stroke="#ff3fca" strokeWidth="1.2" strokeOpacity="0.78" filter="url(#footer-wave-glow)" />
         </motion.g>
       </svg>
     </div>
