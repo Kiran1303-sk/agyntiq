@@ -47,7 +47,12 @@ function FooterWaves() {
 export default function ServiceFooter() {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-[#040615] py-10 md:py-12">
-      <FooterWaves />
+      <div className="absolute bottom-[-18%] left-[-12%] h-[82%] w-[72%] rotate-[-7deg]">
+        <FooterWaves />
+      </div>
+      <div className="absolute right-[-14%] top-[-24%] h-[78%] w-[68%] rotate-[9deg] opacity-80">
+        <FooterWaves />
+      </div>
       <div className="pointer-events-none absolute left-[-10rem] top-[-12rem] h-[30rem] w-[30rem] rounded-full bg-fuchsia-400/[0.08] blur-[120px]" />
       <div className="pointer-events-none absolute right-[-8rem] bottom-[-14rem] h-[28rem] w-[28rem] rounded-full bg-blue-500/[0.08] blur-[120px]" />
       <div className="section-shell relative">
