@@ -46,6 +46,8 @@ function FooterWaves() {
   );
 }
 
+// Retained as an alternate corner treatment for future sections.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function CornerWave({ corner }: { corner: "top-right" | "bottom-left" }) {
   const isTopRight = corner === "top-right";
   const arcs = Array.from({ length: 12 }, (_, index) => {
@@ -88,12 +90,6 @@ function CornerWave({ corner }: { corner: "top-right" | "bottom-left" }) {
 export default function ServiceFooter() {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-[#040615] py-10 md:py-12">
-      <div className="absolute right-0 top-0 h-[78%] w-[58%]">
-        <CornerWave corner="top-right" />
-      </div>
-      <div className="absolute bottom-0 left-0 h-[78%] w-[58%]">
-        <CornerWave corner="bottom-left" />
-      </div>
       <div className="pointer-events-none absolute left-[-10rem] top-[-12rem] h-[30rem] w-[30rem] rounded-full bg-fuchsia-400/[0.08] blur-[120px]" />
       <div className="pointer-events-none absolute right-[-8rem] bottom-[-14rem] h-[28rem] w-[28rem] rounded-full bg-blue-500/[0.08] blur-[120px]" />
       <div className="section-shell relative">
