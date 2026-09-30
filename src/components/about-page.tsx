@@ -531,7 +531,7 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <main className="about-page relative overflow-x-clip bg-[#050719] text-white">
+    <main className="about-page relative bg-[#050719] text-white">
       <SiteHeader mode="services" />
       <style jsx global>{`
         .about-page > section:not(#about):not(#services) {
