@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SiteHeader from "@/components/site-header";
 import ServiceFooter from "@/components/service-footer";
 
@@ -198,6 +198,8 @@ function NodeField() {
   );
 }
 
+// Retained as a local fallback neural treatment for environments without CDN access.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function DenseNeuralField() {
   const nodes: [number, number][] = Array.from({ length: 72 }, (_, index) => {
     const column = index % 9;
@@ -260,6 +262,75 @@ function DenseNeuralField() {
       </svg>
     </div>
   );
+}
+
+function VantaNetworkField() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let effect: { destroy: () => void } | undefined;
+    let cancelled = false;
+    const win = window as Window & {
+      THREE?: unknown;
+      VANTA?: { NET: (options: Record<string, unknown>) => { destroy: () => void } };
+    };
+
+    const loadScript = (src: string, id: string) => new Promise<void>((resolve, reject) => {
+      const existing = document.getElementById(id);
+      if (existing) {
+        existing.addEventListener("load", () => resolve(), { once: true });
+        if ((existing as HTMLScriptElement).dataset.loaded === "true") resolve();
+        return;
+      }
+
+      const script = document.createElement("script");
+      script.id = id;
+      script.src = src;
+      script.async = true;
+      script.onload = () => {
+        script.dataset.loaded = "true";
+        resolve();
+      };
+      script.onerror = () => reject(new Error(`Unable to load ${src}`));
+      document.body.appendChild(script);
+    });
+
+    const start = async () => {
+      try {
+        await loadScript("https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js", "three-r134");
+        await loadScript("https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js", "vanta-net");
+        if (!cancelled && containerRef.current && win.VANTA?.NET) {
+          effect = win.VANTA.NET({
+            el: containerRef.current,
+            THREE: win.THREE,
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200,
+            minWidth: 200,
+            scale: 1,
+            scaleMobile: 1,
+            color: 0x8b7cff,
+            backgroundColor: 0x050719,
+            points: 12,
+            maxDistance: 22,
+            spacing: 18,
+            showDots: true
+          });
+        }
+      } catch {
+        // Keep the CSS hero gradient as a graceful fallback if the CDN is unavailable.
+      }
+    };
+
+    start();
+    return () => {
+      cancelled = true;
+      effect?.destroy();
+    };
+  }, []);
+
+  return <div ref={containerRef} className="absolute inset-0 bg-[#050719]" aria-hidden="true" />;
 }
 
 function WaveField({ showBackdrop = true }: { showBackdrop?: boolean }) {
@@ -402,7 +473,7 @@ export default function AboutPage() {
       </div>
 
       <section id="about" className="relative isolate min-h-[680px] overflow-hidden pt-28 md:min-h-[720px] md:pt-32">
-        <DenseNeuralField />
+        <VantaNetworkField />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,#050719_0%,rgba(5,7,25,0.93)_32%,rgba(5,7,25,0.42)_68%,rgba(5,7,25,0.8)_100%)]" />
         <div className="section-shell relative z-10 flex min-h-[520px] items-center">
           <Reveal>
