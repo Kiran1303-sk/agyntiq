@@ -36,7 +36,7 @@ const industryCardBackgrounds = [
 
 const services = [
   ["01", "Strategy & readiness", "Turn AI ambition into a roadmap leaders can fund."],
-  ["02", "Solutions development", "Build assistants, agents, products, and decision systems."],
+  ["02", "AI Solutions development", "Build assistants, agents, products, and decision systems."],
   ["03", "Integration services", "Connect AI to the tools and workflows where work happens."],
   ["04", "Data services", "Create reliable, governed foundations for production AI."],
   ["05", "Managed services", "Keep systems monitored, optimized, and improving after launch."]
