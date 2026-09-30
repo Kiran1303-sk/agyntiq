@@ -367,7 +367,7 @@ function ServicesShowcase() {
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: false, amount: 0.35 }}
           transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-          className="group relative flex min-h-[80svh] items-center overflow-hidden border-t border-white/[0.08] py-24 md:min-h-screen"
+          className="group relative flex min-h-[68svh] items-center overflow-hidden border-t border-white/[0.08] py-14 md:min-h-[78svh] md:py-16"
         >
           <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(5,7,25,0.98),rgba(10,11,42,0.8),rgba(22,10,44,0.72))]" />
           <motion.div
@@ -515,14 +515,14 @@ export default function AboutPage() {
       <SiteHeader mode="services" />
       <style jsx global>{`
         .about-page > section:not(#about):not(#services) {
-          padding-top: 5rem !important;
-          padding-bottom: 5rem !important;
+          padding-top: 3.5rem !important;
+          padding-bottom: 3.5rem !important;
         }
 
         @media (min-width: 768px) {
           .about-page > section:not(#about):not(#services) {
-            padding-top: 7rem !important;
-            padding-bottom: 7rem !important;
+            padding-top: 4.5rem !important;
+            padding-bottom: 4.5rem !important;
           }
         }
       `}</style>
