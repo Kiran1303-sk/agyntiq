@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import SiteHeader from "@/components/site-header";
 import ServiceFooter from "@/components/service-footer";
@@ -356,6 +356,69 @@ function VantaNetworkField() {
   );
 }
 
+function ServicesShowcase() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    let frame = 0;
+    const updateActive = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        if (!sectionRef.current) return;
+        const rect = sectionRef.current.getBoundingClientRect();
+        const scrollable = Math.max(sectionRef.current.offsetHeight - window.innerHeight, 1);
+        const progress = Math.min(1, Math.max(0, -rect.top / scrollable));
+        setActive(Math.min(services.length - 1, Math.floor(progress * services.length)));
+      });
+    };
+
+    updateActive();
+    window.addEventListener("scroll", updateActive, { passive: true });
+    window.addEventListener("resize", updateActive, { passive: true });
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", updateActive);
+      window.removeEventListener("resize", updateActive);
+    };
+  }, []);
+
+  const service = services[active];
+
+  return (
+    <section ref={sectionRef} id="services" className="relative min-h-[430vh] overflow-hidden bg-[#050719]">
+      <div className="sticky top-0 flex h-screen min-h-[42rem] items-center overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_28%,rgba(91,92,255,0.18),transparent_30%),radial-gradient(ellipse_at_25%_80%,rgba(202,74,255,0.12),transparent_34%),linear-gradient(125deg,#050719,#0a0b2a_58%,#160a2c)]" />
+        <motion.div animate={{ x: ["-8%", "8%", "-8%"], y: ["5%", "-5%", "5%"], rotate: [0, 8, 0] }} transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }} className="absolute -right-32 top-1/4 h-[34rem] w-[34rem] rounded-full bg-fuchsia-500/[0.11] blur-[120px]" />
+        <motion.div animate={{ x: ["8%", "-6%", "8%"], y: ["-4%", "6%", "-4%"] }} transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }} className="absolute -left-40 bottom-0 h-[30rem] w-[30rem] rounded-full bg-blue-500/[0.1] blur-[120px]" />
+        <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(145,182,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(145,182,255,0.06)_1px,transparent_1px)] [background-size:90px_90px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
+        <div className="section-shell relative grid w-full gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
+          <div>
+            <div className="section-kicker w-fit">Services</div>
+            <h2 className="mt-6 max-w-xl text-5xl font-semibold leading-[0.94] tracking-tight text-white md:text-7xl">A clear line from <span className="bg-[linear-gradient(100deg,#c7d2fe,#f0abfc,#d946ef)] bg-clip-text text-transparent">ambition to operation.</span></h2>
+            <p className="mt-8 max-w-lg text-lg leading-8 text-white/58">Five connected services help teams move from the first important question to AI systems that keep getting better.</p>
+            <div className="mt-10 flex items-center gap-4 text-xs uppercase tracking-[0.28em] text-white/38"><span className="h-px w-12 bg-gradient-to-r from-blue-300 to-fuchsia-300" />Scroll to explore</div>
+          </div>
+          <div className="relative min-h-[25rem] border-l border-white/10 pl-8 md:pl-14">
+            <div className="absolute -left-[0.35rem] top-0 bottom-0 flex flex-col justify-between py-2">
+              {services.map(([number], index) => <motion.span key={number} animate={{ scale: active === index ? 1.45 : 1, opacity: active === index ? 1 : 0.35 }} className="h-2.5 w-2.5 rounded-full bg-fuchsia-200 shadow-[0_0_18px_rgba(240,171,252,0.7)]" />)}
+            </div>
+            <AnimatePresence mode="wait">
+              <motion.div key={service[0]} initial={{ opacity: 0, x: 54, filter: "blur(10px)" }} animate={{ opacity: 1, x: 0, filter: "blur(0px)" }} exit={{ opacity: 0, x: -54, filter: "blur(10px)" }} transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }} className="flex min-h-[25rem] flex-col justify-center">
+                <div className="flex items-center justify-between border-b border-white/10 pb-5"><span className="text-sm font-semibold tracking-[0.24em] text-fuchsia-200/70">{service[0]}</span><span className="text-xs uppercase tracking-[0.3em] text-white/34">Capability · 0{active + 1}</span></div>
+                <h3 className="mt-8 text-4xl font-semibold leading-tight text-white md:text-6xl">{service[1]}</h3>
+                <p className="mt-6 max-w-2xl text-lg leading-8 text-white/58">{service[2]}</p>
+                <div className="mt-10 h-px w-32 bg-gradient-to-r from-fuchsia-300 via-blue-300 to-transparent" />
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-xs uppercase tracking-[0.28em] text-white/28">0{active + 1} / 0{services.length}</div>
+      </div>
+    </section>
+  );
+}
+
 function WaveField({ showBackdrop = true }: { showBackdrop?: boolean }) {
   const wavePaths = Array.from({ length: 25 }, (_, index) => {
     const offset = index * 1.45;
@@ -544,7 +607,7 @@ export default function AboutPage() {
 
       <section id="industries" className="relative overflow-hidden py-20 md:py-28"><div className="section-shell"><Reveal><SectionHeading eyebrow="Industry expertise & solutions" title="Built around the realities of your industry." copy="We combine deep business context with modern AI capabilities to create systems that fit the work, language, and constraints of each organization." /></Reveal><div className="mt-14 grid gap-5 md:grid-cols-2">{industries.map((item, index) => <Reveal key={item.name} delay={index * 0.05} className="h-full"><motion.article whileHover={{ y: -8 }} transition={{ type: "spring", stiffness: 220, damping: 20 }} style={{ background: industryCardBackgrounds[index] }} className="group relative flex min-h-[22rem] h-full flex-col overflow-hidden rounded-[1.5rem] border border-white/10 p-7 transition duration-500 hover:border-white/35 hover:shadow-[0_24px_80px_rgba(65,48,170,0.24)]"><div className={`absolute inset-0 bg-gradient-to-br opacity-45 transition duration-700 group-hover:opacity-90 ${industryAccentStyles[index]}`} /><div className="absolute -bottom-20 -right-16 h-52 w-52 rounded-full bg-white/[0.04] blur-3xl transition duration-700 group-hover:scale-150" /><div className="relative flex h-full flex-col"><div className="flex items-center justify-between"><span className="text-xs uppercase tracking-[0.28em] text-white/58">Industry · 0{index + 1}</span><span className="grid h-10 w-10 place-items-center rounded-full border border-white/20 text-white/70 transition duration-500 group-hover:rotate-45 group-hover:border-white/60 group-hover:text-white">↗</span></div><div className="mt-auto"><div className="mb-5 h-px w-20 bg-gradient-to-r from-white/70 to-transparent transition-all duration-500 group-hover:w-36" /><h3 className="text-3xl font-semibold text-white">{item.name}</h3><p className="mt-4 max-w-xl text-base leading-8 text-white/62">{item.detail}</p><div className="mt-7 text-sm font-semibold text-white/75 transition group-hover:text-white">Explore capability <span className="ml-2 transition group-hover:ml-3">→</span></div></div></div></motion.article></Reveal>)}</div></div></section>
 
-      <section id="services" className="relative overflow-hidden bg-[#050719] py-24 md:py-32"><div className="absolute -left-40 top-1/3 h-96 w-96 rounded-full bg-blue-500/[0.08] blur-[120px]" /><div className="absolute -right-40 bottom-0 h-[28rem] w-[28rem] rounded-full bg-fuchsia-500/[0.08] blur-[130px]" /><div className="section-shell relative"><Reveal><SectionHeading eyebrow="Services" title="A clear line from ambition to operation." copy="Five connected services help teams move from the first important question to AI systems that keep getting better." /></Reveal><div className="mt-14 grid gap-4 md:grid-cols-2">{services.map(([number, title, detail], index) => <Reveal key={number} delay={index * 0.08} className={index === services.length - 1 ? "md:col-span-2" : ""}><motion.article whileHover={{ y: -7 }} transition={{ type: "spring", stiffness: 220, damping: 20 }} className="group relative min-h-[15rem] overflow-hidden rounded-[1.5rem] border border-white/10 bg-[linear-gradient(135deg,rgba(11,13,42,0.92),rgba(18,8,42,0.74))] p-6 transition duration-500 hover:border-fuchsia-200/35 hover:shadow-[0_24px_80px_rgba(86,54,190,0.22)] md:p-7"><div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-blue-400/[0.07] blur-3xl transition duration-700 group-hover:bg-fuchsia-400/[0.18]" /><div className="relative flex h-full flex-col"><div className="flex items-center justify-between"><span className="grid h-10 w-10 place-items-center rounded-full border border-fuchsia-200/20 bg-fuchsia-300/[0.06] text-sm font-semibold text-fuchsia-100 transition duration-500 group-hover:scale-110 group-hover:border-fuchsia-200/55 group-hover:bg-fuchsia-300/[0.14]">{number}</span><span className="text-xs uppercase tracking-[0.26em] text-white/30">Capability · 0{index + 1}</span></div><div className="mt-auto"><div className="mb-4 h-px w-16 bg-gradient-to-r from-blue-300/70 via-fuchsia-300/70 to-transparent transition-all duration-500 group-hover:w-32" /><h3 className="text-2xl font-semibold text-white transition group-hover:text-fuchsia-100">{title}</h3><p className="mt-3 max-w-2xl text-sm leading-7 text-white/52">{detail}</p></div></div></motion.article></Reveal>)}</div></div></section>
+      <ServicesShowcase />
 
       <section className="relative bg-[#050719] py-20 md:py-28"><div className="section-shell"><Reveal><SectionHeading eyebrow="Board perspectives" title="Leadership with a point of view." copy="The people guiding AgyntiQ believe enterprise AI should be ambitious, understandable, and grounded in the work it is meant to improve." /></Reveal><div className="mt-12 grid items-stretch gap-5 lg:grid-cols-3">{boardPerspectives.map((person, index) => <Reveal key={person.role} delay={index * 0.08} className="h-full"><article className="group flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-white/10 bg-[#0a0d28]/72"><div className="relative h-60 shrink-0 overflow-hidden"><Image src={person.image} alt={person.role} fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover object-center grayscale-[20%] transition-transform duration-700 ease-out group-hover:scale-110 group-hover:grayscale-0" /><div className="absolute inset-0 bg-gradient-to-t from-[#0a0d28] via-transparent to-transparent" /></div><div className="flex flex-1 flex-col p-6"><div className="text-xs uppercase tracking-[0.24em] text-fuchsia-200/50">{person.role}</div><h3 className="mt-4 text-2xl font-semibold leading-tight">{person.title}</h3><p className="mt-4 flex-1 text-sm leading-7 text-white/52">{person.story}</p></div></article></Reveal>)}</div></div></section>
 
