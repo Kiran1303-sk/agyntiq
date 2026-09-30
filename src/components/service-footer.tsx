@@ -162,7 +162,7 @@ function FooterLocationBackdrop() {
   );
 }
 
-export default function ServiceFooter({ showWaves = true }: { showWaves?: boolean }) {
+export default function ServiceFooter({ showWaves = false }: { showWaves?: boolean }) {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-[#040615] py-10 md:py-12">
       {showWaves && (
