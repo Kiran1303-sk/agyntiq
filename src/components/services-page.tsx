@@ -1000,7 +1000,13 @@ export default function ServicesPage() {
   const [openFaq, setOpenFaq] = useState(0);
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#050816] text-white">
+    <main className="services-page relative min-h-screen overflow-hidden bg-[#050816] text-white">
+      <style jsx global>{`
+        .services-page > section.mx-auto,
+        .services-page > nav.mx-auto {
+          max-width: 1220px !important;
+        }
+      `}</style>
       <SiteHeader mode="services" />
 
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
