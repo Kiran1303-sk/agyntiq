@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import SiteHeader from "@/components/site-header";
 import ServiceFooter from "@/components/service-footer";
@@ -357,67 +357,47 @@ function VantaNetworkField() {
 }
 
 function ServicesShowcase() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [active, setActive] = useState(0);
-
-  useEffect(() => {
-    let frame = 0;
-    const updateActive = () => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        if (!sectionRef.current) return;
-        const rect = sectionRef.current.getBoundingClientRect();
-        const scrollable = Math.max(sectionRef.current.offsetHeight - window.innerHeight, 1);
-        const progress = Math.min(1, Math.max(0, -rect.top / scrollable));
-        setActive(Math.min(services.length - 1, Math.floor(progress * services.length)));
-      });
-    };
-
-    updateActive();
-    window.addEventListener("scroll", updateActive, { passive: true });
-    window.addEventListener("resize", updateActive, { passive: true });
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", updateActive);
-      window.removeEventListener("resize", updateActive);
-    };
-  }, []);
-
-  const service = services[active];
-
   return (
-    <section ref={sectionRef} id="services" style={{ minHeight: "500vh" }} className="relative min-h-[500vh] bg-[#050719]">
-      <div className="sticky top-0 isolate flex h-screen min-h-[42rem] items-center overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_28%,rgba(91,92,255,0.18),transparent_30%),radial-gradient(ellipse_at_25%_80%,rgba(202,74,255,0.12),transparent_34%),linear-gradient(125deg,#050719,#0a0b2a_58%,#160a2c)]" />
-        <motion.div animate={{ x: ["-8%", "8%", "-8%"], y: ["5%", "-5%", "5%"], rotate: [0, 8, 0] }} transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }} className="absolute -right-32 top-1/4 h-[34rem] w-[34rem] rounded-full bg-fuchsia-500/[0.11] blur-[120px]" />
-        <motion.div animate={{ x: ["8%", "-6%", "8%"], y: ["-4%", "6%", "-4%"] }} transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }} className="absolute -left-40 bottom-0 h-[30rem] w-[30rem] rounded-full bg-blue-500/[0.1] blur-[120px]" />
-        <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(145,182,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(145,182,255,0.06)_1px,transparent_1px)] [background-size:90px_90px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
-        <div className="section-shell relative grid w-full gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
-          <div>
-            <div className="section-kicker w-fit">Services</div>
-            <h2 className="mt-6 max-w-xl text-5xl font-semibold leading-[0.94] tracking-tight text-white md:text-7xl">A clear line from <span className="bg-[linear-gradient(100deg,#c7d2fe,#f0abfc,#d946ef)] bg-clip-text text-transparent">ambition to operation.</span></h2>
-            <p className="mt-8 max-w-lg text-lg leading-8 text-white/58">Five connected services help teams move from the first important question to AI systems that keep getting better.</p>
-            <div className="mt-10 flex items-center gap-4 text-xs uppercase tracking-[0.28em] text-white/38"><span className="h-px w-12 bg-gradient-to-r from-blue-300 to-fuchsia-300" />Scroll to explore</div>
-          </div>
-          <div className="relative min-h-[25rem] border-l border-white/10 pl-8 md:pl-14">
-            <div className="absolute -left-[0.35rem] top-0 bottom-0 flex flex-col justify-between py-2">
-              {services.map(([number], index) => <motion.span key={number} animate={{ scale: active === index ? 1.45 : 1, opacity: active === index ? 1 : 0.35 }} className="h-2.5 w-2.5 rounded-full bg-fuchsia-200 shadow-[0_0_18px_rgba(240,171,252,0.7)]" />)}
+    <section id="services" className="relative overflow-hidden bg-[#050719]">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_18%,rgba(91,92,255,0.16),transparent_32%),radial-gradient(ellipse_at_18%_78%,rgba(202,74,255,0.1),transparent_34%)]" aria-hidden="true" />
+      {services.map(([number, title, detail], index) => (
+        <motion.article
+          key={number}
+          initial={{ opacity: 0, y: 80, filter: "blur(12px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: false, amount: 0.35 }}
+          transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+          className="group relative flex min-h-[80svh] items-center overflow-hidden border-t border-white/[0.08] py-24 md:min-h-screen"
+        >
+          <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(5,7,25,0.98),rgba(10,11,42,0.8),rgba(22,10,44,0.72))]" />
+          <motion.div
+            animate={{ x: index % 2 ? ["10%", "-8%", "10%"] : ["-8%", "10%", "-8%"], y: ["-5%", "7%", "-5%"] }}
+            transition={{ duration: 16 + index * 2, repeat: Infinity, ease: "easeInOut" }}
+            className={`absolute ${index % 2 ? "-right-40" : "-left-40"} top-1/2 h-[30rem] w-[30rem] -translate-y-1/2 rounded-full ${index % 2 ? "bg-fuchsia-500/[0.13]" : "bg-blue-500/[0.12]"} blur-[120px]`}
+            aria-hidden="true"
+          />
+          <div className="section-shell relative grid w-full gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+            <div>
+              <div className="section-kicker w-fit">Services · {number}</div>
+              <div className="mt-8 h-px w-24 bg-gradient-to-r from-fuchsia-300 via-blue-300 to-transparent transition-all duration-700 group-hover:w-48" />
+              <h2 className="mt-8 max-w-2xl text-5xl font-semibold leading-[0.95] tracking-tight text-white md:text-7xl">{title}</h2>
             </div>
-            <AnimatePresence mode="wait">
-              <motion.div key={service[0]} initial={{ opacity: 0, x: 54, filter: "blur(10px)" }} animate={{ opacity: 1, x: 0, filter: "blur(0px)" }} exit={{ opacity: 0, x: -54, filter: "blur(10px)" }} transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }} className="flex min-h-[25rem] flex-col justify-center">
-                <div className="flex items-center justify-between border-b border-white/10 pb-5"><span className="text-sm font-semibold tracking-[0.24em] text-fuchsia-200/70">{service[0]}</span><span className="text-xs uppercase tracking-[0.3em] text-white/34">Capability · 0{active + 1}</span></div>
-                <h3 className="mt-8 text-4xl font-semibold leading-tight text-white md:text-6xl">{service[1]}</h3>
-                <p className="mt-6 max-w-2xl text-lg leading-8 text-white/58">{service[2]}</p>
-                <div className="mt-10 h-px w-32 bg-gradient-to-r from-fuchsia-300 via-blue-300 to-transparent" />
-              </motion.div>
-            </AnimatePresence>
+            <div className="relative border-l border-white/10 pl-8 md:pl-14">
+              <span className="text-sm uppercase tracking-[0.3em] text-fuchsia-200/60">Capability · 0{index + 1}</span>
+              <p className="mt-8 max-w-2xl text-xl leading-9 text-white/62 md:text-2xl">{detail}</p>
+              <div className="mt-12 flex items-center gap-4 text-xs uppercase tracking-[0.28em] text-white/35">
+                <span className="h-2.5 w-2.5 rounded-full bg-fuchsia-200 shadow-[0_0_18px_rgba(240,171,252,0.85)]" />
+                Scroll for the next capability
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-xs uppercase tracking-[0.28em] text-white/28">0{active + 1} / 0{services.length}</div>
-      </div>
+          <div className="absolute bottom-8 right-8 text-xs tracking-[0.3em] text-white/25">0{index + 1} / 0{services.length}</div>
+        </motion.article>
+      ))}
     </section>
   );
 }
+
 
 function WaveField({ showBackdrop = true }: { showBackdrop?: boolean }) {
   const wavePaths = Array.from({ length: 25 }, (_, index) => {
