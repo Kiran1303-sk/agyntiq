@@ -374,8 +374,21 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <main className="relative overflow-hidden bg-[#050719] text-white">
+    <main className="about-page relative overflow-hidden bg-[#050719] text-white">
       <SiteHeader mode="services" />
+      <style jsx global>{`
+        .about-page > section:not(#about) {
+          padding-top: 5rem !important;
+          padding-bottom: 5rem !important;
+        }
+
+        @media (min-width: 768px) {
+          .about-page > section:not(#about) {
+            padding-top: 7rem !important;
+            padding-bottom: 7rem !important;
+          }
+        }
+      `}</style>
       <div className="pointer-events-none absolute inset-x-0 top-[680px] bottom-[420px] z-0 opacity-[0.22] md:opacity-[0.16]" aria-hidden="true">
         <div className="absolute inset-x-0 top-0 h-[28%] origin-center -rotate-6 scale-110">
           <WaveField showBackdrop={false} />
@@ -408,7 +421,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="story" className="relative overflow-hidden py-24 md:py-32">
+      <section id="story" className="relative overflow-hidden py-20 md:py-28">
         <div className="absolute right-[-12rem] top-1/2 h-[32rem] w-[32rem] -translate-y-1/2 rounded-full bg-indigo-500/[0.08] blur-[120px]" />
         <div className="section-shell relative grid gap-14 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
           <Reveal>
