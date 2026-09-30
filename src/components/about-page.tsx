@@ -330,7 +330,12 @@ function VantaNetworkField() {
     };
   }, []);
 
-  return <div ref={containerRef} className="absolute inset-0 bg-[#050719]" aria-hidden="true" />;
+  return (
+    <div className="absolute inset-0 overflow-hidden bg-[#050719]" aria-hidden="true">
+      <div ref={containerRef} className="absolute inset-0" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_82%_34%,rgba(236,72,153,0.3),transparent_28%),radial-gradient(ellipse_at_64%_78%,rgba(217,70,239,0.18),transparent_34%)] mix-blend-screen" />
+    </div>
+  );
 }
 
 function WaveField({ showBackdrop = true }: { showBackdrop?: boolean }) {
