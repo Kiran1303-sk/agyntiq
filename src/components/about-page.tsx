@@ -386,8 +386,8 @@ function ServicesShowcase() {
   const service = services[active];
 
   return (
-    <section ref={sectionRef} id="services" className="relative min-h-[430vh] overflow-hidden bg-[#050719]">
-      <div className="sticky top-0 flex h-screen min-h-[42rem] items-center overflow-hidden">
+    <section ref={sectionRef} id="services" style={{ minHeight: "500vh" }} className="relative min-h-[500vh] bg-[#050719]">
+      <div className="sticky top-0 isolate flex h-screen min-h-[42rem] items-center overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_28%,rgba(91,92,255,0.18),transparent_30%),radial-gradient(ellipse_at_25%_80%,rgba(202,74,255,0.12),transparent_34%),linear-gradient(125deg,#050719,#0a0b2a_58%,#160a2c)]" />
         <motion.div animate={{ x: ["-8%", "8%", "-8%"], y: ["5%", "-5%", "5%"], rotate: [0, 8, 0] }} transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }} className="absolute -right-32 top-1/4 h-[34rem] w-[34rem] rounded-full bg-fuchsia-500/[0.11] blur-[120px]" />
         <motion.div animate={{ x: ["8%", "-6%", "8%"], y: ["-4%", "6%", "-4%"] }} transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }} className="absolute -left-40 bottom-0 h-[30rem] w-[30rem] rounded-full bg-blue-500/[0.1] blur-[120px]" />
@@ -531,16 +531,16 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <main className="about-page relative overflow-hidden bg-[#050719] text-white">
+    <main className="about-page relative overflow-x-clip bg-[#050719] text-white">
       <SiteHeader mode="services" />
       <style jsx global>{`
-        .about-page > section:not(#about) {
+        .about-page > section:not(#about):not(#services) {
           padding-top: 5rem !important;
           padding-bottom: 5rem !important;
         }
 
         @media (min-width: 768px) {
-          .about-page > section:not(#about) {
+          .about-page > section:not(#about):not(#services) {
             padding-top: 7rem !important;
             padding-bottom: 7rem !important;
           }
