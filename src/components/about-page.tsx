@@ -459,13 +459,13 @@ export default function AboutPage() {
         <div className="section-shell relative z-10 flex min-h-[520px] items-center">
           <Reveal>
             <div className="section-kicker">ABOUT AGYNTIQ</div>
-            <h1 className="mt-6 max-w-3xl bg-[linear-gradient(90deg,#ffffff_0%,#c7d2fe_70%,#e8eaff_100%)] bg-clip-text text-5xl font-semibold leading-[0.94] tracking-normal text-transparent drop-shadow-[0_0_24px_rgba(91,92,255,0.14)] md:bg-[linear-gradient(90deg,#ffffff_0%,#c7d2fe_38%,#f0abfc_70%,#d946ef_100%)] md:drop-shadow-[0_0_34px_rgba(202,74,255,0.18)] md:text-7xl">
+            <h1 className="mt-5 max-w-4xl bg-[linear-gradient(90deg,#ffffff_0%,#c7d2fe_70%,#e8eaff_100%)] bg-clip-text text-5xl font-semibold leading-[0.94] tracking-normal text-transparent drop-shadow-[0_0_24px_rgba(91,92,255,0.14)] md:bg-[linear-gradient(90deg,#ffffff_0%,#c7d2fe_38%,#f0abfc_70%,#d946ef_100%)] md:drop-shadow-[0_0_34px_rgba(202,74,255,0.18)] md:text-7xl">
               Building the intelligence behind tomorrow&apos;s enterprise.
             </h1>
-            <p className="mt-7 max-w-xl text-lg leading-8 text-white/68 md:text-xl">
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-white/68 md:text-xl">
               AgynTiq brings together artificial intelligence, automation, data, and digital engineering to transform complex business challenges into intelligent, scalable solutions.
             </p>
-            <div className="mt-9 flex flex-wrap gap-3">
+            <div className="mt-7 flex flex-wrap gap-3">
               <Link href="#what-we-do" className="rounded-full bg-[linear-gradient(100deg,#2e6ceb,#7547df,#c23bd9)] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_18px_60px_rgba(126,87,255,0.28)] transition hover:-translate-y-0.5">Explore our solutions <span className="ml-2">→</span></Link>
               <Link href="#contact" className="rounded-full border border-fuchsia-200/22 bg-[#180d32]/65 px-6 py-3.5 text-sm font-semibold text-white/82 transition hover:border-fuchsia-200/45 hover:bg-fuchsia-300/[0.08] hover:text-white">Talk to our team</Link>
             </div>
