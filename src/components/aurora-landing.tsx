@@ -930,27 +930,27 @@ export default function AuroraLanding() {
                 className="relative z-10 max-w-3xl self-start lg:pt-2"
               >
                 <div className="absolute -inset-8 -z-10 rounded-[2.5rem] bg-[radial-gradient(circle_at_18%_18%,rgba(202,74,255,0.18),transparent_34%),linear-gradient(135deg,rgba(24,8,46,0.5),rgba(10,14,48,0.2))] blur-2xl" />
-                <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#180d32]/74 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-100/72 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.18),0_0_34px_rgba(202,74,255,0.14)] backdrop-blur-xl">
+                <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#180d32]/74 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-100/72 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.18),0_0_34px_rgba(202,74,255,0.14)] backdrop-blur-xl">
                   <IconSpark />
                   AI <span aria-hidden="true">•</span> Strategy <span aria-hidden="true">•</span> Solutions <span aria-hidden="true">•</span> Integration
                 </div>
 
-                <h1 className="max-w-4xl text-[2.7rem] font-semibold leading-[0.92] tracking-normal text-white drop-shadow-[0_0_44px_rgba(202,74,255,0.18)] sm:text-5xl md:text-6xl xl:text-[5.6rem]">
+                <h1 className="max-w-4xl text-[2.7rem] font-semibold leading-[0.96] tracking-normal text-white drop-shadow-[0_0_44px_rgba(202,74,255,0.18)] sm:text-5xl md:text-6xl xl:text-[4.5rem]">
                   <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#f3e8ff_44%,#f0abfc_100%)] bg-clip-text text-transparent">
                     Where AI Becomes
                   </span>
-                  <span className="mt-2 block bg-[linear-gradient(90deg,#ffffff_0%,#f0abfc_34%,#c084fc_66%,#d946ef_100%)] bg-clip-text text-transparent">
+                  <span className="mt-1 block bg-[linear-gradient(90deg,#ffffff_0%,#f0abfc_34%,#c084fc_66%,#d946ef_100%)] bg-clip-text text-transparent">
                     Business Impact.
                   </span>
                 </h1>
 
-                <p className="section-copy mt-4 max-w-2xl [text-shadow:0_0_24px_rgba(126,87,255,0.12)] md:text-lg xl:text-xl">
+                <p className="section-copy mt-3 max-w-2xl [text-shadow:0_0_24px_rgba(126,87,255,0.12)] md:text-lg">
                   AgynTiq helps organizations turn AI potential into practical business outcomes
                   through strategy, custom AI solutions, seamless integration, governed data, and
                   continuous AI operations.
                 </p>
 
-                <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+                <div className="mt-4 flex flex-col gap-3 sm:flex-row">
                   <Link
                     href="/services"
                     className="aurora-button hover-sheen magnetic inline-flex items-center justify-center gap-2 rounded-full border border-[#ca4aff]/22 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_18px_70px_rgba(202,74,255,0.24)] transition hover:shadow-[0_18px_80px_rgba(217,70,239,0.26)]"
@@ -970,7 +970,7 @@ export default function AuroraLanding() {
                   </Link>
                 </div>
 
-                <div className="mt-5 text-xs font-medium uppercase tracking-[0.2em] text-fuchsia-100/65 sm:text-sm sm:tracking-[0.24em]">
+                <div className="mt-4 text-xs font-medium uppercase tracking-[0.2em] text-fuchsia-100/65 sm:text-sm sm:tracking-[0.24em]">
                   Strategy <span aria-hidden="true">·</span> Solutions <span aria-hidden="true">·</span> Integration <span aria-hidden="true">·</span> Data <span aria-hidden="true">·</span> Operations
                 </div>
               </motion.div>
