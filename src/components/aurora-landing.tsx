@@ -160,8 +160,6 @@ const problems = [
   }
 ];
 
-const clientLogos = ["Google", "Microsoft", "AWS", "NVIDIA", "OpenAI", "Meta"];
-
 const team = [
   {
     title: "Engineering leadership",
@@ -934,21 +932,22 @@ export default function AuroraLanding() {
                 <div className="absolute -inset-8 -z-10 rounded-[2.5rem] bg-[radial-gradient(circle_at_18%_18%,rgba(202,74,255,0.18),transparent_34%),linear-gradient(135deg,rgba(24,8,46,0.5),rgba(10,14,48,0.2))] blur-2xl" />
                 <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#180d32]/74 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-100/72 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.18),0_0_34px_rgba(202,74,255,0.14)] backdrop-blur-xl">
                   <IconSpark />
-                  Flagship enterprise AI platform
+                  AI <span aria-hidden="true">•</span> Strategy <span aria-hidden="true">•</span> Solutions <span aria-hidden="true">•</span> Integration
                 </div>
 
                 <h1 className="max-w-4xl text-[2.7rem] font-semibold leading-[0.92] tracking-normal text-white drop-shadow-[0_0_44px_rgba(202,74,255,0.18)] sm:text-5xl md:text-6xl xl:text-[5.6rem]">
                   <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#f3e8ff_44%,#f0abfc_100%)] bg-clip-text text-transparent">
-                    AI That Acts.
+                    Where AI Becomes
                   </span>
                   <span className="mt-2 block bg-[linear-gradient(90deg,#ffffff_0%,#f0abfc_34%,#c084fc_66%,#d946ef_100%)] bg-clip-text text-transparent">
-                    Results That Matter.
+                    Business Impact.
                   </span>
                 </h1>
 
                 <p className="section-copy mt-4 max-w-2xl [text-shadow:0_0_24px_rgba(126,87,255,0.12)] md:text-lg xl:text-xl">
-                  Agentic AI systems that plan, decide, and act autonomously to solve real-world
-                  problems at scale.
+                  AgynTiq helps organizations turn AI potential into practical business outcomes
+                  through strategy, custom AI solutions, seamless integration, governed data, and
+                  continuous AI operations.
                 </p>
 
                 <div className="mt-5 flex flex-col gap-3 sm:flex-row">
@@ -956,7 +955,7 @@ export default function AuroraLanding() {
                     href="/services"
                     className="aurora-button hover-sheen magnetic inline-flex items-center justify-center gap-2 rounded-full border border-[#ca4aff]/22 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_18px_70px_rgba(202,74,255,0.24)] transition hover:shadow-[0_18px_80px_rgba(217,70,239,0.26)]"
                   >
-                    Explore Services
+                    Explore AI Services
                     <IconArrow />
                   </Link>
                   <Link
@@ -967,33 +966,12 @@ export default function AuroraLanding() {
                     }}
                     className="hover-glow magnetic inline-flex items-center justify-center gap-2 rounded-full border border-[#ca4aff]/18 bg-[#180d32]/62 px-6 py-3.5 text-sm font-semibold text-white/90 backdrop-blur-xl transition hover:border-fuchsia-300/36 hover:bg-[#ca4aff]/[0.08]"
                   >
-                    Book Demo
+                    Talk to AgynTiq
                   </Link>
                 </div>
 
-                <div className="mt-4 flex flex-wrap items-center gap-3">
-                  <span className="rounded-full bg-[#180d32]/72 px-3 py-2 text-xs uppercase tracking-[0.26em] text-fuchsia-100/74 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.14),0_0_30px_rgba(202,74,255,0.12)]">
-                    Goal: Increase conversion by 25%
-                  </span>
-                  {["Analyze data", "Identify opportunities", "Execute strategy"].map((item) => (
-                    <span
-                      key={item}
-                      className="hover-glow rounded-full bg-[#180d32]/68 px-3 py-2 text-sm text-fuchsia-100/68 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.1)]"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="mt-4 flex flex-wrap items-center gap-3">
-                  {clientLogos.map((name) => (
-                    <span
-                      key={name}
-                      className="hover-glow rounded-full bg-[#100b2a]/74 px-4 py-2 text-sm text-fuchsia-100/66 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.1)] backdrop-blur-xl"
-                    >
-                      {name}
-                    </span>
-                  ))}
+                <div className="mt-5 text-xs font-medium uppercase tracking-[0.2em] text-fuchsia-100/65 sm:text-sm sm:tracking-[0.24em]">
+                  Strategy <span aria-hidden="true">·</span> Solutions <span aria-hidden="true">·</span> Integration <span aria-hidden="true">·</span> Data <span aria-hidden="true">·</span> Operations
                 </div>
               </motion.div>
 
