@@ -927,7 +927,7 @@ export default function AuroraLanding() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease: "easeOut" }}
-                className="relative z-10 max-w-3xl self-start lg:pt-2"
+                className="relative z-10 max-w-3xl self-start max-lg:mx-auto max-lg:flex max-lg:w-full max-lg:max-w-2xl max-lg:flex-col max-lg:items-center max-lg:text-center lg:pt-2"
               >
                 <div className="absolute -inset-8 -z-10 rounded-[2.5rem] bg-[radial-gradient(circle_at_18%_18%,rgba(202,74,255,0.18),transparent_34%),linear-gradient(135deg,rgba(24,8,46,0.5),rgba(10,14,48,0.2))] blur-2xl" />
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#180d32]/74 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-100/72 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.18),0_0_34px_rgba(202,74,255,0.14)] backdrop-blur-xl">
@@ -944,13 +944,13 @@ export default function AuroraLanding() {
                   </span>
                 </h1>
 
-                <p className="section-copy mt-3 max-w-2xl [text-shadow:0_0_24px_rgba(126,87,255,0.12)] md:text-lg">
+                <p className="section-copy mt-3 max-w-2xl [text-shadow:0_0_24px_rgba(126,87,255,0.12)] max-lg:mx-auto md:text-lg">
                   AgynTiq helps organizations turn AI potential into practical business outcomes
                   through strategy, custom AI solutions, seamless integration, governed data, and
                   continuous AI operations.
                 </p>
 
-                <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+                <div className="mt-4 flex w-full max-w-md flex-col gap-3 sm:flex-row">
                   <Link
                     href="/services"
                     className="aurora-button hover-sheen magnetic inline-flex items-center justify-center gap-2 rounded-full border border-[#ca4aff]/22 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_18px_70px_rgba(202,74,255,0.24)] transition hover:shadow-[0_18px_80px_rgba(217,70,239,0.26)]"
@@ -980,11 +980,11 @@ export default function AuroraLanding() {
                 initial={{ opacity: 0, y: 32 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
-                className="scroll-float relative self-start justify-self-center lg:justify-self-end"
+                className="scroll-float relative w-full self-start justify-self-center max-lg:mx-auto max-lg:max-w-sm lg:w-auto lg:justify-self-end"
                 data-parallax="30"
               >
-                <div className="relative min-h-[400px] overflow-visible md:min-h-[500px] lg:-mt-4">
-                  <div className="absolute left-1/2 top-[-12px] w-[250px] -translate-x-1/2 sm:top-[-12px] sm:w-[290px] md:top-[-24px] md:w-[340px] lg:left-auto lg:right-0 lg:top-[-44px] lg:w-[390px] lg:translate-x-0 xl:w-[440px]">
+                <div className="relative h-[350px] overflow-visible sm:h-[410px] md:min-h-[500px] lg:-mt-4">
+                  <div className="absolute left-1/2 top-0 w-[230px] -translate-x-1/2 sm:top-[-12px] sm:w-[290px] md:top-[-24px] md:w-[340px] lg:left-auto lg:right-0 lg:top-[-44px] lg:w-[390px] lg:translate-x-0 xl:w-[440px]">
                     <Image
                       src="/hero2.png"
                       alt="AI hero visual"
