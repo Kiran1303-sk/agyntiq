@@ -201,7 +201,7 @@ export default function ServiceFooter({ showWaves = false }: { showWaves?: boole
             <div className="text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-fuchsia-200/55">
               Build what matters
             </div>
-            <h2 className="mt-4 max-w-lg text-3xl font-semibold leading-tight tracking-normal text-white md:text-5xl">
+            <h2 className="mt-4 max-w-lg !text-3xl font-semibold !leading-[1.15] tracking-normal text-white md:!text-4xl">
               From the right AI idea to a system that creates value.
             </h2>
             <Link

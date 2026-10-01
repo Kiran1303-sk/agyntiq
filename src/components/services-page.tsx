@@ -1036,7 +1036,7 @@ export default function ServicesPage() {
           </motion.div>
           <motion.h1
             variants={fadeUp}
-            className="mt-7 max-w-3xl text-5xl font-semibold leading-[0.98] tracking-normal text-white drop-shadow-[0_0_34px_rgba(126,87,255,0.16)] md:text-7xl"
+            className="mt-7 max-w-3xl !text-4xl font-semibold !leading-[1.08] tracking-normal text-white drop-shadow-[0_0_34px_rgba(126,87,255,0.16)] sm:!text-5xl lg:!text-6xl"
           >
             <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#dbe7ff_42%,#f0abfc_100%)] bg-clip-text text-transparent">
               Transform Every
