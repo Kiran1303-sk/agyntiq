@@ -33,55 +33,6 @@ const industryCardBackgrounds = [
   "linear-gradient(135deg,rgba(22,29,65,0.98),rgba(19,15,51,0.96))"
 ];
 
-const services = [
-  ["01", "AI Strategy & readiness", "Turn AI ambition into a roadmap leaders can fund."],
-  ["02", "AI Solutions development", "Build assistants, agents, products, and decision systems."],
-  ["03", "AI Integration services", "Connect AI to the tools and workflows where work happens."],
-  ["04", "AI Data services", "Create reliable, governed foundations for production AI."],
-  ["05", "AI Managed services", "Keep systems monitored, optimized, and improving after launch."]
-];
-
-const boardPerspectives = [
-  {
-    image: "/slide1.jpeg",
-    role: "Strategy & transformation",
-    title: "Start with the decision, not the technology.",
-    story: "Every strong AI program begins with a clear business question. We help leadership teams connect opportunity, value, and responsible adoption before the build begins."
-  },
-  {
-    image: "/visual-story.png",
-    role: "Technology & innovation",
-    title: "Make intelligence useful in the flow of work.",
-    story: "The best AI experiences feel natural: they meet people inside familiar systems, reduce friction, and turn complex information into confident action."
-  },
-  {
-    image: "/hero1.png",
-    role: "Operations & growth",
-    title: "Build for the long term.",
-    story: "Production AI needs more than a launch moment. We design for reliability, governance, adoption, and continuous improvement from day one."
-  }
-];
-
-const values = [
-  ["Clarity", "We make complex AI decisions understandable and actionable."],
-  ["Useful ambition", "We pursue meaningful outcomes over novelty for its own sake."],
-  ["Responsible by design", "Security, governance, and human judgment belong in the system."],
-  ["Built together", "The strongest solutions are shaped with the people who use them."],
-  ["Always improving", "We learn from real-world use and keep raising the bar."]
-];
-
-const recognitionIconStyles = [
-  "text-amber-200 border-amber-200/45 bg-amber-300/[0.1]",
-  "text-emerald-200 border-emerald-200/45 bg-emerald-300/[0.1]",
-  "text-pink-200 border-pink-200/45 bg-pink-300/[0.1]"
-];
-
-const recognitionCardHoverStyles = [
-  "group-hover:border-amber-200/65 group-hover:bg-[linear-gradient(145deg,rgba(40,29,8,0.78),rgba(23,16,40,0.72))] group-hover:shadow-[0_24px_70px_rgba(251,191,36,0.14)]",
-  "group-hover:border-emerald-200/65 group-hover:bg-[linear-gradient(145deg,rgba(8,38,31,0.72),rgba(15,20,43,0.76))] group-hover:shadow-[0_24px_70px_rgba(52,211,153,0.14)]",
-  "group-hover:border-pink-200/65 group-hover:bg-[linear-gradient(145deg,rgba(45,12,39,0.76),rgba(25,13,45,0.74))] group-hover:shadow-[0_24px_70px_rgba(244,114,182,0.14)]"
-];
-
 // Retained as an alternate service-card palette for future UI variants.
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const serviceColorStyles = [
@@ -90,13 +41,6 @@ const serviceColorStyles = [
   "text-pink-200 border-pink-200/30 bg-pink-300/[0.08] group-hover:border-pink-200/65 group-hover:shadow-[0_24px_80px_rgba(244,114,182,0.16)]",
   "text-emerald-200 border-emerald-200/30 bg-emerald-300/[0.08] group-hover:border-emerald-200/65 group-hover:shadow-[0_24px_80px_rgba(52,211,153,0.16)]",
   "text-violet-200 border-violet-200/30 bg-violet-300/[0.08] group-hover:border-violet-200/65 group-hover:shadow-[0_24px_80px_rgba(167,139,250,0.16)]"
-];
-
-const locations = [
-  ["North America", "Strategy, product, and enterprise partnerships"],
-  ["Europe", "Responsible AI, transformation, and delivery"],
-  ["India", "Engineering, data, and AI operations"],
-  ["Asia Pacific", "Growth, integration, and customer success"]
 ];
 
 function Reveal({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
@@ -382,49 +326,6 @@ function AboutContent() {
   </>;
 }
 
-function ServicesShowcase() {
-  return (
-    <section id="services" className="relative overflow-hidden bg-[#050719]">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_18%,rgba(91,92,255,0.16),transparent_32%),radial-gradient(ellipse_at_18%_78%,rgba(202,74,255,0.1),transparent_34%)]" aria-hidden="true" />
-      {services.map(([number, title, detail], index) => (
-        <motion.article
-          key={number}
-          initial={{ opacity: 0, y: 80, filter: "blur(12px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          viewport={{ once: false, amount: 0.35 }}
-          transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-          className="group relative flex min-h-[68svh] items-center overflow-hidden border-t border-white/[0.08] py-14 md:min-h-[78svh] md:py-16"
-        >
-          <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(5,7,25,0.98),rgba(10,11,42,0.8),rgba(22,10,44,0.72))]" />
-          <motion.div
-            animate={{ x: index % 2 ? ["10%", "-8%", "10%"] : ["-8%", "10%", "-8%"], y: ["-5%", "7%", "-5%"] }}
-            transition={{ duration: 16 + index * 2, repeat: Infinity, ease: "easeInOut" }}
-            className={`absolute ${index % 2 ? "-right-40" : "-left-40"} top-1/2 h-[30rem] w-[30rem] -translate-y-1/2 rounded-full ${index % 2 ? "bg-fuchsia-500/[0.13]" : "bg-blue-500/[0.12]"} blur-[120px]`}
-            aria-hidden="true"
-          />
-          <div className="section-shell relative grid w-full gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-            <div>
-              <div className="section-kicker w-fit">Services · {number}</div>
-              <div className="mt-8 h-px w-24 bg-gradient-to-r from-fuchsia-300 via-blue-300 to-transparent transition-all duration-700 group-hover:w-48" />
-              <h2 className="section-title mt-8 max-w-2xl">{title}</h2>
-            </div>
-            <div className="relative border-l border-white/10 pl-8 md:pl-14">
-              <span className="text-sm uppercase tracking-[0.3em] text-fuchsia-200/60">Capability · 0{index + 1}</span>
-              <p className="section-copy mt-8 max-w-2xl text-lg md:text-xl">{detail}</p>
-              <div className="mt-12 flex items-center gap-4 text-xs uppercase tracking-[0.28em] text-white/35">
-                <span className="h-2.5 w-2.5 rounded-full bg-fuchsia-200 shadow-[0_0_18px_rgba(240,171,252,0.85)]" />
-                Scroll for the next capability
-              </div>
-            </div>
-          </div>
-          <div className="absolute bottom-8 right-8 text-xs tracking-[0.3em] text-white/25">0{index + 1} / 0{services.length}</div>
-        </motion.article>
-      ))}
-    </section>
-  );
-}
-
-
 function WaveField({ showBackdrop = true }: { showBackdrop?: boolean }) {
   const wavePaths = Array.from({ length: 25 }, (_, index) => {
     const offset = index * 1.45;
@@ -499,18 +400,6 @@ function SectionHeading({ eyebrow, title, copy }: { eyebrow: string; title: stri
       <p className="section-copy max-w-2xl">{copy}</p>
     </div>
   );
-}
-
-function RecognitionIcon({ index }: { index: number }) {
-  if (index === 0) {
-    return <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M12 3 19 6v5c0 4.6-2.8 8.1-7 10-4.2-1.9-7-5.4-7-10V6l7-3Z" /><path d="m8.7 12 2.1 2.1 4.6-4.7" /></svg>;
-  }
-
-  if (index === 1) {
-    return <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M4 21h16M6 21V8h12v13M9 8V5h6v3M9 12h2M13 12h2M9 16h2M13 16h2" /><path d="M3 8h18" /></svg>;
-  }
-
-  return <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 17 9 12l3 3 7-8" /><path d="M15 7h4v4" /><path d="M4 21h16" /></svg>;
 }
 
 // Retained as an alternate service icon set for future UI variants.
