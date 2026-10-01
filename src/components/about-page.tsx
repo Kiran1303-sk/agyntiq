@@ -454,15 +454,6 @@ export default function AboutPage() {
           padding-bottom: 3.5rem !important;
         }
 
-        @media (max-width: 767px) {
-          .about-page h1,
-          .about-page h2,
-          .about-page h3 {
-            text-align: justify;
-            text-justify: inter-word;
-          }
-        }
-
         @media (min-width: 768px) {
           .about-page > section:not(#about):not(#services) {
             padding-top: 4.5rem !important;
