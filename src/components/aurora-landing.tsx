@@ -921,7 +921,7 @@ export default function AuroraLanding() {
             <div className="noise-overlay" />
             <div className="absolute inset-x-0 top-[-18%] h-[54rem] rounded-[3rem] bg-[linear-gradient(135deg,rgba(30,8,55,0.44),rgba(7,8,28,0.2)_46%,rgba(42,7,46,0.34))] blur-2xl" />
 
-            <div className="mx-auto grid max-w-[1200px] justify-items-center gap-0 lg:grid-cols-2 lg:items-stretch lg:justify-items-stretch lg:gap-12 xl:gap-16">
+            <div className="mx-auto grid max-w-[1200px] justify-items-center gap-0 lg:grid-cols-[1.3fr_0.7fr] lg:items-stretch lg:justify-items-stretch lg:gap-12 xl:gap-16">
               <motion.div
                 data-reveal
                 initial={{ opacity: 0, y: 24 }}
@@ -937,7 +937,7 @@ export default function AuroraLanding() {
                 </div>
 
                 <h1 className="max-w-4xl text-5xl font-semibold leading-[0.94] tracking-normal text-white drop-shadow-[0_0_44px_rgba(202,74,255,0.18)] max-lg:w-full max-lg:max-w-[21rem] md:text-7xl">
-                  <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#f3e8ff_44%,#f0abfc_100%)] bg-clip-text text-transparent lg:whitespace-nowrap">
+                  <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#f3e8ff_44%,#f0abfc_100%)] bg-clip-text text-transparent">
                     Where AI Becomes
                   </span>
                   <span className="mt-2 block bg-[linear-gradient(90deg,#ffffff_0%,#f0abfc_34%,#c084fc_66%,#d946ef_100%)] bg-clip-text text-transparent">
