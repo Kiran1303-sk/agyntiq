@@ -927,7 +927,7 @@ export default function AuroraLanding() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease: "easeOut" }}
-                className="relative z-10 max-w-3xl self-start max-lg:mx-auto max-lg:flex max-lg:w-full max-lg:max-w-2xl max-lg:flex-col max-lg:items-center max-lg:pb-2 max-lg:text-center lg:flex lg:min-h-[34rem] lg:max-w-[39rem] lg:flex-col lg:justify-center xl:min-h-[36.5rem]"
+                className="relative z-10 max-w-3xl self-start max-lg:mx-auto max-lg:flex max-lg:w-full max-lg:max-w-2xl max-lg:flex-col max-lg:items-center max-lg:pb-2 max-lg:text-center lg:flex lg:min-h-[34rem] lg:max-w-[39rem] lg:flex-col lg:justify-start xl:min-h-[36.5rem]"
               >
                 <div className="absolute -inset-8 -z-10 rounded-[2.5rem] bg-[radial-gradient(circle_at_18%_18%,rgba(202,74,255,0.18),transparent_34%),linear-gradient(135deg,rgba(24,8,46,0.5),rgba(10,14,48,0.2))] blur-2xl" />
                 <div className="mb-5 inline-flex max-w-full items-center justify-center gap-2 rounded-full bg-[#180d32]/74 px-4 py-2 text-center text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-100/72 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.18),0_0_34px_rgba(202,74,255,0.14)] backdrop-blur-xl max-lg:leading-5 lg:mb-6 lg:w-fit lg:self-start">
@@ -985,7 +985,7 @@ export default function AuroraLanding() {
                 data-parallax="30"
               >
                 <div className="relative h-[300px] overflow-visible sm:h-[390px] md:min-h-[500px] lg:h-[34rem] lg:min-h-0 xl:h-[36.5rem]">
-                  <div className="absolute left-1/2 top-0 w-[205px] -translate-x-1/2 sm:top-[-12px] sm:w-[270px] md:top-[-24px] md:w-[340px] lg:inset-0 lg:flex lg:translate-y-12 lg:items-center lg:justify-end lg:translate-x-0 lg:pr-2">
+                  <div className="absolute left-1/2 top-0 w-[205px] -translate-x-1/2 sm:top-[-12px] sm:w-[270px] md:top-[-24px] md:w-[340px] lg:inset-0 lg:flex lg:items-start lg:justify-end lg:translate-x-0 lg:pr-2">
                     <Image
                       src="/hero2.png"
                       alt="AI hero visual"
