@@ -981,7 +981,7 @@ export default function AuroraLanding() {
                 initial={{ opacity: 0, y: 32 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
-                className="scroll-float relative -mt-4 w-full self-start justify-self-center max-lg:mx-auto max-lg:max-w-sm lg:mt-0 lg:w-full lg:justify-self-stretch"
+                className="scroll-float relative -mt-4 w-full self-start justify-self-center max-lg:mx-auto max-lg:max-w-sm lg:mt-0 lg:w-full lg:justify-self-stretch lg:pl-10 xl:pl-16"
                 data-parallax="30"
               >
                 <div className="relative h-[300px] overflow-visible sm:h-[390px] md:min-h-[500px] lg:h-[34rem] lg:min-h-0 xl:h-[36.5rem]">
