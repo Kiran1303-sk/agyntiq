@@ -921,13 +921,13 @@ export default function AuroraLanding() {
             <div className="noise-overlay" />
             <div className="absolute inset-x-0 top-[-18%] h-[54rem] rounded-[3rem] bg-[linear-gradient(135deg,rgba(30,8,55,0.44),rgba(7,8,28,0.2)_46%,rgba(42,7,46,0.34))] blur-2xl" />
 
-            <div className="mx-auto grid max-w-[1200px] justify-items-center gap-0 lg:grid-cols-[1.3fr_0.7fr] lg:items-stretch lg:justify-items-stretch lg:gap-12 xl:gap-16">
+            <div className="mx-auto grid max-w-[1200px] justify-items-center gap-0 lg:grid-cols-[1.35fr_0.65fr] lg:items-stretch lg:justify-items-stretch lg:gap-12 xl:gap-16">
               <motion.div
                 data-reveal
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease: "easeOut" }}
-                className="relative z-10 max-w-3xl self-start max-lg:mx-auto max-lg:flex max-lg:w-full max-lg:max-w-2xl max-lg:flex-col max-lg:items-center max-lg:pb-2 max-lg:text-center lg:flex lg:min-h-[34rem] lg:max-w-[39rem] lg:flex-col lg:justify-start xl:min-h-[36.5rem]"
+                className="relative z-10 max-w-3xl self-start max-lg:mx-auto max-lg:flex max-lg:w-full max-lg:max-w-2xl max-lg:flex-col max-lg:items-center max-lg:pb-2 max-lg:text-center lg:flex lg:min-h-[34rem] lg:max-w-none lg:flex-col lg:justify-start xl:min-h-[36.5rem]"
               >
                 <div className="absolute -inset-8 -z-10 rounded-[2.5rem] bg-[radial-gradient(circle_at_18%_18%,rgba(202,74,255,0.18),transparent_34%),linear-gradient(135deg,rgba(24,8,46,0.5),rgba(10,14,48,0.2))] blur-2xl" />
                 <div className="mb-5 inline-flex max-w-full items-center justify-center gap-2 rounded-full bg-[#180d32]/74 px-4 py-2 text-center text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-100/72 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.18),0_0_34px_rgba(202,74,255,0.14)] backdrop-blur-xl max-lg:leading-5 lg:mb-6 lg:w-fit lg:self-start">
@@ -936,7 +936,7 @@ export default function AuroraLanding() {
                   <span className="hidden sm:inline">AI <span aria-hidden="true">•</span> Strategy <span aria-hidden="true">•</span> Solutions <span aria-hidden="true">•</span> Integration</span>
                 </div>
 
-                <h1 className="max-w-4xl text-5xl font-semibold leading-[0.94] tracking-[-0.035em] text-white drop-shadow-[0_0_44px_rgba(202,74,255,0.18)] max-lg:w-full max-lg:max-w-[21rem] md:max-lg:max-w-[calc(100vw-2.5rem)] md:text-7xl xl:text-6xl">
+                <h1 className="max-w-4xl text-5xl font-semibold leading-[0.94] tracking-[-0.06em] text-white drop-shadow-[0_0_44px_rgba(202,74,255,0.18)] max-lg:w-full max-lg:max-w-[21rem] md:max-lg:max-w-[calc(100vw-2.5rem)] md:text-7xl">
                   <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#f3e8ff_44%,#f0abfc_100%)] bg-clip-text text-transparent md:whitespace-nowrap">
                     Where AI Becomes
                   </span>
