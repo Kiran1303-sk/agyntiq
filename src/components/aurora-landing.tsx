@@ -921,13 +921,13 @@ export default function AuroraLanding() {
             <div className="noise-overlay" />
             <div className="absolute inset-x-0 top-[-18%] h-[54rem] rounded-[3rem] bg-[linear-gradient(135deg,rgba(30,8,55,0.44),rgba(7,8,28,0.2)_46%,rgba(42,7,46,0.34))] blur-2xl" />
 
-            <div className="mx-auto grid max-w-[1480px] justify-items-center gap-0 lg:grid-cols-[1.12fr_0.88fr] lg:items-stretch lg:justify-items-stretch lg:gap-6 xl:gap-10">
+            <div className="mx-auto grid max-w-[1320px] justify-items-center gap-0 lg:grid-cols-[1.18fr_0.82fr] lg:items-stretch lg:justify-items-stretch lg:gap-6 xl:gap-10">
               <motion.div
                 data-reveal
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease: "easeOut" }}
-                className="relative z-10 max-w-3xl self-start max-lg:mx-auto max-lg:flex max-lg:w-full max-lg:max-w-2xl max-lg:flex-col max-lg:items-center max-lg:pb-2 max-lg:text-center lg:flex lg:min-h-[34rem] lg:flex-col lg:justify-center xl:min-h-[36.5rem]"
+                className="relative z-10 max-w-3xl self-start max-lg:mx-auto max-lg:flex max-lg:w-full max-lg:max-w-2xl max-lg:flex-col max-lg:items-center max-lg:pb-2 max-lg:text-center lg:flex lg:min-h-[34rem] lg:max-w-[39rem] lg:flex-col lg:justify-center xl:min-h-[36.5rem]"
               >
                 <div className="absolute -inset-8 -z-10 rounded-[2.5rem] bg-[radial-gradient(circle_at_18%_18%,rgba(202,74,255,0.18),transparent_34%),linear-gradient(135deg,rgba(24,8,46,0.5),rgba(10,14,48,0.2))] blur-2xl" />
                 <div className="mb-5 inline-flex max-w-full items-center justify-center gap-2 rounded-full bg-[#180d32]/74 px-4 py-2 text-center text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-100/72 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.18),0_0_34px_rgba(202,74,255,0.14)] backdrop-blur-xl max-lg:leading-5 lg:mb-6">
@@ -985,14 +985,14 @@ export default function AuroraLanding() {
                 data-parallax="30"
               >
                 <div className="relative h-[300px] overflow-visible sm:h-[390px] md:min-h-[500px] lg:h-[34rem] lg:min-h-0 xl:h-[36.5rem]">
-                  <div className="absolute left-1/2 top-0 w-[205px] -translate-x-1/2 sm:top-[-12px] sm:w-[270px] md:top-[-24px] md:w-[340px] lg:left-auto lg:right-0 lg:top-0 lg:w-[360px] lg:translate-x-0 xl:w-[390px]">
+                  <div className="absolute left-1/2 top-0 w-[205px] -translate-x-1/2 sm:top-[-12px] sm:w-[270px] md:top-[-24px] md:w-[340px] lg:inset-0 lg:flex lg:items-center lg:justify-end lg:translate-x-0">
                     <Image
                       src="/hero2.png"
                       alt="AI hero visual"
                       width={1024}
                       height={1536}
                       priority
-                      className="h-auto w-full object-contain"
+                      className="h-auto w-full object-contain lg:h-full lg:w-auto lg:max-w-full"
                     />
                   </div>
                 </div>
