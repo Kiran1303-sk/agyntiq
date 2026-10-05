@@ -971,7 +971,7 @@ export default function AuroraLanding() {
                   </Link>
                 </div>
 
-                <div className="mt-5 max-w-[19rem] text-center text-xs font-medium uppercase tracking-[0.2em] text-fuchsia-100/65 sm:max-w-none sm:text-sm sm:tracking-[0.24em] lg:mt-6">
+                <div className="mt-5 max-w-[19rem] text-center text-xs font-medium uppercase tracking-[0.2em] text-fuchsia-100/65 sm:max-w-none sm:text-sm sm:tracking-[0.24em] lg:mt-6 lg:w-fit lg:self-start lg:text-left">
                   Strategy <span aria-hidden="true">·</span> Solutions <span aria-hidden="true">·</span> Integration <span aria-hidden="true">·</span> Data <span aria-hidden="true">·</span> Operations
                 </div>
               </motion.div>
