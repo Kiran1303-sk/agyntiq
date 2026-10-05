@@ -985,7 +985,7 @@ export default function AuroraLanding() {
                 data-parallax="30"
               >
                 <div className="relative h-[300px] overflow-visible sm:h-[390px] md:min-h-[500px] lg:h-[34rem] lg:min-h-0 xl:h-[36.5rem]">
-                  <div className="absolute left-1/2 top-0 w-[205px] -translate-x-1/2 sm:top-[-12px] sm:w-[270px] md:top-[-24px] md:w-[340px] lg:inset-0 lg:flex lg:items-center lg:justify-end lg:translate-x-0 lg:pr-2">
+                  <div className="absolute left-1/2 top-0 w-[205px] -translate-x-1/2 sm:top-[-12px] sm:w-[270px] md:top-[-24px] md:w-[340px] lg:inset-0 lg:flex lg:translate-y-12 lg:items-center lg:justify-end lg:translate-x-0 lg:pr-2">
                     <Image
                       src="/hero2.png"
                       alt="AI hero visual"
