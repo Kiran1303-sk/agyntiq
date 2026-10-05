@@ -936,8 +936,8 @@ export default function AuroraLanding() {
                   <span className="hidden sm:inline">AI <span aria-hidden="true">•</span> Strategy <span aria-hidden="true">•</span> Solutions <span aria-hidden="true">•</span> Integration</span>
                 </div>
 
-                <h1 className="max-w-4xl text-5xl font-semibold leading-[0.94] tracking-normal text-white drop-shadow-[0_0_44px_rgba(202,74,255,0.18)] max-lg:w-full max-lg:max-w-[21rem] md:text-7xl">
-                  <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#f3e8ff_44%,#f0abfc_100%)] bg-clip-text text-transparent">
+                <h1 className="max-w-4xl text-5xl font-semibold leading-[0.94] tracking-normal text-white drop-shadow-[0_0_44px_rgba(202,74,255,0.18)] max-lg:w-full max-lg:max-w-[21rem] md:max-lg:max-w-[calc(100vw-2.5rem)] md:text-7xl">
+                  <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#f3e8ff_44%,#f0abfc_100%)] bg-clip-text text-transparent md:whitespace-nowrap">
                     Where AI Becomes
                   </span>
                   <span className="mt-2 block bg-[linear-gradient(90deg,#ffffff_0%,#f0abfc_34%,#c084fc_66%,#d946ef_100%)] bg-clip-text text-transparent">
@@ -946,7 +946,7 @@ export default function AuroraLanding() {
                 </h1>
 
                 <p className="section-copy mt-5 max-w-2xl [text-shadow:0_0_24px_rgba(126,87,255,0.12)] max-lg:mx-auto max-lg:max-w-[19rem] md:text-lg lg:mt-6">
-                  AgynTiq helps organizations turn AI potential into practical business outcomes
+                  Agyntiq helps organizations turn AI potential into practical business outcomes
                   through strategy, custom AI solutions, seamless integration, governed data, and
                   continuous AI operations.
                 </p>
@@ -967,7 +967,7 @@ export default function AuroraLanding() {
                     }}
                     className="hover-glow magnetic inline-flex items-center justify-center gap-2 rounded-full border border-[#ca4aff]/18 bg-[#180d32]/62 px-6 py-3.5 text-sm font-semibold text-white/90 backdrop-blur-xl transition hover:border-fuchsia-300/36 hover:bg-[#ca4aff]/[0.08]"
                   >
-                    Talk to AgynTiq
+                    Talk to Agyntiq
                   </Link>
                 </div>
 
