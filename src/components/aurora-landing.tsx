@@ -936,7 +936,7 @@ export default function AuroraLanding() {
                   <span className="hidden sm:inline">AI <span aria-hidden="true">•</span> Strategy <span aria-hidden="true">•</span> Solutions <span aria-hidden="true">•</span> Integration</span>
                 </div>
 
-                <h1 className="max-w-4xl text-[2.15rem] font-semibold leading-[0.98] tracking-normal text-white drop-shadow-[0_0_44px_rgba(202,74,255,0.18)] max-lg:w-full max-lg:max-w-[21rem] sm:text-5xl lg:text-[3rem] xl:text-[3.5rem]">
+                <h1 className="max-w-4xl text-5xl font-semibold leading-[0.94] tracking-normal text-white drop-shadow-[0_0_44px_rgba(202,74,255,0.18)] max-lg:w-full max-lg:max-w-[21rem] md:text-7xl">
                   <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#f3e8ff_44%,#f0abfc_100%)] bg-clip-text text-transparent lg:whitespace-nowrap">
                     Where AI Becomes
                   </span>
