@@ -478,7 +478,12 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-[linear-gradient(90deg,#050719_0%,rgba(5,7,25,0.93)_32%,rgba(5,7,25,0.42)_68%,rgba(5,7,25,0.8)_100%)]" />
         <div className="section-shell relative z-10 flex min-h-[520px] items-center">
           <Reveal>
-            <div className="section-kicker">ABOUT AGYNTIQ</div>
+            <div className="section-kicker inline-flex items-center gap-2">
+              <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 text-cyan-100" fill="none" aria-hidden="true">
+                <path d="M12 2.75l1.9 5.33L19.25 10l-5.35 1.89L12 17.25l-1.9-5.36L4.75 10l5.35-1.92L12 2.75Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+              </svg>
+              <span>ABOUT AGYNTIQ</span>
+            </div>
             <h1 className="mt-5 max-w-4xl bg-[linear-gradient(90deg,#ffffff_0%,#c7d2fe_70%,#e8eaff_100%)] bg-clip-text text-5xl font-semibold leading-[0.94] tracking-normal text-transparent drop-shadow-[0_0_24px_rgba(91,92,255,0.14)] md:bg-[linear-gradient(90deg,#ffffff_0%,#c7d2fe_38%,#f0abfc_70%,#d946ef_100%)] md:drop-shadow-[0_0_34px_rgba(202,74,255,0.18)] md:text-7xl">
               Building the intelligence behind tomorrow&apos;s enterprise.
             </h1>

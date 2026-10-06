@@ -1030,8 +1030,11 @@ export default function ServicesPage() {
         <motion.div initial="hidden" animate="show" variants={stagger}>
           <motion.div
             variants={fadeUp}
-            className="inline-flex rounded-full bg-[linear-gradient(90deg,rgba(46,108,235,0.28),rgba(117,71,223,0.28),rgba(194,59,217,0.28))] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-50 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.28),0_0_32px_rgba(126,87,255,0.22)]"
+            className="inline-flex items-center gap-2 rounded-full bg-[linear-gradient(90deg,rgba(46,108,235,0.28),rgba(117,71,223,0.28),rgba(194,59,217,0.28))] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-50 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.28),0_0_32px_rgba(126,87,255,0.22)]"
           >
+            <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 text-fuchsia-100" fill="none" aria-hidden="true">
+              <path d="M12 2.75l1.9 5.33L19.25 10l-5.35 1.89L12 17.25l-1.9-5.36L4.75 10l5.35-1.92L12 2.75Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+            </svg>
             Enterprise AI Solutions
           </motion.div>
           <motion.h1
