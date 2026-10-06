@@ -985,7 +985,7 @@ export default function AuroraLanding() {
                   <div className="absolute left-1/2 top-0 w-[205px] -translate-x-1/2 sm:top-[-12px] sm:w-[270px] md:top-[-24px] md:w-[340px] lg:inset-0 lg:flex lg:-translate-y-16 lg:items-start lg:justify-end lg:translate-x-0 lg:pr-2 xl:-translate-y-20">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src="/hero2.png"
+                      src="/hero-main.png"
                       alt="AI hero visual"
                       width="1024"
                       height="1536"
