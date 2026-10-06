@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
@@ -651,13 +650,11 @@ export default function AuroraLanding() {
         <div className="section-shell flex h-20 items-center justify-between gap-4 md:grid md:h-24 md:grid-cols-[1fr_auto_1fr] md:gap-10 md:gap-12">
           <Link href="/" className="group flex w-fit items-center justify-self-start pl-0">
             <span className="relative block h-[44px] w-[130px] shrink-0 md:h-[54px] md:w-[160px]">
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src="/main-logo1.png"
                 alt="Agyntiq.ai logo"
-                fill
-                priority
-                sizes="(min-width: 768px) 160px, 130px"
-                className="object-contain object-left"
+                className="h-full w-full object-contain object-left"
               />
             </span>
           </Link>
@@ -826,7 +823,7 @@ export default function AuroraLanding() {
                       onClick={() => setMobileOpen(false)}
                       className="rounded-[1rem] px-4 py-3.5 text-sm font-semibold text-white/74 transition hover:bg-[#315cff]/[0.07] hover:text-white"
                     >
-                      {item.label}
+                      {item.label}D
                     </Link>
                   );
                 }
@@ -986,14 +983,13 @@ export default function AuroraLanding() {
               >
                 <div className="relative h-[300px] overflow-visible sm:h-[390px] md:min-h-[500px] lg:h-[34rem] lg:min-h-0 xl:h-[36.5rem]">
                   <div className="absolute left-1/2 top-0 w-[205px] -translate-x-1/2 sm:top-[-12px] sm:w-[270px] md:top-[-24px] md:w-[340px] lg:inset-0 lg:flex lg:-translate-y-16 lg:items-start lg:justify-end lg:translate-x-0 lg:pr-2 xl:-translate-y-20">
-                    <Image
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
                       src="/hero2.png"
                       alt="AI hero visual"
-                      width={1024}
-                      height={1536}
-                      priority
-                      unoptimized
-                      className="h-auto w-full object-contain lg:h-full lg:w-auto lg:max-w-full"
+                      width="1024"
+                      height="1536"
+                      className="h-auto w-full object-contain mix-blend-screen lg:h-full lg:w-auto lg:max-w-full"
                     />
                   </div>
                 </div>
@@ -1591,12 +1587,11 @@ function ScrollShowcaseSection() {
                       transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
                       className="absolute inset-0"
                     >
-                      <Image
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
                         src={slideShowcase[activeSlide].src}
                         alt={slideShowcase[activeSlide].title}
-                        fill
-                        sizes="(min-width: 1024px) 50vw, 100vw"
-                        className="object-cover transition-transform duration-[2800ms] ease-out"
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-[2800ms] ease-out"
                       />
                       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.04)_0%,rgba(5,8,22,0.08)_35%,rgba(5,8,22,0.94)_100%)]" />
                       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,8,22,0.34),transparent_55%,rgba(117,71,223,0.16))]" />
@@ -1638,7 +1633,8 @@ function ScrollShowcaseSection() {
                           }`}
                         >
                           <span className="relative h-10 w-14 shrink-0 overflow-hidden rounded-lg">
-                            <Image src={item.src} alt="" fill sizes="56px" className="object-cover transition duration-500 group-hover:scale-105" />
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src={item.src} alt="" className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
                           </span>
                           <span className="min-w-0 truncate text-xs font-semibold">{item.tag} / {item.title}</span>
                         </button>
