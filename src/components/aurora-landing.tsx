@@ -823,7 +823,7 @@ export default function AuroraLanding() {
                       onClick={() => setMobileOpen(false)}
                       className="rounded-[1rem] px-4 py-3.5 text-sm font-semibold text-white/74 transition hover:bg-[#315cff]/[0.07] hover:text-white"
                     >
-                      {item.label}D
+                      {item.label}
                     </Link>
                   );
                 }
