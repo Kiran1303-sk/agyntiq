@@ -433,7 +433,7 @@ function AnimatedCounter({
 
 function IconSpark() {
   return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+    <svg viewBox="0 0 24 24" className="h-5 w-5 text-cyan-100 drop-shadow-[0_0_8px_rgba(103,232,249,0.45)]" fill="none" aria-hidden="true">
       <path
         d="M12 2.75l1.9 5.33L19.25 10l-5.35 1.89L12 17.25l-1.9-5.36L4.75 10l5.35-1.92L12 2.75Z"
         stroke="currentColor"
