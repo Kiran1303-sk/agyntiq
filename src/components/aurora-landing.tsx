@@ -942,7 +942,7 @@ export default function AuroraLanding() {
                   </span>
                 </h1>
 
-                <p className="section-copy mt-5 max-w-2xl [text-shadow:0_0_24px_rgba(126,87,255,0.12)] max-lg:mx-auto max-lg:max-w-[19rem] md:text-lg lg:mt-6">
+                <p className="section-copy mt-5 max-w-2xl [text-shadow:0_0_24px_rgba(126,87,255,0.12)] max-lg:mx-auto max-lg:max-w-[19rem] max-lg:text-justify max-lg:[text-align-last:center] md:text-lg lg:mt-6">
                   Agyntiq helps organizations turn AI potential into practical business outcomes
                   through strategy, custom AI solutions, seamless integration, governed data, and
                   continuous AI operations.
