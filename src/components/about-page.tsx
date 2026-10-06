@@ -476,8 +476,8 @@ export default function AboutPage() {
       <section id="about" className="relative isolate min-h-[680px] overflow-hidden pt-28 md:min-h-[720px] md:pt-32">
         <VantaNetworkField />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,#050719_0%,rgba(5,7,25,0.93)_32%,rgba(5,7,25,0.42)_68%,rgba(5,7,25,0.8)_100%)]" />
-        <div className="section-shell relative z-10 flex min-h-[520px] items-center">
-          <Reveal>
+        <div className="section-shell relative z-10 flex min-h-[520px] items-center max-md:!px-3">
+          <Reveal className="w-full">
             <div className="section-kicker inline-flex items-center gap-2">
               <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 text-cyan-100" fill="none" aria-hidden="true">
                 <path d="M12 2.75l1.9 5.33L19.25 10l-5.35 1.89L12 17.25l-1.9-5.36L4.75 10l5.35-1.92L12 2.75Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
