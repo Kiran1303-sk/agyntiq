@@ -933,7 +933,7 @@ export default function AuroraLanding() {
                   <span className="hidden sm:inline">AI <span aria-hidden="true">•</span> Strategy <span aria-hidden="true">•</span> Solutions <span aria-hidden="true">•</span> Integration</span>
                 </div>
 
-                <h1 className="max-w-4xl text-5xl font-semibold leading-[0.94] tracking-[-0.06em] text-white drop-shadow-[0_0_44px_rgba(202,74,255,0.18)] max-lg:w-full max-lg:max-w-[21rem] md:max-lg:max-w-[calc(100vw-2.5rem)] md:text-7xl">
+                <h1 className="max-w-4xl text-5xl font-semibold leading-[0.94] tracking-[-0.06em] text-white drop-shadow-[0_0_44px_rgba(202,74,255,0.18)] max-lg:w-full max-lg:max-w-[21rem] max-lg:text-left md:max-lg:max-w-[calc(100vw-2.5rem)] md:text-7xl">
                   <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#f3e8ff_44%,#f0abfc_100%)] bg-clip-text text-transparent md:whitespace-nowrap">
                     Where AI Becomes
                   </span>
@@ -942,7 +942,7 @@ export default function AuroraLanding() {
                   </span>
                 </h1>
 
-                <p className="section-copy mt-5 max-w-2xl [text-shadow:0_0_24px_rgba(126,87,255,0.12)] max-lg:mx-auto max-lg:max-w-[19rem] max-lg:text-justify max-lg:[text-align-last:center] md:text-lg lg:mt-6">
+                <p className="section-copy mt-5 max-w-2xl [text-shadow:0_0_24px_rgba(126,87,255,0.12)] max-lg:mx-0 max-lg:max-w-[19rem] max-lg:text-left md:text-lg lg:mt-6">
                   Agyntiq helps organizations turn AI potential into practical business outcomes
                   through strategy, custom AI solutions, seamless integration, governed data, and
                   continuous AI operations.
@@ -978,7 +978,7 @@ export default function AuroraLanding() {
                 initial={{ opacity: 0, y: 32 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
-                className="scroll-float relative -mt-4 w-full self-start justify-self-center max-lg:mx-auto max-lg:max-w-sm lg:mt-0 lg:w-full lg:justify-self-stretch lg:pl-10 xl:pl-16"
+                className="scroll-float relative mt-10 w-full self-start justify-self-center max-lg:mx-auto max-lg:max-w-sm lg:mt-0 lg:w-full lg:justify-self-stretch lg:pl-10 xl:pl-16"
                 data-parallax="30"
               >
                 <div className="relative h-[300px] overflow-visible sm:h-[390px] md:min-h-[500px] lg:h-[34rem] lg:min-h-0 xl:h-[36.5rem]">
