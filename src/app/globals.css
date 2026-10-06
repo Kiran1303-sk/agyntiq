@@ -70,61 +70,6 @@ body {
   html {
     scroll-behavior: auto;
   }
-
-  .hero-data-flow,
-  .hero-data-nodes {
-    animation: none !important;
-  }
-}
-
-@keyframes hero-data-drift {
-  0%,
-  100% {
-    stroke-dashoffset: 0;
-    opacity: 0.42;
-  }
-  50% {
-    stroke-dashoffset: -180;
-    opacity: 0.9;
-  }
-}
-
-@keyframes hero-node-pulse {
-  0%,
-  100% {
-    opacity: 0.28;
-    transform: scale(0.8);
-  }
-  50% {
-    opacity: 0.95;
-    transform: scale(1.35);
-  }
-}
-
-.hero-data-flow {
-  stroke-dasharray: 18 30;
-  animation: hero-data-drift 9s ease-in-out infinite;
-}
-
-.hero-data-flow--two {
-  animation-duration: 12s;
-  animation-delay: -3s;
-}
-
-.hero-data-flow--three {
-  animation-duration: 15s;
-  animation-delay: -7s;
-}
-
-.hero-data-flow--four {
-  animation-duration: 18s;
-  animation-delay: -5s;
-}
-
-.hero-data-nodes {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: hero-node-pulse 5s ease-in-out infinite;
 }
 
 * {
