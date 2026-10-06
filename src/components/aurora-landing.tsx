@@ -982,6 +982,50 @@ export default function AuroraLanding() {
                 data-parallax="30"
               >
                 <div className="relative h-[300px] overflow-visible sm:h-[390px] md:min-h-[500px] lg:h-[34rem] lg:min-h-0 xl:h-[36.5rem]">
+                  <svg
+                    aria-hidden="true"
+                    className="hero-data-streams pointer-events-none absolute -left-[72%] top-[8%] z-0 hidden h-[82%] w-[170%] overflow-visible lg:block"
+                    viewBox="0 0 1200 620"
+                    fill="none"
+                    preserveAspectRatio="none"
+                  >
+                    <defs>
+                      <linearGradient id="hero-stream-blue" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0" stopColor="#67e8f9" stopOpacity="0" />
+                        <stop offset="0.42" stopColor="#38bdf8" stopOpacity="0.28" />
+                        <stop offset="1" stopColor="#a855f7" stopOpacity="0.9" />
+                      </linearGradient>
+                      <linearGradient id="hero-stream-violet" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0" stopColor="#818cf8" stopOpacity="0" />
+                        <stop offset="0.5" stopColor="#8b5cf6" stopOpacity="0.3" />
+                        <stop offset="1" stopColor="#f0abfc" stopOpacity="0.82" />
+                      </linearGradient>
+                      <filter id="hero-stream-glow" x="-20%" y="-50%" width="140%" height="200%">
+                        <feGaussianBlur stdDeviation="5" result="blur" />
+                        <feMerge>
+                          <feMergeNode in="blur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                    </defs>
+                    <g filter="url(#hero-stream-glow)" strokeLinecap="round">
+                      <path className="hero-data-flow hero-data-flow--one" d="M0 380 C190 290 290 430 450 340 S760 145 1200 270" stroke="url(#hero-stream-blue)" strokeWidth="2.5" />
+                      <path className="hero-data-flow hero-data-flow--two" d="M0 450 C210 330 320 500 520 370 S820 190 1200 225" stroke="url(#hero-stream-violet)" strokeWidth="1.5" />
+                      <path className="hero-data-flow hero-data-flow--three" d="M0 300 C170 215 315 340 500 295 S830 120 1200 170" stroke="url(#hero-stream-blue)" strokeWidth="1" />
+                      <path className="hero-data-flow hero-data-flow--four" d="M30 520 C240 390 355 545 585 405 S900 250 1200 300" stroke="url(#hero-stream-violet)" strokeWidth="1" />
+                    </g>
+                    <g className="hero-data-nodes" fill="#b8f3ff">
+                      <circle cx="500" cy="320" r="3" />
+                      <circle cx="710" cy="230" r="2.5" />
+                      <circle cx="865" cy="190" r="3" />
+                    </g>
+                  </svg>
+                  <div className="pointer-events-none absolute left-[8%] top-[27%] z-10 hidden text-[10px] font-semibold uppercase tracking-[0.28em] text-cyan-100/35 lg:block">
+                    AI <span className="mx-2 text-fuchsia-200/45">→</span> Data <span className="mx-2 text-fuchsia-200/45">→</span> Strategy
+                  </div>
+                  <div className="pointer-events-none absolute left-[30%] top-[68%] z-10 hidden text-[10px] font-semibold uppercase tracking-[0.24em] text-violet-100/35 lg:block">
+                    Integration <span className="mx-2 text-fuchsia-200/45">→</span> Business
+                  </div>
                   <div className="absolute left-1/2 top-0 w-[205px] -translate-x-1/2 sm:top-[-12px] sm:w-[270px] md:top-[-24px] md:w-[340px] lg:inset-0 lg:flex lg:-translate-y-16 lg:items-start lg:justify-end lg:translate-x-0 lg:pr-2 xl:-translate-y-20">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
