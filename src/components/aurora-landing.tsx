@@ -930,11 +930,11 @@ export default function AuroraLanding() {
           className="relative scroll-mt-28 overflow-hidden pb-6 pt-8 md:scroll-mt-32 md:pb-12 md:pt-12 lg:flex lg:min-h-[calc(100vh-5rem)] lg:items-center lg:py-10"
         >
           <div className="pointer-events-none absolute inset-x-0 top-0 h-[78%] bg-[radial-gradient(circle_at_18%_18%,rgba(202,74,255,0.18),transparent_30%),radial-gradient(circle_at_78%_36%,rgba(117,71,223,0.14),transparent_34%)]" />
-          <div className="section-shell relative z-10 max-md:!px-3">
+          <div className="section-shell relative z-10 max-md:!px-0">
             <div className="noise-overlay" />
             <div className="absolute inset-x-0 top-[-18%] h-[54rem] rounded-[3rem] bg-[linear-gradient(135deg,rgba(30,8,55,0.44),rgba(7,8,28,0.2)_46%,rgba(42,7,46,0.34))] blur-2xl" />
 
-            <div className="mx-auto grid max-w-[1200px] justify-items-center gap-0 lg:grid-cols-[1.35fr_0.65fr] lg:items-stretch lg:justify-items-stretch lg:gap-12 xl:gap-16">
+            <div className="mx-auto grid max-w-[1200px] justify-items-center gap-0 max-md:px-4 lg:grid-cols-[1.35fr_0.65fr] lg:items-stretch lg:justify-items-stretch lg:gap-12 xl:gap-16">
               <motion.div
                 data-reveal
                 initial={{ opacity: 0, y: 24 }}
@@ -949,7 +949,7 @@ export default function AuroraLanding() {
                   <span className="hidden sm:inline">AI <span aria-hidden="true">•</span> Strategy <span aria-hidden="true">•</span> Solutions <span aria-hidden="true">•</span> Integration</span>
                 </div>
 
-                <h1 className="max-w-4xl text-5xl font-semibold leading-[0.94] tracking-[-0.06em] text-white drop-shadow-[0_0_44px_rgba(202,74,255,0.18)] max-lg:w-full max-lg:max-w-[21rem] max-lg:self-start max-lg:text-left md:max-lg:max-w-[calc(100vw-2.5rem)] md:text-7xl">
+                <h1 className="max-w-4xl text-5xl font-semibold leading-[0.94] tracking-[-0.06em] text-white drop-shadow-[0_0_44px_rgba(202,74,255,0.18)] max-lg:w-full max-lg:max-w-none max-lg:self-start max-lg:text-left md:text-7xl">
                   <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#f3e8ff_44%,#f0abfc_100%)] bg-clip-text text-transparent md:whitespace-nowrap">
                     Where AI Becomes
                   </span>
@@ -958,7 +958,7 @@ export default function AuroraLanding() {
                   </span>
                 </h1>
 
-                <p className="section-copy mt-5 max-w-2xl [text-shadow:0_0_24px_rgba(126,87,255,0.12)] max-lg:mx-0 max-lg:w-full max-lg:max-w-[19rem] max-lg:self-start max-lg:text-left md:text-lg lg:mt-6">
+                <p className="section-copy mt-5 max-w-2xl [text-shadow:0_0_24px_rgba(126,87,255,0.12)] max-lg:mx-0 max-lg:w-full max-lg:max-w-none max-lg:self-start max-lg:text-left md:text-lg lg:mt-6">
                   Agyntiq helps organizations turn AI potential into practical business outcomes
                   through strategy, custom AI solutions, seamless integration, governed data, and
                   continuous AI operations.

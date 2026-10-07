@@ -357,6 +357,22 @@ button {
   padding-inline: 1.25rem;
 }
 
+@media (max-width: 767px) {
+  .section-shell {
+    width: 100%;
+    max-width: 100%;
+    padding-inline: 1rem;
+  }
+
+  .section-shell .section-title,
+  .section-shell .section-copy {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
 .service-card-corner-border {
   position: absolute;
   inset: 0;
