@@ -4,8 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ServiceFooter from "@/components/service-footer";
 
 type NavItem =
@@ -322,19 +320,19 @@ const faqItems = [
 
 const slideShowcase = [
   {
-    src: "/visual-story.png",
+    src: "/visual-story.webp",
     title: "See the signal",
     copy: "Bring scattered business context into one clear view so the next decision is easier to see.",
     tag: "01"
   },
   {
-    src: "/visual-story1.png",
+    src: "/visual-story1.webp",
     title: "Shape the system",
     copy: "Turn insight into an intelligent workflow that connects people, data, and the tools they already use.",
     tag: "02"
   },
   {
-    src: "/visual-story2.png",
+    src: "/visual-story2.webp",
     title: "Move with confidence",
     copy: "Deploy AI that keeps the organization moving with measurable momentum and room to scale.",
     tag: "03"
@@ -571,52 +569,79 @@ export default function AuroraLanding() {
   }, []);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
 
-    const ctx = gsap.context(() => {
-      gsap.to(".aurora-blob", {
-        yPercent: -9,
-        xPercent: 7,
-        duration: 14,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        stagger: 0.3
-      });
+    let cancelled = false;
+    let cleanup = () => {};
 
-      gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) => {
-        const depth = Number(el.dataset.parallax ?? "20");
-        gsap.to(el, {
-          y: -depth,
-          ease: "none",
-          scrollTrigger: {
-            trigger: el,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true
-          }
-        });
-      });
+    const startAnimations = () => {
+      void Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(
+        ([gsapModule, scrollTriggerModule]) => {
+          if (cancelled) return;
 
-      gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((el) => {
-        gsap.fromTo(
-          el,
-          { y: 32, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.95,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: el,
-              start: "top 82%"
-            }
-          }
-        );
-      });
-    });
+          const gsap = gsapModule.default;
+          const ScrollTrigger = scrollTriggerModule.ScrollTrigger;
+          gsap.registerPlugin(ScrollTrigger);
 
-    return () => ctx.revert();
+          const ctx = gsap.context(() => {
+            gsap.to(".aurora-blob", {
+              yPercent: -9,
+              xPercent: 7,
+              duration: 14,
+              repeat: -1,
+              yoyo: true,
+              ease: "sine.inOut",
+              stagger: 0.3
+            });
+
+            gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) => {
+              const depth = Number(el.dataset.parallax ?? "20");
+              gsap.to(el, {
+                y: -depth,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: el,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: true
+                }
+              });
+            });
+
+            gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((el) => {
+              gsap.fromTo(
+                el,
+                { y: 32, opacity: 0 },
+                {
+                  y: 0,
+                  opacity: 1,
+                  duration: 0.95,
+                  ease: "power3.out",
+                  scrollTrigger: {
+                    trigger: el,
+                    start: "top 82%"
+                  }
+                }
+              );
+            });
+          });
+
+          cleanup = () => ctx.revert();
+        }
+      );
+    };
+
+    const idleId = window.requestIdleCallback?.(startAnimations, { timeout: 1500 });
+    const fallbackId = idleId === undefined ? window.setTimeout(startAnimations, 0) : undefined;
+
+    return () => {
+      cancelled = true;
+      if (idleId !== undefined) window.cancelIdleCallback?.(idleId);
+      if (fallbackId !== undefined) window.clearTimeout(fallbackId);
+      cleanup();
+    };
   }, []);
 
   return (
@@ -974,7 +999,9 @@ export default function AuroraLanding() {
                   <div className="absolute left-1/2 top-0 w-[205px] -translate-x-1/2 sm:top-[-12px] sm:w-[270px] md:top-[-24px] md:w-[340px] lg:inset-0 lg:flex lg:-translate-y-16 lg:items-start lg:justify-end lg:translate-x-0 lg:pr-2 xl:-translate-y-20">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src="/hero-main.png"
+                      src="/hero-main.webp"
+                      fetchPriority="high"
+                      decoding="async"
                       alt="AI hero visual"
                       width="1024"
                       height="1536"
@@ -1579,6 +1606,8 @@ function ScrollShowcaseSection() {
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={slideShowcase[activeSlide].src}
+                        loading="lazy"
+                        decoding="async"
                         alt={slideShowcase[activeSlide].title}
                         className="absolute inset-0 h-full w-full object-cover transition-transform duration-[2800ms] ease-out"
                       />
@@ -1623,7 +1652,13 @@ function ScrollShowcaseSection() {
                         >
                           <span className="relative h-10 w-14 shrink-0 overflow-hidden rounded-lg">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src={item.src} alt="" className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                            <img
+                              src={item.src}
+                              alt=""
+                              loading="lazy"
+                              decoding="async"
+                              className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                            />
                           </span>
                           <span className="min-w-0 truncate text-xs font-semibold">{item.tag} / {item.title}</span>
                         </button>

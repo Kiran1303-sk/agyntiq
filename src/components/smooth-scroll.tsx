@@ -1,14 +1,17 @@
 "use client";
 
 import { useEffect } from "react";
-import gsap from "gsap";
 import Lenis from "lenis";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-/** Keeps scroll physics consistent across every route and syncs GSAP to Lenis. */
+/** Adds smooth desktop scrolling without loading the GSAP runtime globally. */
 export default function SmoothScroll() {
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      window.matchMedia("(pointer: coarse)").matches
+    ) {
+      return;
+    }
 
     const lenis = new Lenis({
       autoRaf: false,
@@ -18,16 +21,16 @@ export default function SmoothScroll() {
       anchors: true
     });
 
-    const updateScrollTrigger = () => ScrollTrigger.update();
-    const raf = (time: number) => lenis.raf(time * 1000);
+    let frame = 0;
+    const raf = (time: number) => {
+      lenis.raf(time);
+      frame = window.requestAnimationFrame(raf);
+    };
 
-    lenis.on("scroll", updateScrollTrigger);
-    gsap.ticker.add(raf);
-    gsap.ticker.lagSmoothing(0);
+    frame = window.requestAnimationFrame(raf);
 
     return () => {
-      lenis.off("scroll", updateScrollTrigger);
-      gsap.ticker.remove(raf);
+      window.cancelAnimationFrame(frame);
       lenis.destroy();
     };
   }, []);
