@@ -488,7 +488,7 @@ export default function AboutPage() {
               Building the intelligence behind tomorrow&apos;s enterprise.
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-white/68 md:text-xl">
-              AgynTiq brings together artificial intelligence, automation, data, and digital engineering to transform complex business challenges into intelligent, scalable solutions.
+              Agyntiq brings together artificial intelligence, automation, data, and digital engineering to transform complex business challenges into intelligent, scalable solutions.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link href="#what-we-do" className="rounded-full bg-[linear-gradient(100deg,#2e6ceb,#7547df,#c23bd9)] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_18px_60px_rgba(126,87,255,0.28)] transition hover:-translate-y-0.5">Explore our solutions <span className="ml-2">→</span></Link>
