@@ -949,7 +949,7 @@ export default function AuroraLanding() {
                   <span className="hidden sm:inline">AI <span aria-hidden="true">•</span> Strategy <span aria-hidden="true">•</span> Solutions <span aria-hidden="true">•</span> Integration</span>
                 </div>
 
-                <h1 className="max-w-4xl text-5xl font-semibold leading-[0.94] tracking-[-0.06em] text-white drop-shadow-[0_0_44px_rgba(202,74,255,0.18)] max-lg:w-full max-lg:max-w-none max-lg:self-start max-lg:text-left max-md:text-[2.35rem] max-md:leading-[1.02] max-md:tracking-[-0.045em] md:text-7xl">
+                <h1 className="max-w-4xl text-5xl font-semibold leading-[0.94] tracking-[-0.06em] text-white drop-shadow-[0_0_44px_rgba(202,74,255,0.18)] max-lg:w-full max-lg:max-w-none max-lg:self-start max-lg:text-left max-md:text-[2rem] max-md:leading-[1.05] max-md:tracking-[-0.045em] md:text-7xl">
                   <span className="hidden md:block">
                     <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#f3e8ff_44%,#f0abfc_100%)] bg-clip-text text-transparent md:whitespace-nowrap">
                       Where AI Becomes
@@ -959,14 +959,11 @@ export default function AuroraLanding() {
                     </span>
                   </span>
                   <span className="block md:hidden">
-                    <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#f3e8ff_44%,#f0abfc_100%)] bg-clip-text text-transparent">
-                      Where AI
+                    <span className="block whitespace-nowrap bg-[linear-gradient(90deg,#ffffff_0%,#f3e8ff_44%,#f0abfc_100%)] bg-clip-text text-transparent">
+                      Where AI Becomes
                     </span>
-                    <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#f0abfc_34%,#c084fc_66%,#d946ef_100%)] bg-clip-text text-transparent">
-                      Becomes Business
-                    </span>
-                    <span className="block bg-[linear-gradient(90deg,#ffffff_0%,#f0abfc_34%,#c084fc_66%,#d946ef_100%)] bg-clip-text text-transparent">
-                      Impact.
+                    <span className="block whitespace-nowrap bg-[linear-gradient(90deg,#ffffff_0%,#f0abfc_34%,#c084fc_66%,#d946ef_100%)] bg-clip-text text-transparent">
+                      Business Impact.
                     </span>
                   </span>
                 </h1>
