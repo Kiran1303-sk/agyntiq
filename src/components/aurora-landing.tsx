@@ -1432,16 +1432,18 @@ export default function AuroraLanding() {
                       </div>
                       <form className="mt-4 grid gap-4">
                         <div className="grid gap-4 md:grid-cols-2">
-                          <input className={`${premiumInput} !border-0`} placeholder="Full Name" />
-                          <input className={`${premiumInput} !border-0`} placeholder="Company Name" />
-                          <input className={`${premiumInput} !border-0`} placeholder="Email" />
-                          <input className={`${premiumInput} !border-0`} placeholder="Phone" />
+                          <input id="contact-full-name" name="fullName" autoComplete="name" className={`${premiumInput} !border-0`} placeholder="Full Name" />
+                          <input id="contact-company" name="company" autoComplete="organization" className={`${premiumInput} !border-0`} placeholder="Company Name" />
+                          <input id="contact-email" name="email" type="email" autoComplete="email" className={`${premiumInput} !border-0`} placeholder="Email" />
+                          <input id="contact-phone" name="phone" type="tel" autoComplete="tel" className={`${premiumInput} !border-0`} placeholder="Phone" />
                         </div>
                         <div className="grid gap-4 md:grid-cols-2">
-                          <input className={`${premiumInput} !border-0`} placeholder="Business Type" />
-                          <input className={`${premiumInput} !border-0`} placeholder="Industry" />
+                          <input id="contact-business-type" name="businessType" className={`${premiumInput} !border-0`} placeholder="Business Type" />
+                          <input id="contact-industry" name="industry" className={`${premiumInput} !border-0`} placeholder="Industry" />
                         </div>
                         <textarea
+                          id="contact-requirement"
+                          name="requirement"
                           rows={5}
                           className={`${premiumInput} !border-0`}
                           placeholder="Tell us about your AI requirement, budget, timeline, and country."

@@ -1159,23 +1159,31 @@ export default function AgyntiQWebsite() {
                   className="space-y-4"
                 >
                   <div className="grid md:grid-cols-2 gap-4">
-                    <input
+                        <input
+                          id="lead-first-name"
+                          name="firstName"
                       type="text"
                       placeholder="First Name"
                       className="rounded-xl px-4 py-3 bg-white/5 border border-agyntiq-border text-white placeholder-agyntiq-text-muted focus:outline-none focus:ring-2 focus:ring-agyntiq-primary-blue/50"
                     />
-                    <input
+                        <input
+                          id="lead-last-name"
+                          name="lastName"
                       type="text"
                       placeholder="Last Name"
                       className="rounded-xl px-4 py-3 bg-white/5 border border-agyntiq-border text-white placeholder-agyntiq-text-muted focus:outline-none focus:ring-2 focus:ring-agyntiq-primary-blue/50"
                     />
                   </div>
-                  <input
+                      <input
+                        id="lead-email"
+                        name="email"
                     type="email"
                     placeholder="Email Address"
                     className="w-full rounded-xl px-4 py-3 bg-white/5 border border-agyntiq-border text-white placeholder-agyntiq-text-muted focus:outline-none focus:ring-2 focus:ring-agyntiq-primary-blue/50"
                   />
-                  <input
+                      <input
+                        id="lead-company"
+                        name="company"
                     type="text"
                     placeholder="Company Name"
                     className="w-full rounded-xl px-4 py-3 bg-white/5 border border-agyntiq-border text-white placeholder-agyntiq-text-muted focus:outline-none focus:ring-2 focus:ring-agyntiq-primary-blue/50"
@@ -1189,6 +1197,8 @@ export default function AgyntiQWebsite() {
                     ))}
                   </select>
                   <textarea
+                    id="lead-project"
+                    name="project"
                     placeholder="Tell us about your project..."
                     rows={4}
                     className="w-full rounded-xl px-4 py-3 bg-white/5 border border-agyntiq-border text-white placeholder-agyntiq-text-muted focus:outline-none focus:ring-2 focus:ring-agyntiq-primary-blue/50 resize-none"
