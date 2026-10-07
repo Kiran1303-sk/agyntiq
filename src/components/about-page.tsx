@@ -484,7 +484,7 @@ export default function AboutPage() {
               </svg>
               <span>ABOUT AGYNTIQ</span>
             </div>
-            <h1 className="mt-5 max-w-4xl bg-[linear-gradient(90deg,#ffffff_0%,#c7d2fe_70%,#e8eaff_100%)] bg-clip-text text-5xl font-semibold leading-[0.94] tracking-normal text-transparent drop-shadow-[0_0_24px_rgba(91,92,255,0.14)] md:bg-[linear-gradient(90deg,#ffffff_0%,#c7d2fe_38%,#f0abfc_70%,#d946ef_100%)] md:drop-shadow-[0_0_34px_rgba(202,74,255,0.18)] md:text-7xl">
+            <h1 className="mt-5 max-w-4xl bg-[linear-gradient(90deg,#ffffff_0%,#c7d2fe_70%,#e8eaff_100%)] bg-clip-text text-5xl font-semibold leading-[0.94] tracking-normal text-transparent drop-shadow-[0_0_24px_rgba(91,92,255,0.14)] max-md:max-w-none max-md:text-left max-md:text-[2rem] max-md:leading-[1.05] max-md:tracking-[-0.045em] md:bg-[linear-gradient(90deg,#ffffff_0%,#c7d2fe_38%,#f0abfc_70%,#d946ef_100%)] md:drop-shadow-[0_0_34px_rgba(202,74,255,0.18)] md:text-7xl">
               Building the intelligence behind tomorrow&apos;s enterprise.
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-white/68 md:text-xl">
