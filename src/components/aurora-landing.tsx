@@ -584,15 +584,6 @@ export default function AuroraLanding() {
         stagger: 0.3
       });
 
-      gsap.to(".mesh-line", {
-        opacity: 0.96,
-        duration: 3.6,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        stagger: 0.08
-      });
-
       gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) => {
         const depth = Number(el.dataset.parallax ?? "20");
         gsap.to(el, {
