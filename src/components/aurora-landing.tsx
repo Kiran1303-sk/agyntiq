@@ -72,83 +72,117 @@ const premiumSoftBorder = "border-transparent";
 const premiumInput =
   "rounded-2xl border border-[#ca4aff]/14 bg-[#100b2a]/72 px-4 py-3 text-sm text-white placeholder:text-white/35 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition focus:border-fuchsia-300/70 focus:bg-[#180d32] focus:outline-none focus:shadow-[0_0_0_4px_rgba(217,70,239,0.12)]";
 
-const floatingLabels: Array<{
-  label: string;
-  top: string;
-  left?: string;
-  right?: string;
-  icon: string;
-}> = [
-  { label: "Strategy", top: "18%", left: "4%", icon: "⚡" },
-  { label: "Data & Analytics", top: "12%", left: "28%", icon: "▣" },
-  { label: "AI Agents", top: "62%", left: "8%", icon: "◌" },
-  { label: "Integration", top: "18%", right: "4%", icon: "↗" },
-  { label: "Automation", top: "62%", right: "12%", icon: "◈" },
-  { label: "Operations", top: "70%", right: "4%", icon: "☰" }
-];
-
-const cityBlocks = [
-  { top: "66%", left: "12%", height: 74, width: 52 },
-  { top: "73%", left: "18%", height: 96, width: 52 },
-  { top: "60%", left: "28%", height: 120, width: 52 },
-  { top: "70%", left: "37%", height: 80, width: 52 },
-  { top: "63%", left: "46%", height: 134, width: 52 },
-  { top: "70%", left: "55%", height: 86, width: 52 },
-  { top: "64%", left: "65%", height: 118, width: 52 },
-  { top: "74%", left: "74%", height: 84, width: 52 },
-  { top: "70%", left: "83%", height: 90, width: 52 }
-] as const;
-
 function NeonAiEcosystem() {
+  const buildings = [
+    { x: 180, base: 224, width: 30, height: 56 },
+    { x: 218, base: 211, width: 34, height: 88 },
+    { x: 260, base: 218, width: 29, height: 63 },
+    { x: 300, base: 205, width: 35, height: 108 },
+    { x: 344, base: 208, width: 31, height: 82 },
+    { x: 385, base: 205, width: 36, height: 112 },
+    { x: 430, base: 215, width: 30, height: 70 },
+    { x: 468, base: 211, width: 35, height: 91 },
+    { x: 510, base: 225, width: 29, height: 60 }
+  ];
+  const labels = [
+    { x: 18, y: 56, width: 137, text: "Strategy", icon: "✦" },
+    { x: 266, y: 12, width: 168, text: "Data & Analytics", icon: "▥" },
+    { x: 16, y: 276, width: 135, text: "AI Agents", icon: "◉" },
+    { x: 545, y: 56, width: 140, text: "Integration", icon: "↗" },
+    { x: 425, y: 276, width: 146, text: "Automation", icon: "⚙" },
+    { x: 548, y: 238, width: 137, text: "Operations", icon: "☁" }
+  ];
+
   return (
-    <div className="relative mx-auto h-[300px] w-[460px] sm:h-[390px] sm:w-[560px] md:h-[500px] md:w-[620px] lg:h-[34rem] lg:w-[42rem] xl:h-[36.5rem] xl:w-[44rem]">
-      <div className="absolute inset-0 rounded-[45%] bg-[radial-gradient(circle,rgba(202,74,255,0.28),rgba(117,71,223,0.08)_38%,transparent_70%)] blur-3xl" />
-      <div className="absolute inset-x-[9%] bottom-[3%] top-[14%] rounded-[46%] border border-[#6c72ff]/20 bg-[radial-gradient(circle_at_center,rgba(17,16,46,0.78)_0%,rgba(11,12,29,0.82)_54%,rgba(13,10,37,0.94)_100%)] shadow-[0_0_80px_rgba(58,86,255,0.22)]" />
+    <div className="w-full">
+      <svg
+        viewBox="0 0 700 330"
+        className="h-auto w-full overflow-visible"
+        role="img"
+        aria-label="A glowing AI core connected to a neon city, surrounded by labels for strategy, data and analytics, AI agents, integration, automation, and operations."
+      >
+        <defs>
+          <radialGradient id="ai-scene-glow">
+            <stop stopColor="#7448ff" stopOpacity=".34" />
+            <stop offset="1" stopColor="#10112d" stopOpacity="0" />
+          </radialGradient>
+          <linearGradient id="ai-platform" x1="0" y1="0" x2="0" y2="1">
+            <stop stopColor="#252568" stopOpacity=".92" />
+            <stop offset="1" stopColor="#100d2c" stopOpacity=".96" />
+          </linearGradient>
+          <linearGradient id="ai-building" x1="0" y1="0" x2="1" y2="1">
+            <stop stopColor="#426dff" stopOpacity=".92" />
+            <stop offset=".58" stopColor="#803aff" stopOpacity=".84" />
+            <stop offset="1" stopColor="#151333" stopOpacity=".98" />
+          </linearGradient>
+          <radialGradient id="ai-core">
+            <stop stopColor="#b4d8ff" stopOpacity=".88" />
+            <stop offset=".38" stopColor="#8171ff" stopOpacity=".56" />
+            <stop offset="1" stopColor="#17143d" stopOpacity=".96" />
+          </radialGradient>
+          <linearGradient id="ai-label" x1="0" y1="0" x2="0" y2="1">
+            <stop stopColor="#17183f" stopOpacity=".98" />
+            <stop offset="1" stopColor="#1e1040" stopOpacity=".98" />
+          </linearGradient>
+          <filter id="ai-glow" x="-.5" y="-.5" width="2" height="2">
+            <feGaussianBlur stdDeviation="5" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
 
-      <div className="absolute left-1/2 top-[50%] h-[32%] w-[32%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#b5c6ff]/35 bg-[radial-gradient(circle,rgba(20,30,80,0.8),rgba(8,10,24,0.96)_55%,rgba(18,20,41,0.98)_100%)] shadow-[0_0_40px_rgba(124,92,255,0.32)]" />
-      <div className="absolute left-1/2 top-[50%] h-[31%] w-[31%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#66c8ff]/35 bg-[radial-gradient(circle,rgba(186,224,255,0.12),rgba(10,14,39,0.35)_42%,rgba(14,14,28,0.62)_100%)]" />
-      <div className="absolute left-1/2 top-[50%] flex h-[28%] w-[28%] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#f1d5ff]/50 bg-[radial-gradient(circle,rgba(255,255,255,0.34),rgba(214,183,255,0.16)_42%,rgba(11,13,31,0.85)_100%)] text-[clamp(1.9rem,3vw,3.2rem)] font-semibold tracking-[-0.08em] text-white shadow-[0_0_28px_rgba(202,74,255,0.3)]">
-        AI
-      </div>
+        <ellipse cx="350" cy="178" rx="310" ry="145" fill="url(#ai-scene-glow)" />
+        <g fill="none" stroke="#646aff" opacity=".62">
+          <ellipse cx="350" cy="191" rx="244" ry="58" strokeWidth="1.2" transform="rotate(-8 350 191)" />
+          <ellipse cx="350" cy="191" rx="205" ry="43" strokeWidth="1" transform="rotate(8 350 191)" />
+          <ellipse cx="350" cy="191" rx="166" ry="31" stroke="#d34cff" strokeWidth="1.5" />
+        </g>
 
-      {floatingLabels.map((item) => (
-        <div
-          key={item.label}
-          className="absolute flex items-center gap-2 rounded-full border border-[#8aa8ff]/35 bg-[linear-gradient(180deg,rgba(15,14,35,0.82),rgba(33,19,58,0.88))] px-3 py-2 text-[10px] font-semibold tracking-[0.14em] text-white/90 shadow-[0_0_18px_rgba(118,89,255,0.14)] backdrop-blur-xl sm:px-4 sm:py-2.5 sm:text-[11px]"
-          style={{
-            top: item.top,
-            left: item.left,
-            right: item.right
-          }}
-        >
-          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[linear-gradient(180deg,#f0abfc,#8b5cf6)] text-[0.65rem] text-slate-950 shadow-[0_0_18px_rgba(202,74,255,0.25)]">
-            {item.icon}
-          </span>
-          {item.label}
-        </div>
-      ))}
+        <path d="m350 120 238 76-238 91-238-91 238-76Z" fill="url(#ai-platform)" stroke="#7478ff" strokeOpacity=".74" strokeWidth="2" filter="url(#ai-glow)" />
+        <path d="m112 196 238 91v18l-238-93v-16Z" fill="#11122f" stroke="#765dff" strokeOpacity=".7" />
+        <path d="m588 196-238 91v18l238-93v-16Z" fill="#19103a" stroke="#d34cff" strokeOpacity=".72" />
+        <path d="m132 196 218 84 218-84" fill="none" stroke="#48caff" strokeOpacity=".62" strokeWidth="2" filter="url(#ai-glow)" />
 
-      <div className="absolute inset-x-[20%] bottom-[8%] h-[31%] rounded-[30%] border border-[#8c93ff]/18 bg-[linear-gradient(180deg,rgba(16,24,54,0.32),rgba(12,13,31,0.62))] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.03)]" />
-      <div className="absolute inset-x-[16%] bottom-[6%] h-[26%] rounded-[22%] border border-[#59d2ff]/16 bg-[rgba(5,9,23,0.4)]" />
+        {buildings.map((building) => {
+          const half = building.width / 2;
+          const top = building.base - building.height;
+          return (
+            <g key={building.x} filter="url(#ai-glow)">
+              <path d={`M${building.x - half} ${top + 7} ${building.x} ${top} ${building.x + half} ${top + 7} ${building.x} ${top + 15}Z`} fill="#7394ff" fillOpacity=".76" stroke="#85ccff" strokeOpacity=".75" />
+              <path d={`M${building.x - half} ${top + 7} ${building.x} ${top + 15} ${building.x} ${building.base} ${building.x - half} ${building.base - 8}Z`} fill="url(#ai-building)" stroke="#68bfff" strokeOpacity=".58" />
+              <path d={`M${building.x} ${top + 15} ${building.x + half} ${top + 7} ${building.x + half} ${building.base - 8} ${building.x} ${building.base}Z`} fill="#25205a" stroke="#ce5dff" strokeOpacity=".64" />
+              {Array.from({ length: Math.max(2, Math.floor(building.height / 19)) }).map((_, index) => {
+                const y = top + 25 + index * 17;
+                return (
+                  <g key={index} stroke="#93dfff" strokeOpacity=".8" strokeWidth="2">
+                    <path d={`M${building.x - half + 6} ${y}h5`} />
+                    <path d={`M${building.x + 3} ${y - 1}h5`} stroke="#f094ff" />
+                  </g>
+                );
+              })}
+            </g>
+          );
+        })}
 
-      <div className="absolute inset-x-[18%] bottom-[9%] h-[22%]">
-        {cityBlocks.map((block, index) => (
-          <div
-            key={`${block.left}-${index}`}
-            className="absolute rounded-t-[0.8rem] border border-[#66d9ff]/28 bg-[linear-gradient(180deg,rgba(41,78,255,0.32),rgba(144,59,255,0.28)_42%,rgba(10,12,33,0.82)_100%)] shadow-[0_0_18px_rgba(94,138,255,0.2)]"
-            style={{
-              left: block.left,
-              top: block.top,
-              width: `${block.width}px`,
-              height: `${block.height}px`
-            }}
-          >
-            <div className="h-full w-full rounded-t-[0.8rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.18),transparent_26%,rgba(118,95,255,0.12)_100%)]" />
-          </div>
+        <g filter="url(#ai-glow)">
+          <ellipse cx="350" cy="174" rx="83" ry="23" fill="none" stroke="#ad51ff" strokeWidth="2" />
+          <ellipse cx="350" cy="174" rx="64" ry="16" fill="none" stroke="#4ecbff" strokeWidth="1.5" />
+          <circle cx="350" cy="146" r="37" fill="url(#ai-core)" stroke="#c7b9ff" strokeWidth="2" />
+          <circle cx="350" cy="146" r="28" fill="none" stroke="#b4dcff" strokeOpacity=".76" />
+          <text x="350" y="154" textAnchor="middle" fill="white" fontSize="25" fontWeight="600" fontFamily="Arial, sans-serif">AI</text>
+        </g>
+
+        {labels.map((label) => (
+          <g key={label.text}>
+            <rect x={label.x} y={label.y} width={label.width} height="34" rx="12" fill="url(#ai-label)" stroke="#758aff" strokeOpacity=".66" />
+            <circle cx={label.x + 18} cy={label.y + 17} r="10" fill="#9d61ff" />
+            <text x={label.x + 18} y={label.y + 21} textAnchor="middle" fill="#fff" fontSize="11" fontWeight="700" fontFamily="Arial, sans-serif">{label.icon}</text>
+            <text x={label.x + 34} y={label.y + 21} fill="#f7f4ff" fontSize="10.5" fontWeight="600" letterSpacing=".25" fontFamily="Arial, sans-serif">{label.text}</text>
+          </g>
         ))}
-      </div>
-
-      <div className="absolute left-1/2 top-[58%] h-[18%] w-[72%] -translate-x-1/2 rounded-full border border-[#a1d8ff]/20 bg-[radial-gradient(circle,rgba(69,94,255,0.22),rgba(17,24,52,0.12)_48%,transparent_80%)] blur-xl" />
+      </svg>
     </div>
   );
 }
