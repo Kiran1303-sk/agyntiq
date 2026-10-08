@@ -72,6 +72,87 @@ const premiumSoftBorder = "border-transparent";
 const premiumInput =
   "rounded-2xl border border-[#ca4aff]/14 bg-[#100b2a]/72 px-4 py-3 text-sm text-white placeholder:text-white/35 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition focus:border-fuchsia-300/70 focus:bg-[#180d32] focus:outline-none focus:shadow-[0_0_0_4px_rgba(217,70,239,0.12)]";
 
+const floatingLabels: Array<{
+  label: string;
+  top: string;
+  left?: string;
+  right?: string;
+  icon: string;
+}> = [
+  { label: "Strategy", top: "18%", left: "4%", icon: "⚡" },
+  { label: "Data & Analytics", top: "12%", left: "28%", icon: "▣" },
+  { label: "AI Agents", top: "62%", left: "8%", icon: "◌" },
+  { label: "Integration", top: "18%", right: "4%", icon: "↗" },
+  { label: "Automation", top: "62%", right: "12%", icon: "◈" },
+  { label: "Operations", top: "70%", right: "4%", icon: "☰" }
+];
+
+const cityBlocks = [
+  { top: "66%", left: "12%", height: 74, width: 52 },
+  { top: "73%", left: "18%", height: 96, width: 52 },
+  { top: "60%", left: "28%", height: 120, width: 52 },
+  { top: "70%", left: "37%", height: 80, width: 52 },
+  { top: "63%", left: "46%", height: 134, width: 52 },
+  { top: "70%", left: "55%", height: 86, width: 52 },
+  { top: "64%", left: "65%", height: 118, width: 52 },
+  { top: "74%", left: "74%", height: 84, width: 52 },
+  { top: "70%", left: "83%", height: 90, width: 52 }
+] as const;
+
+function NeonAiEcosystem() {
+  return (
+    <div className="relative mx-auto h-[300px] w-[460px] sm:h-[390px] sm:w-[560px] md:h-[500px] md:w-[620px] lg:h-[34rem] lg:w-[42rem] xl:h-[36.5rem] xl:w-[44rem]">
+      <div className="absolute inset-0 rounded-[45%] bg-[radial-gradient(circle,rgba(202,74,255,0.28),rgba(117,71,223,0.08)_38%,transparent_70%)] blur-3xl" />
+      <div className="absolute inset-x-[9%] bottom-[3%] top-[14%] rounded-[46%] border border-[#6c72ff]/20 bg-[radial-gradient(circle_at_center,rgba(17,16,46,0.78)_0%,rgba(11,12,29,0.82)_54%,rgba(13,10,37,0.94)_100%)] shadow-[0_0_80px_rgba(58,86,255,0.22)]" />
+
+      <div className="absolute left-1/2 top-[50%] h-[32%] w-[32%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#b5c6ff]/35 bg-[radial-gradient(circle,rgba(20,30,80,0.8),rgba(8,10,24,0.96)_55%,rgba(18,20,41,0.98)_100%)] shadow-[0_0_40px_rgba(124,92,255,0.32)]" />
+      <div className="absolute left-1/2 top-[50%] h-[31%] w-[31%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#66c8ff]/35 bg-[radial-gradient(circle,rgba(186,224,255,0.12),rgba(10,14,39,0.35)_42%,rgba(14,14,28,0.62)_100%)]" />
+      <div className="absolute left-1/2 top-[50%] flex h-[28%] w-[28%] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#f1d5ff]/50 bg-[radial-gradient(circle,rgba(255,255,255,0.34),rgba(214,183,255,0.16)_42%,rgba(11,13,31,0.85)_100%)] text-[clamp(1.9rem,3vw,3.2rem)] font-semibold tracking-[-0.08em] text-white shadow-[0_0_28px_rgba(202,74,255,0.3)]">
+        AI
+      </div>
+
+      {floatingLabels.map((item) => (
+        <div
+          key={item.label}
+          className="absolute flex items-center gap-2 rounded-full border border-[#8aa8ff]/35 bg-[linear-gradient(180deg,rgba(15,14,35,0.82),rgba(33,19,58,0.88))] px-3 py-2 text-[10px] font-semibold tracking-[0.14em] text-white/90 shadow-[0_0_18px_rgba(118,89,255,0.14)] backdrop-blur-xl sm:px-4 sm:py-2.5 sm:text-[11px]"
+          style={{
+            top: item.top,
+            left: item.left,
+            right: item.right
+          }}
+        >
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[linear-gradient(180deg,#f0abfc,#8b5cf6)] text-[0.65rem] text-slate-950 shadow-[0_0_18px_rgba(202,74,255,0.25)]">
+            {item.icon}
+          </span>
+          {item.label}
+        </div>
+      ))}
+
+      <div className="absolute inset-x-[20%] bottom-[8%] h-[31%] rounded-[30%] border border-[#8c93ff]/18 bg-[linear-gradient(180deg,rgba(16,24,54,0.32),rgba(12,13,31,0.62))] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.03)]" />
+      <div className="absolute inset-x-[16%] bottom-[6%] h-[26%] rounded-[22%] border border-[#59d2ff]/16 bg-[rgba(5,9,23,0.4)]" />
+
+      <div className="absolute inset-x-[18%] bottom-[9%] h-[22%]">
+        {cityBlocks.map((block, index) => (
+          <div
+            key={`${block.left}-${index}`}
+            className="absolute rounded-t-[0.8rem] border border-[#66d9ff]/28 bg-[linear-gradient(180deg,rgba(41,78,255,0.32),rgba(144,59,255,0.28)_42%,rgba(10,12,33,0.82)_100%)] shadow-[0_0_18px_rgba(94,138,255,0.2)]"
+            style={{
+              left: block.left,
+              top: block.top,
+              width: `${block.width}px`,
+              height: `${block.height}px`
+            }}
+          >
+            <div className="h-full w-full rounded-t-[0.8rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.18),transparent_26%,rgba(118,95,255,0.12)_100%)]" />
+          </div>
+        ))}
+      </div>
+
+      <div className="absolute left-1/2 top-[58%] h-[18%] w-[72%] -translate-x-1/2 rounded-full border border-[#a1d8ff]/20 bg-[radial-gradient(circle,rgba(69,94,255,0.22),rgba(17,24,52,0.12)_48%,transparent_80%)] blur-xl" />
+    </div>
+  );
+}
+
 function MenuIcon({ name }: { name: (typeof serviceMenuDisplay)[number]["icon"] }) {
   if (name === "brain") {
     return (
@@ -1006,17 +1087,8 @@ export default function AuroraLanding() {
                 className="relative mt-10 w-full self-start justify-self-center max-lg:mx-auto max-lg:max-w-sm lg:mt-0 lg:w-full lg:justify-self-stretch lg:pl-10 xl:pl-16"
               >
                 <div className="relative h-[300px] overflow-visible sm:h-[390px] md:min-h-[500px] lg:h-[34rem] lg:min-h-0 xl:h-[36.5rem]">
-                  <div className="absolute left-1/2 top-0 w-[205px] -translate-x-1/2 sm:top-[-12px] sm:w-[270px] md:top-[-24px] md:w-[340px] lg:inset-0 lg:flex lg:-translate-y-16 lg:items-start lg:justify-end lg:translate-x-0 lg:pr-2 xl:-translate-y-20">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/hero-main.webp"
-                      fetchPriority="high"
-                      decoding="async"
-                      alt="AI hero visual"
-                      width="1024"
-                      height="1536"
-                      className="h-auto w-full object-contain mix-blend-screen lg:h-full lg:w-auto lg:max-w-full"
-                    />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <NeonAiEcosystem />
                   </div>
                 </div>
               </motion.div>
