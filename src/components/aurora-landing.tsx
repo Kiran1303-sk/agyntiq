@@ -1122,7 +1122,7 @@ export default function AuroraLanding() {
               >
                 <div className="relative h-[300px] overflow-visible sm:h-[390px] md:min-h-[500px] lg:h-[34rem] lg:min-h-0 xl:h-[36.5rem]">
                   <div className="absolute inset-0 flex items-center justify-center lg:items-start lg:justify-end lg:pt-14 lg:pr-2">
-                    <div className="w-full shrink-0 origin-top scale-y-[1.15] lg:w-[110%] lg:max-w-[680px] lg:scale-y-[1.25]">
+                    <div className="w-full shrink-0 origin-top scale-y-[1.15] lg:w-[130%] lg:max-w-[760px] lg:scale-y-[1.25]">
                       <NeonAiEcosystem />
                     </div>
                   </div>
