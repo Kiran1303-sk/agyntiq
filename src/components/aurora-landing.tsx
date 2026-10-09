@@ -316,6 +316,48 @@ const whyUsCardTones = [
   }
 ];
 
+const workflowCardTones = [
+  {
+    surface: "from-violet-500/[0.3] via-[#17102f] to-[#0d0a27]",
+    glow: "bg-violet-400/30",
+    accent: "text-violet-100/80",
+    badge: "border-violet-200/30 bg-violet-200/[0.12] text-violet-100",
+    line: "from-violet-300/70"
+  },
+  {
+    surface: "from-fuchsia-500/[0.28] via-[#1b0e31] to-[#0d0a27]",
+    glow: "bg-fuchsia-400/30",
+    accent: "text-fuchsia-100/80",
+    badge: "border-fuchsia-200/30 bg-fuchsia-200/[0.12] text-fuchsia-100",
+    line: "from-fuchsia-300/70"
+  },
+  {
+    surface: "from-blue-500/[0.28] via-[#121432] to-[#0d0a27]",
+    glow: "bg-blue-400/30",
+    accent: "text-blue-100/80",
+    badge: "border-blue-200/30 bg-blue-200/[0.12] text-blue-100",
+    line: "from-blue-300/70"
+  }
+];
+
+const industryCardTones = [
+  {
+    surface: "from-fuchsia-500/[0.18] via-[#17102f] to-[#0b0a24]",
+    glow: "bg-fuchsia-400/20",
+    accent: "text-fuchsia-100/75"
+  },
+  {
+    surface: "from-violet-500/[0.2] via-[#15102f] to-[#0b0a24]",
+    glow: "bg-violet-400/20",
+    accent: "text-violet-100/75"
+  },
+  {
+    surface: "from-blue-500/[0.18] via-[#11142e] to-[#0b0a24]",
+    glow: "bg-blue-400/20",
+    accent: "text-blue-100/75"
+  }
+];
+
 const workflowSteps = [
   { title: "Business Data", description: "Connect trusted data across the systems your teams rely on." },
   { title: "AI Processing", description: "Turn complex information into useful, governed intelligence." },
@@ -1204,28 +1246,33 @@ export default function AuroraLanding() {
               </p>
             </div>
 
-            <div className="relative mt-10 grid overflow-hidden rounded-2xl border border-violet-200/[0.12] bg-[#0d0a28]/80 sm:grid-cols-2 xl:grid-cols-6" data-parallax="12">
+            <div className="relative mt-10 grid gap-3 sm:grid-cols-2 xl:grid-cols-6 xl:gap-2" data-parallax="12">
               {workflowSteps.map((step, index) => (
                 <article
                   key={step.title}
-                  className="group relative min-h-52 border-b border-violet-200/[0.1] p-5 transition-colors duration-300 hover:bg-violet-300/[0.06] last:border-b-0 sm:p-6 xl:border-b-0 xl:border-r xl:last:border-r-0"
+                  className={`home-interactive-card home-premium-card group relative min-h-56 overflow-hidden rounded-2xl border border-white/[0.1] bg-gradient-to-br ${workflowCardTones[index % workflowCardTones.length].surface} p-5 shadow-[0_16px_45px_rgba(3,4,20,0.2)] sm:p-6`}
                   data-reveal
                 >
+                  <div className={`pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full ${workflowCardTones[index % workflowCardTones.length].glow} opacity-45 blur-3xl transition duration-500 group-hover:scale-125 group-hover:opacity-80`} />
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
                   <div className="relative flex items-center justify-between">
-                    <span className="text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-100/65">
-                      STEP 0{index + 1}
+                    <span className={`text-xs font-semibold uppercase tracking-[0.22em] ${workflowCardTones[index % workflowCardTones.length].accent}`}>
+                      PHASE 0{index + 1}
                     </span>
-                    <span className="grid h-8 w-8 place-items-center rounded-full border border-violet-200/20 text-violet-100/80 transition duration-300 group-hover:scale-110 group-hover:bg-violet-100/10">
-                      <span aria-hidden="true">→</span>
+                    <span className={`grid h-10 w-10 place-items-center rounded-full border text-xs font-bold transition duration-300 group-hover:scale-110 ${workflowCardTones[index % workflowCardTones.length].badge}`}>
+                      0{index + 1}
                     </span>
                   </div>
-                  <h3 className="relative mt-7 text-xl font-semibold leading-tight tracking-normal text-white transition-colors group-hover:text-fuchsia-100 sm:text-2xl">
+                  <h3 className="relative mt-6 text-xl font-semibold leading-tight tracking-normal text-white transition-colors group-hover:text-fuchsia-100 sm:text-2xl">
                     {step.title}
                   </h3>
-                  <p className="relative mt-3 max-w-sm text-sm leading-6 text-white/60">
+                  <p className="relative mt-3 max-w-sm text-sm leading-6 text-white/68">
                     {step.description}
                   </p>
-                  <div className="absolute bottom-0 left-5 h-0.5 w-8 bg-gradient-to-r from-violet-300/60 to-fuchsia-300/45 transition-all duration-300 group-hover:w-14 sm:left-6" />
+                  {index < workflowSteps.length - 1 && (
+                    <span className="absolute bottom-5 right-5 text-lg text-white/35 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white/75" aria-hidden="true">→</span>
+                  )}
+                  <div className={`absolute inset-x-5 bottom-0 h-0.5 bg-gradient-to-r ${workflowCardTones[index % workflowCardTones.length].line} to-transparent opacity-70 transition-opacity group-hover:opacity-100 sm:inset-x-6`} />
                 </article>
               ))}
             </div>
@@ -1252,14 +1299,14 @@ export default function AuroraLanding() {
                     data-reveal
                   >
                     <div className={`pointer-events-none absolute -right-10 -top-12 h-32 w-32 rounded-full ${whyUsCardTones[index % whyUsCardTones.length].glow} opacity-40 blur-3xl transition duration-500 group-hover:scale-125 group-hover:opacity-80`} />
-                    <div className="relative flex items-start justify-between gap-3">
-                      <h3 className="text-lg font-semibold tracking-normal text-white transition-colors group-hover:text-fuchsia-100">{item.title}</h3>
-                      <span className={`rounded-full border px-2 py-1 text-[0.62rem] font-semibold tracking-[0.16em] ${whyUsCardTones[index % whyUsCardTones.length].badge}`}>0{index + 1}</span>
+                    <div className="relative flex items-center gap-4">
+                      <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-full border text-xs font-semibold tracking-[0.16em] ${whyUsCardTones[index % whyUsCardTones.length].badge}`}>0{index + 1}</span>
+                      <div className="min-w-0">
+                        <h3 className="text-lg font-semibold tracking-normal text-white transition-colors group-hover:text-fuchsia-100">{item.title}</h3>
+                        <p className="mt-2 text-sm leading-6 text-white/62">{item.copy}</p>
+                      </div>
                     </div>
-                    <p className="relative mt-3 text-sm leading-6 text-white/62">
-                      {item.copy}
-                    </p>
-                    <div className={`relative mt-5 h-px w-12 bg-gradient-to-r ${whyUsCardTones[index % whyUsCardTones.length].line} to-transparent transition-all duration-500 group-hover:w-24`} />
+                    <div className={`relative ml-14 mt-4 h-px w-10 bg-gradient-to-r ${whyUsCardTones[index % whyUsCardTones.length].line} to-transparent transition-all duration-500 group-hover:w-20`} />
                   </article>
                 ))}
               </div>
@@ -1285,27 +1332,21 @@ export default function AuroraLanding() {
               </div>
             </div>
 
-            <div className="mt-10 grid gap-x-10 lg:grid-cols-2" data-parallax="6">
+            <div className="mt-10 grid gap-4 md:grid-cols-2" data-parallax="6">
               {industryCards.map((item, index) => (
                 <article
                   key={item.name}
-                  className="group relative grid min-h-36 grid-cols-[3.5rem_1fr] gap-4 border-t border-white/[0.1] py-6 transition-colors duration-300 hover:border-t-fuchsia-200/45 sm:grid-cols-[4.5rem_1fr] sm:gap-6 sm:py-7"
+                  className={`home-interactive-card home-premium-card group relative min-h-40 overflow-hidden rounded-2xl border border-white/[0.1] bg-gradient-to-br ${industryCardTones[index % industryCardTones.length].surface} p-5 sm:p-6`}
                   data-reveal
                 >
-                  <div className="pt-1 text-sm font-medium tabular-nums text-fuchsia-100/48 transition group-hover:text-fuchsia-100">
-                    0{index + 1}
+                  <div className={`pointer-events-none absolute -right-10 -top-12 h-36 w-36 rounded-full ${industryCardTones[index % industryCardTones.length].glow} opacity-40 blur-3xl transition duration-500 group-hover:scale-125 group-hover:opacity-75`} />
+                  <div className="relative flex items-center justify-between gap-3">
+                    <span className={`text-xs font-semibold uppercase tracking-[0.2em] ${industryCardTones[index % industryCardTones.length].accent}`}>Industry 0{index + 1}</span>
+                    <span className={`grid h-9 w-9 place-items-center rounded-full border border-white/[0.12] bg-white/[0.04] text-sm text-white/75 transition duration-300 group-hover:translate-x-1 group-hover:bg-white/[0.08] ${industryCardTones[index % industryCardTones.length].accent}`} aria-hidden="true">↗</span>
                   </div>
-                  <div className="relative">
-                    <div className="flex items-baseline justify-between gap-3">
-                      <h3 className="text-xl font-semibold leading-tight tracking-[-0.01em] text-white transition-colors group-hover:text-fuchsia-100 sm:text-2xl">
-                        {item.name}
-                      </h3>
-                      <span className="shrink-0 text-lg text-fuchsia-200/50 transition duration-300 group-hover:translate-x-1 group-hover:text-fuchsia-100" aria-hidden="true">↗</span>
-                    </div>
-                    <p className="mt-2 max-w-lg text-sm leading-6 text-white/56 sm:text-base">
-                      {item.summary}
-                    </p>
-                  </div>
+                  <h3 className="relative mt-5 text-xl font-semibold leading-tight text-white transition-colors group-hover:text-fuchsia-100 sm:text-2xl">{item.name}</h3>
+                  <p className="relative mt-2 max-w-lg text-sm leading-6 text-white/62 sm:text-base">{item.summary}</p>
+                  <div className="absolute inset-x-5 bottom-0 h-px bg-gradient-to-r from-fuchsia-200/55 via-violet-300/35 to-transparent opacity-60 transition-opacity group-hover:opacity-100 sm:inset-x-6" />
                 </article>
               ))}
             </div>
