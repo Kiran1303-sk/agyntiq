@@ -1049,7 +1049,7 @@ export default function AuroraLanding() {
             <div className="noise-overlay" />
             <div className="absolute inset-x-0 top-[-18%] h-[54rem] rounded-[3rem] bg-[linear-gradient(135deg,rgba(30,8,55,0.44),rgba(7,8,28,0.2)_46%,rgba(42,7,46,0.34))] blur-2xl" />
 
-            <div className="mx-auto grid max-w-[1200px] justify-items-center gap-0 lg:grid-cols-[1.35fr_0.65fr] lg:items-stretch lg:justify-items-stretch lg:gap-12 xl:gap-16">
+            <div className="mx-auto grid max-w-[1200px] justify-items-center gap-0 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-stretch lg:justify-items-stretch lg:gap-12 xl:gap-16">
               <motion.div
                 data-reveal
                 initial={{ opacity: 0, y: 24 }}
@@ -1118,7 +1118,7 @@ export default function AuroraLanding() {
                 initial={{ opacity: 0, y: 32 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
-                className="relative mt-10 w-full self-start justify-self-center max-lg:mx-auto max-lg:max-w-sm lg:mt-0 lg:w-full lg:justify-self-stretch lg:pl-10 xl:pl-16"
+                className="relative mt-10 w-full self-start justify-self-center max-lg:mx-auto max-lg:max-w-sm lg:mt-0 lg:w-full lg:justify-self-stretch lg:pl-6 xl:pl-8"
               >
                 <div className="relative h-[300px] overflow-visible sm:h-[390px] md:min-h-[500px] lg:h-[34rem] lg:min-h-0 xl:h-[36.5rem]">
                   <div className="absolute inset-0 flex items-center justify-center lg:items-start lg:justify-end lg:pt-14 lg:pr-2">
