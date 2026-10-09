@@ -289,35 +289,11 @@ const statCards = [
   { value: 100, suffix: "+", label: "AI models deployed" }
 ];
 
-const premiumCardTones = [
-  {
-    surface: "from-fuchsia-500/[0.42] via-[#17102f] to-[#090a21]",
-    glow: "bg-fuchsia-400/30",
-    badge: "border-fuchsia-200/25 bg-fuchsia-200/[0.12] text-fuchsia-100/85",
-    accent: "text-fuchsia-100/80",
-    line: "from-fuchsia-200/75 via-fuchsia-300/45"
-  },
-  {
-    surface: "from-violet-500/[0.42] via-[#15102f] to-[#090a21]",
-    glow: "bg-violet-400/30",
-    badge: "border-violet-200/25 bg-violet-200/[0.12] text-violet-100/85",
-    accent: "text-violet-100/80",
-    line: "from-violet-200/75 via-violet-300/45"
-  },
-  {
-    surface: "from-cyan-500/[0.34] via-[#10172e] to-[#090a21]",
-    glow: "bg-cyan-400/25",
-    badge: "border-cyan-200/25 bg-cyan-200/[0.1] text-cyan-100/85",
-    accent: "text-cyan-100/80",
-    line: "from-cyan-200/75 via-cyan-300/45"
-  },
-  {
-    surface: "from-blue-500/[0.36] via-[#11142e] to-[#090a21]",
-    glow: "bg-blue-400/25",
-    badge: "border-blue-200/25 bg-blue-200/[0.1] text-blue-100/85",
-    accent: "text-blue-100/80",
-    line: "from-blue-200/75 via-blue-300/45"
-  }
+const productAccents = [
+  "border-violet-200/20 bg-violet-300/[0.08] text-violet-100/80",
+  "border-fuchsia-200/20 bg-fuchsia-300/[0.08] text-fuchsia-100/80",
+  "border-cyan-200/20 bg-cyan-300/[0.08] text-cyan-100/80",
+  "border-blue-200/20 bg-blue-300/[0.08] text-blue-100/80"
 ];
 
 const workflowSteps = [
@@ -1247,8 +1223,8 @@ export default function AuroraLanding() {
 
         <ScrollShowcaseSection />
 
-        <section className="relative overflow-hidden py-16 md:py-24">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(202,74,255,0.1),transparent_28%),radial-gradient(circle_at_82%_64%,rgba(117,71,223,0.1),transparent_30%)]" />
+        <section className="relative overflow-hidden border-y border-violet-200/[0.1] bg-[#0a0822] py-16 md:py-24">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_18%_0%,rgba(117,71,223,0.16),transparent_42%),radial-gradient(ellipse_at_86%_90%,rgba(202,74,255,0.1),transparent_38%)]" />
           <div className="section-shell relative z-10">
             <div className="section-heading max-w-3xl" data-reveal>
               <div className="section-kicker">Workflow</div>
@@ -1259,31 +1235,29 @@ export default function AuroraLanding() {
               </p>
             </div>
 
-            <div className="relative mt-10 grid gap-3 sm:grid-cols-2 xl:grid-cols-3" data-parallax="12">
+            <div className="relative mt-10 grid overflow-hidden rounded-2xl border border-violet-200/[0.12] bg-[#0d0a28]/80 sm:grid-cols-2 xl:grid-cols-6" data-parallax="12">
               {workflowSteps.map((step, index) => (
-                <div
+                <article
                   key={step.title}
-                  className={`home-interactive-card home-premium-card group relative min-h-52 overflow-hidden rounded-2xl border border-white/[0.12] bg-gradient-to-br ${premiumCardTones[index % premiumCardTones.length].surface} p-5 sm:p-6`}
+                  className="group relative min-h-52 border-b border-violet-200/[0.1] p-5 transition-colors duration-300 hover:bg-violet-300/[0.06] last:border-b-0 sm:p-6 xl:border-b-0 xl:border-r xl:last:border-r-0"
                   data-reveal
                 >
-                  <div className={`pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full ${premiumCardTones[index % premiumCardTones.length].glow} opacity-60 blur-3xl transition duration-500 group-hover:scale-125 group-hover:opacity-90`} />
-                  <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-70" />
                   <div className="relative flex items-center justify-between">
-                    <span className={`text-xs font-semibold uppercase tracking-[0.22em] ${premiumCardTones[index % premiumCardTones.length].accent}`}>
-                      0{index + 1} <span className="text-white/35">/ 0{workflowSteps.length}</span>
+                    <span className="text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-100/65">
+                      STEP 0{index + 1}
                     </span>
-                    <span className={`grid h-9 w-9 place-items-center rounded-full border text-xs transition duration-300 group-hover:rotate-6 group-hover:scale-110 ${premiumCardTones[index % premiumCardTones.length].badge}`}>
-                      {String(index + 1).padStart(2, "0")}
+                    <span className="grid h-8 w-8 place-items-center rounded-full border border-violet-200/20 text-violet-100/80 transition duration-300 group-hover:scale-110 group-hover:bg-violet-100/10">
+                      <span aria-hidden="true">→</span>
                     </span>
                   </div>
-                  <div className="relative mt-7 text-xl font-semibold leading-tight tracking-normal text-white sm:text-2xl">
+                  <h3 className="relative mt-7 text-xl font-semibold leading-tight tracking-normal text-white transition-colors group-hover:text-fuchsia-100 sm:text-2xl">
                     {step.title}
-                  </div>
+                  </h3>
                   <p className="relative mt-3 max-w-sm text-sm leading-6 text-white/60">
                     {step.description}
                   </p>
-                  <div className={`absolute inset-x-5 bottom-0 h-px bg-gradient-to-r ${premiumCardTones[index % premiumCardTones.length].line} to-transparent transition-all duration-500 group-hover:inset-x-0 sm:inset-x-6`} />
-                </div>
+                  <div className="absolute bottom-0 left-5 h-0.5 w-8 bg-gradient-to-r from-violet-300/60 to-fuchsia-300/45 transition-all duration-300 group-hover:w-14 sm:left-6" />
+                </article>
               ))}
             </div>
           </div>
@@ -1301,32 +1275,30 @@ export default function AuroraLanding() {
                 </p>
               </div>
 
-              <div className="grid gap-3 sm:grid-cols-2">
+              <div className="grid gap-x-7 sm:grid-cols-2 sm:gap-x-8">
                 {reasons.map((item, index) => (
-                  <div
+                  <article
                     key={item.title}
-                    className={`home-interactive-card home-premium-card group relative overflow-hidden rounded-2xl border border-white/[0.12] bg-gradient-to-br ${premiumCardTones[index % premiumCardTones.length].surface} p-5`}
+                    className="group border-t border-white/[0.12] py-5 transition-colors duration-300 hover:border-fuchsia-200/40"
                     data-reveal
                   >
-                    <div className={`pointer-events-none absolute -right-10 -top-12 h-32 w-32 rounded-full ${premiumCardTones[index % premiumCardTones.length].glow} opacity-40 blur-3xl transition duration-500 group-hover:scale-125 group-hover:opacity-80`} />
-                    <div className="relative flex items-start justify-between gap-3">
-                      <div className="text-lg font-semibold tracking-normal text-white">{item.title}</div>
-                      <span className={`rounded-full border px-2 py-1 text-[0.62rem] font-semibold tracking-[0.16em] ${premiumCardTones[index % premiumCardTones.length].badge}`}>0{index + 1}</span>
+                    <div className="flex items-baseline gap-3">
+                      <span className="text-xs font-semibold tabular-nums text-fuchsia-100/50">0{index + 1}</span>
+                      <h3 className="text-lg font-semibold tracking-normal text-white transition-colors group-hover:text-fuchsia-100">{item.title}</h3>
                     </div>
-                    <div className="relative mt-3 text-sm leading-6 text-white/62">
+                    <p className="mt-2 pl-8 text-sm leading-6 text-white/62">
                       {item.copy}
-                    </div>
-                    <div className={`relative mt-5 h-px w-12 bg-gradient-to-r ${premiumCardTones[index % premiumCardTones.length].line} to-transparent transition-all duration-500 group-hover:w-24`} />
-                  </div>
+                    </p>
+                  </article>
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        <section className="relative overflow-hidden py-16 md:py-24">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_84%_18%,rgba(117,71,223,0.13),transparent_30%),radial-gradient(circle_at_12%_82%,rgba(202,74,255,0.08),transparent_28%)]" />
-          <div className="section-shell">
+        <section className="relative overflow-hidden border-y border-white/[0.08] bg-[#090a21] py-16 text-white md:py-24">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_18%_0%,rgba(117,71,223,0.16),transparent_38%),radial-gradient(ellipse_at_88%_80%,rgba(202,74,255,0.1),transparent_34%)]" />
+          <div className="section-shell relative z-10">
             <div className="relative mb-10 grid gap-6 lg:grid-cols-[1fr_0.72fr] lg:items-end" data-reveal>
               <div className="section-heading">
                 <div className="section-kicker">AI Products</div>
@@ -1337,38 +1309,34 @@ export default function AuroraLanding() {
               </p>
             </div>
 
-            <div className="relative grid gap-4 sm:grid-cols-2 xl:grid-cols-3" data-parallax="8">
+            <div className="relative grid gap-x-8 sm:grid-cols-2 xl:grid-cols-4" data-parallax="8">
               {aiProducts.map((item, index) => (
                 <article
                   key={item.title}
-                  className={`home-interactive-card home-premium-card group relative min-h-[18rem] overflow-hidden rounded-[1.4rem] border border-white/[0.12] bg-gradient-to-br ${premiumCardTones[index % premiumCardTones.length].surface} p-5 sm:p-6`}
+                  className="group flex min-h-64 flex-col border-t border-white/[0.12] px-1 py-5 transition-colors duration-300 hover:border-fuchsia-200/45 sm:px-3"
                   data-reveal
                 >
-                  <div className={`pointer-events-none absolute -right-14 -top-14 h-48 w-48 rounded-full ${premiumCardTones[index % premiumCardTones.length].glow} opacity-45 blur-3xl transition duration-500 group-hover:scale-125 group-hover:opacity-90`} />
-                  <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent opacity-70" />
-                  <div className="relative flex h-full flex-col">
-                    <div className="flex items-start justify-between gap-5">
-                      <div className={`text-2xl font-light tracking-tight transition duration-300 group-hover:scale-105 sm:text-3xl ${premiumCardTones[index % premiumCardTones.length].accent}`}>
-                        0{index + 1}
-                      </div>
-                      <div className={`max-w-[65%] rounded-full border px-3 py-1.5 text-right text-[0.6rem] font-semibold uppercase tracking-[0.13em] ${premiumCardTones[index % premiumCardTones.length].badge}`}>
-                        {item.category}
-                      </div>
-                    </div>
+                  <div className="flex items-center justify-between gap-3">
+                    <span className={`grid h-10 w-10 place-items-center rounded-xl border text-sm font-semibold ${productAccents[index % productAccents.length]}`}>
+                      0{index + 1}
+                    </span>
+                    <span className={`max-w-[70%] rounded-full border px-3 py-1.5 text-right text-[0.6rem] font-semibold uppercase tracking-[0.13em] ${productAccents[index % productAccents.length]}`}>
+                      {item.category}
+                    </span>
+                  </div>
 
-                    <div className="mt-6">
-                      <h3 className="text-2xl font-semibold leading-[1.16] tracking-[-0.02em] text-white sm:text-[1.75rem]">
-                        {item.title}
-                      </h3>
-                      <p className="mt-3 max-w-[38ch] text-sm leading-6 text-fuchsia-50/70">{item.copy}</p>
-                    </div>
+                  <div className="mt-5">
+                    <h3 className="text-xl font-semibold leading-[1.16] text-white transition-colors group-hover:text-fuchsia-100 sm:text-2xl">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 max-w-[38ch] text-sm leading-6 text-white/62">{item.copy}</p>
+                  </div>
 
-                    <div className="mt-auto flex items-center justify-between gap-3 border-t border-white/[0.12] pt-4">
-                      <div className="text-xs font-semibold text-white/75">
-                        {item.result}
-                      </div>
-                      <span className={`grid h-8 w-8 place-items-center rounded-full border transition duration-300 group-hover:translate-x-1 group-hover:scale-110 ${premiumCardTones[index % premiumCardTones.length].badge}`} aria-hidden="true">↗</span>
+                  <div className="mt-auto flex items-center justify-between gap-3 border-t border-white/[0.1] pt-4">
+                    <div className="text-xs font-semibold text-white/75">
+                      {item.result}
                     </div>
+                    <span className="text-fuchsia-100/75 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">↗</span>
                   </div>
                 </article>
               ))}
@@ -1523,7 +1491,6 @@ export default function AuroraLanding() {
         </section>
 
         <section className="relative overflow-hidden py-16 md:py-24">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(202,74,255,0.1),transparent_28%),radial-gradient(circle_at_18%_76%,rgba(117,71,223,0.09),transparent_30%)]" />
           <div className="section-shell relative z-10">
             <div className="mb-10 grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:gap-16" data-reveal>
               <div className="section-heading">
@@ -1535,23 +1502,26 @@ export default function AuroraLanding() {
               </p>
             </div>
 
-            <div className="grid gap-4 lg:grid-cols-3" data-parallax="8">
+            <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12" data-parallax="8">
               {testimonials.map((item, index) => (
                 <article
                   key={item.name}
-                  className={`home-interactive-card home-premium-card group relative flex min-h-[21rem] flex-col overflow-hidden rounded-[1.4rem] border border-white/[0.1] bg-gradient-to-br ${premiumCardTones[index % premiumCardTones.length].surface} p-6 sm:p-7`}
+                  className={index === 0
+                    ? "home-interactive-card group relative flex min-h-[24rem] flex-col overflow-hidden rounded-[1.75rem] border border-fuchsia-100/[0.14] bg-[#17112d] p-7 shadow-[0_24px_70px_rgba(2,4,18,0.25)] sm:p-9 lg:row-span-2"
+                    : "group border-t border-white/[0.14] py-6 transition-colors duration-300 hover:border-fuchsia-200/40 lg:px-5"}
                   data-reveal
                 >
-                  <div className={`pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full ${premiumCardTones[index % premiumCardTones.length].glow} opacity-40 blur-3xl transition duration-500 group-hover:scale-125 group-hover:opacity-80`} />
-                  <div className="relative flex items-center justify-between">
-                    <span className={`grid h-11 w-11 place-items-center rounded-2xl border text-3xl leading-none ${premiumCardTones[index % premiumCardTones.length].badge}`}>&ldquo;</span>
+                  <div className={`relative flex items-center justify-between ${index === 0 ? "" : "lg:justify-end"}`}>
+                    {index === 0 && (
+                      <span className="text-6xl font-serif leading-none text-fuchsia-100/45" aria-hidden="true">&ldquo;</span>
+                    )}
                     <div className="text-xs font-semibold uppercase tracking-[0.18em] text-white/40">0{index + 1} / 03</div>
                   </div>
-                  <p className="relative mt-8 flex-1 text-base leading-7 text-white/80 sm:text-lg">
+                  <p className={`relative ${index === 0 ? "mt-8 flex-1 text-xl leading-8 text-white/90 sm:text-2xl sm:leading-9" : "mt-5 text-base leading-7 text-white/75"}`}>
                     {item.quote}
                   </p>
-                  <div className="relative mt-7 flex items-center gap-3 border-t border-white/[0.12] pt-5">
-                    <div className={`grid h-10 w-10 shrink-0 place-items-center rounded-full border text-xs font-semibold ${premiumCardTones[index % premiumCardTones.length].badge}`}>
+                  <div className={`relative mt-7 flex items-center gap-3 ${index === 0 ? "border-t border-white/[0.12] pt-5" : ""}`}>
+                    <div className={`grid h-10 w-10 shrink-0 place-items-center rounded-full border border-fuchsia-100/[0.18] bg-fuchsia-100/[0.08] text-xs font-semibold text-fuchsia-50/80`}>
                       {item.name.split(" ").map((part) => part[0]).join("")}
                     </div>
                     <div className="min-w-0">
