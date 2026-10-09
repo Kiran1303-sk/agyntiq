@@ -289,13 +289,6 @@ const statCards = [
   { value: 100, suffix: "+", label: "AI models deployed" }
 ];
 
-const productAccents = [
-  "border-violet-200/20 bg-violet-300/[0.08] text-violet-100/80",
-  "border-fuchsia-200/20 bg-fuchsia-300/[0.08] text-fuchsia-100/80",
-  "border-cyan-200/20 bg-cyan-300/[0.08] text-cyan-100/80",
-  "border-blue-200/20 bg-blue-300/[0.08] text-blue-100/80"
-];
-
 const whyUsCardTones = [
   {
     surface: "from-fuchsia-500/[0.28] via-[#17102f] to-[#090a21]",
@@ -341,57 +334,6 @@ const reasons = [
   { title: "Experienced AI Engineers", copy: "Senior product and engineering expertise from day one." },
   { title: "24/7 Support", copy: "Dependable ongoing care for systems your teams rely on." },
   { title: "Custom Solutions", copy: "Purpose-built tools that fit the way your organization works." }
-];
-
-const aiProducts = [
-  {
-    title: "AI Chatbot",
-    category: "Customer Ops",
-    copy: "Support assistants that answer, qualify, route, and resolve customer requests with governed context.",
-    result: "24/7 response"
-  },
-  {
-    title: "AI Copilot",
-    category: "Team Workflow",
-    copy: "Role-aware copilots for sales, operations, finance, and support teams inside existing tools.",
-    result: "Faster decisions"
-  },
-  {
-    title: "AI Search",
-    category: "Knowledge Layer",
-    copy: "Enterprise search across documents, tickets, policies, and systems with cited answers.",
-    result: "Trusted retrieval"
-  },
-  {
-    title: "AI Analytics",
-    category: "Decision Intel",
-    copy: "Dashboards and insight layers that convert live business signals into next-best actions.",
-    result: "Clear signal"
-  },
-  {
-    title: "AI Voice Assistant",
-    category: "Voice AI",
-    copy: "Natural voice experiences for scheduling, support, intake, and high-volume operations.",
-    result: "Human handoff"
-  },
-  {
-    title: "Document Intelligence",
-    category: "Automation",
-    copy: "Extract, classify, summarize, and validate documents across regulated enterprise workflows.",
-    result: "Less manual work"
-  },
-  {
-    title: "Recommendation Engine",
-    category: "Personalization",
-    copy: "Recommendation systems for content, products, actions, and next-step workflow guidance.",
-    result: "Better targeting"
-  },
-  {
-    title: "Fraud Detection",
-    category: "Risk AI",
-    copy: "Pattern detection and risk scoring for transactions, claims, accounts, and suspicious behavior.",
-    result: "Earlier alerts"
-  }
 ];
 
 const industryCards = [
@@ -1321,54 +1263,6 @@ export default function AuroraLanding() {
                   </article>
                 ))}
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="relative overflow-hidden border-y border-white/[0.08] bg-[#090a21] py-16 text-white md:py-24">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_18%_0%,rgba(117,71,223,0.16),transparent_38%),radial-gradient(ellipse_at_88%_80%,rgba(202,74,255,0.1),transparent_34%)]" />
-          <div className="section-shell relative z-10">
-            <div className="relative mb-10 grid gap-6 lg:grid-cols-[1fr_0.72fr] lg:items-end" data-reveal>
-              <div className="section-heading">
-                <div className="section-kicker">AI Products</div>
-                <h2 className="section-title">Purpose-built AI for everyday work.</h2>
-              </div>
-              <p className="section-copy !mt-0 max-w-xl lg:justify-self-end">
-                Practical capabilities designed around your workflows, with clear outcomes for the people using them.
-              </p>
-            </div>
-
-            <div className="relative grid gap-x-8 sm:grid-cols-2 xl:grid-cols-4" data-parallax="8">
-              {aiProducts.map((item, index) => (
-                <article
-                  key={item.title}
-                  className="group flex min-h-64 flex-col border-t border-white/[0.12] px-1 py-5 transition-colors duration-300 hover:border-fuchsia-200/45 sm:px-3"
-                  data-reveal
-                >
-                  <div className="flex items-center justify-between gap-3">
-                    <span className={`grid h-10 w-10 place-items-center rounded-xl border text-sm font-semibold ${productAccents[index % productAccents.length]}`}>
-                      0{index + 1}
-                    </span>
-                    <span className={`max-w-[70%] rounded-full border px-3 py-1.5 text-right text-[0.6rem] font-semibold uppercase tracking-[0.13em] ${productAccents[index % productAccents.length]}`}>
-                      {item.category}
-                    </span>
-                  </div>
-
-                  <div className="mt-5">
-                    <h3 className="text-xl font-semibold leading-[1.16] text-white transition-colors group-hover:text-fuchsia-100 sm:text-2xl">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 max-w-[38ch] text-sm leading-6 text-white/62">{item.copy}</p>
-                  </div>
-
-                  <div className="mt-auto flex items-center justify-between gap-3 border-t border-white/[0.1] pt-4">
-                    <div className="text-xs font-semibold text-white/75">
-                      {item.result}
-                    </div>
-                    <span className="text-fuchsia-100/75 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">↗</span>
-                  </div>
-                </article>
-              ))}
             </div>
           </div>
         </section>
