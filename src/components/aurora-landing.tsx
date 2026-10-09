@@ -296,6 +296,33 @@ const productAccents = [
   "border-blue-200/20 bg-blue-300/[0.08] text-blue-100/80"
 ];
 
+const whyUsCardTones = [
+  {
+    surface: "from-fuchsia-500/[0.28] via-[#17102f] to-[#090a21]",
+    glow: "bg-fuchsia-400/25",
+    badge: "border-fuchsia-200/25 bg-fuchsia-200/[0.1] text-fuchsia-100/85",
+    line: "from-fuchsia-200/75 via-fuchsia-300/45"
+  },
+  {
+    surface: "from-violet-500/[0.3] via-[#15102f] to-[#090a21]",
+    glow: "bg-violet-400/25",
+    badge: "border-violet-200/25 bg-violet-200/[0.1] text-violet-100/85",
+    line: "from-violet-200/75 via-violet-300/45"
+  },
+  {
+    surface: "from-blue-500/[0.26] via-[#11142e] to-[#090a21]",
+    glow: "bg-blue-400/20",
+    badge: "border-blue-200/25 bg-blue-200/[0.08] text-blue-100/85",
+    line: "from-blue-200/75 via-blue-300/45"
+  },
+  {
+    surface: "from-cyan-500/[0.22] via-[#10172e] to-[#090a21]",
+    glow: "bg-cyan-400/20",
+    badge: "border-cyan-200/25 bg-cyan-200/[0.08] text-cyan-100/85",
+    line: "from-cyan-200/75 via-cyan-300/45"
+  }
+];
+
 const workflowSteps = [
   { title: "Business Data", description: "Connect trusted data across the systems your teams rely on." },
   { title: "AI Processing", description: "Turn complex information into useful, governed intelligence." },
@@ -1275,20 +1302,22 @@ export default function AuroraLanding() {
                 </p>
               </div>
 
-              <div className="grid gap-x-7 sm:grid-cols-2 sm:gap-x-8">
+              <div className="grid gap-3 sm:grid-cols-2">
                 {reasons.map((item, index) => (
                   <article
                     key={item.title}
-                    className="group border-t border-white/[0.12] py-5 transition-colors duration-300 hover:border-fuchsia-200/40"
+                    className={`home-interactive-card home-premium-card group relative overflow-hidden rounded-2xl border border-white/[0.12] bg-gradient-to-br ${whyUsCardTones[index % whyUsCardTones.length].surface} p-5`}
                     data-reveal
                   >
-                    <div className="flex items-baseline gap-3">
-                      <span className="text-xs font-semibold tabular-nums text-fuchsia-100/50">0{index + 1}</span>
+                    <div className={`pointer-events-none absolute -right-10 -top-12 h-32 w-32 rounded-full ${whyUsCardTones[index % whyUsCardTones.length].glow} opacity-40 blur-3xl transition duration-500 group-hover:scale-125 group-hover:opacity-80`} />
+                    <div className="relative flex items-start justify-between gap-3">
                       <h3 className="text-lg font-semibold tracking-normal text-white transition-colors group-hover:text-fuchsia-100">{item.title}</h3>
+                      <span className={`rounded-full border px-2 py-1 text-[0.62rem] font-semibold tracking-[0.16em] ${whyUsCardTones[index % whyUsCardTones.length].badge}`}>0{index + 1}</span>
                     </div>
-                    <p className="mt-2 pl-8 text-sm leading-6 text-white/62">
+                    <p className="relative mt-3 text-sm leading-6 text-white/62">
                       {item.copy}
                     </p>
+                    <div className={`relative mt-5 h-px w-12 bg-gradient-to-r ${whyUsCardTones[index % whyUsCardTones.length].line} to-transparent transition-all duration-500 group-hover:w-24`} />
                   </article>
                 ))}
               </div>
