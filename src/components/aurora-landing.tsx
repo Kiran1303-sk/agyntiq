@@ -1263,7 +1263,7 @@ export default function AuroraLanding() {
                       0{index + 1}
                     </span>
                   </div>
-                  <h3 className="relative mt-6 text-xl font-semibold leading-tight tracking-normal text-white transition-colors group-hover:text-fuchsia-100 sm:text-2xl">
+                  <h3 className="home-detail-card-title relative mt-6 text-xl font-semibold leading-tight tracking-normal text-white transition-colors group-hover:text-fuchsia-100 sm:text-2xl">
                     {step.title}
                   </h3>
                   <p className="relative mt-3 max-w-sm text-sm leading-6 text-white/68">
@@ -1302,7 +1302,7 @@ export default function AuroraLanding() {
                     <div className="relative flex items-center gap-4">
                       <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-full border text-xs font-semibold tracking-[0.16em] ${whyUsCardTones[index % whyUsCardTones.length].badge}`}>0{index + 1}</span>
                       <div className="min-w-0">
-                        <h3 className="text-lg font-semibold tracking-normal text-white transition-colors group-hover:text-fuchsia-100">{item.title}</h3>
+                        <h3 className="home-detail-card-title text-lg font-semibold tracking-normal text-white transition-colors group-hover:text-fuchsia-100">{item.title}</h3>
                         <p className="mt-2 text-sm leading-6 text-white/62">{item.copy}</p>
                       </div>
                     </div>
@@ -1344,7 +1344,7 @@ export default function AuroraLanding() {
                     <span className={`text-xs font-semibold uppercase tracking-[0.2em] ${industryCardTones[index % industryCardTones.length].accent}`}>Industry 0{index + 1}</span>
                     <span className={`grid h-9 w-9 place-items-center rounded-full border border-white/[0.12] bg-white/[0.04] text-sm text-white/75 transition duration-300 group-hover:translate-x-1 group-hover:bg-white/[0.08] ${industryCardTones[index % industryCardTones.length].accent}`} aria-hidden="true">↗</span>
                   </div>
-                  <h3 className="relative mt-5 text-xl font-semibold leading-tight text-white transition-colors group-hover:text-fuchsia-100 sm:text-2xl">{item.name}</h3>
+                  <h3 className="home-detail-card-title relative mt-5 text-xl font-semibold leading-tight text-white transition-colors group-hover:text-fuchsia-100 sm:text-2xl">{item.name}</h3>
                   <p className="relative mt-2 max-w-lg text-sm leading-6 text-white/62 sm:text-base">{item.summary}</p>
                   <div className="absolute inset-x-5 bottom-0 h-px bg-gradient-to-r from-fuchsia-200/55 via-violet-300/35 to-transparent opacity-60 transition-opacity group-hover:opacity-100 sm:inset-x-6" />
                 </article>
