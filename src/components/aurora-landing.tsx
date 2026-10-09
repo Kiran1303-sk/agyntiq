@@ -1217,7 +1217,7 @@ export default function AuroraLanding() {
                           <div className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-fuchsia-200/52">
                             {item.stat}
                           </div>
-                          <h3 className="mt-2 text-xl font-semibold tracking-normal text-white sm:text-2xl">
+                          <h3 className="home-detail-card-title mt-2 text-xl font-semibold tracking-normal text-white sm:text-2xl">
                             {item.title}
                           </h3>
                           <p className="mt-2 max-w-2xl text-sm leading-6 text-fuchsia-100/58 sm:text-base sm:leading-7">
@@ -1291,7 +1291,7 @@ export default function AuroraLanding() {
                 </p>
               </div>
 
-              <div className="grid gap-3 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
                 {reasons.map((item, index) => (
                   <article
                     key={item.title}
@@ -1299,7 +1299,7 @@ export default function AuroraLanding() {
                     data-reveal
                   >
                     <div className={`pointer-events-none absolute -right-10 -top-12 h-32 w-32 rounded-full ${whyUsCardTones[index % whyUsCardTones.length].glow} opacity-40 blur-3xl transition duration-500 group-hover:scale-125 group-hover:opacity-80`} />
-                    <div className="relative flex items-center gap-4">
+                    <div className="relative grid grid-cols-[2.5rem_minmax(0,1fr)] items-center gap-4">
                       <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-full border text-xs font-semibold tracking-[0.16em] ${whyUsCardTones[index % whyUsCardTones.length].badge}`}>0{index + 1}</span>
                       <div className="min-w-0">
                         <h3 className="home-detail-card-title text-lg font-semibold tracking-normal text-white transition-colors group-hover:text-fuchsia-100">{item.title}</h3>
@@ -1380,7 +1380,7 @@ export default function AuroraLanding() {
                     </span>
                     <span className="text-lg text-fuchsia-100/45 transition duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-fuchsia-100" aria-hidden="true">↗</span>
                   </div>
-                  <h3 className="relative mt-12 text-xl font-semibold leading-snug tracking-normal text-white sm:mt-16 sm:text-2xl">
+                  <h3 className="home-detail-card-title relative mt-12 text-xl font-semibold leading-snug tracking-normal text-white sm:mt-16 sm:text-2xl">
                     {item.title}
                   </h3>
                   <p className="relative mt-3 max-w-sm text-sm leading-6 text-white/58 sm:text-base">
@@ -1433,7 +1433,7 @@ export default function AuroraLanding() {
                   </div>
                   <div className="relative mt-10">
                     <div className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/42">Engagement</div>
-                    <h3 className="mt-3 text-2xl font-semibold leading-tight tracking-normal text-white sm:text-3xl">
+                    <h3 className="home-detail-card-title mt-3 text-2xl font-semibold leading-tight tracking-normal text-white sm:text-3xl">
                       {tier.price}
                     </h3>
                     <p className="mt-4 max-w-sm text-sm leading-6 text-white/62 sm:text-base">
@@ -1784,7 +1784,7 @@ function ScrollShowcaseSection() {
                       <span className="h-px w-10 bg-fuchsia-300/75" />
                       {slideShowcase[activeSlide].tag}
                     </div>
-                    <h3 className="max-w-sm text-3xl font-semibold leading-tight tracking-[-0.03em] text-white drop-shadow-[0_0_24px_rgba(202,74,255,0.14)] sm:text-4xl">
+                    <h3 className="home-detail-card-title max-w-sm text-3xl font-semibold leading-tight tracking-[-0.03em] text-white drop-shadow-[0_0_24px_rgba(202,74,255,0.14)] sm:text-4xl">
                       {slideShowcase[activeSlide].title}
                     </h3>
                     <p className="max-w-md text-sm leading-6 text-fuchsia-100/64 sm:text-base sm:leading-7">
