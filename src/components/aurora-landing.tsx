@@ -1045,11 +1045,11 @@ export default function AuroraLanding() {
           className="relative scroll-mt-28 overflow-hidden pb-6 pt-8 md:scroll-mt-32 md:pb-12 md:pt-12 lg:flex lg:min-h-[calc(100vh-5rem)] lg:items-center lg:py-10"
         >
           <div className="pointer-events-none absolute inset-x-0 top-0 h-[78%] bg-[radial-gradient(circle_at_18%_18%,rgba(202,74,255,0.18),transparent_30%),radial-gradient(circle_at_78%_36%,rgba(117,71,223,0.14),transparent_34%)]" />
-          <div className="section-shell relative z-10 max-md:!px-0">
+          <div className="section-shell relative z-10">
             <div className="noise-overlay" />
             <div className="absolute inset-x-0 top-[-18%] h-[54rem] rounded-[3rem] bg-[linear-gradient(135deg,rgba(30,8,55,0.44),rgba(7,8,28,0.2)_46%,rgba(42,7,46,0.34))] blur-2xl" />
 
-            <div className="mx-auto grid max-w-[1200px] justify-items-center gap-0 max-md:px-4 lg:grid-cols-[1.35fr_0.65fr] lg:items-stretch lg:justify-items-stretch lg:gap-12 xl:gap-16">
+            <div className="mx-auto grid max-w-[1200px] justify-items-center gap-0 lg:grid-cols-[1.35fr_0.65fr] lg:items-stretch lg:justify-items-stretch lg:gap-12 xl:gap-16">
               <motion.div
                 data-reveal
                 initial={{ opacity: 0, y: 24 }}
@@ -1122,7 +1122,7 @@ export default function AuroraLanding() {
               >
                 <div className="relative h-[300px] overflow-visible sm:h-[390px] md:min-h-[500px] lg:h-[34rem] lg:min-h-0 xl:h-[36.5rem]">
                   <div className="absolute inset-0 flex items-center justify-center lg:items-start lg:justify-end lg:pt-14 lg:pr-2">
-                    <div className="w-[115%] shrink-0 origin-top scale-y-[1.15] sm:w-[125%] lg:w-[165%] lg:max-w-[720px] lg:scale-y-[1.25]">
+                    <div className="w-full shrink-0 origin-top scale-y-[1.15] lg:w-[110%] lg:max-w-[680px] lg:scale-y-[1.25]">
                       <NeonAiEcosystem />
                     </div>
                   </div>
