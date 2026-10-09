@@ -268,7 +268,7 @@ const problems = [
 const team = [
   {
     title: "Engineering leadership",
-    copy: "MIT-trained, patents to our name, and 20+ years shipping production systems."
+    copy: "MIT-trained, with patents and 20+ years of experience shipping production systems."
   },
   {
     title: "AI-native execution",
@@ -276,7 +276,7 @@ const team = [
   },
   {
     title: "Fractional CTO depth",
-    copy: "We&apos;ve been the first hire, the person on call, the one who fixes it at 2am."
+    copy: "We've been the first hire, the person on call, and the one who fixes it at 2am."
   }
 ];
 
@@ -425,17 +425,20 @@ const pricingTiers = [
   {
     name: "Starter",
     price: "Pilot engagement",
-    description: "For teams validating one high-value AI workflow with expert support."
+    description: "For teams validating one high-value AI workflow with expert support.",
+    fit: "Focused use case"
   },
   {
     name: "Growth",
     price: "Build + deploy",
-    description: "For businesses ready to launch multiple automations and AI products."
+    description: "For businesses ready to launch multiple automations and AI products.",
+    fit: "Multiple workflows"
   },
   {
     name: "Enterprise",
     price: "Custom partnership",
-    description: "For orgs that need ongoing delivery, governance, and scale."
+    description: "For orgs that need ongoing delivery, governance, and scale.",
+    fit: "Ongoing partnership"
   }
 ];
 
@@ -1320,46 +1323,47 @@ export default function AuroraLanding() {
           </div>
         </section>
 
-        <section className="py-16 md:py-24">
+        <section className="relative overflow-hidden py-16 md:py-24">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_84%_18%,rgba(117,71,223,0.13),transparent_30%),radial-gradient(circle_at_12%_82%,rgba(202,74,255,0.08),transparent_28%)]" />
           <div className="section-shell">
-            <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between" data-reveal>
+            <div className="relative mb-10 grid gap-6 lg:grid-cols-[1fr_0.72fr] lg:items-end" data-reveal>
               <div className="section-heading">
-              <div className="section-kicker">AI Products</div>
-              <h2 className="section-title">Interactive products your team can actually use.</h2>
+                <div className="section-kicker">AI Products</div>
+                <h2 className="section-title">Purpose-built AI for everyday work.</h2>
               </div>
-              <p className="section-copy !mt-0 max-w-xl lg:pb-1">
-                Practical AI capabilities, designed to fit your team’s workflows and deliver measurable outcomes.
+              <p className="section-copy !mt-0 max-w-xl lg:justify-self-end">
+                Practical capabilities designed around your workflows, with clear outcomes for the people using them.
               </p>
             </div>
 
-            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4" data-parallax="10">
+            <div className="relative grid gap-4 sm:grid-cols-2 xl:grid-cols-3" data-parallax="8">
               {aiProducts.map((item, index) => (
                 <article
                   key={item.title}
-                  className={`home-interactive-card home-premium-card group relative min-h-[17rem] overflow-hidden rounded-2xl border border-white/[0.12] bg-gradient-to-br ${premiumCardTones[index % premiumCardTones.length].surface} p-4 sm:p-5`}
+                  className={`home-interactive-card home-premium-card group relative min-h-[18rem] overflow-hidden rounded-[1.4rem] border border-white/[0.12] bg-gradient-to-br ${premiumCardTones[index % premiumCardTones.length].surface} p-5 sm:p-6`}
                   data-reveal
                 >
-                  <div className={`pointer-events-none absolute -right-14 -top-14 h-44 w-44 rounded-full ${premiumCardTones[index % premiumCardTones.length].glow} opacity-50 blur-3xl transition duration-500 group-hover:scale-125 group-hover:opacity-90`} />
+                  <div className={`pointer-events-none absolute -right-14 -top-14 h-48 w-48 rounded-full ${premiumCardTones[index % premiumCardTones.length].glow} opacity-45 blur-3xl transition duration-500 group-hover:scale-125 group-hover:opacity-90`} />
                   <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent opacity-70" />
                   <div className="relative flex h-full flex-col">
                     <div className="flex items-start justify-between gap-5">
-                      <div className={`text-3xl font-light tracking-tight transition duration-300 group-hover:scale-105 ${premiumCardTones[index % premiumCardTones.length].accent}`}>
+                      <div className={`text-2xl font-light tracking-tight transition duration-300 group-hover:scale-105 sm:text-3xl ${premiumCardTones[index % premiumCardTones.length].accent}`}>
                         0{index + 1}
                       </div>
-                      <div className={`rounded-full border px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] ${premiumCardTones[index % premiumCardTones.length].badge}`}>
+                      <div className={`max-w-[65%] rounded-full border px-3 py-1.5 text-right text-[0.6rem] font-semibold uppercase tracking-[0.13em] ${premiumCardTones[index % premiumCardTones.length].badge}`}>
                         {item.category}
                       </div>
                     </div>
 
-                    <div className="mt-5">
-                      <h3 className="break-words text-xl font-semibold leading-tight tracking-normal text-white sm:text-2xl">
+                    <div className="mt-6">
+                      <h3 className="text-2xl font-semibold leading-[1.16] tracking-[-0.02em] text-white sm:text-[1.75rem]">
                         {item.title}
                       </h3>
-                      <p className="mt-3 text-sm leading-6 text-fuchsia-100/58">{item.copy}</p>
+                      <p className="mt-3 max-w-[38ch] text-sm leading-6 text-fuchsia-50/70">{item.copy}</p>
                     </div>
 
-                    <div className="mt-auto flex items-center justify-between gap-3 border-t border-white/[0.08] pt-4">
-                      <div className="text-xs font-medium text-white/62">
+                    <div className="mt-auto flex items-center justify-between gap-3 border-t border-white/[0.12] pt-4">
+                      <div className="text-xs font-semibold text-white/75">
                         {item.result}
                       </div>
                       <span className={`grid h-8 w-8 place-items-center rounded-full border transition duration-300 group-hover:translate-x-1 group-hover:scale-110 ${premiumCardTones[index % premiumCardTones.length].badge}`} aria-hidden="true">↗</span>
@@ -1371,59 +1375,88 @@ export default function AuroraLanding() {
           </div>
         </section>
 
-        <section id="industries" className="scroll-mt-28 border-y border-white/[0.06] bg-[#08091d]/60 py-16 md:scroll-mt-32 md:py-24">
-          <div className="section-shell">
-            <div className="mb-10 flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between" data-reveal>
+        <section id="industries" className="relative scroll-mt-28 overflow-hidden border-y border-white/[0.06] bg-[#08091d]/60 py-16 md:scroll-mt-32 md:py-24">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_85%_50%,rgba(117,71,223,0.13),transparent_42%)]" />
+          <div className="section-shell relative z-10">
+            <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:gap-16" data-reveal>
               <div className="section-heading">
-              <div className="section-kicker">Industries</div>
-              <h2 className="section-title">Designed for the teams that need AI most.</h2>
+                <div className="section-kicker">Industries</div>
+                <h2 className="section-title">AI shaped around your world.</h2>
               </div>
-              <p className="section-copy !mt-0 max-w-sm sm:pb-1">
-                Domain-aware solutions built around the realities of your industry.
-              </p>
+              <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+                <p className="section-copy !mt-0 max-w-xl">
+                  Domain-aware systems grounded in the needs, constraints, and opportunities of your industry.
+                </p>
+                <span className="hidden shrink-0 pb-1 text-xs font-semibold uppercase tracking-[0.2em] text-fuchsia-100/45 lg:block">
+                  06 industries
+                </span>
+              </div>
             </div>
 
-            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3" data-parallax="8">
+            <div className="mt-10 grid gap-x-10 lg:grid-cols-2" data-parallax="6">
               {industryCards.map((item, index) => (
                 <article
                   key={item.name}
-                  className="home-interactive-card group relative min-h-48 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0a0b22] p-5 transition duration-300 hover:border-fuchsia-200/25 sm:p-6"
+                  className="group relative grid min-h-36 grid-cols-[3.5rem_1fr] gap-4 border-t border-white/[0.1] py-6 sm:grid-cols-[4.5rem_1fr] sm:gap-6 sm:py-7"
                   data-reveal
                 >
-                  <div className="absolute right-5 top-4 text-4xl font-light tracking-tight text-white/[0.06] transition group-hover:text-fuchsia-100/[0.12]">
+                  <div className="pt-1 text-sm font-medium tabular-nums text-fuchsia-100/48 transition group-hover:text-fuchsia-100">
                     0{index + 1}
                   </div>
-                  <div className="mb-7 h-8 w-8 rounded-lg border border-fuchsia-200/20 bg-fuchsia-200/[0.06] shadow-[0_0_28px_rgba(202,74,255,0.1)]" />
-                  <h3 className="text-xl font-semibold tracking-normal text-white">{item.name}</h3>
-                  <p className="mt-2 text-sm leading-6 text-aurora-muted">{item.summary}</p>
+                  <div className="relative">
+                    <div className="flex items-baseline justify-between gap-3">
+                      <h3 className="text-xl font-semibold leading-tight tracking-[-0.01em] text-white transition-colors group-hover:text-fuchsia-100 sm:text-2xl">
+                        {item.name}
+                      </h3>
+                      <span className="shrink-0 text-lg text-fuchsia-200/50 transition duration-300 group-hover:translate-x-1 group-hover:text-fuchsia-100" aria-hidden="true">↗</span>
+                    </div>
+                    <p className="mt-2 max-w-lg text-sm leading-6 text-white/56 sm:text-base">
+                      {item.summary}
+                    </p>
+                    <div className="absolute -bottom-7 left-0 h-px w-0 bg-gradient-to-r from-fuchsia-200/70 to-violet-300/20 transition-all duration-500 group-hover:w-full sm:-bottom-8" />
+                  </div>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="blog" className="scroll-mt-28 py-16 md:scroll-mt-32 md:py-24">
-          <div className="section-shell">
-            <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-start lg:gap-16">
-              <div className="section-heading" data-reveal>
+        <section id="blog" className="relative overflow-hidden border-b border-white/[0.06] py-16 md:py-24">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_8%_70%,rgba(202,74,255,0.1),transparent_32%)]" />
+          <div className="section-shell relative z-10">
+            <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:gap-16" data-reveal>
+              <div className="section-heading">
                 <div className="section-kicker">How we deliver</div>
                 <h2 className="section-title">Expertise that carries ideas into production.</h2>
-                <p className="section-copy max-w-xl">
-                  Senior product and engineering experience at every stage, from first use case to systems at scale.
-                </p>
               </div>
+              <p className="section-copy !mt-0 max-w-xl lg:justify-self-end">
+                Senior product and engineering experience at every stage, from first use case to systems at scale.
+              </p>
+            </div>
 
-              <div className="grid gap-3 sm:grid-cols-2" data-reveal data-parallax="8">
-                {team.map((item, index) => (
-                  <article key={item.title}                   className={`home-interactive-card rounded-2xl border border-white/[0.08] bg-[#0a0b22] p-5 sm:p-6 ${index === 0 ? "sm:col-span-2 sm:flex sm:items-start sm:gap-8" : ""}`}>
-                    <div className="text-3xl font-light tracking-tight text-fuchsia-100/42">0{index + 1}</div>
-                    <div className={index === 0 ? "mt-4 sm:mt-0" : "mt-4"}>
-                      <h3 className="text-xl font-semibold tracking-normal text-white">{item.title}</h3>
-                      <p className="mt-2 text-sm leading-6 text-white/55">{item.copy}</p>
-                    </div>
-                  </article>
-                ))}
-              </div>
+            <div className="mt-10 grid overflow-hidden rounded-[1.5rem] border border-white/[0.1] bg-[#08091e]/70 sm:grid-cols-3" data-parallax="6">
+              {team.map((item, index) => (
+                <article
+                  key={item.title}
+                  className="group relative min-h-64 overflow-hidden border-b border-white/[0.1] p-6 transition-colors duration-300 hover:bg-[linear-gradient(145deg,rgba(202,74,255,0.12),rgba(15,13,40,0.3))] last:border-b-0 sm:border-b-0 sm:border-r sm:p-7 sm:last:border-r-0 lg:p-8"
+                  data-reveal
+                >
+                  <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-fuchsia-400/[0.08] opacity-0 blur-3xl transition duration-500 group-hover:opacity-100" />
+                  <div className="relative flex items-center justify-between">
+                    <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/42">
+                      0{index + 1} <span className="text-fuchsia-100/65">/ 03</span>
+                    </span>
+                    <span className="text-lg text-fuchsia-100/45 transition duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-fuchsia-100" aria-hidden="true">↗</span>
+                  </div>
+                  <h3 className="relative mt-12 text-xl font-semibold leading-snug tracking-normal text-white sm:mt-16 sm:text-2xl">
+                    {item.title}
+                  </h3>
+                  <p className="relative mt-3 max-w-sm text-sm leading-6 text-white/58 sm:text-base">
+                    {item.copy}
+                  </p>
+                  <div className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-fuchsia-300/70 to-violet-300/20 transition-transform duration-500 group-hover:scale-x-100" />
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -1434,45 +1467,54 @@ export default function AuroraLanding() {
         >
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(202,74,255,0.12),transparent_28%),radial-gradient(circle_at_82%_64%,rgba(117,71,223,0.11),transparent_30%)]" />
           <div className="section-shell relative z-10">
-            <div className="section-heading mb-10" data-reveal>
-              <div className="section-kicker">Pricing</div>
-              <h2 className="section-title">Flexible engagement models for different stages.</h2>
-              <p className="section-copy">
-                Whether you need a focused AI pilot or a full embedded team, we shape the engagement
-                around the outcome.
+            <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-16" data-reveal>
+              <div className="section-heading">
+                <div className="section-kicker">Pricing</div>
+                <h2 className="section-title">The right way to move AI forward.</h2>
+              </div>
+              <p className="section-copy !mt-0 max-w-xl lg:justify-self-end">
+                Start with a focused pilot or build a long-term partnership. Scope each engagement around the outcome you need.
               </p>
             </div>
 
-            <div className="grid gap-3 lg:grid-cols-3" data-parallax="10">
-              {pricingTiers.map((tier) => (
+            <div className="mt-10 grid gap-4 lg:grid-cols-3" data-parallax="8">
+              {pricingTiers.map((tier, index) => (
                 <article
                   key={tier.name}
-                  className={`home-interactive-card relative flex flex-col overflow-hidden rounded-2xl border p-6 transition duration-300 md:p-7 ${
+                  className={`home-interactive-card home-premium-card group relative flex min-h-[24rem] flex-col overflow-hidden rounded-[1.4rem] border p-6 md:p-7 ${
                     tier.name === "Growth"
-                      ? "border-fuchsia-200/35 bg-[linear-gradient(145deg,rgba(40,21,75,0.72),rgba(13,11,38,0.94))] shadow-[0_20px_70px_rgba(202,74,255,0.12)]"
-                      : "border-white/[0.08] bg-[#0a0b22] hover:border-fuchsia-200/20"
+                      ? "border-fuchsia-200/30 bg-[linear-gradient(145deg,rgba(66,35,104,0.82),rgba(24,15,53,0.98)_58%,rgba(10,11,34,0.98))] shadow-[0_20px_70px_rgba(202,74,255,0.12)]"
+                      : "border-white/[0.1] bg-[linear-gradient(145deg,rgba(25,24,61,0.88),rgba(9,10,32,0.98))]"
                   }`}
                   data-reveal
                 >
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-100/68">
-                      {tier.name}
+                  <div className="pointer-events-none absolute -right-14 -top-14 h-48 w-48 rounded-full bg-fuchsia-400/[0.12] opacity-60 blur-3xl transition duration-500 group-hover:scale-125 group-hover:opacity-90" />
+                  <div className="relative flex items-center justify-between gap-3">
+                    <div className="text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-100/75">
+                      0{index + 1} <span className="px-1 text-white/28">/</span> {tier.name}
                     </div>
                     {tier.name === "Growth" && (
-                      <span className="rounded-full bg-fuchsia-200/10 px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-fuchsia-100/75">
+                      <span className="rounded-full border border-fuchsia-200/25 bg-fuchsia-200/[0.1] px-3 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.13em] text-fuchsia-100/85">
                         Scale-ready
                       </span>
                     )}
                   </div>
-                  <h3 className="mt-8 text-2xl font-semibold tracking-normal text-white">
-                    {tier.price}
-                  </h3>
-                  <p className="mt-3 text-base leading-7 text-aurora-muted">{tier.description}</p>
-                  <div className="mt-6 border-t border-white/[0.08] pt-4 text-sm text-white/52">
-                    Scoped around your goals and delivery needs.
+                  <div className="relative mt-10">
+                    <div className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/42">Engagement</div>
+                    <h3 className="mt-3 text-2xl font-semibold leading-tight tracking-normal text-white sm:text-3xl">
+                      {tier.price}
+                    </h3>
+                    <p className="mt-4 max-w-sm text-sm leading-6 text-white/62 sm:text-base">
+                      {tier.description}
+                    </p>
                   </div>
-                  <Link href="/#contact" className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-fuchsia-100/78 transition hover:text-white">
-                    Discuss this engagement <span aria-hidden="true">→</span>
+                  <div className="relative mt-auto flex items-center justify-between gap-4 border-t border-white/[0.1] pt-5">
+                    <span className="text-xs font-medium text-white/45">A good fit for</span>
+                    <span className="rounded-full border border-white/[0.1] bg-white/[0.035] px-3 py-1.5 text-xs font-medium text-white/72">{tier.fit}</span>
+                  </div>
+                  <Link href="/#contact" className="group/link relative mt-4 inline-flex w-fit items-center gap-2 text-sm font-semibold text-fuchsia-100/82 transition hover:text-white">
+                    Discuss this engagement
+                    <span className="transition-transform duration-300 group-hover/link:translate-x-1" aria-hidden="true">→</span>
                   </Link>
                 </article>
               ))}
