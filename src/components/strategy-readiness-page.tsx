@@ -227,7 +227,7 @@ export default function StrategyReadinessPage() {
               <div className="grid h-10 w-10 place-items-center rounded-[0.8rem] bg-fuchsia-300/[0.08] text-fuchsia-100 shadow-[0_0_24px_rgba(202,74,255,0.12)]">
                 <CheckIcon />
               </div>
-              <h2 className="mt-5 text-xl font-semibold tracking-normal text-white">{title}</h2>
+              <h3 className="mt-5 text-xl font-semibold tracking-normal text-white">{title}</h3>
               <p className="mt-2 text-sm leading-6 text-white/52">{text}</p>
             </motion.div>
           ))}
