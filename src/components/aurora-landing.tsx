@@ -289,24 +289,55 @@ const statCards = [
   { value: 100, suffix: "+", label: "AI models deployed" }
 ];
 
+const premiumCardTones = [
+  {
+    surface: "from-fuchsia-500/[0.42] via-[#17102f] to-[#090a21]",
+    glow: "bg-fuchsia-400/30",
+    badge: "border-fuchsia-200/25 bg-fuchsia-200/[0.12] text-fuchsia-100/85",
+    accent: "text-fuchsia-100/80",
+    line: "from-fuchsia-200/75 via-fuchsia-300/45"
+  },
+  {
+    surface: "from-violet-500/[0.42] via-[#15102f] to-[#090a21]",
+    glow: "bg-violet-400/30",
+    badge: "border-violet-200/25 bg-violet-200/[0.12] text-violet-100/85",
+    accent: "text-violet-100/80",
+    line: "from-violet-200/75 via-violet-300/45"
+  },
+  {
+    surface: "from-cyan-500/[0.34] via-[#10172e] to-[#090a21]",
+    glow: "bg-cyan-400/25",
+    badge: "border-cyan-200/25 bg-cyan-200/[0.1] text-cyan-100/85",
+    accent: "text-cyan-100/80",
+    line: "from-cyan-200/75 via-cyan-300/45"
+  },
+  {
+    surface: "from-blue-500/[0.36] via-[#11142e] to-[#090a21]",
+    glow: "bg-blue-400/25",
+    badge: "border-blue-200/25 bg-blue-200/[0.1] text-blue-100/85",
+    accent: "text-blue-100/80",
+    line: "from-blue-200/75 via-blue-300/45"
+  }
+];
+
 const workflowSteps = [
-  "Business Data",
-  "AI Processing",
-  "Training",
-  "Prediction",
-  "Automation",
-  "Business Growth"
+  { title: "Business Data", description: "Connect trusted data across the systems your teams rely on." },
+  { title: "AI Processing", description: "Turn complex information into useful, governed intelligence." },
+  { title: "Training", description: "Shape models around your workflows, context, and goals." },
+  { title: "Prediction", description: "Surface timely insights that help teams make better decisions." },
+  { title: "Automation", description: "Move repeatable work forward with the right controls in place." },
+  { title: "Business Growth", description: "Measure impact and scale what delivers lasting value." }
 ];
 
 const reasons = [
-  "Enterprise Security",
-  "Scalable AI",
-  "Fast Deployment",
-  "Cloud Native",
-  "Real-time Analytics",
-  "Experienced AI Engineers",
-  "24/7 Support",
-  "Custom Solutions"
+  { title: "Enterprise Security", copy: "Privacy, access, and governance built into every layer." },
+  { title: "Scalable AI", copy: "Solutions designed to grow with your data and business needs." },
+  { title: "Fast Deployment", copy: "Move from first use case to production with focused delivery." },
+  { title: "Cloud Native", copy: "Flexible architecture that fits modern cloud environments." },
+  { title: "Real-time Analytics", copy: "Turn live business signals into clear, useful decisions." },
+  { title: "Experienced AI Engineers", copy: "Senior product and engineering expertise from day one." },
+  { title: "24/7 Support", copy: "Dependable ongoing care for systems your teams rely on." },
+  { title: "Custom Solutions", copy: "Purpose-built tools that fit the way your organization works." }
 ];
 
 const aiProducts = [
@@ -1227,23 +1258,27 @@ export default function AuroraLanding() {
             <div className="relative mt-10 grid gap-3 sm:grid-cols-2 xl:grid-cols-3" data-parallax="12">
               {workflowSteps.map((step, index) => (
                 <div
-                  key={step}
-                  className="home-interactive-card group relative min-h-44 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#090a21] p-5 transition duration-300 hover:border-fuchsia-200/25 sm:p-6"
+                  key={step.title}
+                  className={`home-interactive-card home-premium-card group relative min-h-52 overflow-hidden rounded-2xl border border-white/[0.12] bg-gradient-to-br ${premiumCardTones[index % premiumCardTones.length].surface} p-5 sm:p-6`}
                   data-reveal
                 >
-                  <div className="pointer-events-none absolute -right-12 -top-12 h-36 w-36 rounded-full bg-fuchsia-400/[0.08] blur-3xl transition group-hover:bg-fuchsia-400/[0.16]" />
+                  <div className={`pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full ${premiumCardTones[index % premiumCardTones.length].glow} opacity-60 blur-3xl transition duration-500 group-hover:scale-125 group-hover:opacity-90`} />
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-70" />
                   <div className="relative flex items-center justify-between">
-                    <span className="text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-100/48">
-                      Stage 0{index + 1}
+                    <span className={`text-xs font-semibold uppercase tracking-[0.22em] ${premiumCardTones[index % premiumCardTones.length].accent}`}>
+                      0{index + 1} <span className="text-white/35">/ 0{workflowSteps.length}</span>
                     </span>
-                    <span className="grid h-8 w-8 place-items-center rounded-full border border-white/[0.1] text-xs text-white/55">
+                    <span className={`grid h-9 w-9 place-items-center rounded-full border text-xs transition duration-300 group-hover:rotate-6 group-hover:scale-110 ${premiumCardTones[index % premiumCardTones.length].badge}`}>
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
-                  <div className="relative mt-8 text-xl font-semibold leading-tight tracking-normal text-white sm:text-2xl">
-                    {step}
+                  <div className="relative mt-7 text-xl font-semibold leading-tight tracking-normal text-white sm:text-2xl">
+                    {step.title}
                   </div>
-                  <div className="absolute inset-x-5 bottom-0 h-px bg-gradient-to-r from-fuchsia-300/45 via-violet-300/20 to-transparent sm:inset-x-6" />
+                  <p className="relative mt-3 max-w-sm text-sm leading-6 text-white/60">
+                    {step.description}
+                  </p>
+                  <div className={`absolute inset-x-5 bottom-0 h-px bg-gradient-to-r ${premiumCardTones[index % premiumCardTones.length].line} to-transparent transition-all duration-500 group-hover:inset-x-0 sm:inset-x-6`} />
                 </div>
               ))}
             </div>
@@ -1265,18 +1300,19 @@ export default function AuroraLanding() {
               <div className="grid gap-3 sm:grid-cols-2">
                 {reasons.map((item, index) => (
                   <div
-                    key={item}
-                    className="home-interactive-card group rounded-2xl border border-white/[0.08] bg-[#0b0c25] p-5 transition duration-300 hover:border-fuchsia-200/25 hover:bg-[#10102e]"
+                    key={item.title}
+                    className={`home-interactive-card home-premium-card group relative overflow-hidden rounded-2xl border border-white/[0.12] bg-gradient-to-br ${premiumCardTones[index % premiumCardTones.length].surface} p-5`}
                     data-reveal
                   >
-                    <div className="flex items-center justify-between gap-3">
-                      <div className="text-lg font-semibold tracking-normal text-white">{item}</div>
-                      <span className="text-xs font-semibold tracking-[0.16em] text-fuchsia-100/38">0{index + 1}</span>
+                    <div className={`pointer-events-none absolute -right-10 -top-12 h-32 w-32 rounded-full ${premiumCardTones[index % premiumCardTones.length].glow} opacity-40 blur-3xl transition duration-500 group-hover:scale-125 group-hover:opacity-80`} />
+                    <div className="relative flex items-start justify-between gap-3">
+                      <div className="text-lg font-semibold tracking-normal text-white">{item.title}</div>
+                      <span className={`rounded-full border px-2 py-1 text-[0.62rem] font-semibold tracking-[0.16em] ${premiumCardTones[index % premiumCardTones.length].badge}`}>0{index + 1}</span>
                     </div>
-                    <div className="mt-3 text-sm leading-6 text-white/55">
-                      Enterprise-grade delivery with a premium interface and measurable business
-                      value.
+                    <div className="relative mt-3 text-sm leading-6 text-white/62">
+                      {item.copy}
                     </div>
+                    <div className={`relative mt-5 h-px w-12 bg-gradient-to-r ${premiumCardTones[index % premiumCardTones.length].line} to-transparent transition-all duration-500 group-hover:w-24`} />
                   </div>
                 ))}
               </div>
@@ -1300,16 +1336,17 @@ export default function AuroraLanding() {
               {aiProducts.map((item, index) => (
                 <article
                   key={item.title}
-                  className="home-interactive-card group relative min-h-[17rem] overflow-hidden rounded-2xl border border-white/[0.08] bg-[linear-gradient(145deg,#0d0e27,#08091d)] p-4 transition duration-300 hover:border-fuchsia-200/25 sm:p-5"
+                  className={`home-interactive-card home-premium-card group relative min-h-[17rem] overflow-hidden rounded-2xl border border-white/[0.12] bg-gradient-to-br ${premiumCardTones[index % premiumCardTones.length].surface} p-4 sm:p-5`}
                   data-reveal
                 >
-                  <div className="pointer-events-none absolute -right-14 -top-14 h-40 w-40 rounded-full bg-fuchsia-400/[0.08] blur-3xl transition duration-500 group-hover:bg-fuchsia-400/[0.16]" />
+                  <div className={`pointer-events-none absolute -right-14 -top-14 h-44 w-44 rounded-full ${premiumCardTones[index % premiumCardTones.length].glow} opacity-50 blur-3xl transition duration-500 group-hover:scale-125 group-hover:opacity-90`} />
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent opacity-70" />
                   <div className="relative flex h-full flex-col">
                     <div className="flex items-start justify-between gap-5">
-                      <div className="text-3xl font-light tracking-tight text-white/24 transition group-hover:text-fuchsia-100/70">
+                      <div className={`text-3xl font-light tracking-tight transition duration-300 group-hover:scale-105 ${premiumCardTones[index % premiumCardTones.length].accent}`}>
                         0{index + 1}
                       </div>
-                      <div className="rounded-full border border-white/[0.1] px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-fuchsia-100/55">
+                      <div className={`rounded-full border px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] ${premiumCardTones[index % premiumCardTones.length].badge}`}>
                         {item.category}
                       </div>
                     </div>
@@ -1325,7 +1362,7 @@ export default function AuroraLanding() {
                       <div className="text-xs font-medium text-white/62">
                         {item.result}
                       </div>
-                      <span className="text-fuchsia-200/65 transition group-hover:translate-x-1" aria-hidden="true">↗</span>
+                      <span className={`grid h-8 w-8 place-items-center rounded-full border transition duration-300 group-hover:translate-x-1 group-hover:scale-110 ${premiumCardTones[index % premiumCardTones.length].badge}`} aria-hidden="true">↗</span>
                     </div>
                   </div>
                 </article>
