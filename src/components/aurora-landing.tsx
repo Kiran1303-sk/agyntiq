@@ -61,13 +61,6 @@ const serviceMenuDisplay = [
   }
 ] as const;
 
-const premiumSurface =
-  "border border-[#ca4aff]/12 bg-[linear-gradient(135deg,rgba(12,8,38,0.9)_0%,rgba(7,8,28,0.96)_52%,rgba(42,7,46,0.82)_100%)] shadow-[0_20px_70px_rgba(0,0,0,0.26)]";
-const premiumSurfaceHover =
-  "transition duration-500 hover:-translate-y-1 hover:border-[#f0abfc]/24 hover:shadow-[0_24px_90px_rgba(202,74,255,0.14)]";
-const premiumFlatCard =
-  "bg-[linear-gradient(135deg,rgba(12,8,38,0.9)_0%,rgba(7,8,28,0.96)_52%,rgba(42,7,46,0.82)_100%)] shadow-[0_20px_70px_rgba(0,0,0,0.24)]";
-const premiumDivider = "divide-y divide-transparent border-y border-transparent";
 const premiumSoftBorder = "border-transparent";
 const premiumInput =
   "rounded-2xl border border-[#ca4aff]/14 bg-[#100b2a]/72 px-4 py-3 text-sm text-white placeholder:text-white/35 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition focus:border-fuchsia-300/70 focus:bg-[#180d32] focus:outline-none focus:shadow-[0_0_0_4px_rgba(217,70,239,0.12)]";
@@ -1132,23 +1125,27 @@ export default function AuroraLanding() {
           </div>
         </section>
 
-        <section className="relative scroll-soft-glow py-4 md:py-12">
+        <section className="relative border-y border-white/[0.06] bg-[#08091d]/70 py-8 md:py-10">
           <div className="section-shell relative z-10">
-            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-6" data-parallax="14">
-              {statCards.map((item) => (
-                <div
-                  key={item.label}
-                  className={`hover-sheen hover-glow magnetic rounded-[1.7rem] p-5 ${premiumSurface} ${premiumSurfaceHover}`}
-                  data-reveal
-                >
-                  <div className="text-3xl font-semibold tracking-normal text-white">
-                    <AnimatedCounter
-                      value={item.value}
-                      suffix={item.suffix}
-                      decimals={item.decimals}
-                    />
+            <div className="mb-5 flex items-center justify-between gap-4">
+              <div className="text-xs font-semibold uppercase tracking-[0.24em] text-white/42">
+                A track record built for scale
+              </div>
+              <div className="hidden items-center gap-2 text-xs text-fuchsia-100/55 sm:flex">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-300 shadow-[0_0_12px_rgba(110,231,183,0.8)]" />
+                Enterprise-ready delivery
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-3 xl:grid-cols-6" data-parallax="14">
+              {statCards.map((item, index) => (
+                <div key={item.label} className="bg-[#090a21] p-4 sm:p-5" data-reveal>
+                  <div className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-fuchsia-100/38">
+                    0{index + 1}
                   </div>
-                  <div className="mt-2 text-sm leading-6 text-white/60">{item.label}</div>
+                  <div className="mt-2 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                    <AnimatedCounter value={item.value} suffix={item.suffix} decimals={item.decimals} />
+                  </div>
+                  <div className="mt-1 text-xs leading-5 text-white/52 sm:text-sm">{item.label}</div>
                 </div>
               ))}
             </div>
@@ -1157,48 +1154,49 @@ export default function AuroraLanding() {
 
         <section
           id="about"
-          className="relative overflow-hidden scroll-mt-28 py-12 md:scroll-mt-32 md:py-18"
+          className="relative overflow-hidden scroll-mt-28 py-16 md:scroll-mt-32 md:py-24"
         >
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(202,74,255,0.14),transparent_28%),radial-gradient(circle_at_18%_76%,rgba(117,71,223,0.11),transparent_30%)]" />
           <div className="section-shell relative z-10">
-            <div className="rounded-[2.4rem] bg-[linear-gradient(135deg,rgba(12,8,38,0.72)_0%,rgba(7,8,28,0.9)_52%,rgba(42,7,46,0.78)_100%)] p-5 shadow-[0_28px_100px_rgba(0,0,0,0.24),inset_0_0_0_1px_rgba(202,74,255,0.16)] md:p-8">
-              <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-                <div className="section-heading" data-reveal>
-                  <div className="section-kicker">About</div>
-                  <h2 className="section-title">Built for enterprise AI adoption.</h2>
-                  <p className="section-copy">
-                    We design AI systems around business context, execution, and measurable
-                    outcomes, so the experience feels premium and operationally useful.
-                  </p>
-                </div>
+            <div className="grid gap-10 lg:grid-cols-[0.76fr_1.24fr] lg:items-start lg:gap-16">
+              <div className="section-heading lg:sticky lg:top-32" data-reveal>
+                <div className="section-kicker">About</div>
+                <h2 className="section-title">Built for enterprise AI adoption.</h2>
+                <p className="section-copy">
+                  We design AI systems around business context, execution, and measurable
+                  outcomes, so the experience feels premium and operationally useful.
+                </p>
+                <Link href="/about" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-fuchsia-100/82 transition hover:text-white">
+                  Meet Agyntiq <span aria-hidden="true">→</span>
+                </Link>
+              </div>
 
-                <div className="grid gap-4" data-parallax="8">
+              <div className="grid gap-3" data-parallax="8">
                   {problems.map((item, index) => (
                     <article
                       key={item.title}
-                      className="group relative overflow-hidden rounded-[1.45rem] bg-[#100b2a]/76 p-5 shadow-[inset_0_0_0_1px_rgba(202,74,255,0.12),0_18px_60px_rgba(0,0,0,0.18)] transition duration-500 hover:-translate-y-1 hover:shadow-[inset_0_0_0_1px_rgba(240,171,252,0.2),0_24px_80px_rgba(202,74,255,0.12)]"
+                      className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[linear-gradient(110deg,rgba(16,12,42,0.82),rgba(8,9,28,0.7))] p-5 transition duration-300 hover:border-fuchsia-200/25 hover:bg-[#100c2d]/90 sm:p-6"
                       data-reveal
                     >
-                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(202,74,255,0.13),transparent_30%),radial-gradient(circle_at_94%_88%,rgba(117,71,223,0.12),transparent_34%)] opacity-0 transition duration-500 group-hover:opacity-100" />
-                      <div className="relative grid gap-4 md:grid-cols-[auto_1fr] md:items-start">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-[1rem] bg-[#180d32]/88 text-sm font-semibold text-fuchsia-100 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.14)]">
-                          0{index + 1}
+                      <div className="relative grid gap-4 sm:grid-cols-[3.5rem_1fr] sm:items-start">
+                        <div className="flex items-center gap-3 sm:block">
+                          <div className="text-2xl font-light text-fuchsia-200/48">0{index + 1}</div>
+                          <div className="h-px flex-1 bg-gradient-to-r from-fuchsia-300/30 to-transparent sm:mt-4" />
                         </div>
                         <div>
-                          <div className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-200/48">
+                          <div className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-fuchsia-200/52">
                             {item.stat}
                           </div>
-                          <h3 className="mt-2 text-2xl font-semibold tracking-normal text-white">
+                          <h3 className="mt-2 text-xl font-semibold tracking-normal text-white sm:text-2xl">
                             {item.title}
                           </h3>
-                          <p className="mt-3 max-w-2xl text-base leading-7 text-fuchsia-100/62">
+                          <p className="mt-2 max-w-2xl text-sm leading-6 text-fuchsia-100/58 sm:text-base sm:leading-7">
                             {item.description}
                           </p>
                         </div>
                       </div>
                     </article>
                   ))}
-                </div>
               </div>
             </div>
           </div>
@@ -1206,7 +1204,7 @@ export default function AuroraLanding() {
 
         <ScrollShowcaseSection />
 
-        <section className="relative overflow-hidden py-12 md:py-16">
+        <section className="relative overflow-hidden py-16 md:py-24">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(202,74,255,0.1),transparent_28%),radial-gradient(circle_at_82%_64%,rgba(117,71,223,0.1),transparent_30%)]" />
           <div className="section-shell relative z-10">
             <div className="section-heading max-w-3xl" data-reveal>
@@ -1218,33 +1216,35 @@ export default function AuroraLanding() {
               </p>
             </div>
 
-            <div className="mt-10 grid gap-3 md:grid-cols-3" data-parallax="12">
+            <div className="relative mt-10 grid gap-3 sm:grid-cols-2 xl:grid-cols-3" data-parallax="12">
               {workflowSteps.map((step, index) => (
                 <div
                   key={step}
-                  className={`group relative min-h-[10.5rem] overflow-hidden rounded-[1.4rem] p-6 ${premiumFlatCard} shadow-[0_18px_64px_rgba(0,0,0,0.22)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_84px_rgba(202,74,255,0.14)]`}
+                  className="group relative min-h-44 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#090a21] p-5 transition duration-300 hover:-translate-y-1 hover:border-fuchsia-200/25 sm:p-6"
                   data-reveal
                 >
-                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(202,74,255,0.13),transparent_28%),radial-gradient(circle_at_88%_88%,rgba(117,71,223,0.1),transparent_30%)] opacity-65 transition duration-500 group-hover:opacity-100 md:opacity-0" />
-                  <div className="pointer-events-none absolute bottom-4 left-6 right-6 h-1 overflow-hidden rounded-full bg-[#1a0d32]">
-                    <div className="h-full w-1/2 origin-left rounded-full bg-[linear-gradient(90deg,#7547df_0%,#ca4aff_52%,#d946ef_100%)] transition duration-500 group-hover:w-full" />
+                  <div className="pointer-events-none absolute -right-12 -top-12 h-36 w-36 rounded-full bg-fuchsia-400/[0.08] blur-3xl transition group-hover:bg-fuchsia-400/[0.16]" />
+                  <div className="relative flex items-center justify-between">
+                    <span className="text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-100/48">
+                      Stage 0{index + 1}
+                    </span>
+                    <span className="grid h-8 w-8 place-items-center rounded-full border border-white/[0.1] text-xs text-white/55">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
                   </div>
-                  <div className="relative flex items-center justify-between text-sm uppercase tracking-[0.28em] text-white/40">
-                    <span>Step 0{index + 1}</span>
-                    <span className="text-white/30">0{index + 1}</span>
-                  </div>
-                  <div className="relative mt-5 text-2xl font-semibold tracking-[-0.04em] text-white">
+                  <div className="relative mt-8 text-xl font-semibold leading-tight tracking-normal text-white sm:text-2xl">
                     {step}
                   </div>
+                  <div className="absolute inset-x-5 bottom-0 h-px bg-gradient-to-r from-fuchsia-300/45 via-violet-300/20 to-transparent sm:inset-x-6" />
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="py-12 md:py-16">
+        <section className="relative overflow-hidden border-y border-white/[0.06] bg-[#08091d]/55 py-16 md:py-24">
           <div className="section-shell">
-            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-16">
               <div className="section-heading" data-reveal>
                 <div className="section-kicker">Why Us</div>
                 <h2 className="section-title">The team and platform behind the execution.</h2>
@@ -1254,15 +1254,18 @@ export default function AuroraLanding() {
                 </p>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                {reasons.map((item) => (
+              <div className="grid gap-3 sm:grid-cols-2">
+                {reasons.map((item, index) => (
                   <div
                     key={item}
-                    className={`hover-underline border-t ${premiumSoftBorder} py-4`}
+                    className="group rounded-2xl border border-white/[0.08] bg-[#0b0c25] p-5 transition duration-300 hover:border-fuchsia-200/25 hover:bg-[#10102e]"
                     data-reveal
                   >
-                    <div className="text-lg font-semibold tracking-normal text-white">{item}</div>
-                    <div className="mt-2 text-sm leading-6 text-white/60">
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="text-lg font-semibold tracking-normal text-white">{item}</div>
+                      <span className="text-xs font-semibold tracking-[0.16em] text-fuchsia-100/38">0{index + 1}</span>
+                    </div>
+                    <div className="mt-3 text-sm leading-6 text-white/55">
                       Enterprise-grade delivery with a premium interface and measurable business
                       value.
                     </div>
@@ -1273,50 +1276,48 @@ export default function AuroraLanding() {
           </div>
         </section>
 
-        <section className="py-12 md:py-16">
+        <section className="py-16 md:py-24">
           <div className="section-shell">
-            <div className="section-heading mb-10" data-reveal>
+            <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between" data-reveal>
+              <div className="section-heading">
               <div className="section-kicker">AI Products</div>
               <h2 className="section-title">Interactive products your team can actually use.</h2>
-              <p className="section-copy">
-                Each product feels integrated into the system instead of sitting inside another
-                heavy card.
+              </div>
+              <p className="section-copy mt-0 max-w-xl lg:pb-1">
+                Practical AI capabilities, designed to fit your team’s workflows and deliver measurable outcomes.
               </p>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4" data-parallax="10">
+            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4" data-parallax="10">
               {aiProducts.map((item, index) => (
                 <article
                   key={item.title}
-                  className="group relative min-h-[18rem] overflow-hidden rounded-[1.55rem] bg-[linear-gradient(145deg,rgba(12,8,38,0.9)_0%,rgba(7,8,28,0.96)_54%,rgba(42,7,46,0.86)_100%)] p-5 shadow-[0_20px_70px_rgba(0,0,0,0.24),inset_0_0_0_1px_rgba(202,74,255,0.14)] transition duration-500 hover:-translate-y-1.5 hover:shadow-[0_28px_90px_rgba(202,74,255,0.18),inset_0_0_0_1px_rgba(240,171,252,0.2)]"
+                  className="group relative min-h-[17rem] overflow-hidden rounded-2xl border border-white/[0.08] bg-[linear-gradient(145deg,#0d0e27,#08091d)] p-4 transition duration-300 hover:-translate-y-1 hover:border-fuchsia-200/25 sm:p-5"
                   data-reveal
                 >
-                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_16%,rgba(202,74,255,0.14),transparent_30%),radial-gradient(circle_at_90%_92%,rgba(117,71,223,0.13),transparent_34%)] opacity-60 transition duration-500 group-hover:opacity-100" />
-                  <div className="pointer-events-none absolute inset-x-5 bottom-0 h-1 origin-left scale-x-0 rounded-full bg-[linear-gradient(90deg,#7547df_0%,#ca4aff_52%,#d946ef_100%)] transition duration-500 group-hover:scale-x-100" />
+                  <div className="pointer-events-none absolute -right-14 -top-14 h-40 w-40 rounded-full bg-fuchsia-400/[0.08] blur-3xl transition duration-500 group-hover:bg-fuchsia-400/[0.16]" />
                   <div className="relative flex h-full flex-col">
                     <div className="flex items-start justify-between gap-5">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-[0.9rem] bg-[#180d32]/86 text-sm font-semibold text-fuchsia-100 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.14),0_0_28px_rgba(202,74,255,0.12)] transition duration-500 group-hover:scale-110 group-hover:text-white">
+                      <div className="text-3xl font-light tracking-tight text-white/24 transition group-hover:text-fuchsia-100/70">
                         0{index + 1}
                       </div>
-                      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#180d32]/70 text-white/36 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.12)] transition duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-white/82">
-                        <IconArrow />
-                      </div>
-                    </div>
-
-                    <div className="mt-6">
-                      <div className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-fuchsia-200/52">
+                      <div className="rounded-full border border-white/[0.1] px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-fuchsia-100/55">
                         {item.category}
                       </div>
-                      <h3 className="mt-3 text-2xl font-semibold leading-tight tracking-normal text-white">
-                        {item.title}
-                      </h3>
-                      <p className="mt-4 text-sm leading-7 text-fuchsia-100/62">{item.copy}</p>
                     </div>
 
-                    <div className="mt-auto pt-6">
-                      <div className="inline-flex rounded-full bg-[#180d32]/72 px-3 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-fuchsia-100/72 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.12)]">
+                    <div className="mt-5">
+                      <h3 className="break-words text-xl font-semibold leading-tight tracking-normal text-white sm:text-2xl">
+                        {item.title}
+                      </h3>
+                      <p className="mt-3 text-sm leading-6 text-fuchsia-100/58">{item.copy}</p>
+                    </div>
+
+                    <div className="mt-auto flex items-center justify-between gap-3 border-t border-white/[0.08] pt-4">
+                      <div className="text-xs font-medium text-white/62">
                         {item.result}
                       </div>
+                      <span className="text-fuchsia-200/65 transition group-hover:translate-x-1" aria-hidden="true">↗</span>
                     </div>
                   </div>
                 </article>
@@ -1325,59 +1326,57 @@ export default function AuroraLanding() {
           </div>
         </section>
 
-        <section id="industries" className="scroll-mt-28 py-12 md:scroll-mt-32 md:py-16">
+        <section id="industries" className="scroll-mt-28 border-y border-white/[0.06] bg-[#08091d]/60 py-16 md:scroll-mt-32 md:py-24">
           <div className="section-shell">
-            <div className="section-heading mb-10" data-reveal>
+            <div className="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between" data-reveal>
+              <div className="section-heading">
               <div className="section-kicker">Industries</div>
               <h2 className="section-title">Designed for the teams that need AI most.</h2>
-              <p className="section-copy">
-                Healthcare, finance, retail, manufacturing, education, and more.
+              </div>
+              <p className="section-copy mt-0 max-w-sm sm:pb-1">
+                Domain-aware solutions built around the realities of your industry.
               </p>
             </div>
 
-            <div className={premiumDivider} data-parallax="8">
+            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3" data-parallax="8">
               {industryCards.map((item, index) => (
                 <article
                   key={item.name}
-                  className="hover-underline grid gap-4 py-5 md:grid-cols-[0.25fr_0.75fr]"
+                  className="group relative min-h-48 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0a0b22] p-5 transition duration-300 hover:-translate-y-1 hover:border-fuchsia-200/25 sm:p-6"
                   data-reveal
                 >
-                  <div className="text-sm uppercase tracking-[0.3em] text-white/40">
+                  <div className="absolute right-5 top-4 text-4xl font-light tracking-tight text-white/[0.06] transition group-hover:text-fuchsia-100/[0.12]">
                     0{index + 1}
                   </div>
-                  <div>
-                    <h3 className="text-xl font-semibold tracking-normal text-white">
-                      {item.name}
-                    </h3>
-                    <p className="mt-3 max-w-2xl text-base leading-7 text-aurora-muted">
-                      {item.summary}
-                    </p>
-                  </div>
+                  <div className="mb-7 h-8 w-8 rounded-lg border border-fuchsia-200/20 bg-fuchsia-200/[0.06] shadow-[0_0_28px_rgba(202,74,255,0.1)]" />
+                  <h3 className="text-xl font-semibold tracking-normal text-white">{item.name}</h3>
+                  <p className="mt-2 text-sm leading-6 text-aurora-muted">{item.summary}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="blog" className="scroll-mt-28 py-12 md:scroll-mt-32 md:py-16">
+        <section id="blog" className="scroll-mt-28 py-16 md:scroll-mt-32 md:py-24">
           <div className="section-shell">
-            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-start lg:gap-16">
               <div className="section-heading" data-reveal>
-                <div className="section-kicker">Blog</div>
-                <h2 className="section-title">Insights on building enterprise AI.</h2>
+                <div className="section-kicker">How we deliver</div>
+                <h2 className="section-title">Expertise that carries ideas into production.</h2>
                 <p className="section-copy max-w-xl">
-                  Thought leadership, product notes, and delivery patterns for AI that ships.
+                  Senior product and engineering experience at every stage, from first use case to systems at scale.
                 </p>
               </div>
 
-              <div className={`${premiumDivider} hover-sheen`} data-reveal data-parallax="8">
-                {team.map((item) => (
-                  <div key={item.title} className="hover-underline py-5">
-                    <div className="text-lg font-semibold tracking-normal text-white">
-                      {item.title}
+              <div className="grid gap-3 sm:grid-cols-2" data-reveal data-parallax="8">
+                {team.map((item, index) => (
+                  <article key={item.title} className={`rounded-2xl border border-white/[0.08] bg-[#0a0b22] p-5 sm:p-6 ${index === 0 ? "sm:col-span-2 sm:flex sm:items-start sm:gap-8" : ""}`}>
+                    <div className="text-3xl font-light tracking-tight text-fuchsia-100/42">0{index + 1}</div>
+                    <div className={index === 0 ? "mt-4 sm:mt-0" : "mt-4"}>
+                      <h3 className="text-xl font-semibold tracking-normal text-white">{item.title}</h3>
+                      <p className="mt-2 text-sm leading-6 text-white/55">{item.copy}</p>
                     </div>
-                    <div className="mt-2 text-base leading-7 text-aurora-muted">{item.copy}</div>
-                  </div>
+                  </article>
                 ))}
               </div>
             </div>
@@ -1386,7 +1385,7 @@ export default function AuroraLanding() {
 
         <section
           id="pricing"
-          className="relative scroll-mt-28 overflow-hidden py-12 md:scroll-mt-32 md:py-16"
+          className="relative scroll-mt-28 overflow-hidden border-y border-white/[0.06] bg-[#08091d]/60 py-16 md:scroll-mt-32 md:py-24"
         >
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(202,74,255,0.12),transparent_28%),radial-gradient(circle_at_82%_64%,rgba(117,71,223,0.11),transparent_30%)]" />
           <div className="section-shell relative z-10">
@@ -1399,28 +1398,44 @@ export default function AuroraLanding() {
               </p>
             </div>
 
-            <div className="grid gap-3 xl:grid-cols-3" data-parallax="10">
+            <div className="grid gap-3 lg:grid-cols-3" data-parallax="10">
               {pricingTiers.map((tier) => (
                 <article
                   key={tier.name}
-                  className={`hover-sheen hover-glow rounded-[1.4rem] p-6 md:p-7 ${premiumSurface} ${premiumSurfaceHover}`}
+                  className={`relative flex flex-col overflow-hidden rounded-2xl border p-6 transition duration-300 md:p-7 ${
+                    tier.name === "Growth"
+                      ? "border-fuchsia-200/35 bg-[linear-gradient(145deg,rgba(40,21,75,0.72),rgba(13,11,38,0.94))] shadow-[0_20px_70px_rgba(202,74,255,0.12)]"
+                      : "border-white/[0.08] bg-[#0a0b22] hover:border-fuchsia-200/20"
+                  }`}
                   data-reveal
                 >
-                  <div className="inline-flex rounded-full border border-[#ca4aff]/14 bg-[#180d32]/76 px-3 py-1 text-xs uppercase tracking-[0.28em] text-fuchsia-100/72">
-                    {tier.name}
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-100/68">
+                      {tier.name}
+                    </div>
+                    {tier.name === "Growth" && (
+                      <span className="rounded-full bg-fuchsia-200/10 px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-fuchsia-100/75">
+                        Scale-ready
+                      </span>
+                    )}
                   </div>
-                  <h3 className="mt-6 text-2xl font-semibold tracking-normal text-white">
+                  <h3 className="mt-8 text-2xl font-semibold tracking-normal text-white">
                     {tier.price}
                   </h3>
                   <p className="mt-3 text-base leading-7 text-aurora-muted">{tier.description}</p>
-                  <div className="mt-6 text-sm text-white/55">Contact us for a tailored scope.</div>
+                  <div className="mt-6 border-t border-white/[0.08] pt-4 text-sm text-white/52">
+                    Scoped around your goals and delivery needs.
+                  </div>
+                  <Link href="/#contact" className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-fuchsia-100/78 transition hover:text-white">
+                    Discuss this engagement <span aria-hidden="true">→</span>
+                  </Link>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="relative overflow-hidden py-12 md:py-16">
+        <section className="relative overflow-hidden py-16 md:py-24">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(202,74,255,0.1),transparent_28%),radial-gradient(circle_at_18%_76%,rgba(117,71,223,0.09),transparent_30%)]" />
           <div className="section-shell relative z-10">
             <div className="section-heading mb-10" data-reveal>
@@ -1432,34 +1447,21 @@ export default function AuroraLanding() {
               </p>
             </div>
 
-            <div className="grid gap-4" data-parallax="10">
-              {testimonials.map((item) => (
+            <div className="grid gap-3 lg:grid-cols-3" data-parallax="10">
+              {testimonials.map((item, index) => (
                 <article
                   key={item.name}
-                  className={`group relative grid gap-5 overflow-hidden rounded-[1.4rem] p-5 shadow-[0_22px_78px_rgba(202,74,255,0.1)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_26px_92px_rgba(202,74,255,0.15)] sm:p-6 lg:grid-cols-[0.34fr_0.66fr] lg:items-center ${premiumFlatCard}`}
+                  className="group relative flex min-h-[20rem] flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-[linear-gradient(145deg,#0d0e27,#08091d)] p-5 transition duration-300 hover:-translate-y-1 hover:border-fuchsia-200/25 sm:p-6"
                   data-reveal
                 >
-                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_18%,rgba(202,74,255,0.12),transparent_28%),radial-gradient(circle_at_88%_84%,rgba(117,71,223,0.1),transparent_30%)] opacity-70 transition duration-500 group-hover:opacity-100 md:opacity-0" />
-                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1 origin-left rounded-full bg-[linear-gradient(90deg,#7547df_0%,#ca4aff_52%,#d946ef_100%)] opacity-90 transition duration-500 md:scale-x-0 md:group-hover:scale-x-100" />
-                  <div className="relative flex items-center gap-4">
-                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,#180d32,#260c35)] text-sm font-semibold text-white shadow-[0_0_28px_rgba(202,74,255,0.16)] transition duration-500 group-hover:scale-105 group-hover:shadow-[0_0_38px_rgba(202,74,255,0.22)]">
-                      {item.name
-                        .split(" ")
-                        .map((part) => part[0])
-                        .join("")}
-                    </div>
-                    <div>
-                      <div className="font-semibold text-white">{item.name}</div>
-                      <div className="text-sm text-white/55">{item.role}</div>
-                    </div>
+                  <div className="flex items-center justify-between">
+                    <div className="text-4xl font-semibold leading-none text-fuchsia-200/35">&ldquo;</div>
+                    <div className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white/28">0{index + 1}</div>
                   </div>
-                  <div className="relative rounded-[1rem] bg-[#180d32]/36 p-4 sm:bg-transparent sm:p-0">
-                    <div className="mb-2 text-4xl font-semibold leading-none text-[#8b7cff]/38 transition duration-500 group-hover:text-[#8b7cff]/48 sm:mb-3 sm:text-5xl">
-                      &ldquo;
-                    </div>
-                    <p className="text-base leading-7 text-white/78 transition duration-500 group-hover:text-white/88">
-                      {item.quote}
-                    </p>
+                  <p className="mt-5 flex-1 text-base leading-7 text-white/76">{item.quote}</p>
+                  <div className="mt-6 border-t border-white/[0.08] pt-4">
+                    <div className="font-semibold text-white">{item.name}</div>
+                    <div className="mt-1 text-xs leading-5 text-white/48">{item.role}</div>
                   </div>
                 </article>
               ))}
@@ -1480,16 +1482,19 @@ export default function AuroraLanding() {
                 </p>
               </div>
 
-              <div className="space-y-4 lg:pt-0" data-reveal>
+              <div className="space-y-3 lg:pt-0" data-reveal>
                 {faqItems.map((item) => (
                   <details
                     key={item.question}
-                    className={`group hover-underline overflow-hidden rounded-[1.25rem] p-5 pb-6 ${premiumFlatCard} transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_90px_rgba(202,74,255,0.13)]`}
+                    className="group overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0a0b22] p-5 transition duration-300 open:border-fuchsia-200/22 open:bg-[#0d0c28] sm:p-6"
                   >
-                    <summary className="cursor-pointer list-none text-lg font-semibold tracking-normal text-white">
-                      {item.question}
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-5 text-base font-semibold leading-6 text-white marker:content-none sm:text-lg">
+                      <span>{item.question}</span>
+                      <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-white/[0.1] text-lg font-normal text-fuchsia-100/70 transition group-open:rotate-45 group-open:border-fuchsia-200/30">+</span>
                     </summary>
-                    <p className="mt-3 text-base leading-7 text-aurora-muted">{item.answer}</p>
+                    <p className="mt-4 max-w-2xl border-t border-white/[0.08] pt-4 text-sm leading-7 text-aurora-muted sm:text-base">
+                      {item.answer}
+                    </p>
                   </details>
                 ))}
               </div>
@@ -1515,17 +1520,15 @@ export default function AuroraLanding() {
         <>
           <section
             id="contact"
-            className="relative scroll-mt-28 overflow-hidden bg-[linear-gradient(135deg,#050719_0%,#100826_52%,#220625_100%)] py-12 md:py-16"
+            className="relative scroll-mt-28 overflow-hidden border-y border-white/[0.06] bg-[linear-gradient(135deg,#07081c_0%,#100826_52%,#1a0a2a_100%)] py-16 md:py-24"
           >
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(202,74,255,0.18),transparent_24%),radial-gradient(circle_at_82%_16%,rgba(117,71,223,0.13),transparent_26%),linear-gradient(180deg,rgba(24,8,46,0),rgba(5,8,22,0.62))]" />
             <div className="pointer-events-none absolute bottom-[-10rem] left-1/2 h-80 w-[80%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(202,74,255,0.16),rgba(117,71,223,0.1)_36%,transparent_70%)] blur-3xl" />
             <div className="section-shell relative z-10">
-              <div
-                className="relative p-1 md:p-3"
-              >
+              <div className="relative">
                 <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-                  <div className="grid gap-5">
-                    <div className="section-kicker w-fit">Contact</div>
+                  <div className="grid content-start gap-5 lg:sticky lg:top-32">
+                    <div className="section-kicker w-fit">Start a conversation</div>
                     <h2 className="section-title max-w-3xl bg-[linear-gradient(90deg,#ffffff_0%,#f3e8ff_44%,#f0abfc_100%)] bg-clip-text text-transparent drop-shadow-[0_0_34px_rgba(202,74,255,0.16)]">
                       Let&apos;s build the right AI engagement.
                     </h2>
@@ -1533,57 +1536,65 @@ export default function AuroraLanding() {
                       Whether you need AI strategy, workflow automation, or a custom product,
                       we&apos;ll help define the highest-value next step.
                     </p>
-                    <div
-                      className="grid gap-4 pt-2 text-sm text-white/72 sm:grid-cols-2"
-                    >
-                      <div>hello@agyntiq.ai</div>
-                      <div>New Delhi, India</div>
-                      <div>Global remote delivery</div>
-                      <div>AI implementation</div>
+                    <div className="grid gap-3 pt-2 sm:grid-cols-2">
+                      <a href="mailto:hello@agyntiq.ai" className="rounded-xl border border-white/[0.08] bg-white/[0.025] p-4 text-sm text-white/72 transition hover:border-fuchsia-200/25">
+                        <span className="block text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/38">Email</span>
+                        <span className="mt-1 block">hello@agyntiq.ai</span>
+                      </a>
+                      <div className="rounded-xl border border-white/[0.08] bg-white/[0.025] p-4 text-sm text-white/72">
+                        <span className="block text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/38">Based in</span>
+                        <span className="mt-1 block">New Delhi · Working globally</span>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="grid gap-4">
-                    <div className="relative p-0 md:pl-8">
-                      <div className="text-xs uppercase tracking-[0.28em] text-fuchsia-100/55">
-                        Contact Form
+                  <div className="rounded-2xl border border-white/[0.08] bg-[#08091e]/85 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.22)] sm:p-7">
+                    <div className="flex items-center justify-between gap-4 border-b border-white/[0.08] pb-4">
+                      <div>
+                        <div className="text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-100/68">Contact form</div>
+                        <p className="mt-1 text-xs text-white/42">Tell us where you want to go next.</p>
                       </div>
-                      <form className="mt-4 grid gap-4">
-                        <div className="grid gap-4 md:grid-cols-2">
-                          <input id="contact-full-name" name="fullName" autoComplete="name" className={`${premiumInput} !border-0`} placeholder="Full Name" />
-                          <input id="contact-company" name="company" autoComplete="organization" className={`${premiumInput} !border-0`} placeholder="Company Name" />
-                          <input id="contact-email" name="email" type="email" autoComplete="email" className={`${premiumInput} !border-0`} placeholder="Email" />
-                          <input id="contact-phone" name="phone" type="tel" autoComplete="tel" className={`${premiumInput} !border-0`} placeholder="Phone" />
+                      <span className="hidden rounded-full border border-emerald-200/15 bg-emerald-200/[0.05] px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.12em] text-emerald-100/65 sm:inline-flex">
+                        Private by design
+                      </span>
+                    </div>
+                      <form className="mt-5 grid gap-4">
+                        <div className="grid gap-3 sm:grid-cols-2">
+                          <input id="contact-full-name" name="fullName" autoComplete="name" aria-label="Full name" className={premiumInput} placeholder="Full name" />
+                          <input id="contact-company" name="company" autoComplete="organization" aria-label="Company name" className={premiumInput} placeholder="Company name" />
+                          <input id="contact-email" name="email" type="email" autoComplete="email" aria-label="Email" className={premiumInput} placeholder="Work email" />
+                          <input id="contact-phone" name="phone" type="tel" autoComplete="tel" aria-label="Phone" className={premiumInput} placeholder="Phone (optional)" />
                         </div>
-                        <div className="grid gap-4 md:grid-cols-2">
-                          <input id="contact-business-type" name="businessType" className={`${premiumInput} !border-0`} placeholder="Business Type" />
-                          <input id="contact-industry" name="industry" className={`${premiumInput} !border-0`} placeholder="Industry" />
+                        <div className="grid gap-3 sm:grid-cols-2">
+                          <input id="contact-business-type" name="businessType" aria-label="Business type" className={premiumInput} placeholder="Business type" />
+                          <input id="contact-industry" name="industry" aria-label="Industry" className={premiumInput} placeholder="Industry" />
                         </div>
                         <textarea
                           id="contact-requirement"
                           name="requirement"
-                          rows={5}
-                          className={`${premiumInput} !border-0`}
-                          placeholder="Tell us about your AI requirement, budget, timeline, and country."
+                          rows={4}
+                          aria-label="Tell us about your requirements"
+                          className={`${premiumInput} resize-y`}
+                          placeholder="What would you like to achieve with AI?"
                         />
-                        <label className="flex items-center gap-3 text-sm text-white/65">
+                        <label className="flex items-start gap-3 text-xs leading-5 text-white/55">
                           <input
                             type="checkbox"
-                            className="h-4 w-4 rounded border-0 bg-white/10"
+                            className="mt-0.5 h-4 w-4 shrink-0 rounded border-white/20 bg-white/10 accent-fuchsia-400"
                           />
-                          I agree to Terms
+                          I agree to be contacted about my enquiry.
                         </label>
-                        <div className="flex flex-col gap-3 sm:flex-row">
+                        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                           <button
                             type="button"
-                            className="aurora-button magnetic inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-sm font-semibold text-white"
+                            className="aurora-button magnetic inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white"
                           >
-                            Submit
+                            Send enquiry
                             <IconArrow />
                           </button>
+                          <span className="text-xs text-white/35">We’ll get back to you as soon as we can.</span>
                         </div>
                       </form>
-                    </div>
                   </div>
                 </div>
               </div>
