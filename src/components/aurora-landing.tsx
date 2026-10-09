@@ -1022,7 +1022,7 @@ export default function AuroraLanding() {
         <div className="pointer-events-none absolute right-[-12rem] top-[64rem] h-[42rem] w-[42rem] rounded-full bg-[#d946ef]/14 blur-3xl" />
         <section
           id="hero"
-          className="relative scroll-mt-28 overflow-hidden pb-6 pt-8 md:scroll-mt-32 md:pb-12 md:pt-12 lg:flex lg:min-h-0 lg:items-center lg:pb-4 lg:pt-8"
+          className="relative scroll-mt-28 overflow-hidden pb-6 pt-16 md:scroll-mt-32 md:pb-12 md:pt-16 lg:flex lg:min-h-0 lg:items-center lg:pb-4 lg:pt-16"
         >
           <div className="pointer-events-none absolute inset-x-0 top-0 h-[78%] bg-[radial-gradient(circle_at_18%_18%,rgba(202,74,255,0.18),transparent_30%),radial-gradient(circle_at_78%_36%,rgba(117,71,223,0.14),transparent_34%)]" />
           <div className="section-shell relative z-10">
