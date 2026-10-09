@@ -1022,7 +1022,7 @@ export default function AuroraLanding() {
         <div className="pointer-events-none absolute right-[-12rem] top-[64rem] h-[42rem] w-[42rem] rounded-full bg-[#d946ef]/14 blur-3xl" />
         <section
           id="hero"
-          className="relative scroll-mt-28 overflow-hidden pb-6 pt-16 md:scroll-mt-32 md:pb-12 md:pt-16 lg:flex lg:min-h-0 lg:items-center lg:pb-4 lg:pt-16"
+          className="relative scroll-mt-28 overflow-hidden pb-16 pt-16 md:scroll-mt-32 md:pb-16 md:pt-16 lg:flex lg:min-h-0 lg:items-center lg:pb-16 lg:pt-16"
         >
           <div className="pointer-events-none absolute inset-x-0 top-0 h-[78%] bg-[radial-gradient(circle_at_18%_18%,rgba(202,74,255,0.18),transparent_30%),radial-gradient(circle_at_78%_36%,rgba(117,71,223,0.14),transparent_34%)]" />
           <div className="section-shell relative z-10">
@@ -1035,7 +1035,7 @@ export default function AuroraLanding() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease: "easeOut" }}
-                className="relative z-10 max-w-3xl self-start max-lg:mx-auto max-lg:flex max-lg:w-full max-lg:max-w-2xl max-lg:flex-col max-lg:items-center max-lg:pb-2 max-lg:text-center lg:flex lg:min-h-[34rem] lg:max-w-none lg:flex-col lg:justify-start xl:min-h-[36.5rem]"
+                className="relative z-10 max-w-3xl self-start max-lg:mx-auto max-lg:flex max-lg:w-full max-lg:max-w-2xl max-lg:flex-col max-lg:items-center max-lg:pb-2 max-lg:text-center lg:flex lg:min-h-[27rem] lg:max-w-none lg:flex-col lg:justify-start xl:min-h-[27rem]"
               >
                 <div className="absolute -inset-8 -z-10 rounded-[2.5rem] bg-[radial-gradient(circle_at_18%_18%,rgba(202,74,255,0.18),transparent_34%),linear-gradient(135deg,rgba(24,8,46,0.5),rgba(10,14,48,0.2))] blur-2xl" />
                 <div className="mb-5 inline-flex max-w-full items-center justify-center gap-2 rounded-full bg-[#180d32]/74 px-4 py-2 text-center text-xs font-semibold uppercase tracking-[0.28em] text-fuchsia-100/72 shadow-[inset_0_0_0_1px_rgba(240,171,252,0.18),0_0_34px_rgba(202,74,255,0.14)] backdrop-blur-xl max-lg:leading-5 lg:mb-6 lg:w-fit lg:self-start">
@@ -1100,7 +1100,7 @@ export default function AuroraLanding() {
                 transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
                 className="relative mt-10 w-full self-start justify-self-center max-lg:mx-auto max-lg:max-w-sm lg:mt-0 lg:w-full lg:justify-self-stretch lg:pl-6 xl:pl-8"
               >
-                <div className="relative h-[300px] overflow-visible sm:h-[390px] md:min-h-[500px] lg:h-[34rem] lg:min-h-0 xl:h-[36.5rem]">
+                <div className="relative h-[300px] overflow-visible sm:h-[390px] md:min-h-[500px] lg:h-[27rem] lg:min-h-0 xl:h-[27rem]">
                   <div className="absolute inset-0 flex items-center justify-center lg:items-start lg:justify-end lg:pt-14 lg:pr-2">
                     <div className="w-full shrink-0 origin-top scale-y-[1.15] lg:w-[130%] lg:max-w-[760px] lg:translate-x-12 lg:scale-y-[1.25] xl:translate-x-16">
                       <NeonAiEcosystem />
