@@ -470,22 +470,36 @@ const slideShowcase = [
 
 const testimonials = [
   {
+    image: "/slide.jpeg",
+    imageAlt: "Technology leader reviewing an AI dashboard in a modern workspace",
     name: "Alicia Wong",
     role: "VP of Digital, Northstar Health",
     quote:
       "AgyntiQ made the system feel enterprise-ready from day one. The interface is premium and the execution is calm, clear, and fast."
   },
   {
+    image: "/slide1.jpeg",
+    imageAlt: "Product team collaborating around AI-powered workstations",
     name: "Rahul Mehta",
     role: "Head of Product, Finverse",
     quote:
       "What stood out was the product thinking. They helped us turn a vague AI idea into a real workflow with measurable value."
   },
   {
+    image: "/slide2.jpeg",
+    imageAlt: "Business team discussing an AI project around a shared display",
     name: "Sophia Turner",
     role: "Operations Director, Elevate Commerce",
     quote:
       "The brand, the motion, and the clarity all feel like a top-tier AI company. It doesn’t look like a template at all."
+  },
+  {
+    image: "/slide3.jpeg",
+    imageAlt: "Business professional exploring connected AI systems",
+    name: "Your story here",
+    role: "Featured client",
+    quote:
+      "Your team's AI story could be the next one we help turn into measurable business impact."
   }
 ];
 
@@ -1466,31 +1480,52 @@ export default function AuroraLanding() {
               </p>
             </div>
 
-            <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12" data-parallax="8">
+            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4" data-parallax="8">
               {testimonials.map((item, index) => (
                 <article
                   key={item.name}
-                  className={index === 0
-                    ? "home-interactive-card group relative flex min-h-[24rem] flex-col overflow-hidden rounded-[1.75rem] border border-fuchsia-100/[0.14] bg-[#17112d] p-7 shadow-[0_24px_70px_rgba(2,4,18,0.25)] sm:p-9 lg:row-span-2"
-                    : "group border-t border-white/[0.14] py-6 transition-colors duration-300 hover:border-fuchsia-200/40 lg:px-5"}
+                  tabIndex={0}
+                  aria-label={`View testimonial from ${item.name}, ${item.role}`}
+                  className="home-interactive-card testimonial-reveal-card group relative isolate aspect-[4/5] min-h-[22rem] overflow-hidden rounded-[1.5rem] border border-fuchsia-100/[0.14] bg-[#100b28] shadow-[0_20px_60px_rgba(2,4,18,0.3)] outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-200/75"
                   data-reveal
                 >
-                  <div className={`relative flex items-center justify-between ${index === 0 ? "" : "lg:justify-end"}`}>
-                    {index === 0 && (
-                      <span className="text-6xl font-serif leading-none text-fuchsia-100/45" aria-hidden="true">&ldquo;</span>
-                    )}
-                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-white/40">0{index + 1} / 03</div>
-                  </div>
-                  <p className={`relative ${index === 0 ? "mt-8 flex-1 text-xl leading-8 text-white/90 sm:text-2xl sm:leading-9" : "mt-5 text-base leading-7 text-white/75"}`}>
-                    {item.quote}
-                  </p>
-                  <div className={`relative mt-7 flex items-center gap-3 ${index === 0 ? "border-t border-white/[0.12] pt-5" : ""}`}>
-                    <div className={`grid h-10 w-10 shrink-0 place-items-center rounded-full border border-fuchsia-100/[0.18] bg-fuchsia-100/[0.08] text-xs font-semibold text-fuchsia-50/80`}>
-                      {item.name.split(" ").map((part) => part[0]).join("")}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={item.image}
+                    alt={item.imageAlt}
+                    loading="lazy"
+                    decoding="async"
+                    className="testimonial-card-image absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="testimonial-card-front pointer-events-none absolute inset-0 flex flex-col justify-between bg-[linear-gradient(180deg,rgba(5,7,25,0.08)_20%,rgba(7,5,22,0.2)_44%,rgba(7,5,22,0.96)_100%)] p-5 transition-opacity duration-500 sm:p-6">
+                    <div className="flex items-center justify-between">
+                      <span className="rounded-full border border-white/20 bg-[#100b28]/45 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/85 backdrop-blur-md">
+                        Client story
+                      </span>
+                      <span className="grid h-9 w-9 place-items-center rounded-full border border-white/25 bg-[#100b28]/45 text-sm text-white backdrop-blur-md" aria-hidden="true">
+                        0{index + 1}
+                      </span>
                     </div>
-                    <div className="min-w-0">
+                    <div>
+                      <div className="text-xl font-semibold text-white sm:text-2xl">{item.name}</div>
+                      <div className="mt-1 text-sm text-white/70">{item.role}</div>
+                      <div className="mt-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-fuchsia-100/80">
+                        <span>Hover to hear their story</span>
+                        <span aria-hidden="true">↗</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="testimonial-card-details pointer-events-none absolute inset-0 flex translate-y-3 flex-col justify-between overflow-y-auto bg-[linear-gradient(155deg,rgba(34,15,61,0.97),rgba(13,10,38,0.98)_58%,rgba(7,10,31,0.99))] p-5 opacity-0 transition duration-500 sm:p-6">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-semibold uppercase tracking-[0.2em] text-fuchsia-100/70">Agyntiq voices</span>
+                      <span className="text-5xl font-serif leading-none text-fuchsia-100/35" aria-hidden="true">&ldquo;</span>
+                    </div>
+                    <div className="my-5">
+                      <p className="text-base leading-7 text-white/88 sm:text-lg sm:leading-8">{item.quote}</p>
+                    </div>
+                    <div className="border-t border-white/[0.12] pt-4">
                       <div className="font-semibold text-white">{item.name}</div>
-                      <div className="mt-1 text-xs leading-5 text-white/52">{item.role}</div>
+                      <div className="mt-1 text-sm leading-5 text-white/55">{item.role}</div>
                     </div>
                   </div>
                 </article>

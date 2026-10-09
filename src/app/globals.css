@@ -294,12 +294,38 @@ button {
   scale: 1.01;
 }
 
+.testimonial-card-image {
+  transition: transform 850ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.testimonial-reveal-card:hover .testimonial-card-image,
+.testimonial-reveal-card:focus-visible .testimonial-card-image {
+  transform: scale(1.06);
+}
+
+.testimonial-reveal-card:hover .testimonial-card-front,
+.testimonial-reveal-card:focus-visible .testimonial-card-front {
+  opacity: 0;
+}
+
+.testimonial-reveal-card:hover .testimonial-card-details,
+.testimonial-reveal-card:focus-visible .testimonial-card-details {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .home-interactive-card,
   .home-interactive-card:hover,
   .home-interactive-card:focus-within {
     translate: none;
     scale: none;
+    transition: none;
+  }
+
+  .testimonial-card-image,
+  .testimonial-card-front,
+  .testimonial-card-details {
     transition: none;
   }
 }
