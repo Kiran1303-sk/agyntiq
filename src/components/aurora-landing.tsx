@@ -719,13 +719,21 @@ export default function AuroraLanding() {
             });
 
             gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((el) => {
+              const siblings = Array.from(el.parentElement?.children ?? []).filter(
+                (sibling): sibling is HTMLElement =>
+                  sibling instanceof HTMLElement && sibling.hasAttribute("data-reveal")
+              );
+              const delay = Math.max(0, siblings.indexOf(el)) * 0.08;
+
               gsap.fromTo(
                 el,
-                { y: 32, opacity: 0 },
+                { y: 28, opacity: 0, scale: 0.985 },
                 {
                   y: 0,
                   opacity: 1,
-                  duration: 0.95,
+                  scale: 1,
+                  duration: 0.75,
+                  delay,
                   ease: "power3.out",
                   scrollTrigger: {
                     trigger: el,
@@ -1159,7 +1167,7 @@ export default function AuroraLanding() {
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(202,74,255,0.14),transparent_28%),radial-gradient(circle_at_18%_76%,rgba(117,71,223,0.11),transparent_30%)]" />
           <div className="section-shell relative z-10">
             <div className="grid gap-10 lg:grid-cols-[0.76fr_1.24fr] lg:items-start lg:gap-16">
-              <div className="section-heading lg:sticky lg:top-32" data-reveal>
+              <div className="section-heading" data-reveal>
                 <div className="section-kicker">About</div>
                 <h2 className="section-title">Built for enterprise AI adoption.</h2>
                 <p className="section-copy">
@@ -1175,7 +1183,7 @@ export default function AuroraLanding() {
                   {problems.map((item, index) => (
                     <article
                       key={item.title}
-                      className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[linear-gradient(110deg,rgba(16,12,42,0.82),rgba(8,9,28,0.7))] p-5 transition duration-300 hover:border-fuchsia-200/25 hover:bg-[#100c2d]/90 sm:p-6"
+                      className="home-interactive-card group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[linear-gradient(110deg,rgba(16,12,42,0.82),rgba(8,9,28,0.7))] p-5 transition duration-300 hover:border-fuchsia-200/25 hover:bg-[#100c2d]/90 sm:p-6"
                       data-reveal
                     >
                       <div className="relative grid gap-4 sm:grid-cols-[3.5rem_1fr] sm:items-start">
@@ -1220,7 +1228,7 @@ export default function AuroraLanding() {
               {workflowSteps.map((step, index) => (
                 <div
                   key={step}
-                  className="group relative min-h-44 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#090a21] p-5 transition duration-300 hover:-translate-y-1 hover:border-fuchsia-200/25 sm:p-6"
+                  className="home-interactive-card group relative min-h-44 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#090a21] p-5 transition duration-300 hover:border-fuchsia-200/25 sm:p-6"
                   data-reveal
                 >
                   <div className="pointer-events-none absolute -right-12 -top-12 h-36 w-36 rounded-full bg-fuchsia-400/[0.08] blur-3xl transition group-hover:bg-fuchsia-400/[0.16]" />
@@ -1258,7 +1266,7 @@ export default function AuroraLanding() {
                 {reasons.map((item, index) => (
                   <div
                     key={item}
-                    className="group rounded-2xl border border-white/[0.08] bg-[#0b0c25] p-5 transition duration-300 hover:border-fuchsia-200/25 hover:bg-[#10102e]"
+                    className="home-interactive-card group rounded-2xl border border-white/[0.08] bg-[#0b0c25] p-5 transition duration-300 hover:border-fuchsia-200/25 hover:bg-[#10102e]"
                     data-reveal
                   >
                     <div className="flex items-center justify-between gap-3">
@@ -1278,12 +1286,12 @@ export default function AuroraLanding() {
 
         <section className="py-16 md:py-24">
           <div className="section-shell">
-            <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between" data-reveal>
+            <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between" data-reveal>
               <div className="section-heading">
               <div className="section-kicker">AI Products</div>
               <h2 className="section-title">Interactive products your team can actually use.</h2>
               </div>
-              <p className="section-copy mt-0 max-w-xl lg:pb-1">
+              <p className="section-copy !mt-0 max-w-xl lg:pb-1">
                 Practical AI capabilities, designed to fit your team’s workflows and deliver measurable outcomes.
               </p>
             </div>
@@ -1292,7 +1300,7 @@ export default function AuroraLanding() {
               {aiProducts.map((item, index) => (
                 <article
                   key={item.title}
-                  className="group relative min-h-[17rem] overflow-hidden rounded-2xl border border-white/[0.08] bg-[linear-gradient(145deg,#0d0e27,#08091d)] p-4 transition duration-300 hover:-translate-y-1 hover:border-fuchsia-200/25 sm:p-5"
+                  className="home-interactive-card group relative min-h-[17rem] overflow-hidden rounded-2xl border border-white/[0.08] bg-[linear-gradient(145deg,#0d0e27,#08091d)] p-4 transition duration-300 hover:border-fuchsia-200/25 sm:p-5"
                   data-reveal
                 >
                   <div className="pointer-events-none absolute -right-14 -top-14 h-40 w-40 rounded-full bg-fuchsia-400/[0.08] blur-3xl transition duration-500 group-hover:bg-fuchsia-400/[0.16]" />
@@ -1328,12 +1336,12 @@ export default function AuroraLanding() {
 
         <section id="industries" className="scroll-mt-28 border-y border-white/[0.06] bg-[#08091d]/60 py-16 md:scroll-mt-32 md:py-24">
           <div className="section-shell">
-            <div className="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between" data-reveal>
+            <div className="mb-10 flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between" data-reveal>
               <div className="section-heading">
               <div className="section-kicker">Industries</div>
               <h2 className="section-title">Designed for the teams that need AI most.</h2>
               </div>
-              <p className="section-copy mt-0 max-w-sm sm:pb-1">
+              <p className="section-copy !mt-0 max-w-sm sm:pb-1">
                 Domain-aware solutions built around the realities of your industry.
               </p>
             </div>
@@ -1342,7 +1350,7 @@ export default function AuroraLanding() {
               {industryCards.map((item, index) => (
                 <article
                   key={item.name}
-                  className="group relative min-h-48 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0a0b22] p-5 transition duration-300 hover:-translate-y-1 hover:border-fuchsia-200/25 sm:p-6"
+                  className="home-interactive-card group relative min-h-48 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0a0b22] p-5 transition duration-300 hover:border-fuchsia-200/25 sm:p-6"
                   data-reveal
                 >
                   <div className="absolute right-5 top-4 text-4xl font-light tracking-tight text-white/[0.06] transition group-hover:text-fuchsia-100/[0.12]">
@@ -1370,7 +1378,7 @@ export default function AuroraLanding() {
 
               <div className="grid gap-3 sm:grid-cols-2" data-reveal data-parallax="8">
                 {team.map((item, index) => (
-                  <article key={item.title} className={`rounded-2xl border border-white/[0.08] bg-[#0a0b22] p-5 sm:p-6 ${index === 0 ? "sm:col-span-2 sm:flex sm:items-start sm:gap-8" : ""}`}>
+                  <article key={item.title}                   className={`home-interactive-card rounded-2xl border border-white/[0.08] bg-[#0a0b22] p-5 sm:p-6 ${index === 0 ? "sm:col-span-2 sm:flex sm:items-start sm:gap-8" : ""}`}>
                     <div className="text-3xl font-light tracking-tight text-fuchsia-100/42">0{index + 1}</div>
                     <div className={index === 0 ? "mt-4 sm:mt-0" : "mt-4"}>
                       <h3 className="text-xl font-semibold tracking-normal text-white">{item.title}</h3>
@@ -1402,7 +1410,7 @@ export default function AuroraLanding() {
               {pricingTiers.map((tier) => (
                 <article
                   key={tier.name}
-                  className={`relative flex flex-col overflow-hidden rounded-2xl border p-6 transition duration-300 md:p-7 ${
+                  className={`home-interactive-card relative flex flex-col overflow-hidden rounded-2xl border p-6 transition duration-300 md:p-7 ${
                     tier.name === "Growth"
                       ? "border-fuchsia-200/35 bg-[linear-gradient(145deg,rgba(40,21,75,0.72),rgba(13,11,38,0.94))] shadow-[0_20px_70px_rgba(202,74,255,0.12)]"
                       : "border-white/[0.08] bg-[#0a0b22] hover:border-fuchsia-200/20"
@@ -1451,7 +1459,7 @@ export default function AuroraLanding() {
               {testimonials.map((item, index) => (
                 <article
                   key={item.name}
-                  className="group relative flex min-h-[20rem] flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-[linear-gradient(145deg,#0d0e27,#08091d)] p-5 transition duration-300 hover:-translate-y-1 hover:border-fuchsia-200/25 sm:p-6"
+                  className="home-interactive-card group relative flex min-h-[20rem] flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-[linear-gradient(145deg,#0d0e27,#08091d)] p-5 transition duration-300 hover:border-fuchsia-200/25 sm:p-6"
                   data-reveal
                 >
                   <div className="flex items-center justify-between">
@@ -1486,7 +1494,7 @@ export default function AuroraLanding() {
                 {faqItems.map((item) => (
                   <details
                     key={item.question}
-                    className="group overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0a0b22] p-5 transition duration-300 open:border-fuchsia-200/22 open:bg-[#0d0c28] sm:p-6"
+                    className="home-interactive-card group overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0a0b22] p-5 transition duration-300 open:border-fuchsia-200/22 open:bg-[#0d0c28] sm:p-6"
                   >
                     <summary className="flex cursor-pointer list-none items-center justify-between gap-5 text-base font-semibold leading-6 text-white marker:content-none sm:text-lg">
                       <span>{item.question}</span>
@@ -1527,7 +1535,7 @@ export default function AuroraLanding() {
             <div className="section-shell relative z-10">
               <div className="relative">
                 <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-                  <div className="grid content-start gap-5 lg:sticky lg:top-32">
+                <div className="grid content-start gap-5">
                     <div className="section-kicker w-fit">Start a conversation</div>
                     <h2 className="section-title max-w-3xl bg-[linear-gradient(90deg,#ffffff_0%,#f3e8ff_44%,#f0abfc_100%)] bg-clip-text text-transparent drop-shadow-[0_0_34px_rgba(202,74,255,0.16)]">
                       Let&apos;s build the right AI engagement.
@@ -1537,18 +1545,18 @@ export default function AuroraLanding() {
                       we&apos;ll help define the highest-value next step.
                     </p>
                     <div className="grid gap-3 pt-2 sm:grid-cols-2">
-                      <a href="mailto:hello@agyntiq.ai" className="rounded-xl border border-white/[0.08] bg-white/[0.025] p-4 text-sm text-white/72 transition hover:border-fuchsia-200/25">
+                      <a href="mailto:hello@agyntiq.ai" className="home-interactive-card rounded-xl border border-white/[0.08] bg-white/[0.025] p-4 text-sm text-white/72 transition hover:border-fuchsia-200/25">
                         <span className="block text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/38">Email</span>
                         <span className="mt-1 block">hello@agyntiq.ai</span>
                       </a>
-                      <div className="rounded-xl border border-white/[0.08] bg-white/[0.025] p-4 text-sm text-white/72">
+                      <div className="home-interactive-card rounded-xl border border-white/[0.08] bg-white/[0.025] p-4 text-sm text-white/72">
                         <span className="block text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/38">Based in</span>
                         <span className="mt-1 block">New Delhi · Working globally</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="rounded-2xl border border-white/[0.08] bg-[#08091e]/85 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.22)] sm:p-7">
+                  <div className="home-interactive-card rounded-2xl border border-white/[0.08] bg-[#08091e]/85 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.22)] sm:p-7">
                     <div className="flex items-center justify-between gap-4 border-b border-white/[0.08] pb-4">
                       <div>
                         <div className="text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-100/68">Contact form</div>
