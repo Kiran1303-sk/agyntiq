@@ -1077,7 +1077,7 @@ export default function AuroraLanding() {
         <div className="pointer-events-none absolute right-[-12rem] top-[64rem] h-[42rem] w-[42rem] rounded-full bg-[#d946ef]/14 blur-3xl" />
         <section
           id="hero"
-          className="relative scroll-mt-28 overflow-hidden pb-6 pt-8 md:scroll-mt-32 md:pb-12 md:pt-12 lg:flex lg:min-h-[calc(100vh-5rem)] lg:items-center lg:py-10"
+          className="relative scroll-mt-28 overflow-hidden pb-6 pt-8 md:scroll-mt-32 md:pb-12 md:pt-12 lg:flex lg:min-h-0 lg:items-center lg:pb-4 lg:pt-8"
         >
           <div className="pointer-events-none absolute inset-x-0 top-0 h-[78%] bg-[radial-gradient(circle_at_18%_18%,rgba(202,74,255,0.18),transparent_30%),radial-gradient(circle_at_78%_36%,rgba(117,71,223,0.14),transparent_34%)]" />
           <div className="section-shell relative z-10">
@@ -1167,7 +1167,8 @@ export default function AuroraLanding() {
           </div>
         </section>
 
-        <section className="relative border-y border-white/[0.06] bg-[#08091d]/70 py-8 md:py-10">
+        <section className="relative overflow-hidden border-y border-fuchsia-200/[0.12] bg-[linear-gradient(105deg,#11102d_0%,#17102f_46%,#11142d_100%)] py-8 md:py-10">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_12%_50%,rgba(202,74,255,0.12),transparent_32%),radial-gradient(ellipse_at_88%_50%,rgba(117,71,223,0.13),transparent_35%)]" />
           <div className="section-shell relative z-10">
             <div className="mb-5 flex items-center justify-between gap-4">
               <div className="text-xs font-semibold uppercase tracking-[0.24em] text-white/42">
@@ -1178,16 +1179,16 @@ export default function AuroraLanding() {
                 Enterprise-ready delivery
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-3 xl:grid-cols-6" data-parallax="14">
+            <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/[0.12] bg-white/[0.12] shadow-[0_18px_60px_rgba(4,5,22,0.22)] sm:grid-cols-3 xl:grid-cols-6" data-parallax="14">
               {statCards.map((item, index) => (
-                <div key={item.label} className="bg-[#090a21] p-4 sm:p-5" data-reveal>
-                  <div className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-fuchsia-100/38">
+                <div key={item.label} className="bg-[linear-gradient(145deg,rgba(25,23,59,0.96),rgba(15,14,42,0.98))] p-4 transition-colors duration-300 hover:bg-[linear-gradient(145deg,rgba(42,28,75,0.96),rgba(19,17,51,0.98))] sm:p-5" data-reveal>
+                  <div className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-fuchsia-100/52">
                     0{index + 1}
                   </div>
                   <div className="mt-2 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
                     <AnimatedCounter value={item.value} suffix={item.suffix} decimals={item.decimals} />
                   </div>
-                  <div className="mt-1 text-xs leading-5 text-white/52 sm:text-sm">{item.label}</div>
+                  <div className="mt-1 text-xs leading-5 text-white/68 sm:text-sm">{item.label}</div>
                 </div>
               ))}
             </div>
@@ -1397,7 +1398,7 @@ export default function AuroraLanding() {
               {industryCards.map((item, index) => (
                 <article
                   key={item.name}
-                  className="group relative grid min-h-36 grid-cols-[3.5rem_1fr] gap-4 border-t border-white/[0.1] py-6 sm:grid-cols-[4.5rem_1fr] sm:gap-6 sm:py-7"
+                  className="group relative grid min-h-36 grid-cols-[3.5rem_1fr] gap-4 border-t border-white/[0.1] py-6 transition-colors duration-300 hover:border-t-fuchsia-200/45 sm:grid-cols-[4.5rem_1fr] sm:gap-6 sm:py-7"
                   data-reveal
                 >
                   <div className="pt-1 text-sm font-medium tabular-nums text-fuchsia-100/48 transition group-hover:text-fuchsia-100">
@@ -1413,7 +1414,6 @@ export default function AuroraLanding() {
                     <p className="mt-2 max-w-lg text-sm leading-6 text-white/56 sm:text-base">
                       {item.summary}
                     </p>
-                    <div className="absolute -bottom-7 left-0 h-px w-0 bg-gradient-to-r from-fuchsia-200/70 to-violet-300/20 transition-all duration-500 group-hover:w-full sm:-bottom-8" />
                   </div>
                 </article>
               ))}
@@ -1525,30 +1525,39 @@ export default function AuroraLanding() {
         <section className="relative overflow-hidden py-16 md:py-24">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(202,74,255,0.1),transparent_28%),radial-gradient(circle_at_18%_76%,rgba(117,71,223,0.09),transparent_30%)]" />
           <div className="section-shell relative z-10">
-            <div className="section-heading mb-10" data-reveal>
-              <div className="section-kicker">Testimonials</div>
-              <h2 className="section-title">Built to feel credible to enterprise buyers.</h2>
-              <p className="section-copy">
-                The tone, motion, and layout should communicate reliability before a sales
-                conversation even starts.
+            <div className="mb-10 grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:gap-16" data-reveal>
+              <div className="section-heading">
+                <div className="section-kicker">Testimonials</div>
+                <h2 className="section-title">Trusted to turn ambition into impact.</h2>
+              </div>
+              <p className="section-copy !mt-0 max-w-xl lg:justify-self-end">
+                Clear thinking, dependable delivery, and products that make a meaningful difference for the teams using them.
               </p>
             </div>
 
-            <div className="grid gap-3 lg:grid-cols-3" data-parallax="10">
+            <div className="grid gap-4 lg:grid-cols-3" data-parallax="8">
               {testimonials.map((item, index) => (
                 <article
                   key={item.name}
-                  className="home-interactive-card group relative flex min-h-[20rem] flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-[linear-gradient(145deg,#0d0e27,#08091d)] p-5 transition duration-300 hover:border-fuchsia-200/25 sm:p-6"
+                  className={`home-interactive-card home-premium-card group relative flex min-h-[21rem] flex-col overflow-hidden rounded-[1.4rem] border border-white/[0.1] bg-gradient-to-br ${premiumCardTones[index % premiumCardTones.length].surface} p-6 sm:p-7`}
                   data-reveal
                 >
-                  <div className="flex items-center justify-between">
-                    <div className="text-4xl font-semibold leading-none text-fuchsia-200/35">&ldquo;</div>
-                    <div className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white/28">0{index + 1}</div>
+                  <div className={`pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full ${premiumCardTones[index % premiumCardTones.length].glow} opacity-40 blur-3xl transition duration-500 group-hover:scale-125 group-hover:opacity-80`} />
+                  <div className="relative flex items-center justify-between">
+                    <span className={`grid h-11 w-11 place-items-center rounded-2xl border text-3xl leading-none ${premiumCardTones[index % premiumCardTones.length].badge}`}>&ldquo;</span>
+                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-white/40">0{index + 1} / 03</div>
                   </div>
-                  <p className="mt-5 flex-1 text-base leading-7 text-white/76">{item.quote}</p>
-                  <div className="mt-6 border-t border-white/[0.08] pt-4">
-                    <div className="font-semibold text-white">{item.name}</div>
-                    <div className="mt-1 text-xs leading-5 text-white/48">{item.role}</div>
+                  <p className="relative mt-8 flex-1 text-base leading-7 text-white/80 sm:text-lg">
+                    {item.quote}
+                  </p>
+                  <div className="relative mt-7 flex items-center gap-3 border-t border-white/[0.12] pt-5">
+                    <div className={`grid h-10 w-10 shrink-0 place-items-center rounded-full border text-xs font-semibold ${premiumCardTones[index % premiumCardTones.length].badge}`}>
+                      {item.name.split(" ").map((part) => part[0]).join("")}
+                    </div>
+                    <div className="min-w-0">
+                      <div className="font-semibold text-white">{item.name}</div>
+                      <div className="mt-1 text-xs leading-5 text-white/52">{item.role}</div>
+                    </div>
                   </div>
                 </article>
               ))}
