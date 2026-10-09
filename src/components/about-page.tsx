@@ -509,7 +509,7 @@ export default function AboutPage() {
           <span aria-hidden="true">↑</span>
         </Link>
       )}
-      <ServiceFooter showWaves={false} />
+      <ServiceFooter />
     </main>
   );
 }
