@@ -449,22 +449,16 @@ const faqItems = [
 
 const slideShowcase = [
   {
-    src: "/visual-story.webp",
+    src: "/agyntic-img.png",
     title: "See the signal",
     copy: "Bring scattered business context into one clear view so the next decision is easier to see.",
     tag: "01"
   },
   {
-    src: "/visual-story1.webp",
+    src: "/agyntic-img1.png",
     title: "Shape the system",
     copy: "Turn insight into an intelligent workflow that connects people, data, and the tools they already use.",
     tag: "02"
-  },
-  {
-    src: "/visual-story2.webp",
-    title: "Move with confidence",
-    copy: "Deploy AI that keeps the organization moving with measurable momentum and room to scale.",
-    tag: "03"
   }
 ] as const;
 
